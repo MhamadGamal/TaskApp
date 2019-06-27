@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TASKER</title>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+     <!-- Slick -->
+     <link rel="stylesheet" href="../../assets/plugins/slick/slick.css">
+     <link rel="stylesheet" href="../../assets/plugins/slick/slick-theme.css">
+    <!-- Countries input -->
+    <link rel="stylesheet" href="../../assets/plugins/input-counties/css/intlTelInput.min.css">
+    <!-- DatePicker -->
+    <link rel="stylesheet" href="../../assets/css/jquery.datepicker2.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <div class="d-flex justify-content-center">
+            <div class="col-10 col-md-5">
+                <div class="login">
+                    <a class=" logo bold-font main-color" href="index.html">Task<span class="normal-font s-color">app </span></a>
+                    <h6>Signup now and Get more Clients and Money</h6>
+                    <form id="customerRegister">
+                        <div class="form-group" id="pUploadImg">
+                            <div class="d-flex">
+                                <div class="img-wrapper">
+                                    <img src="../../assets/img/login/img-upload.svg" alt="">
+                                </div>
+                                <div class="upload">
+                                    <span>Add image</span>
+                                    <input type="file">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="pUserName">
+                            <label class="control-label">Username</label>
+                            <input type="text" class="form-control" >
+                            <span></span>
+                        </div>
+                        <div class="form-group" id="pBusinessName">
+                            <label class="control-label">Business Name</label>
+                            <input type="text" class="form-control" >
+                            <span></span>
+                        </div>
+                        <div class="form-group" id="pPass">
+                            <label class="control-label">Password</label>
+                            <input type="password" class="form-control" >
+                            <span></span>
+                        </div>
+                        <div class="form-group" id="pMobile">
+                            <label class="control-label">Mobile</label>
+                            <input type="tel" class="form-control" >
+                            <span></span>
+                        </div>
+                        <div class="form-group" id="pEmail">
+                            <label class="control-label">Email</label>
+                            <input type="email" class="form-control" >
+                            <span></span>
+                        </div>
+                        <div class="form-group" id="pCanDo">
+                            <label class="control-label">What Can I Do ?</label>
+                            <div id="providersServices">
+
+                            </div>
+                            <span></span>
+                        </div>
+                        
+                        <div class="form-group" id="pBusinessDetails">
+                            <label class="control-label">Business Details</label>
+                            <input type="text" class="form-control" >
+                            <span></span>
+                        </div>
+                        <div class="form-group" id="pAddress">
+                            <label class="control-label">Address</label>
+                            <input type="text" class="form-control" >
+                            <span></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="confirmConditions">
+                                <label class="custom-control-label" for="confirmConditions">By signing up you agree to <a href="../home/terms.html" class="main-color" data-toggle="modal" data-target="#termsConditionsModal">Terms & Conditions</a></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-block main-btn" value="Signup">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Terms & Conditions Popup -->
+     <div class="modal fade" tabindex="-1" id="termsConditionsModal" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem esse amet omnis reprehenderit, facilis eligendi sapiente placeat harum accusamus, odio voluptate error minima laboriosam aspernatur dolore consectetur soluta sit molestiae.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem esse amet omnis reprehenderit, facilis eligendi sapiente placeat harum accusamus, odio voluptate error minima laboriosam aspernatur dolore consectetur soluta sit molestiae.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem esse amet omnis reprehenderit, facilis eligendi sapiente placeat harum accusamus, odio voluptate error minima laboriosam aspernatur dolore consectetur soluta sit molestiae.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem esse amet omnis reprehenderit, facilis eligendi sapiente placeat harum accusamus, odio voluptate error minima laboriosam aspernatur dolore consectetur soluta sit molestiae.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem esse amet omnis reprehenderit, facilis eligendi sapiente placeat harum accusamus, odio voluptate error minima laboriosam aspernatur dolore consectetur soluta sit molestiae.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem esse amet omnis reprehenderit, facilis eligendi sapiente placeat harum accusamus, odio voluptate error minima laboriosam aspernatur dolore consectetur soluta sit molestiae.</p>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+     <!-- what can i do -->
+     <div class="modal fade" tabindex="-1" id="providersCategories" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="service1">
+                        <label class="custom-control-label" for="service1">service1 </label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="service2">
+                        <label class="custom-control-label" for="service2">service2 </label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="service3">
+                        <label class="custom-control-label" for="service3">service3 </label>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-6">
+                            <a href="" class="btn btn-block main-btn">Select</a>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    <!-- <input type="text" class="datepicker" data-select="datepicker"> -->
+
+    <!-- JQUERY -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <!-- Bootstarp -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <!-- JQUERY Validation -->
+    <script src="../../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <!-- Slick -->
+    <script src="../../assets/plugins/slick/slick.min.js"></script>
+    <!-- Countries input -->
+    <script src="../../assets/plugins/input-counties/js/intlTelInput.min.js"></script>
+    <!-- Datepicker -->
+    <script src="../../assets/js/jquery.datepicker2.min.js"></script>
+    <!-- API Script -->
+    <script src="../../assets/js/api_script.js"></script>
+    <!-- Custom Script -->
+    <script src="../../assets/js/script.js"></script>
+    <script>
+            // country droplist 
+           var input = document.querySelector("#pMobile input");
+           window.intlTelInput(input);
+   
+       </script>
+</body>
+
+</html>
