@@ -183,6 +183,21 @@ section{
 .custom-control-label{
     user-select: none
 }
+::placeholder{
+    color: #a19ea3 !important;
+
+
+}
+li.notify::after{
+    content: '';
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ff3f21;
+    position: absolute;
+    right: 0;
+    top: 6px;
+}
 /*============================  Start Header Styling  ===============================*/
 header{
     height: 100vh;
@@ -401,7 +416,8 @@ header{
 /*======== /m-app ===========*/
 /*======== footer ===========*/
 footer{
-    padding: 40px 0 0 0;
+    // padding: 40px 0 0 0;
+    border-top: 1px solid #eee;
     ul{
         margin-bottom: 20px;
         li{
@@ -423,7 +439,7 @@ footer{
     }
     .copyright{
         padding: 20px 0;
-        border-top: 1px solid #eee;
+        // border-top: 1px solid #eee;
         a{
             padding: 0 5px;
             &.active{
@@ -534,6 +550,109 @@ footer{
     }
 }
 /*======== /Login Page  ===========*/
+
+/*======== describing task Page  ===========*/
+/*======== describing task Page  ===========*/
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    
+    
+    .navbar-nav {
+     display: flex; 
+     align-items: center; 
+
+        li{
+            margin: 0 10px;
+            position: relative;
+
+        }
+        .dropdown{
+
+            .dropdown-toggle{
+                &:after{
+                    display: none;
+                 }
+            }
+            a{
+                img{
+                    width: 40px !important;
+                }
+            }
+            .dropdown-menu {
+
+                left: -46px;
+                -webkit-box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.27);
+                -moz-box-shadow:2px 6px 21px -2px rgba(0, 0, 0, 0.27);
+                box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.27);
+                border: 0;
+                border-radius: 5px;
+                &::after{
+                    content:'';
+                    content: '';
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: transparent transparent #fff transparent;
+                    position: absolute;
+                    top: -10px;
+                    right: calc(100%/2);
+                }
+                .dropdown-item{
+                    i{
+                        margin-right: 10px;
+                        color: #a19ea3;
+                    }
+                }
+            }
+        }
+    }
+}
+/*======== /navbar  ===========*/
+/*======== task-details  ===========*/
+#task-details{
+    margin-top: 60px;
+    .help-service{
+       margin-bottom: -12px;
+    }
+    .other-Service {
+        margin-bottom: 15px
+    }
+    .details-form{
+        background-color: #fff;
+        border:solid 1px #e2e2e2;
+        height: 500px;
+        padding: 22px;
+        .details-head{
+            border-bottom: 2px solid #f9f9f9;
+            margin-bottom: 30px;
+            
+            h5{
+                padding: 0 5px;
+                color: $mainColor;
+                display: inline-block;
+                font-weight: 600;
+               
+            }
+           
+        }
+        form{
+            padding: 15px 25px;
+            .form-group:last-child{
+                input{
+                    width: 200px;
+                    display: block;
+                    margin: auto;
+                }
+            }
+        }
+      
+    }
+ 
+}
+/*======== /task-details  ===========*/
+
+/*======== /describing task Page  ===========*/
+
 
 
 
