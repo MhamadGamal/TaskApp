@@ -1,5 +1,6 @@
  //get main category
  $.get("http://88.80.184.99/tasker/web/api/main/catgeory", function(data, status){
+   
   let d = data;
   
   let categoryArr = d.data, wrapper = "";
@@ -13,7 +14,7 @@
               <h4>
                       ${item.name_en}
               </h4>
-              <a href="" class="btn main-btn">Check ${item.name_en} Service</a>
+              <a href="subcategory.html?${item.id}" class="btn main-btn">Check ${item.name_en} Service</a>
           </div>
         </div>
     `
@@ -27,8 +28,8 @@
     slidesToShow: 3,
     accessibility: false,
     slidesToScroll: 1,
-    prevArrow: $('.slider-gallery .prev'),
-    nextArrow: $('.slider-gallery .next'),
+    // prevArrow: $('.slider-gallery .prev'),
+    // nextArrow: $('.slider-gallery .next'),
     responsive: [
         {
           breakpoint: 2500,
@@ -59,6 +60,6 @@
     $("#services .single-service .img-holder img").attr("src", "http://88.80.184.99/tasker/web/"+categoryArr[randServie].image)
     $("#services .single-service .service-info h4").text(categoryArr[randServie].name_en)
     $("#services .single-service .service-info a").text(`Check ${categoryArr[randServie].name_en} Services`)
-    $("#services .single-service .service-info a").attr("href", `${categoryArr[randServie].id}`)
+    $("#services .single-service .service-info a").attr("href", `subcategory.html?${categoryArr[randServie].id}`)
 
 });

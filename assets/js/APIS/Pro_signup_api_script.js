@@ -1,7 +1,15 @@
 
+
+
+
  
 
 $(function(){
+
+
+
+
+
      //get main category
  let categoryArr, wrapper = "";        
  $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data, status){
