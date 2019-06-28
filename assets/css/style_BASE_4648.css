@@ -127,6 +127,7 @@ section .section-title {
 }
 
 .slider-wrapper .content {
+  overflow: hidden;
   padding-bottom: 35px;
 }
 
@@ -224,49 +225,6 @@ section .section-title {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-}
-
-.slick-prev::before {
-  content: "<";
-  color: #aaa;
-  font-size: 30px;
-}
-
-.slick-next:before {
-  content: ">";
-  color: #aaa;
-  font-size: 30px;
-}
-
-::-webkit-input-placeholder {
-  color: #a19ea3 !important;
-}
-
-:-ms-input-placeholder {
-  color: #a19ea3 !important;
-}
-
-::-ms-input-placeholder {
-  color: #a19ea3 !important;
-}
-
-::placeholder {
-  color: #a19ea3 !important;
-}
-
-li.notify::after {
-  content: '';
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #ff3f21;
-  position: absolute;
-  right: 0;
-  top: 6px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
 }
 
 /*============================  Start Header Styling  ===============================*/
@@ -368,50 +326,6 @@ header#subCatHead:before {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-}
-
-header.customer {
-  background-image: none;
-}
-
-.carousel-inner .carousel-item {
-  position: relative;
-  height: 500px;
-}
-
-.carousel-inner .carousel-item .offer-details {
-  position: absolute;
-  left: 90px;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-}
-
-.carousel-inner .carousel-item .offer-details .btn {
-  background-color: #fff;
-  padding: 10px 17px;
-}
-
-.carousel-inner .carousel-item .offer-details .btn:hover {
-  color: #212121;
-}
-
-.carousel-indicators li {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  opacity: 1;
-}
-
-.carousel-indicators li.active {
-  background-color: #7c2da2;
 }
 
 /*============================  End Header Styling  ===============================*/
@@ -557,7 +471,6 @@ header.customer {
 /*======== footer ===========*/
 footer {
   padding: 40px 0 0 0;
-  border-top: 1px solid #eee;
 }
 
 footer ul {
@@ -584,6 +497,7 @@ footer a.logo {
 
 footer .copyright {
   padding: 20px 0;
+  border-top: 1px solid #eee;
 }
 
 footer .copyright a {
@@ -612,14 +526,6 @@ footer .copyright a.active {
 #sub-services .item .info {
   padding: 10px;
   text-align: center;
-}
-
-#sub-services .item .img-holder {
-  height: 250px;
-}
-
-#sub-services .item .img-holder img {
-  width: 100% !important;
 }
 
 /*======== /sub-services ===========*/
@@ -709,102 +615,4 @@ footer .copyright a.active {
 }
 
 /*======== /Login Page  ===========*/
-/*======== describing task Page  ===========*/
-/*======== describing task Page  ===========*/
-.navbar {
-  background: #fff;
-  border-bottom: 1px solid #e2e2e2;
-}
-
-.navbar .navbar-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.navbar .navbar-nav li {
-  margin: 0 10px;
-  position: relative;
-}
-
-.navbar .navbar-nav .dropdown .dropdown-toggle:after {
-  display: none;
-}
-
-.navbar .navbar-nav .dropdown a img {
-  width: 40px !important;
-}
-
-.navbar .navbar-nav .dropdown .dropdown-menu {
-  left: -46px;
-  -webkit-box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.27);
-  box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.27);
-  border: 0;
-  border-radius: 5px;
-}
-
-.navbar .navbar-nav .dropdown .dropdown-menu::after {
-  content: '';
-  content: '';
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #fff transparent;
-  position: absolute;
-  top: -10px;
-  right: calc(100%/2);
-}
-
-.navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
-  margin-right: 10px;
-  color: #a19ea3;
-}
-
-/*======== /navbar  ===========*/
-/*======== task-details  ===========*/
-#task-details {
-  margin-top: 60px;
-}
-
-#task-details .help-service {
-  margin-bottom: -12px;
-}
-
-#task-details .other-Service {
-  margin-bottom: 15px;
-}
-
-#task-details .details-form {
-  background-color: #fff;
-  border: solid 1px #e2e2e2;
-  height: 500px;
-  padding: 22px;
-}
-
-#task-details .details-form .details-head {
-  border-bottom: 2px solid #f9f9f9;
-  margin-bottom: 30px;
-}
-
-#task-details .details-form .details-head h5 {
-  padding: 0 5px;
-  color: #7c2da2;
-  display: inline-block;
-  font-weight: 600;
-}
-
-#task-details .details-form form {
-  padding: 15px 25px;
-}
-
-#task-details .details-form form .form-group:last-child input {
-  width: 200px;
-  display: block;
-  margin: auto;
-}
-
-/*======== /task-details  ===========*/
-/*======== /describing task Page  ===========*/
 /*# sourceMappingURL=style.css.map */
