@@ -212,6 +212,35 @@ li.notify::after{
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
+.page-content{
+    margin-top: 60px;
+    .page-content-head{
+        margin-bottom: 30px;   
+    }
+}
+.other-Service {
+    margin-bottom: 25px
+}
+.box-content{
+    background-color: #fff;
+    border:solid 1px #e2e2e2;
+    padding: 22px;
+    height: auto;
+}
+.box-head{
+    border-bottom: 2px solid #f9f9f9;
+    margin-bottom: 30px;
+    h5{
+        padding: 0 5px;
+        color: $mainColor;
+        display: inline-block;
+        font-weight: 600;
+       
+    }
+}
+footer.home-footer{
+    padding: 40px 0 0 0 !important;
+}
 /*============================  Start Header Styling  ===============================*/
 header{
     height: 100vh;
@@ -471,7 +500,7 @@ header{
 /*======== /m-app ===========*/
 /*======== footer ===========*/
 footer{
-     padding: 40px 0 0 0;
+    padding: 0;
     border-top: 1px solid #eee;
     ul{
         margin-bottom: 20px;
@@ -617,8 +646,6 @@ footer{
 .navbar {
     background: #fff;
     border-bottom: 1px solid #e2e2e2;
-    
-    
     .navbar-nav {
      display: flex; 
      align-items: center; 
@@ -670,39 +697,20 @@ footer{
 }
 /*======== /navbar  ===========*/
 /*======== task-details  ===========*/
+
+
 #task-details{
-    margin-top: 60px;
-    .help-service{
-       margin-bottom: -12px;
-    }
-    .other-Service {
-        margin-bottom: 15px
+    .page-content-head{
+        margin-bottom: -12px;
     }
     .details-form{
-        background-color: #fff;
-        border:solid 1px #e2e2e2;
-        height: 500px;
-        padding: 22px;
-        .details-head{
-            border-bottom: 2px solid #f9f9f9;
-            margin-bottom: 30px;
-            
-            h5{
-                padding: 0 5px;
-                color: $mainColor;
-                display: inline-block;
-                font-weight: 600;
-               
-            }
-           
-        }
         form{
             padding: 15px 25px;
             .form-group:last-child{
                 input{
                     width: 200px;
                     display: block;
-                    margin: auto;
+                    margin: 30px auto;
                 }
             }
         }
@@ -713,6 +721,39 @@ footer{
 /*======== /task-details  ===========*/
 
 /*======== /describing task Page  ===========*/
+
+
+/*======== waiting Page  ===========*/
+#client-waiting {
+    .page-content-head{
+        margin-bottom: -12px;
+    }
+    .container{
+        .box-content{
+            height: 776px;
+            .waiting-sec{
+                .waiting-img{
+                  background-image: url("../img/client/wait-img.png");
+                  height: 237px;
+                  width: 366px;
+                  margin: 35px auto;
+                }
+                p{
+                    color: $mainColor;
+                    font-size: 18px;
+                    font-size: 18px;
+                    width: 45%;
+                    margin: auto;
+                }
+            }
+
+        }
+    }
+
+}
+
+/*======== /waiting Page  ===========*/
+
 
 
 
