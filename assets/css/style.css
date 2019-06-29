@@ -216,6 +216,9 @@ li.notify::after {
 footer.home-footer {
   padding: 40px 0 0 0 !important; }
 
+i.fas, i.far {
+  color: #a19ea3; }
+
 /*============================  Start Header Styling  ===============================*/
 header {
   height: 100vh;
@@ -504,38 +507,28 @@ footer {
       border: 1px solid #ced4da;
       cursor: text;
       overflow: auto; }
-
-.login-wrapper .forgot .steps {
-  margin-top: 25px;
-}
-
-.login-wrapper .forgot .steps li span {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  text-align: center;
-  line-height: 28px;
-  background-color: #c4c4c4;
-  color: #fff;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  margin-right: 5px;
-}
-
-.login-wrapper .forgot .steps li span.active {
-  background-color: #7c2da2;
-}
-
-.login-wrapper .forgot .steps li span.done {
-  background-color: #ff3f21;
-}
-
-.login-wrapper .confirm .check-img img {
-  max-width: 84px;
-}
+  .login-wrapper .forgot .steps {
+    margin-top: 25px; }
+    .login-wrapper .forgot .steps li span {
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      text-align: center;
+      line-height: 28px;
+      background-color: #c4c4c4;
+      color: #fff;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      margin-right: 5px; }
+      .login-wrapper .forgot .steps li span.active {
+        background-color: #7c2da2; }
+      .login-wrapper .forgot .steps li span.done {
+        background-color: #ff3f21; }
+  .login-wrapper .confirm .check-img img {
+    max-width: 84px; }
 
 /*======== /Login Page  ===========*/
 /*======== describing task Page  ===========*/
@@ -606,3 +599,96 @@ footer {
     margin: auto; }
 
 /*======== /waiting Page  ===========*/
+/*======== pending-offers page ===========*/
+#pending-offers ul.pending-bookings-list li {
+  border-radius: 2px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  margin-bottom: 22px;
+  padding: 15px; }
+  #pending-offers ul.pending-bookings-list li img {
+    margin-right: 30px; }
+  #pending-offers ul.pending-bookings-list li .booking-details {
+    padding: 10px 0; }
+    #pending-offers ul.pending-bookings-list li .booking-details .details-head {
+      margin-bottom: 50px; }
+      #pending-offers ul.pending-bookings-list li .booking-details .details-head > div {
+        margin-bottom: 20px;
+        color: #7c2da2; }
+      #pending-offers ul.pending-bookings-list li .booking-details .details-head h5 {
+        display: inline-block;
+        margin-right: 10px; }
+    #pending-offers ul.pending-bookings-list li .booking-details .messges-offers {
+      display: flex;
+      justify-content: flex-end; }
+      #pending-offers ul.pending-bookings-list li .booking-details .messges-offers span, #pending-offers ul.pending-bookings-list li .booking-details .messges-offers i {
+        margin-right: 10px; }
+      #pending-offers ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications {
+        width: 17px;
+        height: 16px;
+        border-radius: 8.8px;
+        background-color: #ff3f21;
+        display: inline-block;
+        vertical-align: middle;
+        color: #fff;
+        text-align: center;
+        font-size: 12px; }
+
+/*======== /pending-offers page ===========*/
+/*======== task-preview page ===========*/
+#task-preview .box-content {
+  padding: 0; }
+
+#task-preview .nav.nav-pills {
+  padding: 7px 17px;
+  border-bottom: solid 1px #e2e2e2;
+  margin-bottom: 30px; }
+  #task-preview .nav.nav-pills .nav-item .nav-link.active {
+    color: #7c2da2;
+    background-color: transparent;
+    position: relative; }
+    #task-preview .nav.nav-pills .nav-item .nav-link.active::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: #7c2da2;
+      bottom: -7px;
+      right: 0; }
+
+#task-preview .tab-content .tab-pane {
+  padding: 0 25px; }
+
+#task-preview .tab-content #TaskDetails > .row:nth-child(1) {
+  margin-bottom: 100px; }
+
+#task-preview .tab-content #TaskDetails > .row:nth-child(2) input {
+  margin: 0 0 33px 0;
+  width: 170px; }
+
+#task-preview .tab-content #TaskDetails .details > div {
+  margin-bottom: 40px; }
+
+#task-preview .tab-content #TaskDetails .details h6 {
+  color: #7c2da2;
+  margin: 0; }
+
+#task-preview .tab-content #TaskDetails .details span {
+  color: #212121ab; }
+
+#task-preview .tab-content #TaskDetails .details p {
+  width: 67%; }
+
+#task-preview .tab-content #TaskDetails .map-container {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 263px !important; }
+  #task-preview .tab-content #TaskDetails .map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute; }
+
+/*======== /task-preview page ===========*/
