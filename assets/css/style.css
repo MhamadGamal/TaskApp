@@ -505,6 +505,38 @@ footer {
       cursor: text;
       overflow: auto; }
 
+.login-wrapper .forgot .steps {
+  margin-top: 25px;
+}
+
+.login-wrapper .forgot .steps li span {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 28px;
+  background-color: #c4c4c4;
+  color: #fff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin-right: 5px;
+}
+
+.login-wrapper .forgot .steps li span.active {
+  background-color: #7c2da2;
+}
+
+.login-wrapper .forgot .steps li span.done {
+  background-color: #ff3f21;
+}
+
+.login-wrapper .confirm .check-img img {
+  max-width: 84px;
+}
+
 /*======== /Login Page  ===========*/
 /*======== describing task Page  ===========*/
 /*======== describing task Page  ===========*/
