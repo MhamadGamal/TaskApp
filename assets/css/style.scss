@@ -13,6 +13,9 @@ body{
     font-family: "normal", cursive;
     color: #212121
 }
+h1,h2,h3,h4,h5,h6, .bold{
+    font-weight: bold !important
+}
 .normal-font{
     font-family: "normal" !important;
 }
@@ -758,7 +761,45 @@ footer{
         }
       
     }
- 
+    .offers-list{
+        margin-top: 30px;
+        .offer-item{
+            margin: 15px 0;
+            background-color: #fff;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, .2);
+            @extend .transition;
+            &:hover{
+                box-shadow: 1px 5px 8px rgba(0, 0, 0, .2);
+
+            }
+            .img-holder{
+                height: 200px;
+                img{
+                    width: 100% !important;
+                    height: 100% !important;
+                    
+                }
+            }
+            .offer-info{
+                padding: 20px;
+                text-align: center
+            }
+            .dates{
+                margin: 10px 0;
+                font-size: 12px;
+                color: $mainColor;
+                span{
+                    display: inline-block;
+                    
+                    margin: 5px;
+                    i{
+                        color: $mainColor !important
+                    }
+                }
+            }
+        }
+        
+    }
 }
 /*======== /task-details  ===========*/
 
@@ -926,6 +967,444 @@ footer{
 
 
 /*======== /task-preview page ===========*/
+/*===pagination====*/
+
+.pagination {
+    justify-content: center;
+    .page-item{
+        a{
+            border-radius: 5px;
+            border: 0;
+            @extend .transition;
+            color: $mainColor;
+            padding: 5px 12px;
+            background-color: transparent;  
+        }
+        &.active{
+            a{
+                background-color: #6e1799;
+                margin-right: 10px;
+                color: #fff;
+              
+            }
+
+        }
+        a:hover{
+            background-color: #6e1799;
+            margin-right: 10px;
+            color: #fff;
+            
+        }
+        a:focus{
+            border: none;
+            outline: none;
+            box-shadow: none
+        }
+       
+    }
+
+}
+
+
+all pages
+/*======== describing task Page  ===========*/
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    .navbar-nav {
+     display: flex; 
+     align-items: center; 
+
+        li{
+            margin: 0 10px;
+            position: relative;
+
+        }
+        .dropdown{
+
+            .dropdown-toggle{
+                &:after{
+                    display: none;
+                 }
+            }
+            a{
+                img{
+                    width: 40px !important;
+                }
+            }
+            .dropdown-menu {
+
+                left: -46px;
+                -webkit-box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.27);
+                -moz-box-shadow:2px 6px 21px -2px rgba(0, 0, 0, 0.27);
+                box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.27);
+                border: 0;
+                border-radius: 5px;
+                &::after{
+                    content:'';
+                    content: '';
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: transparent transparent #fff transparent;
+                    position: absolute;
+                    top: -10px;
+                    right: calc(100%/2);
+                }
+                .dropdown-item{
+                    i{
+                        margin-right: 10px;
+                        color: #a19ea3;
+                    }
+                }
+            }
+        }
+    }
+}
+/*======== /navbar  ===========*/
+/*======== task-details  ===========*/
+
+
+#task-details{
+    .page-content-head{
+        margin-bottom: -12px;
+    }
+    .details-form{
+        form{
+            padding: 15px 25px;
+            .form-group:last-child{
+                input{
+                    width: 200px;
+                    display: block;
+                    margin: 30px auto;
+                }
+            }
+        }
+      
+    }
+ 
+}
+/*======== /task-details  ===========*/
+
+/*======== /describing task Page  ===========*/
+
+
+/*======== waiting Page  ===========*/
+#client-waiting {
+    .page-content-head{
+        margin-bottom: -12px;
+    }
+    .container{
+        .box-content{
+            height: 776px;
+            .waiting-sec{
+                .waiting-img{
+                  background-image: url("../img/client/wait-img.png");
+                  height: 237px;
+                  width: 366px;
+                  margin: 35px auto;
+                }
+                p{
+                    color: $mainColor;
+                    font-size: 18px;
+                    font-size: 18px;
+                    width: 45%;
+                    margin: auto;
+                }
+            }
+
+        }
+    }
+
+}
+
+/*======== /waiting Page  ===========*/
+
+/*======== pending-offers page ===========*/
+#pending-offers{
+    ul.pending-bookings-list{
+        li{
+            border-radius: 2px;
+            border: solid 1px #e2e2e2;
+            background-color: #ffffff;
+            margin-bottom: 22px;
+            padding: 15px;
+            img{
+                margin-right: 30px;
+            }
+            .booking-details{
+                padding: 10px 0;
+                .details-head{
+                    margin-bottom: 50px;
+                    &>div{
+                        margin-bottom: 20px;
+                        color: $mainColor;
+                    }
+                    h5{
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                }
+              .messges-offers{
+                display: flex;
+                justify-content: flex-end;
+                  span,i{
+                      margin-right: 10px;
+                  }
+                  .offers{
+                      
+                   .notifications{
+                        width: 17px;
+                        height: 16px;
+                        border-radius: 8.8px;
+                        background-color: #ff3f21;
+                        display: inline-block; 
+                        vertical-align: middle;
+                        color: #fff;
+                        text-align: center;
+                        font-size: 12px;
+                      }
+                  }
+              }
+            }
+        }
+    }
+}
+/*======== /pending-offers page ===========*/
+
+/*======== task-preview page ===========*/
+#task-preview{
+    .box-content{
+        padding: 0;
+        .box-head{
+        margin-bottom: 0px; 
+        padding: 13px;
+        }
+    }
+    .tab-content{
+        .tab-pane{
+            padding: 0 25px;
+        }
+        #TaskDetails{
+            &>.row:nth-child(1){
+                margin-bottom: 100px;
+            }
+            &>.row:nth-child(2){
+                input{
+                    margin: 0 0 33px 0;
+                    width: 170px;
+                }
+            }
+            .details{
+                &>div{
+                    margin-bottom: 40px;
+                }
+                h6{
+                    color: $mainColor;
+                    margin: 0
+                }
+                span{
+                    color: #212121ab;
+                }
+                p{
+                    width: 67%;
+                }
+            }
+            .map-container{
+                overflow:hidden;
+                padding-bottom:56.25%;
+                position:relative;
+                height:263px !important;
+                iframe{
+                    left:0;
+                    top:0;
+                    height:100%;
+                    width:100%;
+                    position:absolute;
+
+                }
+
+
+            }
+        }
+        #offers{
+            ul.moving-tasks-list{
+
+                li{
+                    border-radius: 2px;
+                    border: solid 1px #e2e2e2;
+                    background-color: #ffffff;
+                    margin-bottom: 22px;
+                    padding: 15px;
+                    img{
+                        margin-right: 30px;
+                        width: 158px;
+                        height: 158px;
+                        border-radius: 12px;
+                    }
+                    .moving-tasks{
+                        .agency-tasks{
+                            display: flex;
+                            justify-content: space-between;
+                            .check-offers{
+                                a{
+                                    background: #6e1799;
+                                    color: #fff;
+                                    width: 160px;
+                                    text-align: center;
+                                }
+                            }
+                            
+                            .moving-agency{
+                                h5{
+                                    color: $mainColor
+                                }
+                                .rating{
+                                    margin-bottom: 20px;
+                                    span{
+                                        color: $mainColor;
+                                    }
+                                    &>span:last-child{
+                                        margin-left: 6px;  
+                                    }
+                                }
+                                .tasks-numbers{
+                                    margin-bottom: 20px;
+                                    i,span{
+                                        color: #b68bcc;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+            .row{
+                margin: 0 0 25px 0;
+                
+                h6{
+                    margin: 6px 20px 0 0
+             
+                }
+                a{
+                    border: 1px solid #7c2da2;
+                    border-radius: 4px;
+                    padding: 5px 14px;
+                    i{
+                        color: $mainColor;
+                        font-size: 12px;
+                        margin-right: 10px;
+                    }
+                
+                }
+
+            }
+
+        }
+    }
+
+    
+}
+// model
+
+
+.modal{
+    @media (min-width: 576px)
+    {
+        .modal-dialog {
+            max-width: 1066px;
+            margin: 1.75rem auto;
+        }
+    }
+    .modal-dialog{
+        
+        .modal-content{
+            padding-bottom: 60px;
+            .modal-body{
+                padding: 10px 0;
+                .img-service{
+                    border-radius: 12px;
+                }
+                @media (min-width: 992px){
+                    .container {
+                        max-width: 1050px;
+                    }
+                       
+                }
+
+             .moving-agency{
+                    h5{
+                        color: $mainColor
+                    }
+                    .rating{
+                        margin-bottom: 20px;
+                        span{
+                            color: $mainColor;
+                        }
+                        &>span:last-child{
+                            margin-left: 6px;  
+                        }
+                    }
+                    .tasks-numbers{
+                        margin-bottom: 20px;
+                        i,span{
+                            color: #b68bcc;
+                        }
+                    }
+                }
+                .actions{
+                    margin-bottom: 35px;
+                
+                    input{
+                        margin-right: 15px;
+                        width: 180px;
+                        padding: 9px 0;
+                    }
+                }
+                .lastServiceReview{
+                    h6{
+                        margin-bottom: 14px;
+                    }
+                    .ServiceReview{
+                        display: flex;
+                        p{
+                            width: 95% ;
+                            margin: 0;
+                        }
+                        .client-name{
+                            color: $mainColor;
+                        }
+                    }
+                    img{
+                        width: 66px !important;
+                        height: 66px;
+                        border-radius: 5px;
+                        margin-right: 20px;
+                    }
+                    .date{
+                        color: #a19ea3;
+                    }
+
+                }
+            }
+        }
+        .modal-header{
+            border-bottom: 0;
+            padding: 14px;
+        }
+        
+
+    }
+}
+@media (min-width: 576px)
+{
+    .modal-dialog {
+        max-width: 1066px;
+        margin: 1.75rem auto;
+    }
+}
+
+
 
 
 

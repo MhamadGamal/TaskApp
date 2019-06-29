@@ -1,7 +1,21 @@
-let categoryArr, categoryArrFiltered = [], wrapper = "";
+let categoryArr, mainCategoryArr = [], categoryArrFiltered = [], wrapper = "";
 let target  = window.location.href.slice(window.location.href.lastIndexOf("?") +1);         
 let loginedType = localStorage.getItem("CurrentUserType");
 console.log(target);
+
+$.get("http://88.80.184.99/tasker/web/api/main/catgeory", function(data){
+    let d = data;
+    mainCategoryArr = d.data;
+    for( let item of mainCategoryArr ){
+        if( item.id == target ){
+            console.log("heeeeeeeelo",item.main_id);
+            $("header#subCatHead").css("background-image",`url(http://88.80.184.99/tasker/web/${item.image})`)
+            $("#subCatHead .wrapper  h3").text(item.name_en)
+        }        
+     }
+});
+
+
 $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data, status){
      let d = data;
      categoryArr = d.data;

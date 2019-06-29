@@ -1,4 +1,19 @@
 let type = localStorage.getItem("CurrentUserType");
+$.get("", function(data){
+
+});
+
+$.ajax({
+    url: "http://88.80.184.99/tasker/web/api/list/hot/offer",
+    method: 'GET',
+    dataType: "json",
+    success: function (result) {
+        console.log(result)
+    },
+    error: function (result) {
+        alert('error');
+    }
+});
 
 if(type  == "user"){
     $("header").addClass("customer");
@@ -60,7 +75,7 @@ if(type  == "user"){
         <div class="offer-details">
             <h1 class="main-color">Check All Offers</h1>
             <h3>Our Providers here to help you</h3>
-            <a href="offers.html" class="btn btn-default">SEE MORE <i class="fas fa-chevron-right    "></i></a>
+            <a href="pages/client/offers.html" class="btn btn-default">SEE MORE <i class="fas fa-chevron-right    "></i></a>
         </div>  
       </div>
       <div class="carousel-item">
@@ -68,7 +83,7 @@ if(type  == "user"){
         <div class="offer-details">
             <h1 class="main-color">Check All Offers</h1>
             <h3>Our Providers here to help you</h3>
-            <a href="offers.html" class="btn btn-default">SEE MORE <i class="fas fa-chevron-right    "></i></a>
+            <a href="pages/client/offers.html" class="btn btn-default">SEE MORE <i class="fas fa-chevron-right    "></i></a>
         </div>
       </div>
       

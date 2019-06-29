@@ -14,6 +14,10 @@ body {
   color: #212121;
 }
 
+h1, h2, h3, h4, h5, h6, .bold {
+  font-weight: bold !important;
+}
+
 .normal-font {
   font-family: "normal" !important;
 }
@@ -169,7 +173,7 @@ section .section-title {
   bottom: -40px;
 }
 
-.transition, header .navbar, header .navbar .login-btn, #sub-services .item {
+.transition, header .navbar, header .navbar .login-btn, #sub-services .item, #task-details .offers-list .offer-item, .pagination .page-item a {
   transition: all ease-in-out .4s;
   -webkit-transition: all ease-in-out .4s;
   -moz-transition: all ease-in-out .4s;
@@ -854,6 +858,51 @@ footer .copyright a.active {
   margin: 30px auto;
 }
 
+#task-details .offers-list {
+  margin-top: 30px;
+}
+
+#task-details .offers-list .offer-item {
+  margin: 15px 0;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#task-details .offers-list .offer-item:hover {
+  -webkit-box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+#task-details .offers-list .offer-item .img-holder {
+  height: 200px;
+}
+
+#task-details .offers-list .offer-item .img-holder img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#task-details .offers-list .offer-item .offer-info {
+  padding: 20px;
+  text-align: center;
+}
+
+#task-details .offers-list .offer-item .dates {
+  margin: 10px 0;
+  font-size: 12px;
+  color: #7c2da2;
+}
+
+#task-details .offers-list .offer-item .dates span {
+  display: inline-block;
+  margin: 5px;
+}
+
+#task-details .offers-list .offer-item .dates span i {
+  color: #7c2da2 !important;
+}
+
 /*======== /task-details  ===========*/
 /*======== /describing task Page  ===========*/
 /*======== waiting Page  ===========*/
@@ -1011,4 +1060,419 @@ footer .copyright a.active {
 }
 
 /*======== /task-preview page ===========*/
+/*===pagination====*/
+.pagination {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pagination .page-item a {
+  border-radius: 5px;
+  border: 0;
+  color: #7c2da2;
+  padding: 5px 12px;
+  background-color: transparent;
+}
+
+.pagination .page-item.active a {
+  background-color: #6e1799;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.pagination .page-item a:hover {
+  background-color: #6e1799;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.pagination .page-item a:focus {
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+all pages .navbar {
+  background: #fff;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+all pages .navbar .navbar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+all pages .navbar .navbar-nav li {
+  margin: 0 10px;
+  position: relative;
+}
+
+all pages .navbar .navbar-nav .dropdown .dropdown-toggle:after {
+  display: none;
+}
+
+all pages .navbar .navbar-nav .dropdown a img {
+  width: 40px !important;
+}
+
+all pages .navbar .navbar-nav .dropdown .dropdown-menu {
+  left: -46px;
+  -webkit-box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.27);
+  box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.27);
+  border: 0;
+  border-radius: 5px;
+}
+
+all pages .navbar .navbar-nav .dropdown .dropdown-menu::after {
+  content: '';
+  content: '';
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  top: -10px;
+  right: calc(100%/2);
+}
+
+all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
+  margin-right: 10px;
+  color: #a19ea3;
+}
+
+/*======== /navbar  ===========*/
+/*======== task-details  ===========*/
+#task-details .page-content-head {
+  margin-bottom: -12px;
+}
+
+#task-details .details-form form {
+  padding: 15px 25px;
+}
+
+#task-details .details-form form .form-group:last-child input {
+  width: 200px;
+  display: block;
+  margin: 30px auto;
+}
+
+/*======== /task-details  ===========*/
+/*======== /describing task Page  ===========*/
+/*======== waiting Page  ===========*/
+#client-waiting .page-content-head {
+  margin-bottom: -12px;
+}
+
+#client-waiting .container .box-content {
+  height: 776px;
+}
+
+#client-waiting .container .box-content .waiting-sec .waiting-img {
+  background-image: url("../img/client/wait-img.png");
+  height: 237px;
+  width: 366px;
+  margin: 35px auto;
+}
+
+#client-waiting .container .box-content .waiting-sec p {
+  color: #7c2da2;
+  font-size: 18px;
+  font-size: 18px;
+  width: 45%;
+  margin: auto;
+}
+
+/*======== /waiting Page  ===========*/
+/*======== pending-offers page ===========*/
+#pending-offers ul.pending-bookings-list li {
+  border-radius: 2px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  margin-bottom: 22px;
+  padding: 15px;
+}
+
+#pending-offers ul.pending-bookings-list li img {
+  margin-right: 30px;
+}
+
+#pending-offers ul.pending-bookings-list li .booking-details {
+  padding: 10px 0;
+}
+
+#pending-offers ul.pending-bookings-list li .booking-details .details-head {
+  margin-bottom: 50px;
+}
+
+#pending-offers ul.pending-bookings-list li .booking-details .details-head > div {
+  margin-bottom: 20px;
+  color: #7c2da2;
+}
+
+#pending-offers ul.pending-bookings-list li .booking-details .details-head h5 {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers span, #pending-offers ul.pending-bookings-list li .booking-details .messges-offers i {
+  margin-right: 10px;
+}
+
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications {
+  width: 17px;
+  height: 16px;
+  border-radius: 8.8px;
+  background-color: #ff3f21;
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+/*======== /pending-offers page ===========*/
+/*======== task-preview page ===========*/
+#task-preview .box-content {
+  padding: 0;
+}
+
+#task-preview .box-content .box-head {
+  margin-bottom: 0px;
+  padding: 13px;
+}
+
+#task-preview .tab-content .tab-pane {
+  padding: 0 25px;
+}
+
+#task-preview .tab-content #TaskDetails > .row:nth-child(1) {
+  margin-bottom: 100px;
+}
+
+#task-preview .tab-content #TaskDetails > .row:nth-child(2) input {
+  margin: 0 0 33px 0;
+  width: 170px;
+}
+
+#task-preview .tab-content #TaskDetails .details > div {
+  margin-bottom: 40px;
+}
+
+#task-preview .tab-content #TaskDetails .details h6 {
+  color: #7c2da2;
+  margin: 0;
+}
+
+#task-preview .tab-content #TaskDetails .details span {
+  color: #212121ab;
+}
+
+#task-preview .tab-content #TaskDetails .details p {
+  width: 67%;
+}
+
+#task-preview .tab-content #TaskDetails .map-container {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 263px !important;
+}
+
+#task-preview .tab-content #TaskDetails .map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li {
+  border-radius: 2px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  margin-bottom: 22px;
+  padding: 15px;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li img {
+  margin-right: 30px;
+  width: 158px;
+  height: 158px;
+  border-radius: 12px;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .check-offers a {
+  background: #6e1799;
+  color: #fff;
+  width: 160px;
+  text-align: center;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency h5 {
+  color: #7c2da2;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating {
+  margin-bottom: 20px;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating span {
+  color: #7c2da2;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating > span:last-child {
+  margin-left: 6px;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers {
+  margin-bottom: 20px;
+}
+
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers i, #task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers span {
+  color: #b68bcc;
+}
+
+#task-preview .tab-content #offers .row {
+  margin: 0 0 25px 0;
+}
+
+#task-preview .tab-content #offers .row h6 {
+  margin: 6px 20px 0 0;
+}
+
+#task-preview .tab-content #offers .row a {
+  border: 1px solid #7c2da2;
+  border-radius: 4px;
+  padding: 5px 14px;
+}
+
+#task-preview .tab-content #offers .row a i {
+  color: #7c2da2;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+@media (min-width: 576px) {
+  .modal .modal-dialog {
+    max-width: 1066px;
+    margin: 1.75rem auto;
+  }
+}
+
+.modal .modal-dialog .modal-content {
+  padding-bottom: 60px;
+}
+
+.modal .modal-dialog .modal-content .modal-body {
+  padding: 10px 0;
+}
+
+.modal .modal-dialog .modal-content .modal-body .img-service {
+  border-radius: 12px;
+}
+
+@media (min-width: 992px) {
+  .modal .modal-dialog .modal-content .modal-body .container {
+    max-width: 1050px;
+  }
+}
+
+.modal .modal-dialog .modal-content .modal-body .moving-agency h5 {
+  color: #7c2da2;
+}
+
+.modal .modal-dialog .modal-content .modal-body .moving-agency .rating {
+  margin-bottom: 20px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .moving-agency .rating span {
+  color: #7c2da2;
+}
+
+.modal .modal-dialog .modal-content .modal-body .moving-agency .rating > span:last-child {
+  margin-left: 6px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers {
+  margin-bottom: 20px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers i, .modal .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers span {
+  color: #b68bcc;
+}
+
+.modal .modal-dialog .modal-content .modal-body .actions {
+  margin-bottom: 35px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .actions input {
+  margin-right: 15px;
+  width: 180px;
+  padding: 9px 0;
+}
+
+.modal .modal-dialog .modal-content .modal-body .lastServiceReview h6 {
+  margin-bottom: 14px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview p {
+  width: 95%;
+  margin: 0;
+}
+
+.modal .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview .client-name {
+  color: #7c2da2;
+}
+
+.modal .modal-dialog .modal-content .modal-body .lastServiceReview img {
+  width: 66px !important;
+  height: 66px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.modal .modal-dialog .modal-content .modal-body .lastServiceReview .date {
+  color: #a19ea3;
+}
+
+.modal .modal-dialog .modal-header {
+  border-bottom: 0;
+  padding: 14px;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 1066px;
+    margin: 1.75rem auto;
+  }
+}
 /*# sourceMappingURL=style.css.map */
