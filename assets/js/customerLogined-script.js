@@ -5,7 +5,7 @@ if(type  == "user"){
     $("header").html(`
     <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="navbar-brand logo bold-font main-color" href="index.html">Task<span
+        <a class="navbar-brand logo bold-font main-color" href="../../index.html">Task<span
                 class="normal-font s-color">app </span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@ if(type  == "user"){
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav ">
                 <li class="nav-item active ">
-                    <a class="nav-link" href="../home/index.html">Services </a>
+                    <a class="nav-link" href="../../index.html">Services </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../provider/Providers.html">Providers</a>

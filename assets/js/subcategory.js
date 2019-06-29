@@ -34,7 +34,7 @@ $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data, status){
  if(loginedType == "user"){
      $(".navbar").html(`
      <div class="container">
-     <a class="navbar-brand logo bold-font main-color" href="index.html">Task<span
+     <a class="navbar-brand logo bold-font main-color" href="../../index.html">Task<span
              class="normal-font s-color">app </span></a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@ $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data, status){
      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
          <ul class="navbar-nav ">
              <li class="nav-item active ">
-                 <a class="nav-link" href="../home/index.html">Services </a>
+                 <a class="nav-link" href="../../index.html">Services </a>
              </li>
              <li class="nav-item">
                  <a class="nav-link" href="../provider/Providers.html">Providers</a>

@@ -34,7 +34,7 @@ $("#loginbtn").on("click",function (e) {
                     email = "";
                     password = "";
                     if(localStorage.getItem("CurrentUserType") == "user"){
-                        location.href = '../home/index.html';
+                        location.href = '../../index.html';
                     }
                 }
 

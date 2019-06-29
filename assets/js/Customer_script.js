@@ -27,7 +27,7 @@ $("#CustomerRegisterbtn").on("click",function () {
                     localStorage.setItem('CurrentToken', usertoken);
                     localStorage.setItem('CurrentUserType', usertype);
                     alert('Ok');
-                    location.href = '../home/index.html';
+                    location.href = '../../index.html';
                 }
 
                 else {
