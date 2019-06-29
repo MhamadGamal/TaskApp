@@ -49,13 +49,13 @@ $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data, status){
                  <a class="nav-link" href="../provider/Providers.html">Providers</a>
              </li>
              <li class="nav-item notify dropdown">
-                 <a class="nav-link dropdown-toggle " href="bookings.html" role="button" data-toggle="dropdown"
+                 <a class="nav-link dropdown-toggle " href="../client/bookings.html" role="button" data-toggle="dropdown"
                      aria-haspopup="true" aria-expanded="false">My Bookings</a>
                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
-                     <a class="dropdown-item" href="booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
+                     <a class="dropdown-item" href="../client/pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
+                     <a class="dropdown-item" href="../client/booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
                      <div class="dropdown-divider"></div>
-                     <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>Ratings</a>
+                     <a class="dropdown-item" href="../client/rating.html"><i class="fas fa-star"></i>Ratings</a>
                  </div>
              </li>
              <li class="nav-item dropdown">
@@ -64,8 +64,8 @@ $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data, status){
                      <img src="../../assets/img/client/user.png" alt="" srcset="">
                  </a>
                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My Account</a>
-                     <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
+                     <a class="dropdown-item" href="../client/account.html"> <i class="far fa-address-card"></i> My Account</a>
+                     <a class="dropdown-item" href="../client/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                      <div class="dropdown-divider"></div>
                      <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                  </div>
