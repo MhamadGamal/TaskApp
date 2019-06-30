@@ -730,7 +730,10 @@ footer{
                         background-color: $mainColor
                     }
                     &.done{
-                        background-color: #ff3f21
+                        background-color: #ff3f21;
+                        i{
+                            color: #fff
+                        }
                     }
                 }
             }

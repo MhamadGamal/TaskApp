@@ -847,6 +847,10 @@ footer .copyright a.active {
   background-color: #ff3f21;
 }
 
+.login-wrapper .forgot .steps li span.done i {
+  color: #fff;
+}
+
 .login-wrapper .confirm .check-img img {
   max-width: 84px;
 }

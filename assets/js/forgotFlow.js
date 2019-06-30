@@ -30,8 +30,8 @@ $(function(){
                 <li> <span class="">3</span> Step 3 </li>
             </ul>
             <form action="" autocomplete="off">
-                <label for="" class="control-label">Your Password</label>
-                <input type="password" class="form-control" id="password" placeholder="******">
+                <label for="" class="control-label">Verification Code</label>
+                <input type="password" class="form-control" id="verCode" placeholder="00000">
             </form>
             <div class="d-flex justify-content-end my-3">
                 <a href="#" class="main-color pt-1 d-inline-block mx-3" onclick="back()">Back</a>
