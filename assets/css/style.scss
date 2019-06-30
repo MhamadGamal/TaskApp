@@ -247,6 +247,10 @@ footer.home-footer{
 i.fas , i.far{
     color: #a19ea3;
 }
+.center-block{
+    display: flex;
+    align-items: center;
+}
 /*============================  Start Header Styling  ===============================*/
 header{
     height: 100vh;
@@ -1308,7 +1312,7 @@ all pages
 // model
 
 
-.modal{
+.modal.tasks{
     @media (min-width: 576px)
     {
         .modal-dialog {
@@ -1396,11 +1400,107 @@ all pages
 
     }
 }
-@media (min-width: 576px)
-{
-    .modal-dialog {
-        max-width: 1066px;
-        margin: 1.75rem auto;
+// @media (min-width: 576px)
+// {
+//     .modal-dialog {
+//         max-width: 1066px;
+//         margin: 1.75rem auto;
+//     }
+// }
+
+/*======== about us page ===========*/
+.about-us-page{
+    .header-content{
+        h3{
+            font-weight: normal !important;
+        }
     }
+    #about-us{
+        .task-app-img{
+            position: relative;
+            img{
+                height: 285px !important;
+            }
+            a{
+                position: absolute;
+                bottom: 153px;
+                right: 150px;
+                font-size: 2.4rem;
+            }
+        }
+    }
+    #app-store{
+        .app-img{
+            img{
+                width: auto !important;
+            }
+            .img-fluid{
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+        .center-block{
+            display: flex;
+            align-items: center;
+        }
+        .about-app{
+            text-align: center;
+            h5{
+                margin-bottom: 20px;
+            }
+            img{
+                height: 47px !important;
+                width: 159px !important;
+            } 
+        }
+    }
+    
 }
 
+/*======== /about us page ===========*/
+
+/*======== contact page ===========*/
+#contact-us{
+    .contact-info{
+        &>div{
+            margin-bottom: 20px;
+        }
+        h5{
+            margin-bottom: 20px;
+        }
+        h6{
+            color: $mainColor;
+            margin-bottom:0
+        }
+        a{
+            margin-right: 13px;
+        }
+    }
+    h1 ,h2 ,h3 ,h4 ,h5 ,h6{
+        font-weight: normal !important ;
+    }
+    
+    #contact{
+        input{
+            width: 50%;
+        }
+        h5{
+            margin-bottom: 20px;
+        }
+       input.messges{
+            height: 100px;
+            width: 100%;
+        }
+        .form-group:last-child{
+            display: flex;
+            justify-content: flex-end;
+            input{
+                width: 20%;
+            }
+        }
+    }
+
+}
+
+
+/*======== /contact page ===========*/

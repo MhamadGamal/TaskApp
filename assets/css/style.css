@@ -312,6 +312,15 @@ i.fas, i.far {
   color: #a19ea3;
 }
 
+.center-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 /*============================  Start Header Styling  ===============================*/
 header {
   height: 100vh;
@@ -1376,103 +1385,198 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 @media (min-width: 576px) {
-  .modal .modal-dialog {
+  .modal.tasks .modal-dialog {
     max-width: 1066px;
     margin: 1.75rem auto;
   }
 }
 
-.modal .modal-dialog .modal-content {
+.modal.tasks .modal-dialog .modal-content {
   padding-bottom: 60px;
 }
 
-.modal .modal-dialog .modal-content .modal-body {
+.modal.tasks .modal-dialog .modal-content .modal-body {
   padding: 10px 0;
 }
 
-.modal .modal-dialog .modal-content .modal-body .img-service {
+.modal.tasks .modal-dialog .modal-content .modal-body .img-service {
   border-radius: 12px;
 }
 
 @media (min-width: 992px) {
-  .modal .modal-dialog .modal-content .modal-body .container {
+  .modal.tasks .modal-dialog .modal-content .modal-body .container {
     max-width: 1050px;
   }
 }
 
-.modal .modal-dialog .modal-content .modal-body .moving-agency h5 {
+.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency h5 {
   color: #7c2da2;
 }
 
-.modal .modal-dialog .modal-content .modal-body .moving-agency .rating {
+.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .rating {
   margin-bottom: 20px;
 }
 
-.modal .modal-dialog .modal-content .modal-body .moving-agency .rating span {
+.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .rating span {
   color: #7c2da2;
 }
 
-.modal .modal-dialog .modal-content .modal-body .moving-agency .rating > span:last-child {
+.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .rating > span:last-child {
   margin-left: 6px;
 }
 
-.modal .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers {
+.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers {
   margin-bottom: 20px;
 }
 
-.modal .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers i, .modal .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers span {
+.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers i, .modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers span {
   color: #b68bcc;
 }
 
-.modal .modal-dialog .modal-content .modal-body .actions {
+.modal.tasks .modal-dialog .modal-content .modal-body .actions {
   margin-bottom: 35px;
 }
 
-.modal .modal-dialog .modal-content .modal-body .actions input {
+.modal.tasks .modal-dialog .modal-content .modal-body .actions input {
   margin-right: 15px;
   width: 180px;
   padding: 9px 0;
 }
 
-.modal .modal-dialog .modal-content .modal-body .lastServiceReview h6 {
+.modal.tasks .modal-dialog .modal-content .modal-body .lastServiceReview h6 {
   margin-bottom: 14px;
 }
 
-.modal .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview {
+.modal.tasks .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.modal .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview p {
+.modal.tasks .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview p {
   width: 95%;
   margin: 0;
 }
 
-.modal .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview .client-name {
+.modal.tasks .modal-dialog .modal-content .modal-body .lastServiceReview .ServiceReview .client-name {
   color: #7c2da2;
 }
 
-.modal .modal-dialog .modal-content .modal-body .lastServiceReview img {
+.modal.tasks .modal-dialog .modal-content .modal-body .lastServiceReview img {
   width: 66px !important;
   height: 66px;
   border-radius: 5px;
   margin-right: 20px;
 }
 
-.modal .modal-dialog .modal-content .modal-body .lastServiceReview .date {
+.modal.tasks .modal-dialog .modal-content .modal-body .lastServiceReview .date {
   color: #a19ea3;
 }
 
-.modal .modal-dialog .modal-header {
+.modal.tasks .modal-dialog .modal-header {
   border-bottom: 0;
   padding: 14px;
 }
 
-@media (min-width: 576px) {
-  .modal-dialog {
-    max-width: 1066px;
-    margin: 1.75rem auto;
-  }
+/*======== about us page ===========*/
+.about-us-page .header-content h3 {
+  font-weight: normal !important;
 }
+
+.about-us-page #about-us .task-app-img {
+  position: relative;
+}
+
+.about-us-page #about-us .task-app-img img {
+  height: 285px !important;
+}
+
+.about-us-page #about-us .task-app-img a {
+  position: absolute;
+  bottom: 153px;
+  right: 150px;
+  font-size: 2.4rem;
+}
+
+.about-us-page #app-store .app-img img {
+  width: auto !important;
+}
+
+.about-us-page #app-store .app-img .img-fluid {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.about-us-page #app-store .center-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about-us-page #app-store .about-app {
+  text-align: center;
+}
+
+.about-us-page #app-store .about-app h5 {
+  margin-bottom: 20px;
+}
+
+.about-us-page #app-store .about-app img {
+  height: 47px !important;
+  width: 159px !important;
+}
+
+/*======== /about us page ===========*/
+/*======== contact page ===========*/
+#contact-us .contact-info > div {
+  margin-bottom: 20px;
+}
+
+#contact-us .contact-info h5 {
+  margin-bottom: 20px;
+}
+
+#contact-us .contact-info h6 {
+  color: #7c2da2;
+  margin-bottom: 0;
+}
+
+#contact-us .contact-info a {
+  margin-right: 13px;
+}
+
+#contact-us h1, #contact-us h2, #contact-us h3, #contact-us h4, #contact-us h5, #contact-us h6 {
+  font-weight: normal !important;
+}
+
+#contact-us #contact input {
+  width: 50%;
+}
+
+#contact-us #contact h5 {
+  margin-bottom: 20px;
+}
+
+#contact-us #contact input.messges {
+  height: 100px;
+  width: 100%;
+}
+
+#contact-us #contact .form-group:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#contact-us #contact .form-group:last-child input {
+  width: 20%;
+}
+
+/*======== /contact page ===========*/
 /*# sourceMappingURL=style.css.map */
