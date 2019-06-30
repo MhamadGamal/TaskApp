@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TASKER</title>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="../../assets/plugins/slick/slick.css">
+    <link rel="stylesheet" href="../../assets/plugins/slick/slick-theme.css">
+    <!-- DatePicker -->
+    <link rel="stylesheet" href="../../assets/css/jquery.datepicker2.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo bold-font main-color" href="../../index.html">Task<span
+                    class="normal-font s-color">app </span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> <i class="fas fa-bars    "></i> </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                    <li class="nav-item active ">
+                        <a class="nav-link" href="../../index.html">Services </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../provider/Providers.html">Providers</a>
+                    </li>
+                    <li class="nav-item notify dropdown">
+                        <a class="nav-link dropdown-toggle " href="bookings.html" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">My Bookings</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="pendings.html"> <i class="far fa-address-card"></i> Pending
+                                Bookingst</a>
+                            <a class="dropdown-item" href="booking-list.html"><i
+                                    class="far fa-address-card"></i>Bookings List</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>Ratings</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="../../assets/img/client/user.png" alt="" srcset="">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My
+                                Account</a>
+                            <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <a href="../login/login.html" class="login-btn">
+                    <img src="../../assets/img/client/user.png"  alt="" srcset="">
+                
+                </a> -->
+            </div>
+        </div>
+    </nav>
+    <!-- /NAVBAR -->
+    <!--contact us  -->
+    <section id="contact-us" class="grey-bg page-content">
+        <div class="container">
+            <div class="page-content-head">
+                <h4>My Account</h4>
+            </div>
+            <div class="box-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="contact-info">
+                                <h5 >Contact info</h5>
+                                <div class="phone">
+                                    <h6>Phone</h6>
+                                    <span>+02 002 444 5556</span>
+                                </div>
+                                <div class="email">
+                                    <h6>Email</h6>
+                                    <span>info@taskapp.com</span>
+                                </div>
+                                <div class="follow-us">
+                                    <h6>Follow us</h6>
+                                    <a href="#"> <i class="fab fa-facebook-f main-color   "></i></a>
+                                    <a href="#"> <i class="fab fa-twitter  main-color  "></i></a>
+                                    <a href="#"> <i class="fab fa-instagram  main-color  "></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <form id="contact">
+                                    <h5 >send messges</h5>
+                                <div class="form-group" id="pUserName">
+                                    <label class="control-label">Username</label>
+                                    <input type="text" class="form-control" placeholder="Client Name">
+                                </div>
+                                <div class="form-group" id="pEmail">
+                                    <label class="control-label">Email</label>
+                                    <input type="email" class="form-control" placeholder="example@email.com">
+                                </div>
+                                <div class="form-group messges">
+                                    <label class="control-label">messeges</label>
+                                    <input  class="form-control messges">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-block main-btn" value="send">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/contact us  -->
+    <!-- Footer -->
+    <footer class="home-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <h6 class="main-color">Discover</h6>
+                        <ul>
+                            <li><a href="index.html">Services</a></li>
+                            <li><a href="pages/home/faq.html">FAQ</a></li>
+                            <li><a href="pages/home/terms.html">Terms & Privecy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h6 class="main-color">Company</h6>
+                        <ul>
+                            <li><a href="pages/home/about.html">About Taskapp</a></li>
+                            <li><a href="pages/home/careers.html">Careers</a></li>
+                            <li><a href="pages/home/contact.html">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h6 class="main-color">Follow Us</h6>
+                        <ul>
+                            <li><a href="#"> <i class="fab fa-facebook-f main-color   "></i> Facebook</a></li>
+                            <li><a href="#"> <i class="fab fa-twitter  main-color  "></i> Twitter</a></li>
+                            <li><a href="#"> <i class="fab fa-instagram  main-color  "></i> Instagram</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 d-flex align-items-end text-right">
+                            <a class=" logo bold-font main-color" href="index.html">Task<span class="normal-font s-color">app </span></a>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <i class="fas fa-globe-americas"></i>
+                            <a href="" class="active">English</a>
+                            <a href="">French</a>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-center">All Copy rights Are reserved @Taskapp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <!-- /Footer -->
+    <!-- <input type="text" class="datepicker" data-select="datepicker"> -->
+    <!-- JQUERY -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <!-- Bootstarp -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <!-- JQUERY Validation -->
+    <script src="../../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <!-- Slick -->
+    <script src="../../assets/plugins/slick/slick.min.js"></script>
+    <!-- Datepicker -->
+    <script src="../../assets/js/jquery.datepicker2.min.js"></script>
+    <!-- API Script -->
+    <script src="../../assets/js/api_script.js"></script>
+    <!-- Custom Script -->
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>
