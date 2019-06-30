@@ -252,6 +252,56 @@ i.fas , i.far{
     display: flex;
     align-items: center;
 }
+
+//accordian
+
+.accord{
+    margin: 30px 0;
+    .accord-item{
+        border: 1px solid #e2e2e2;
+        margin: 10px 0;
+        padding: 10px 20px;
+        .accord-link{
+            display: block;
+            position: relative;
+            font-size:  20px;
+            padding: 5px 0;
+            transition: all ease .2s;
+            color: #212121;
+            i{
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%)            ;
+                -webkit-transform: translateY(-50%)            ;
+                -moz-transform: translateY(-50%)            ;
+                -ms-transform: translateY(-50%)            ;
+                -o-transform: translateY(-50%)            ;
+            }
+            &.active, &:hover{
+                color: $mainColor;
+                i{
+                    color: $mainColor;
+                }
+            }
+        }
+        .item-content{
+            padding: 20px 0;
+            font-size: 14px
+        }
+    }
+
+}
+
+.terms {
+    p{
+        font-size: 14px;
+        margin: 0;
+    }
+}
+
+
+
 /*============================  Start Header Styling  ===============================*/
 header{
     height: 100vh;
@@ -260,39 +310,7 @@ header{
     background-position: 0 60px;
     background-size: cover;
     position: relative;
-    .navbar{
-        background-color: #fff;
-        padding: 10px 0;
-        @extend .transition;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-        .navbar-brand{
-            font-size: 2rem;
-        }
-        .nav-item{
-            .nav-link{
-                color: $mainColor
-            }
-            &.active{
-                .nav-link{
-                    font-weight: bold
-                }
-            }
-        }
-        .login-btn{
-            color: $mainColor;
-            border: 1px solid $mainColor;
-            padding: 5px 15px;
-            @extend .transition;
-            margin-left: 10px;
-            &:hover{
-                background-color: $mainColor;
-                color: #fff
-            }
-        }
-        
-        
-        
-    }
+   
     .header-content{
         height: 100%;
         align-items: center;
@@ -335,6 +353,39 @@ header{
     &.customer{
         background-image: none;
     }
+}
+.navbar{
+    background-color: #fff;
+    padding: 10px 0;
+    @extend .transition;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    .navbar-brand{
+        font-size: 2rem;
+    }
+    .nav-item{
+        .nav-link{
+            color: $mainColor
+        }
+        &.active{
+            .nav-link{
+                font-weight: bold
+            }
+        }
+    }
+    .login-btn{
+        color: $mainColor;
+        border: 1px solid $mainColor;
+        padding: 5px 15px;
+        @extend .transition;
+        margin-left: 10px;
+        &:hover{
+            background-color: $mainColor;
+            color: #fff
+        }
+    }
+    
+    
+    
 }
 .navbar-toggler:not(:disabled):not(.disabled){
     background-color: $mainColor;
@@ -1541,7 +1592,6 @@ all pages
 }
 
 
-<<<<<<< HEAD
 
 
 
@@ -1549,10 +1599,11 @@ all pages
 
 
 /////////////media//////////////////////
-@media (max-width: 991.98px)
-.navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid {
-    padding-right: 10px;
-    padding-left: 10px;
+@media (max-width: 991.98px){
+    .navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
 }
 
 
@@ -1560,8 +1611,5 @@ all pages
 
 
 
-||||||| merged common ancestors
 
-=======
 /*======== /contact page ===========*/
->>>>>>> d284831b8ec6b11824dbe7a5787931c7ee91d255

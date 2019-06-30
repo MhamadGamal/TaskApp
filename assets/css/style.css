@@ -173,7 +173,7 @@ section .section-title {
   bottom: -40px;
 }
 
-.transition, header .navbar, header .navbar .login-btn, #sub-services .item, #task-details .offers-list .offer-item, .pagination .page-item a {
+.transition, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-list .offer-item, .pagination .page-item a {
   transition: all ease-in-out .4s;
   -webkit-transition: all ease-in-out .4s;
   -moz-transition: all ease-in-out .4s;
@@ -322,6 +322,55 @@ i.fas, i.far {
           align-items: center;
 }
 
+.accord {
+  margin: 30px 0;
+}
+
+.accord .accord-item {
+  border: 1px solid #e2e2e2;
+  margin: 10px 0;
+  padding: 10px 20px;
+}
+
+.accord .accord-item .accord-link {
+  display: block;
+  position: relative;
+  font-size: 20px;
+  padding: 5px 0;
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+  color: #212121;
+}
+
+.accord .accord-item .accord-link i {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.accord .accord-item .accord-link.active, .accord .accord-item .accord-link:hover {
+  color: #7c2da2;
+}
+
+.accord .accord-item .accord-link.active i, .accord .accord-item .accord-link:hover i {
+  color: #7c2da2;
+}
+
+.accord .accord-item .item-content {
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.terms p {
+  font-size: 14px;
+  margin: 0;
+}
+
 /*============================  Start Header Styling  ===============================*/
 header {
   height: 100vh;
@@ -330,37 +379,6 @@ header {
   background-position: 0 60px;
   background-size: cover;
   position: relative;
-}
-
-header .navbar {
-  background-color: #fff;
-  padding: 10px 0;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-header .navbar .navbar-brand {
-  font-size: 2rem;
-}
-
-header .navbar .nav-item .nav-link {
-  color: #7c2da2;
-}
-
-header .navbar .nav-item.active .nav-link {
-  font-weight: bold;
-}
-
-header .navbar .login-btn {
-  color: #7c2da2;
-  border: 1px solid #7c2da2;
-  padding: 5px 15px;
-  margin-left: 10px;
-}
-
-header .navbar .login-btn:hover {
-  background-color: #7c2da2;
-  color: #fff;
 }
 
 header .header-content {
@@ -411,6 +429,37 @@ header#subCatHead:before {
 
 header.customer {
   background-image: none;
+}
+
+.navbar {
+  background-color: #fff;
+  padding: 10px 0;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .navbar-brand {
+  font-size: 2rem;
+}
+
+.navbar .nav-item .nav-link {
+  color: #7c2da2;
+}
+
+.navbar .nav-item.active .nav-link {
+  font-weight: bold;
+}
+
+.navbar .login-btn {
+  color: #7c2da2;
+  border: 1px solid #7c2da2;
+  padding: 5px 15px;
+  margin-left: 10px;
+}
+
+.navbar .login-btn:hover {
+  background-color: #7c2da2;
+  color: #fff;
 }
 
 .navbar-toggler:not(:disabled):not(.disabled) {
@@ -1609,6 +1658,13 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #contact-us #contact .form-group:last-child input {
   width: 20%;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 /*======== /contact page ===========*/

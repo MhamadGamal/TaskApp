@@ -47,6 +47,12 @@ let loginnedNavbar = `
 </nav>
 
 `;
+
+
+
+
+
+
 let mainCategoryArr = [], subCategoryArr = [];
 $.get("http://88.80.184.99/tasker/web/api/main/catgeory", function(data){
     let d = data;
@@ -72,6 +78,13 @@ function getCategory(id){
 }
 
 $(function(){
+    
+    if(localStorage.getItem("CurrentUserType") == "user"){
+        $(".navbar").html(loginnedNavbar);
+    }else if(localStorage.getItem("CurrentUserType") == "supplier"){
+        //$(".navbar").html(loginnedNavbar);
+    }
+    
     $(document).on("click","[href='#'], [type='submit']", function(e){
         e.preventDefault()
     })
@@ -100,6 +113,12 @@ $(function(){
     });
     
 
-
+    //accordian
+    $(".accord-item ").on("click",".accord-link", function(e){
+        e.preventDefault();
+        $(this).find("i").toggleClass("fa-chevron-up")
+        $(this).addClass("active").parent().siblings().find("a.accord-link").removeClass("active");
+        $(this).siblings(".item-content").slideToggle().parent().siblings().find(".item-content").slideUp();
+    });
 
 });
