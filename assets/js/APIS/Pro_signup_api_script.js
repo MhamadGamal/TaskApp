@@ -18,7 +18,7 @@ $(function(){
      for( let item of categoryArr ){
      wrapper += `
          <div class="custom-control custom-checkbox">
-             <input type="checkbox" class="custom-control-input" value="${item.name_en}"  id="${item.name_en}">
+             <input type="checkbox" class="custom-control-input" value="${item.name_en}" data-id="${item.id}"  id="${item.name_en}">
              <label class="custom-control-label" for="${item.name_en}">${item.name_en} </label>
          </div>
      `
@@ -41,7 +41,7 @@ $(function(){
             if(checkitem.checked == true ){
                 
                 divContent += `
-                    <div class="item"> ${checkitem.id} </div>
+                    <span class="item"> ${checkitem.getAttribute('data-id')},  </span>
                 `
             }
         }
