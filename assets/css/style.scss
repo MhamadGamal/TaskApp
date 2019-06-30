@@ -39,7 +39,7 @@ h1,h2,h3,h4,h5,h6, .bold{
 }
 .main-btn{
     background-color: $mainColor !important;
-    color: #fff;
+    color: #fff !important;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -89,7 +89,7 @@ ul{
     height: 100%;
 }
 .logo{
-    font-size: 1.4rem
+    font-size: 1.7rem
 }
 section{
     padding: 40px 0;
@@ -150,6 +150,7 @@ section{
 }
 .img-holder{
     overflow: hidden;
+    position: relative;
     img{
         transition: all ease-in-out 1s;
         -webkit-transition: all ease-in-out 1s;
@@ -285,17 +286,7 @@ header{
             }
         }
         
-        .navbar-toggler:not(:disabled):not(.disabled){
-            background-color: $mainColor;
-            color: #fff;
-            border: none;
-            padding: 0.45rem .75rem;
-            &:focus{
-                border: none;
-                outline: none;
-                box-shadow: none;
-            }
-        }
+        
         
     }
     .header-content{
@@ -341,10 +332,24 @@ header{
         background-image: none;
     }
 }
+.navbar-toggler:not(:disabled):not(.disabled){
+    background-color: $mainColor;
+    color: #fff ;
+    border: none;
+    padding: 0.45rem .75rem;
+    &:focus{
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+}
 .carousel-inner{
     .carousel-item{
         position: relative;
-        height: 500px;
+        height: 514px;
+        img{
+            height: 100%;
+        }
         .offer-details{
             position: absolute;
             left: 90px;
@@ -798,7 +803,40 @@ footer{
                 }
             }
         }
-        
+        .offres-slider{
+            margin-bottom: 0 !important;
+            .slick-dots{
+                bottom: 15px;
+                li{
+                    button{
+                        &::before{
+                            font-size: 18px
+                        }
+                    }
+                    &.slick-active, &:hover{
+                        button{
+                            &::before{
+                                color: #fff
+                            }
+                        }   
+                    }
+                }
+            }
+           
+        }
+        .img-holder{
+                
+            img{
+                height: auto !important;
+                &:hover{
+                    transform: none                ;
+                    -webkit-transform: none                ;
+                    -moz-transform: none                ;
+                    -ms-transform: none                ;
+                    -o-transform: none                ;
+                }
+            }
+        }
     }
 }
 /*======== /task-details  ===========*/
@@ -1402,6 +1440,23 @@ all pages
         max-width: 1066px;
         margin: 1.75rem auto;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+/////////////media//////////////////////
+@media (max-width: 991.98px)
+.navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid {
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 

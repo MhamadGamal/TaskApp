@@ -1,15 +1,3 @@
-//beforeSend: function (xhr) { xhr.setRequestHeader('key', 'Content-Type'); },
-//data: {user_name: "A12345", email: "dev.abdou@gmail.com",name:"mohamed",phone:"012838483444",password:"12345336",
-//    confirm_password:"12345336",type:"supplier",fbtoken:"testtest",device_token:"testtesttest",info:info,category:category
-//},
-//data: { email: "Hagar.abdelghafar@gmail.com", password: "000000", device_token: "test" },
-//beforeSend: function (xhr) {
-//    debugger;
-//    xhr.setRequestHeader('Header', Header);
-//},
-// headers: { 'Content-Type': 'application/json' },
-//  beforeSend: function (xhr) { xhr.setRequestHeader('Content-Type', 'application/json'); },
-
 $("#loginbtn").on("click",function (e) {
     e.preventDefault();
     let email = $("#usermail").val();
@@ -22,18 +10,130 @@ $("#loginbtn").on("click",function (e) {
             dataType: "json",
             async: false,
             cache: false,
-            timeout: 30000,
+            timeout: 3000,
             data: { 'email': email, 'password': password, 'device_token': token },
             success: function (result) {
+                debugger;
+
+                if (result.error.status==true) {
+                    var message = result.error.message;
+                    alert(message);
+                }
+                else {
+
+                    let usertoken = result.data.token;
+                    let usertype = result.data.type;
+                    if (usertoken && usertype) {
+                        localStorage.setItem('CurrentToken', usertoken);
+                        localStorage.setItem('CurrentUserType', usertype);
+                        email = "";
+                        password = "";
+                        if (localStorage.getItem("CurrentUserType") == "user") {
+                            location.href = '../../index.html';
+                        }
+                    }
+
+                    else {
+                        alert('error');
+                    }
+                }
+              
+
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
+    }
+});
+$("#fbloginbtn").on("click", function (e) {
+    debugger;
+    // initialize and setup facebook js sdk
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '2750690094972349',
+            xfbml: true,
+            version: 'v2.5'
+        });
+        FB.getLoginStatus(function (response) {
+            if (response.status === 'connected') {
+                document.getElementById('status').innerHTML = 'We are connected.';
+                document.getElementById('login').style.visibility = 'hidden';
+            } else if (response.status === 'not_authorized') {
+                document.getElementById('status').innerHTML = 'We are not logged in.'
+            } else {
+                document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+            }
+        });
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // login with facebook with extra permissions
+    function login() {
+        FB.login(function (response) {
+            if (response.status === 'connected') {
+                document.getElementById('status').innerHTML = 'We are connected.';
+                document.getElementById('login').style.visibility = 'hidden';
+            } else if (response.status === 'not_authorized') {
+                document.getElementById('status').innerHTML = 'We are not logged in.'
+            } else {
+                document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+            }
+        }, { scope: 'email' });
+    }
+
+    // getting basic user info
+    function getInfo() {
+        FB.api('/me', 'GET', { fields: 'first_name,last_name,name,id,picture.width(150).height(150)' }, function (response) {
+            document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
+        });
+    }
+
+
+    var access_token;
+    //FB.login(function (response) {
+    //    debugger;
+    //    if (response.authResponse) {
+    //        access_token = FB.getAuthResponse()['accessToken'];
+    //        console.log('Access Token = ' + access_token);
+    //        FB.api('/me', function (response) {
+    //            console.log('Good to see you, ' + response.name + '.');
+    //        });
+    //    }
+    //    else {
+    //        alert('User cancelled login or did not fully authorize.');
+    //    }
+    //}, { scope: '' });
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    if (access_token) {
+        $.ajax({
+            url: "http://88.80.184.99/tasker/web/api/logins",
+            method: 'POST',
+            data: { 'fbtoken': access_token },
+            success: function (result) {
+                debugger;
                 let usertoken = result.data.token;
                 let usertype = result.data.type;
                 if (usertoken && usertype) {
                     localStorage.setItem('CurrentToken', usertoken);
                     localStorage.setItem('CurrentUserType', usertype);
-                    //alert('Ok');
                     email = "";
                     password = "";
-                    if(localStorage.getItem("CurrentUserType") == "user"){
+                    if (localStorage.getItem("CurrentUserType") == "user") {
                         location.href = '../../index.html';
                     }
                 }

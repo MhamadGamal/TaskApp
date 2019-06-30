@@ -1,4 +1,4 @@
-let categoryArr, mainCategoryArr = [], categoryArrFiltered = [], wrapper = "";
+let categoryArr, categoryArrFiltered = [], wrapper = "";
 let target  = window.location.href.slice(window.location.href.lastIndexOf("?") +1);         
 let loginedType = localStorage.getItem("CurrentUserType");
 console.log(target);

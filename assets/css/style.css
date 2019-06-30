@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6, .bold {
 
 .main-btn {
   background-color: #7c2da2 !important;
-  color: #fff;
+  color: #fff !important;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -109,7 +109,7 @@ ul {
 }
 
 .logo {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
 }
 
 section {
@@ -183,6 +183,7 @@ section .section-title {
 
 .img-holder {
   overflow: hidden;
+  position: relative;
 }
 
 .img-holder img {
@@ -353,20 +354,6 @@ header .navbar .login-btn:hover {
   color: #fff;
 }
 
-header .navbar .navbar-toggler:not(:disabled):not(.disabled) {
-  background-color: #7c2da2;
-  color: #fff;
-  border: none;
-  padding: 0.45rem .75rem;
-}
-
-header .navbar .navbar-toggler:not(:disabled):not(.disabled):focus {
-  border: none;
-  outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 header .header-content {
   height: 100%;
   -webkit-box-align: center;
@@ -417,9 +404,27 @@ header.customer {
   background-image: none;
 }
 
+.navbar-toggler:not(:disabled):not(.disabled) {
+  background-color: #7c2da2;
+  color: #fff;
+  border: none;
+  padding: 0.45rem .75rem;
+}
+
+.navbar-toggler:not(:disabled):not(.disabled):focus {
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .carousel-inner .carousel-item {
   position: relative;
-  height: 500px;
+  height: 514px;
+}
+
+.carousel-inner .carousel-item img {
+  height: 100%;
 }
 
 .carousel-inner .carousel-item .offer-details {
@@ -901,6 +906,34 @@ footer .copyright a.active {
 
 #task-details .offers-list .offer-item .dates span i {
   color: #7c2da2 !important;
+}
+
+#task-details .offers-list .offres-slider {
+  margin-bottom: 0 !important;
+}
+
+#task-details .offers-list .offres-slider .slick-dots {
+  bottom: 15px;
+}
+
+#task-details .offers-list .offres-slider .slick-dots li button::before {
+  font-size: 18px;
+}
+
+#task-details .offers-list .offres-slider .slick-dots li.slick-active button::before, #task-details .offers-list .offres-slider .slick-dots li:hover button::before {
+  color: #fff;
+}
+
+#task-details .offers-list .img-holder img {
+  height: auto !important;
+}
+
+#task-details .offers-list .img-holder img:hover {
+  transform: none;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
 }
 
 /*======== /task-details  ===========*/
