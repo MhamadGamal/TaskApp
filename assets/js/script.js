@@ -48,11 +48,44 @@ let loginnedNavbar = `
 
 `;
 
+var slider = function(selector){
+    $(selector).slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 3,
+        accessibility: false,
+        slidesToScroll: 1,
+        responsive: [
+            {
+              breakpoint: 2500,
+              settings: {
+                slidesToShow: 3
+              }
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 2,
+                dots: false
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false
+              }
+            }
+            
+          ]
+        });
+}
 
 
 
-
-
+// get categories and sub categories
 let mainCategoryArr = [], subCategoryArr = [];
 $.get("http://88.80.184.99/tasker/web/api/main/catgeory", function(data){
     let d = data;
@@ -65,17 +98,82 @@ $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data){
 
 });
 
-function getCategory(id){
-    let allCat = mainCategoryArr.concat(subCategoryArr), targetCateg;
-    for(let categ of allCat){
-        if( categ.id == id ){
-            targetCateg = categ;
-            break;
+function getCategory(data){
+    let allCat = mainCategoryArr.concat(subCategoryArr), targetCateg, targetCategArr = [];
+    if(typeof data == "number"){
+        for(let categ of allCat){
+            if( categ.id == data ){
+                targetCateg = categ;
+                break;
+            }
         }
+        
+        
+    }else if(typeof data == "string"){
+        for(let categ of allCat){
+            if( categ.name_en.toLowerCase().includes(data) == true ){
+                targetCategArr.push(categ)
+                
+            }
+        }
+       
+        targetCateg = targetCategArr;
     }
-    console.log(allCat);
     return targetCateg;
 }
+
+// get home page testominals
+
+$.ajax({
+    url: "http://88.80.184.99/tasker/web/api/tops/suppliers",
+    method: "POST",
+    dataType: "json",
+    async: false,
+    cache: false,
+    success: function (result) {
+        let testominalsData = result.data, content = "";
+        console.log(testominalsData);
+        if (result.error.status==true) {
+            var message = result.error.message;
+            alert(message);
+        }
+        else {
+            for(let item of testominalsData){
+                if(item.reviews[0]){
+                    content += `
+                <div class="test-item">
+                    <p>
+                        ${item.reviews[0].message}
+                    </p>
+                    <div class="d-flex info">
+                        <div class="img-wrapper">
+                            <img src="http://88.80.184.99/tasker/web/${item.reviews[0].client.image}" alt="">
+                        </div>
+                        <div class="p-name">
+                            <h5>${item.reviews[0].client.name}</h5>
+                            <p class="main-color">EGYPT</p>
+                        </div>
+                    </div>
+                </div>
+                `
+                }
+            }
+
+           $(".home-testmonials .slider-gallery").html(content);
+           slider(".home-testmonials .slider-gallery");
+        }
+      
+
+    },
+    error: function (result) {
+        alert('error');
+    }
+})
+
+
+
+
+
 
 $(function(){
     
@@ -85,6 +183,51 @@ $(function(){
         //$(".navbar").html(loginnedNavbar);
     }
     
+
+    // home filter category
+    $(document).on("keyup", "#homeFilterService", function(e){
+        $("script[src *= 'api_script.js']").remove();
+        let searchVal = $(this).val();
+        let filteredArr = getCategory(String(searchVal));
+        let wrapper = "";
+        console.log(filteredArr);
+
+        if(filteredArr[0]){
+            $("#services .single-service .img-holder img").attr("src", "http://88.80.184.99/tasker/web/"+filteredArr[0].image)
+            $("#services .single-service .service-info h4").text(filteredArr[0].name_en)
+            $("#services .single-service .service-info a").text(`Check ${filteredArr[0].name_en} Services`)
+            $("#services .single-service .service-info a").attr("href", `pages/home/subcategory.html?${filteredArr[0].id}`)
+    
+        }
+        wrapper = "";
+        $("#services .slider-gallery").html("");
+        for( let item of filteredArr ){
+            wrapper += `
+                <div class="gallery-item">
+                  <div class="img-holder">
+                      <img src="${'http://88.80.184.99/tasker/web/'+item.image}" class="img-fluid" alt="">
+                  </div>
+                  <div class="item-info">
+                      <h4>
+                              ${item.name_en}
+                      </h4>
+                      <a href="pages/home/subcategory.html?${item.id}" class="btn main-btn">Check ${item.name_en} Service</a>
+                  </div>
+                </div>
+            `
+          }
+          $('#services .slider-gallery').slick("unslick");
+          $("#services .slider-gallery").html(wrapper);
+          slider("#services .slider-gallery");
+        
+          
+
+    });//filter end
+
+
+
+
+
     $(document).on("click","[href='#'], [type='submit']", function(e){
         e.preventDefault()
     })
@@ -120,5 +263,7 @@ $(function(){
         $(this).addClass("active").parent().siblings().find("a.accord-link").removeClass("active");
         $(this).siblings(".item-content").slideToggle().parent().siblings().find(".item-content").slideUp();
     });
+
+
 
 });

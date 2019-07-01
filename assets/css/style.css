@@ -173,7 +173,7 @@ section .section-title {
   bottom: -40px;
 }
 
-.transition, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-list .offer-item, .pagination .page-item a {
+.transition, .form-control, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-list .offer-item, .pagination .page-item a {
   transition: all ease-in-out .4s;
   -webkit-transition: all ease-in-out .4s;
   -moz-transition: all ease-in-out .4s;
@@ -369,6 +369,10 @@ i.fas, i.far {
 .terms p {
   font-size: 14px;
   margin: 0;
+}
+
+.form-control.error {
+  border-color: red;
 }
 
 /*============================  Start Header Styling  ===============================*/

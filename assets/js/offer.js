@@ -19,8 +19,8 @@ if(type  == "user"){
             // prepairing offers
             for(let offer of offersArr){
                 let categName = "";
-                if(getCategory(offer.category)){
-                    categName = getCategory(offer.category).name_en;
+                if(getCategory(Number(offer.category))){
+                    categName = getCategory(Number(offer.category)).name_en;
                 }else{
                     categName = "not exist";
                 }

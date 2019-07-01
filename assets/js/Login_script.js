@@ -44,7 +44,20 @@ $("#loginbtn").on("click",function (e) {
                 alert('error');
             }
         });
+    } 
+    if(!email){
+        $("#usermail").addClass("error")
+        
     }
+    if(!password){
+        $("#userpass").addClass("error")
+    }
+    $("#usermail").on("keypress", function(){
+        $(this).removeClass("error");
+    })
+    $("#userpass").on("keypress", function(){
+        $(this).removeClass("error");
+    })
 });
 $("#fbloginbtn").on("click", function (e) {
     debugger;

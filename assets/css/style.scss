@@ -300,7 +300,12 @@ i.fas , i.far{
     }
 }
 
-
+.form-control{
+    @extend .transition;
+    &.error{
+        border-color: red;
+    }
+}
 
 /*============================  Start Header Styling  ===============================*/
 header{

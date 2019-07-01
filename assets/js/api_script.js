@@ -21,40 +21,9 @@
   }
 
   $("#services .slider-wrapper .content .slider-gallery").html(wrapper);
-  $(".slider-gallery").slick({
-    dots: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 3,
-    accessibility: false,
-    slidesToScroll: 1,
-    // prevArrow: $('.slider-gallery .prev'),
-    // nextArrow: $('.slider-gallery .next'),
-    responsive: [
-        {
-          breakpoint: 2500,
-          settings: {
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 900,
-          settings: {
-            slidesToShow: 2,
-            dots: false
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: false
-          }
-        }
-        
-      ]
-    });
+
+  slider("#services .slider-gallery");
+
     let randServie = Math.floor(Math.random()* categoryArr.length);
     console.log(randServie);
     $("#services .single-service .img-holder img").attr("src", "http://88.80.184.99/tasker/web/"+categoryArr[randServie].image)
