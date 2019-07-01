@@ -66,7 +66,7 @@ $("#fbloginbtn").on("click", function (e) {
     debugger;
     window.fbAsyncInit = function () {
     FB.init({
-        appId: '2750690094972349',
+        appId: '2090271437933678',
         autoLogAppEvents : true,
         xfbml: true,
         version: 'v2.5'
