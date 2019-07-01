@@ -51,7 +51,7 @@
                             <h6 class="text-center">Or</h6>
                         
                         <div class="form-group">
-                            <a class="text-center btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> Login with Facebook</a>
+                            <a id="fbloginbtn" class="text-center btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> Login with Facebook</a>
                         </div>
                         <div class="form-group">
                             <h6 class="text-center">Don't Have Account <a href="signup.html" class="main-color">Signup</a></h6>
@@ -79,7 +79,35 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
-    <script src="../../assets/js/Login_script.js"></script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <!-- <script src="../../assets/js/Login_script.js"></script> -->
+    <script>
+    
+        setTimeout(function(){
+            debugger;
+            window.fbAsyncInit = function () {
+            FB.init({
+                appId: '2750690094972349',
+                autoLogAppEvents : true,
+                xfbml: true,
+                version: 'v2.5'
+            });
+        }
+        FB.login(function(response) {
+            if (response.authResponse) {
+            var access_token =   FB.getAuthResponse()['accessToken'];
+            console.log('Access Token = '+ access_token);
+            FB.api('/me', function(response) {
+            console.log('Good to see you, ' + response.name + '.');
+            });
+            } else {
+            console.log('User cancelled login or did not fully authorize.');
+            }
+        }, {scope: ''});
+
+        },2000)
+    
+    </script>
  
 
 </body>
