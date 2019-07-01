@@ -63,25 +63,27 @@ $("#fbloginbtn").on("click", function (e) {
     debugger;
          
     
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '2750690094972349',
-                autoLogAppEvents : true,
-                xfbml: true,
-                version: 'v2.5'
-            });
-        }
-        FB.login(function(response) {
-            if (response.authResponse) {
-            var access_token =   FB.getAuthResponse()['accessToken'];
-            console.log('Access Token = '+ access_token);
-            FB.api('/me', function(response) {
-            console.log('Good to see you, ' + response.name + '.');
-            });
-            } else {
-            console.log('User cancelled login or did not fully authorize.');
-            }
-        }, {scope: ''});
+    debugger;
+    window.fbAsyncInit = function () {
+    FB.init({
+        appId: '2750690094972349',
+        autoLogAppEvents : true,
+        xfbml: true,
+        version: 'v2.5'
+    });
+}
+FB.login(function(response) {
+    if (response.authResponse) {
+    var access_token =   FB.getAuthResponse()['accessToken'];
+    console.log('Access Token = '+ access_token);
+    FB.api('/me', function(response) {
+    console.log('Good to see you, ' + response.name + '.');
+    });
+    } else {
+    console.log('User cancelled login or did not fully authorize.');
+    }
+}, {scope: ''});
+
 
 
     //}
