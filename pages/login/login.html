@@ -88,9 +88,9 @@
               token = response;
             
               if (response.status === 'connected') {
-               
+
               } else {
-                alert('Please log into this app.' )
+                window.location.pathname = "https://www.facebook.com"
         
               }
             }
@@ -127,7 +127,35 @@
               fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
           
-            
+        if (token.authResponse.accessToken) {
+        $.ajax({
+            url: "http://88.80.184.99/tasker/web/api/logins",
+            method: 'POST',
+            data: { 'fbtoken': token.authResponse.accessToken },
+            success: function (result) {
+                debugger;
+                let usertoken = result.data.token;
+                let usertype = result.data.type;
+                if (usertoken && usertype) {
+                    localStorage.setItem('CurrentToken', usertoken);
+                    localStorage.setItem('CurrentUserType', usertype);
+                    email = "";
+                    password = "";
+                    if (localStorage.getItem("CurrentUserType") == "user") {
+                        location.href = '../../index.html';
+                    }
+                }
+
+                else {
+                    alert('error');
+                }
+
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
+    }
            
           </script>
     
