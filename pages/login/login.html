@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-     <!-- Slick -->
-     <link rel="stylesheet" href="../../assets/plugins/slick/slick.css">
-     <link rel="stylesheet" href="../../assets/plugins/slick/slick-theme.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="../../assets/plugins/slick/slick.css">
+    <link rel="stylesheet" href="../../assets/plugins/slick/slick-theme.css">
     <!-- DatePicker -->
     <link rel="stylesheet" href="../../assets/css/jquery.datepicker2.css">
     <!-- Custom Style -->
@@ -25,14 +25,15 @@
         <div class="d-flex justify-content-center">
             <div class="col-10 col-md-5">
                 <div class="login">
-                    <a class="logo bold-font main-color" href="../../index.html">Task<span class="normal-font s-color">app </span></a>
+                    <a class="logo bold-font main-color" href="../../index.html">Task<span
+                            class="normal-font s-color">app </span></a>
                     <div class="alert alert-danger" role="alert" id="alert" style="display:none">
-                        
-                      </div>
+
+                    </div>
                     <form id="loginForm" autocomplete="off">
                         <div class="form-group" id="loginEmail">
                             <label class="control-label">Email Address</label>
-                            <input id="usermail" type="email" class="form-control" >
+                            <input id="usermail" type="email" class="form-control">
                             <span></span>
                         </div>
                         <div class="form-group" id="loginPassword">
@@ -44,27 +45,30 @@
                                     <a href="forgot.html" class="main-color">Forgot Password?</a>
                                 </div>
                             </div>
-                            <input id="userpass" type="password" class="form-control" >
+                            <input id="userpass" type="password" class="form-control">
                             <span></span>
                         </div>
                         <div class="form-group">
                             <input id="loginbtn" type="submit" class="main-btn btn btn-block" value="Login">
                         </div>
-                        
-                            <h6 class="text-center">Or</h6>
-                        
+
+                        <h6 class="text-center">Or</h6>
+
                         <div class="form-group">
-                            <a onclick="checkLoginState()" id="fbloginbtn" class="text-center btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> Login with Facebook</a>
+                            <a onclick="checkLoginState()" id="fbloginbtn"
+                                class="text-center btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i> Login
+                                with Facebook</a>
                         </div>
                         <div class="form-group">
-                            <h6 class="text-center">Don't Have Account <a href="signup.html" class="main-color">Signup</a></h6>
+                            <h6 class="text-center">Don't Have Account <a href="signup.html"
+                                    class="main-color">Signup</a></h6>
                         </div>
-                    </form>                    
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-  
+
     <!-- JQUERY -->
     <script src="../../assets/js/jquery.min.js"></script>
     <!-- Bootstarp -->
@@ -77,91 +81,86 @@
     <!-- Datepicker -->
     <script src="../../assets/js/jquery.datepicker2.min.js"></script>
     <!-- API Script -->
-    <!-- <script src="../../assets/js/api_script.js"></!--> -->
+    <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
-    <!-- <script src="../../assets/js/script.js"></script>
-    <script src="../../assets/js/Login_script.js"></script> -->
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/Login_script.js"></script>
     <script>
-        var token ;
-            function statusChangeCallback(response) {
-              console.log('statusChangeCallback');
-              console.log(response);
-              token = response;
-            
-              if (response.status === 'connected') {
+        var token;
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            token = response;
+        }
 
-              } else {
-                window.location.pathname = "https://www.facebook.com"
-        
-              }
-            }
-          
-            function checkLoginState() {
-              FB.getLoginStatus(function(response) {
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
                 statusChangeCallback(response);
-              });
-              if (token.authResponse.accessToken) {
-            debugger;
-        $.ajax({
-            url: "http://88.80.184.99/tasker/web/api/logins",
-            method: 'POST',
-            data: { 'fbtoken': token.authResponse.accessToken },
-            success: function (result) {
+            });
+            if (token.authResponse.accessToken) {
                 debugger;
-                let usertoken = result.data.token;
-                let usertype = result.data.type;
-                if (usertoken && usertype) {
-                    localStorage.setItem('CurrentToken', usertoken);
-                    localStorage.setItem('CurrentUserType', usertype);
-                    email = "";
-                    password = "";
-                    if (localStorage.getItem("CurrentUserType") == "user") {
-                        location.href = '../../index.html';
+                $.ajax({
+                    url: "http://88.80.184.99/tasker/web/api/logins",
+                    method: 'POST',
+                    data: { 'fbtoken': token.authResponse.accessToken },
+                    success: function (result) {
+                        debugger;
+                        let usertoken = result.data.token;
+                        let usertype = result.data.type;
+                        if (usertoken && usertype) {
+                            localStorage.setItem('CurrentToken', usertoken);
+                            localStorage.setItem('CurrentUserType', usertype);
+                            email = "";
+                            password = "";
+                            if (localStorage.getItem("CurrentUserType") == "user") {
+                                location.href = '../../index.html';
+                            }
+                        }
+
+                        else {
+                            alert('error');
+                        }
+
+                    },
+                    error: function (result) {
+                        alert('error');
                     }
-                }
-
-                else {
-                    alert('error');
-                }
-
-            },
-            error: function (result) {
-                alert('error');
+                });
+            }else{
+                window.location.href = "https://www.facebook.com"
             }
-        });
-    }
-            }
-          
-            window.fbAsyncInit = function() {
-              FB.init({
-                appId      : '378598829492854',
-                cookie     : true,  // enable cookies to allow the server to access 
-                                    // the session
-                xfbml      : true,  // parse social plugins on this page
-                version    : '2.5' // The Graph API version to use for the call
-              });
-          
-             
-          
-              FB.getLoginStatus(function(response) {
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '378598829492854',
+                cookie: true,  // enable cookies to allow the server to access 
+                // the session
+                xfbml: true,  // parse social plugins on this page
+                version: '2.5' // The Graph API version to use for the call
+            });
+
+
+
+            FB.getLoginStatus(function (response) {
                 statusChangeCallback(response);
-              });
-          
-            };
-          
-            // Load the SDK asynchronously
-            (function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s); js.id = id;
-              js.src = "https://connect.facebook.net/en_US/all.js";
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-          
-            
-          </script>
-    
- 
+            });
+
+        };
+
+        // Load the SDK asynchronously
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+    </script>
+
+
 </body>
 
 </html>
