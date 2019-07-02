@@ -84,10 +84,10 @@
     <script>
             function statusChangeCallback(response) {
               console.log('statusChangeCallback');
-              console.log(response);
+              console.log(response.authResponse.accessToken);
             
               if (response.status === 'connected') {
-               
+                
               } else {
                 alert('Please log into this app.' )
         
