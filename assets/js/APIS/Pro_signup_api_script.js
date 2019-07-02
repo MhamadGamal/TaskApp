@@ -43,7 +43,7 @@ $(function(){
                 divContent += `${checkitem.getAttribute('data-id')},`
             }
         }
-        $("#providersServices").html(divContent);
+        $("#providersServices").html(divContent).removeClass("error");
         $("#providersCategories").modal("hide")
 
 

@@ -6,6 +6,23 @@ $("#CustomerRegisterbtn").on("click", function (e) {
     let phone = $("#customerMobile").val();
     let password = $("#customerPassword").val();
     let locat = $("#customerLocation").val();
+    if(!email){
+        $("#customerEmail").addClass("error")
+        
+    }
+    if(!password){
+        $("#customerPassword").addClass("error")
+    }
+    if(!user_name){
+        $("#customerUserName").addClass("error")
+        
+    }
+    if(!phone){
+        $("#customerMobile").addClass("error")
+    }
+    if(!locat){
+        $("#customerLocation").addClass("error")
+    }
     if (password && phone && user_name && email && password) {
       $.ajax({
             url: "http://88.80.184.99/tasker/web/api/adds/users",
@@ -22,8 +39,6 @@ $("#CustomerRegisterbtn").on("click", function (e) {
                 "password":password,
                 "confirm_password":password,
                 "type": "user",
-                "fbtoken": "testtest",
-                "device_token": "testtesttest",
                 "info": {
                     "location": locat,
                     "lang": "554.5",
@@ -58,26 +73,8 @@ $("#CustomerRegisterbtn").on("click", function (e) {
             }
         });
     }
-    if(!email){
-        $("#customerEmail").addClass("error")
-        
-    }
-    if(!password){
-        $("#customerPassword").addClass("error")
-    }
-    if(!user_name){
-        $("#customerUserName").addClass("error")
-        
-    }
-    if(!phone){
-        $("#customerMobile").addClass("error")
-    }
-    if(!locat){
-        $("#customerLocation").addClass("error")
-    }
-    $(".form-control").on("keypress", function(){
-        $(this).removeClass("error");
-    })
+  
+    
 });
 $("#ProviderRegisterbtn").on("click", function (e) {
     e.preventDefault();
@@ -88,6 +85,30 @@ $("#ProviderRegisterbtn").on("click", function (e) {
     let password = $("#providerPassword").val();
     let add = $("#providersAddress").val();
     let categories = $("#providersServices").text().slice(0,-1).split(",");
+    if(!email){
+        $("#providerEmail").addClass("error")
+        
+    }
+    if(!password){
+        $("#providerPassword").addClass("error")
+    }
+    if(!user_name){
+        $("#providerUserName").addClass("error")
+        
+    }
+    if(!name){
+        $("#providerBusinessName").addClass("error")
+        
+    }
+    if(!phone){
+        $("#providerMobile").addClass("error")
+    }
+    if(!add){
+        $("#providersAddress").addClass("error")
+    }
+    if(categories.length <= 1){
+        $("#providersServices").addClass("error")
+    }
     if (password && phone && user_name && email && password && categories) {
         $.ajax({
             url: "http://88.80.184.99/tasker/web/api/adds/users",
@@ -104,8 +125,6 @@ $("#ProviderRegisterbtn").on("click", function (e) {
                 "password": password,
                 "confirm_password": password,
                 "type": "supplier",
-                "fbtoken": "testtest",
-                "device_token": "testtesttest",
                 "info": {
                     "location": "egy",
                     "lang": "554.5",
@@ -140,6 +159,9 @@ $("#ProviderRegisterbtn").on("click", function (e) {
 $("#confirmVerify").on("click", function (e) {
     e.preventDefault();
     let code = $("#verify").val();
+    if(!code){
+        $("#verify").addClass("error")
+    }
     if (code) {
         let currtoken = localStorage.getItem('CurrentToken');
         let currusertype = localStorage.getItem('CurrentToken');
@@ -185,4 +207,7 @@ $("#confirmVerify").on("click", function (e) {
     }
 });
 
-
+//remove validatios
+$(".form-control").on("keypress", function(){
+    $("#alert").fadeOut()
+})

@@ -50,8 +50,6 @@ let loginnedNavbar = `
 
 function slider(selector){
     $(selector).slick({
-        dots: true,
-        autoplay: true,
         autoplaySpeed: 2000,
         slidesToShow: 3,
         accessibility: false,
@@ -271,7 +269,7 @@ $(function(){
     });
     
     //remove validatios
-    $(".form-control").on("keypress", function(){
+    $(".error").on("keypress", function(){
         $(this).removeClass("error");
     })
 

@@ -5,7 +5,13 @@ $("#loginbtn").on("click",function (e) {
     let token = "test";
 
 
-
+    if(!email){
+        $("#usermail").addClass("error")
+        
+    }
+    if(!password){
+        $("#userpass").addClass("error")
+    }
     if (email && password) {
         var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{5})$/;
         if(email.match(phoneno)){
@@ -80,6 +86,8 @@ $("#loginbtn").on("click",function (e) {
                             password = "";
                             if (localStorage.getItem("CurrentUserType") == "user") {
                                 location.href = '../../index.html';
+                            }else{
+                                location.href = '../../index.html';
                             }
                         }
     
@@ -99,13 +107,7 @@ $("#loginbtn").on("click",function (e) {
             });
         }
     } 
-    if(!email){
-        $("#usermail").addClass("error")
-        
-    }
-    if(!password){
-        $("#userpass").addClass("error")
-    }
+   
   
    
 });
