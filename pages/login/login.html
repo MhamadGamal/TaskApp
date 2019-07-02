@@ -86,7 +86,8 @@
               console.log('statusChangeCallback');
               console.log(response);
               console.log("dcdfa");
-              console.log(response.authResponse.accessToken);
+              var token  = response.authResponse.accessToken;
+               console.log(token);
             
               if (response.status === 'connected') {
                 
