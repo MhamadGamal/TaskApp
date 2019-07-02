@@ -85,12 +85,10 @@
             function statusChangeCallback(response) {
               console.log('statusChangeCallback');
               console.log(response);
-              console.log("dcdfa");
-              var token  = response;
-               console.log(token);
+              token = response;
             
               if (response.status === 'connected') {
-                
+               
               } else {
                 alert('Please log into this app.' )
         
