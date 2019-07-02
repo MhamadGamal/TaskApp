@@ -48,7 +48,7 @@ let loginnedNavbar = `
 
 `;
 
-var slider = function(selector){
+function slider(selector){
     $(selector).slick({
         dots: true,
         autoplay: true,
@@ -140,6 +140,12 @@ $.ajax({
         else {
             for(let item of testominalsData){
                 if(item.reviews[0]){
+                    if(item.image){
+                        img = item.image
+                    }else{
+                        img = "image20190622114818.png"
+                    }
+
                     content += `
                 <div class="test-item">
                     <p>
@@ -147,10 +153,10 @@ $.ajax({
                     </p>
                     <div class="d-flex info">
                         <div class="img-wrapper">
-                            <img src="http://88.80.184.99/tasker/web/${item.reviews[0].client.image}" alt="">
+                            <img src="http://88.80.184.99/tasker/web/${img}" alt="">
                         </div>
                         <div class="p-name">
-                            <h5>${item.reviews[0].client.name}</h5>
+                            <h5>${item.name}</h5>
                             <p class="main-color">EGYPT</p>
                         </div>
                     </div>
@@ -263,7 +269,10 @@ $(function(){
         $(this).addClass("active").parent().siblings().find("a.accord-link").removeClass("active");
         $(this).siblings(".item-content").slideToggle().parent().siblings().find(".item-content").slideUp();
     });
-
-
+    
+    //remove validatios
+    $(".form-control").on("keypress", function(){
+        $(this).removeClass("error");
+    })
 
 });

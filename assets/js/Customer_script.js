@@ -3,7 +3,6 @@ $("#CustomerRegisterbtn").on("click", function (e) {
     e.preventDefault();
     let user_name = $("#customerUserName").val();
     let email = $("#customerEmail").val();
-    let name = $("#customerUserName").val();
     let phone = $("#customerMobile").val();
     let password = $("#customerPassword").val();
     let locat = $("#customerLocation").val();
@@ -36,7 +35,8 @@ $("#CustomerRegisterbtn").on("click", function (e) {
             success: function (result) {
                 if (result.error.status == true) {
                     var message = result.error.message;
-                    alert(message);
+                    $("#alert").fadeIn().html(message);                
+                //alert('error');
                 }
                 else {
                     let usertoken = result.data.token;
@@ -52,10 +52,32 @@ $("#CustomerRegisterbtn").on("click", function (e) {
             },
             error: function (result) {
                 debugger;
-                alert('error');
+                
+                $("#alert").fadeIn().html("error in entered data");                
+                //alert('error');
             }
         });
     }
+    if(!email){
+        $("#customerEmail").addClass("error")
+        
+    }
+    if(!password){
+        $("#customerPassword").addClass("error")
+    }
+    if(!user_name){
+        $("#customerUserName").addClass("error")
+        
+    }
+    if(!phone){
+        $("#customerMobile").addClass("error")
+    }
+    if(!locat){
+        $("#customerLocation").addClass("error")
+    }
+    $(".form-control").on("keypress", function(){
+        $(this).removeClass("error");
+    })
 });
 $("#ProviderRegisterbtn").on("click", function (e) {
     e.preventDefault();
@@ -65,7 +87,8 @@ $("#ProviderRegisterbtn").on("click", function (e) {
     let phone = $("#providerMobile").val();
     let password = $("#providerPassword").val();
     let add = $("#providersAddress").val();
-    if (password && phone && user_name && email && password) {
+    let categories = $("#providersServices").text().slice(0,-1).split(",");
+    if (password && phone && user_name && email && password && categories) {
         $.ajax({
             url: "http://88.80.184.99/tasker/web/api/adds/users",
             method: 'POST',
@@ -89,12 +112,13 @@ $("#ProviderRegisterbtn").on("click", function (e) {
                     "lant": "544.54",
                     "address": add
                 },
-                "category": ["1", "2", "3"]
+                "category": categories
             },
             success: function (result) {
                 if (result.error.status == true) {
                     var message = result.error.message;
-                    alert(message);
+                    $("#alert").fadeIn().html(message);                
+                    //alert('error');
                 }
                 else {
                     let usertoken = result.data.token;
@@ -107,8 +131,8 @@ $("#ProviderRegisterbtn").on("click", function (e) {
 
             },
             error: function (result) {
-              
-                alert('error');
+                $("#alert").fadeIn().html("error in entered data");                           
+                //alert('error');
             }
         });
     }
@@ -133,17 +157,18 @@ $("#confirmVerify").on("click", function (e) {
             success: function (result) {
                 if (result.error.status == true) {
                     var message = result.error.message;
-                    alert(message);
+                    $("#alert").fadeIn().html(message);                
+                    //alert('error');
                 }
                 else {
 
-                    if (CurrentUserType =="user") {
-                        console.log(CurrentUserType);
+                    if (currusertype =="user") {
+                        console.log(currusertype);
                         window.location.pathname = 'pages/login/customer-confirmed.html';
                     }
 
                     else {
-                        console.log(CurrentUserType);
+                        console.log(currusertype);
                         window.location.pathname = 'pages/login/provider-confirmed.html';
 
                     }
@@ -152,7 +177,9 @@ $("#confirmVerify").on("click", function (e) {
 
             },
             error: function (result) {
-                alert('error');
+                $("#alert").fadeIn().html("error in entered data");                
+               
+                //alert('error');
             }
         });
     }

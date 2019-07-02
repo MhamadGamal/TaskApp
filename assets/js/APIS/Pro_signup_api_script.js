@@ -40,9 +40,7 @@ $(function(){
         for(let checkitem of checkbox){
             if(checkitem.checked == true ){
                 
-                divContent += `
-                    <span class="item"> ${checkitem.getAttribute('data-id')},  </span>
-                `
+                divContent += `${checkitem.getAttribute('data-id')},`
             }
         }
         $("#providersServices").html(divContent);

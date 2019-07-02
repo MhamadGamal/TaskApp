@@ -1,5 +1,5 @@
 let categoryArr, categoryArrFiltered = [], wrapper = "";
-let target  = window.location.href.slice(window.location.href.lastIndexOf("?") +1);         
+let target  = Number(window.location.href.slice(window.location.href.lastIndexOf("?") +1));         
 let loginedType = localStorage.getItem("CurrentUserType");
 console.log(target);
 
@@ -54,12 +54,13 @@ $.ajax({
     dataType: "json",
     async: false,
     cache: false,
-    data: JSON.stringify({category: target}),
+    data: {"category": target},
     success: function (result) {
         let testominalsData = result.data, content = "";
         console.log("result");
         console.log(result);
         console.log(target);
+        console.log(typeof target);
         
         if (result.error.status==true) {
             var message = result.error.message;
@@ -67,8 +68,13 @@ $.ajax({
         }
         else {
             for(let item of testominalsData){
-                console.log("sss", item);
                 if(item.reviews[0]){
+                    if(item.image){
+                        img = item.image
+                    }else{
+                        img = "image20190622114818.png"
+                    }
+
                     content += `
                 <div class="test-item">
                     <p>
@@ -76,10 +82,10 @@ $.ajax({
                     </p>
                     <div class="d-flex info">
                         <div class="img-wrapper">
-                            <img src="http://88.80.184.99/tasker/web/${item.reviews[0].client.image}" alt="">
+                            <img src="http://88.80.184.99/tasker/web/${img}" alt="">
                         </div>
                         <div class="p-name">
-                            <h5>${item.reviews[0].client.name}</h5>
+                            <h5>${item.name}</h5>
                             <p class="main-color">EGYPT</p>
                         </div>
                     </div>

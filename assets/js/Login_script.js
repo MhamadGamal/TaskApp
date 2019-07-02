@@ -17,7 +17,7 @@ $("#loginbtn").on("click",function (e) {
 
                 if (result.error.status==true) {
                     var message = result.error.message;
-                    alert(message);
+                    $("#alert").fadeIn().html(message);
                 }
                 else {
 
@@ -34,14 +34,17 @@ $("#loginbtn").on("click",function (e) {
                     }
 
                     else {
-                        alert('error');
+                    $("#alert").fadeIn().html(message);
+                    //alert('error');
                     }
                 }
               
 
             },
             error: function (result) {
-                alert('error');
+                
+                $("#alert").fadeIn().html(message);                
+                //alert('error');
             }
         });
     } 
@@ -52,37 +55,30 @@ $("#loginbtn").on("click",function (e) {
     if(!password){
         $("#userpass").addClass("error")
     }
-    $("#usermail").on("keypress", function(){
-        $(this).removeClass("error");
-    })
-    $("#userpass").on("keypress", function(){
-        $(this).removeClass("error");
-    })
+  
+   
 });
 $("#fbloginbtn").on("click", function (e) {
     debugger;
-         
-    
-    debugger;
-    window.fbAsyncInit = function () {
-    FB.init({
-        appId: '2090271437933678',
-        autoLogAppEvents : true,
-        xfbml: true,
-        version: 'v2.5'
-    });
-}
-FB.login(function(response) {
-    if (response.authResponse) {
-    var access_token =   FB.getAuthResponse()['accessToken'];
-    console.log('Access Token = '+ access_token);
-    FB.api('/me', function(response) {
-    console.log('Good to see you, ' + response.name + '.');
-    });
-    } else {
-    console.log('User cancelled login or did not fully authorize.');
-    }
-}, {scope: ''});
+            
+    // FB.init({
+    //     appId: '{2090271437933678}',
+    //     autoLogAppEvents : true,
+    //     xfbml: true,
+    //     version: 'v2.7'
+    // });
+
+// FB.login(function(response) {
+//     if (response.authResponse) {
+//     var access_token =   FB.getAuthResponse()['accessToken'];
+//     console.log('Access Token = '+ access_token);
+//     FB.api('/me', function(response) {
+//     console.log('Good to see you, ' + response.name + '.');
+//     });
+//     } else {
+//     console.log('User cancelled login or did not fully authorize.');
+//     }
+// }, {scope: ''});
 
 
 
