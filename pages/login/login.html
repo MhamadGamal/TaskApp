@@ -86,10 +86,10 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '{your-app-id}',
+      appId      : '378598829492854',
       cookie     : true,
       xfbml      : true,
-      version    : '{api-version}'
+      version    : '2.7'
     });
       
     FB.AppEvents.logPageView();   
@@ -105,7 +105,11 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
     
- 
+<script>
+        FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+</script>
 </body>
 
 </html>
