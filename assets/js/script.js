@@ -49,7 +49,6 @@ let loginnedNavbar = `
 `;
 
 let providerNavbar = `
-<nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
     <a class="navbar-brand logo bold-font main-color" href="../../index.html">Task<span
             class="normal-font s-color">app </span></a>
@@ -63,28 +62,22 @@ let providerNavbar = `
                 <a class="nav-link main-btn px-3 py-2 normal" href="addNOffer.html">Add New Offer </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../provider/Providers.html">Providers</a>
+                <a class="nav-link" href="pages/provider/Providers.html">Providers</a>
             </li>
-            <li class="nav-item notify dropdown">
-                <a class="nav-link dropdown-toggle " href="bookings.html" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">My Bookings</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
-                    <a class="dropdown-item" href="booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>Ratings</a>
-                </div>
+            <li class="nav-item notify ">
+                <a class="nav-link " href="pages/provider/bookings.html">My Bookings</a>
+               
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="../../assets/img/client/user.png" alt="" srcset="">
+                    <img src="assets/img/client/user.png" alt="" srcset="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="profile.html"> <i class="fas fa-user"></i>Profile</a>
-                    <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My Account</a>
-                    <a class="dropdown-item" href="credit.html"> <i class="far fa-credit-card"></i> My Credit</a>
-                    <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
+                    <a class="dropdown-item" href="pages/provider/profile.html"> <i class="fas fa-user"></i>Profile</a>
+                    <a class="dropdown-item" href="pages/provider/account.html"> <i class="far fa-address-card"></i> My Account</a>
+                    <a class="dropdown-item" href="pages/provider/credit.html"> <i class="far fa-credit-card"></i> My Credit</a>
+                    <a class="dropdown-item" href="pages/provider/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                     <div class="dropdown-divider"></div>
                     <a id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
@@ -96,8 +89,7 @@ let providerNavbar = `
         </a> -->
     </div>
 </div>
-</nav>
-`
+`;
 
 
 function slider(selector){

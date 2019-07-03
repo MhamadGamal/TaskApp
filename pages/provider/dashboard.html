@@ -20,8 +20,8 @@
 </head>
 
 <body>
-     <!-- NAVBAR -->
-     <nav class="navbar navbar-expand-lg fixed-top">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand logo bold-font main-color" href="../../index.html">Task<span
                     class="normal-font s-color">app </span></a>
@@ -37,15 +37,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../provider/Providers.html">Providers</a>
                     </li>
-                    <li class="nav-item notify dropdown">
-                        <a class="nav-link dropdown-toggle " href="bookings.html" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">My Bookings</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
-                            <a class="dropdown-item" href="booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>Ratings</a>
-                        </div>
+                    <li class="nav-item notify ">
+                        <a class="nav-link " href="bookings.html">My Bookings</a>
+
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -54,8 +48,10 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="profile.html"> <i class="fas fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My Account</a>
-                            <a class="dropdown-item" href="credit.html"> <i class="far fa-credit-card"></i> My Credit</a>
+                            <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My
+                                Account</a>
+                            <a class="dropdown-item" href="credit.html"> <i class="far fa-credit-card"></i> My
+                                Credit</a>
                             <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
                             <div class="dropdown-divider"></div>
                             <a id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -75,270 +71,143 @@
     <section id="task-preview" class="grey-bg page-content">
         <div class="container">
             <div class="page-content-head">
-                <h4>Moving help Service</h4>
+                <h4>My Dashboard</h4>
             </div>
-            <!-- <div class="other-Service">
-                <div class="text-right">
-                    <span>Is Moving help not the right task? Choose other Service</span>
-                    <a href="#">Choose other Service</a>
-                </div>
-            </div> -->
-            <div class="box-content">
-                <div class="details-head box-head bold-font">
-                    <h5>
-                        step
-                        <span>(2/3):</span>
-                    </h5>
-                    <span>Choose your provider</span>
-                </div>
-                <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="pill" href="#TaskDetails">Task Details</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#offers">offers <span
-                                    class="offers-num">(45)</span></a>
-                        </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#Messages">Messages</a>
-                    </li>
-                
-                </ul>
-                <div class="tab-content">
-                    <div id="TaskDetails" class="container tab-pane active">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="details">
-                                    <div>
-                                        <h6>start address</h6>
-                                        <i class="fas fa-map-marker-alt">
-                                            <span>Ilford Station ATM, Ilford</span>
-                                        </i>
-                                    </div>
-                                    <div>
-                                        <h6>Destination</h6>
-                                        <i class="fas fa-map-marker-alt">
-                                            <span>Ilford Station ATM, Ilford</span>
-                                        </i>
-                                    </div>
-                                    <div>
-                                        <h6>Service Details</h6>
-                                        <p>Lorem Ipsum is simply dummy text of the printing
-                                            and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy
-                                            text ever since the 1500s,
-                                            when an unknown printer took a galley of type and
-                                            scrambled it to make a type specimen book.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div id="map-container-google-1" class="z-depth-1-half map-container">
-                                    <iframe
-                                        src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                        frameborder="0" style="border:0" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 text-right">
-                                <input type="submit" class="main-btn btn " value="Start Task">
-                            </div>
-                        </div>
-                    </div>
-                    <div id="Messages" class="container tab-pane fade">
-                        <h3>Messages</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing
-                            and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
-                            the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        </p>
-                    </div>
-                    <div id="offers" class="container tab-pane fade">
-                        <div class="row">
-                            <h6>Invite Providers To The Task</h6>
-                            <a href="#"><i class="fas fa-user-plus"></i>Invite Providers </a>
-                        </div>
-                        <ul class="moving-tasks-list">
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <img class="img-service" src="../../assets/img/client/service-slider2.png"
-                                            alt="" />
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="moving-tasks">
-                                            <div class="agency-tasks">
-                                                <div class="moving-agency">
-                                                    <div>
-                                                        <h5>Gamal Moving Agency</h5>
-                                                        <div class="rating">
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span>4.5</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tasks-numbers">
-                                                        <i class="fas fa-business-time"></i>
-                                                        <span>72 Moving Tasks</span>
-                                                        </i>
-                                                    </div>
-                                                </div>
-                                                <div class="check-offers">
-                                                    <a href="#" data-toggle="modal" data-target="#exampleModal">Check
-                                                        Offer</a>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing
-                                                    and typesetting industry. Lorem Ipsum has
-                                                    been the industry's standard</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+            <div class="row flex-column-reverse flex-md-row">
+                <div class="col-md-9">
+                    <div class="box-content">
+
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="pill" href="#RecievedTasks">Recieved Tasks</a>
                             </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <img class="img-service" src="../../assets/img/client/service-slider2.png"
-                                            alt="" />
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="moving-tasks">
-                                            <div class="agency-tasks">
-                                                <div class="moving-agency">
-                                                    <div>
-                                                        <h5>Gamal Moving Agency</h5>
-                                                        <div class="rating">
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span>4.5</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tasks-numbers">
-                                                        <i class="fas fa-business-time"></i>
-                                                        <span>72 Moving Tasks</span>
-                                                        </i>
-                                                    </div>
-                                                </div>
-                                                <div class="check-offers">
-                                                    <a href="#" data-toggle="modal" data-target="#exampleModal"> Check
-                                                        Offer</a>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing
-                                                    and typesetting industry. Lorem Ipsum has
-                                                    been the industry's standard</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#SentOffers">Sent Offers <span
+                                        class="offers-num">(45)</span></a>
                             </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <img class="img-service" src="../../assets/img/client/service-slider2.png"
-                                            alt="" />
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="moving-tasks">
-                                            <div class="agency-tasks">
-                                                <div class="moving-agency">
-                                                    <div>
-                                                        <h5>Gamal Moving Agency</h5>
-                                                        <div class="rating">
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span>4.5</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tasks-numbers">
-                                                        <i class="fas fa-business-time"></i>
-                                                        <span>72 Moving Tasks</span>
-                                                        </i>
-                                                    </div>
-                                                </div>
-                                                <div class="check-offers">
-                                                    <a href="#" data-toggle="modal" data-target="#exampleModal">Check
-                                                        Offer </a>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing
-                                                    and typesetting industry. Lorem Ipsum has
-                                                    been the industry's standard</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#HotOffers">Hot Offers</a>
                             </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <img class="img-service" src="../../assets/img/client/service-slider2.png"
-                                            alt="" />
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="moving-tasks">
-                                            <div class="agency-tasks">
-                                                <div class="moving-agency">
-                                                    <div>
-                                                        <h5>Gamal Moving Agency</h5>
-                                                        <div class="rating">
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span>4.5</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tasks-numbers">
-                                                        <i class="fas fa-business-time"></i>
-                                                        <span>72 Moving Tasks</span>
-                                                        </i>
-                                                    </div>
-                                                </div>
-                                                <div class="check-offers">
-                                                    <a href="#" data-toggle="modal" data-target="#exampleModal">Check
-                                                        Offer </a>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing
-                                                    and typesetting industry. Lorem Ipsum has
-                                                    been the industry's standard</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+
                         </ul>
+                        <div class="tab-content">
+                            <div id="RecievedTasks" class="container tab-pane active">
+                                <ul class="moving-tasks-list">
+                                    <li class="my-1">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img class="img-service"
+                                                    src="../../assets/img/client/service-slider2.png" alt="" />
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="moving-tasks">
+                                                    <div class="agency-tasks">
+                                                        <div class="moving-agency">
+                                                            <div>
+                                                                <h5>Gamal Moving Agency</h5>
+
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="check-offers">
+                                                            <a href="#" data-toggle="modal"
+                                                                data-target="#exampleModal">Check
+                                                                Offer</a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                                <nav aria-label="...">
+                                    <ul class="pagination pagination-sm">
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#" tabindex="-1">1</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div id="SentOffers" class="container tab-pane fade">
+                                <h3>Messages</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing
+                                    and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                    ever since
+                                    the 1500s,
+                                    when an unknown printer took a galley of type and scrambled it to make a type
+                                    specimen book.
+                                </p>
+                            </div>
+                            <div id="HotOffers" class="container tab-pane fade">
+
+                                <ul class="moving-tasks-list">
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img class="img-service"
+                                                    src="../../assets/img/client/service-slider2.png" alt="" />
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="moving-tasks">
+                                                    <div class="agency-tasks">
+                                                        <div class="moving-agency">
+                                                            <div>
+                                                                <h5>Gamal Moving Agency</h5>
+                                                                <div class="rating">
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star"></span>
+                                                                    <span class="fa fa-star"></span>
+                                                                    <span>4.5</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tasks-numbers">
+                                                                <i class="fas fa-business-time"></i>
+                                                                <span>72 Moving Tasks</span>
+                                                                </i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="check-offers">
+                                                            <a href="#" data-toggle="modal"
+                                                                data-target="#exampleModal">Check
+                                                                Offer</a>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <p>Lorem Ipsum is simply dummy text of the printing
+                                                            and typesetting industry. Lorem Ipsum has
+                                                            been the industry's standard</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <nav aria-label="...">
-                    <ul class="pagination pagination-sm">
-                        <li class="page-item active">
-                            <a class="page-link" href="#" tabindex="-1">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                    </ul>
-                </nav>
+                <div class="col-md-3 ">
+                    <div class="box-content p-3">
+                        <h5 class="border-bottom p-2">Balance</h5>
+                        <div class="text-center text-danger py-3">
+                            <h6 class="m-0">Total points</h6>
+                            <h1 class="m-0">2000</h1>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </section>
