@@ -261,7 +261,13 @@
     <!-- Custom Script -->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/customerLogined-script.js"></script>
-
+    <script>
+        $(function(){
+            if(localStorage.getItem("CurrentUserType") == "supplier"){
+                $(".navbar").html(providerNavbar);
+            }
+        })
+    </script>
 </body>
 
 </html>
