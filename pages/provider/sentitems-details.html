@@ -71,7 +71,7 @@
     <section id="task-preview" class="grey-bg page-content">
         <div class="container">
             <div class="page-content-head">
-                <h4>My Dashboard</h4>
+                <h4>Service name</h4>
             </div>
 
             <div class="row flex-column-reverse flex-md-row">
@@ -80,54 +80,63 @@
 
                         <ul class="nav nav-pills" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="pill" href="#RecievedTasks">Recieved Tasks</a>
+                                <a class="nav-link active" data-toggle="pill" href="#RecievedTasks">Active Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="pill" href="#SentOffers">Sent Offers </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="pill" href="#HotOffers">Hot Offers</a>
+                                <a class="nav-link" data-toggle="pill" href="#SentOffers">Messages </a>
                             </li>
 
                         </ul>
                         <div class="tab-content">
                             <div id="RecievedTasks" class="container tab-pane active">
-                                <ul class="moving-tasks-list">
-                                    <li class="my-1">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <img class="img-service"
-                                                    src="../../assets/img/client/service-slider2.png" alt="" />
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <div class="row no-gutters">
-                                                    <div class="col-9">
-                                                        <h4 class="main-color">Service name</h4>
-                                                        <h6 class="main-color normal">Client Name</h6>
-                                                        <span class="bold">18 Sep 2019 - 18:00am</span>
+                                    <div class="panel-section" id="seeTask">
+                                    
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="row no-gutters">
+                                                            <div class="col-sm-8">
+                                                                <div class="my-2">
+                                                                    <span class="main-color">Start Address</span>
+                                                                    <p> <i class="fas fa-map-marker-alt    "></i> Ilford Station ATM, Ilford</p>
+                                                                </div>
+                                                                <div class="my-2">
+                                                                    <span class="main-color">Destination</span>
+                                                                    <p> <i class="fas fa-map-marker-alt    "></i> Ilford Station ATM, Ilford</p>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <div class="col-sm-4 text-center">
+                                                                <div>
+                                                                    <img src="../../assets/img/home/user.jpg" class="img-fluid client-image" alt="">
+                                                                </div>
+                                                                <h6 class="normal main-color m-0">Client name</h6>
+                                                                <div class="rating main-color">
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star"></span>
+                                                                    <span>4.5</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <span class="main-color">Service Details</span>
+                                                            <p> 
+                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus soluta laudantium nesciunt corporis cum deserunt quod. Porro a quis, nostrum omnis iure quo consequuntur nemo ipsa deleniti expedita commodi?
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-3 text-right">
-                                                        <a href="seeTask.html" class="seeTask main-color"> <span class="position-relative">20 points</span> <i class="fas fa-chevron-right   pt-1 "></i></a>
+                                                    <div class="col-md-4">
+                                                        <iframe src="https://maps.google.com/maps?q=manhatan&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" height="100%" style="border:0" allowfullscreen=""></iframe>
+                            
                                                     </div>
                                                 </div>
                                             </div>
+                                    
+                                    
                                         </div>
-                                    </li>
-
-
-                                </ul>
-                                <nav aria-label="..." id="RecievedTasksPaging">
-                                    <ul class="pagination pagination-sm justify-content-end">
-                                        <li class="page-item active">
-                                            <a class="page-link" href="#" tabindex="-1">1</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                    </ul>
-                                </nav>
+                               
                             </div>
                             <div id="SentOffers" class="container tab-pane fade">
                                 <ul class="moving-tasks-list">
@@ -173,65 +182,7 @@
                                     </ul>
                                 </nav>
                             </div>
-                            <div id="HotOffers" class="container tab-pane fade">
-
-                                <ul class="moving-tasks-list">
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <img class="img-service"
-                                                    src="../../assets/img/client/service-slider2.png" alt="" />
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <div class="moving-tasks">
-                                                    <div class="agency-tasks">
-                                                        <div class="moving-agency">
-                                                            <div>
-                                                                <h5>Gamal Moving Agency</h5>
-                                                                <div class="rating">
-                                                                    <span class="fa fa-star checked"></span>
-                                                                    <span class="fa fa-star checked"></span>
-                                                                    <span class="fa fa-star checked"></span>
-                                                                    <span class="fa fa-star"></span>
-                                                                    <span class="fa fa-star"></span>
-                                                                    <span>4.5</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tasks-numbers">
-                                                                <i class="fas fa-business-time"></i>
-                                                                <span>72 Moving Tasks</span>
-                                                                </i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="check-offers">
-                                                            <a href="#" data-toggle="modal"
-                                                                data-target="#exampleModal">Check
-                                                                Offer</a>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing
-                                                            and typesetting industry. Lorem Ipsum has
-                                                            been the industry's standard</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <nav aria-label="..." id="HotOffers">
-                                    <ul class="pagination pagination-sm justify-content-end">
-                                        <li class="page-item active">
-                                            <a class="page-link" href="#" tabindex="-1">1</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
+                           
                         </div>
 
                     </div>
