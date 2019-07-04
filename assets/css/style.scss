@@ -16,10 +16,14 @@ body {
     font-family: "normal", cursive;
     color: #212121
 }
-span{
-    font-size: 14px;
-}
-h1,h2,h3,h4,h5,h6, .bold{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.bold {
     font-weight: bold !important
 }
 
@@ -65,10 +69,6 @@ h1,h2,h3,h4,h5,h6, .bold{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     padding: 6px 15px;
-    i{
-        color: #fff !important;
-        margin-right: 5px;
-    }
 
 }
 
@@ -80,6 +80,21 @@ a {
 
 a:hover {
     text-decoration: none;
+}
+
+.btn {
+    border: none;
+
+    &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    &:hover {
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, .2);
+        color: #fff
+    }
 }
 
 .btn {
@@ -141,11 +156,6 @@ button{
         }
     }
 }
-
-
-
-.btn-facebook{
-
 .btn-facebook {
     background-color: #4267b2;
     color: #fff !important
@@ -169,11 +179,6 @@ ul {
     padding: 20px;
     height: 100%;
 }
-.logo{
-    font-size: 1.7rem !important;
-    span{
-        font-size: 1.7rem !important
-    }
 
 .logo {
     font-size: 1.7rem
@@ -1328,12 +1333,6 @@ footer {
 
             }
         }
-        .seeTask{
-            span{
-                bottom: 2.5px;
-                right: 5px;
-            }
-        }
     }
 
 }
@@ -1991,6 +1990,7 @@ all pages
                         width: 105px !important;
                         height: 104px !important;
                         cursor: pointer;
+                        top: 0;
                     }
 
                     input {

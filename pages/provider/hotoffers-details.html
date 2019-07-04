@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TASKER</title>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="../../assets/plugins/fontawesome/css/all.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="../../assets/plugins/slick/slick.css">
+    <link rel="stylesheet" href="../../assets/plugins/slick/slick-theme.css">
+    <!-- DatePicker -->
+    <link rel="stylesheet" href="../../assets/css/jquery.datepicker2.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo bold-font main-color" href="../../index.html">Task<span
+                    class="normal-font s-color">app </span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> <i class="fas fa-bars    "></i> </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                    <li class="nav-item active ">
+                        <a class="nav-link main-btn px-3 py-2 normal" href="addNOffer.html">Add New Offer </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../provider/dashboard.html">My Dashboard</a>
+                    </li>
+                    <li class="nav-item notify ">
+                        <a class="nav-link " href="bookings.html">My Bookings</a>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="../../assets/img/client/user.png" alt="" srcset="">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="profile.html"> <i class="fas fa-user"></i>Profile</a>
+                            <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My
+                                Account</a>
+                            <a class="dropdown-item" href="credit.html"> <i class="far fa-credit-card"></i> My
+                                Credit</a>
+                            <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
+                            <div class="dropdown-divider"></div>
+                            <a id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <a href="../login/login.html" class="login-btn">
+                    <img src="../../assets/img/client/user.png"  alt="" srcset="">
+                
+                </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- /NAVBAR -->
+    <!--TASK-PREVIEW  -->
+    <section id="task-preview" class="grey-bg page-content">
+        <div class="container">
+            <div class="page-content-head">
+                <h4>Service name</h4>
+            </div>
+
+            <div class="row flex-column-reverse flex-md-row">
+                <div class="col-md-9">
+                    <div class="box-content">
+
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="pill" href="#RecievedTasks">Active Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#SentOffers">Messages </a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content">
+                            <div id="RecievedTasks" class="container tab-pane active">
+                                    <div class="panel-section" id="seeTask">
+                                    
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="row no-gutters">
+                                                            <div class="col-sm-8">
+                                                                <div class="my-2">
+                                                                    <span class="main-color">Start Address</span>
+                                                                    <p> <i class="fas fa-map-marker-alt    "></i> Ilford Station ATM, Ilford</p>
+                                                                </div>
+                                                                <div class="my-2">
+                                                                    <span class="main-color">Destination</span>
+                                                                    <p> <i class="fas fa-map-marker-alt    "></i> Ilford Station ATM, Ilford</p>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <div class="col-sm-4 text-center">
+                                                                <div>
+                                                                    <img src="../../assets/img/home/user.jpg" class="img-fluid client-image" alt="">
+                                                                </div>
+                                                                <h6 class="normal main-color m-0">Client name</h6>
+                                                                <div class="rating main-color">
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star checked"></span>
+                                                                    <span class="fa fa-star"></span>
+                                                                    <span>4.5</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <span class="main-color">Service Details</span>
+                                                            <p> 
+                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus soluta laudantium nesciunt corporis cum deserunt quod. Porro a quis, nostrum omnis iure quo consequuntur nemo ipsa deleniti expedita commodi?
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <iframe src="https://maps.google.com/maps?q=manhatan&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" height="100%" style="border:0" allowfullscreen=""></iframe>
+                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
+                                    
+                                        </div>
+                               
+                            </div>
+                            <div id="SentOffers" class="container tab-pane fade">
+                                <ul class="moving-tasks-list">
+                                    <li class="my-2 border p-2">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img class="img-service"
+                                                    src="../../assets/img/client/service-slider2.png" alt="" />
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="moving-tasks">
+                                                    <div class="agency-tasks">
+                                                        <div class="moving-agency">
+                                                            <div class="d-flex">
+                                                                <h6 class="main-color m-0 mr-2"><a href="sentitems-details.html">Gamal Moving Agency</a></h6>
+                                                                <p class="main-color m-0">Client name</p>
+                                                            </div>
+                                                            <span class="date">18 Sep 2019 at 18:00 am</span>
+                                                            <p class="mt-3">
+                                                                    My Offer Description My Offer Description My Offer Description My Offer Description typesetting industry printing and industry...
+                                                            </p>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                                <nav aria-label="..." id="SentOffers">
+                                    <ul class="pagination pagination-sm justify-content-end">
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#" tabindex="-1">1</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                           
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="box-content p-3">
+                        <h5 class="border-bottom p-2">Balance</h5>
+                        <div class="text-center s-color py-3">
+                            <h6 class="m-0">Total points</h6>
+                            <h1 class="m-0">2000</h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal tasks fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <img class="img-service" src="../../assets/img/client/service-slider2.png" alt="" />
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="moving-agency">
+                                    <div>
+                                        <h5 class="bold-font">Gamal Moving Agency</h5>
+                                        <div class="rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span>4.5</span>
+                                        </div>
+                                    </div>
+                                    <div class="tasks-numbers">
+                                        <i class="fas fa-business-time"></i>
+                                        <span>72 Moving Tasks</span>
+                                        </i>
+                                    </div>
+                                    <p>
+                                        <h6 class="bold-font">Business Details</h6>
+                                        is simply dummy text of the printing
+                                        and typesetting industry. Lorem Ipsum has
+                                        been the industry's standard dummy text ever
+                                        since the 1500s, when an unknown printer took
+                                        a galley of type and scrambled it to make a type
+                                        specimen book.
+                                    </p>
+                                    <p>
+                                        <h6 class="bold-font">Provider Offer</h6>
+                                        Lorem Ipsum is simply dummy text of
+                                        the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy
+                                        text ever since the 1500s, when an unknown printer
+                                        took a galley of type and scrambled it to make a type
+                                        specimen book. It has survived not only five centuries,
+                                        but also the leap into electronic typesetting,
+                                        remaining essentially unchanged.
+                                    </p>
+                                    <div class="actions">
+                                        <input type="submit" class="main-btn btn " value="Send Message">
+                                        <input type="submit" class="main-btn btn " value="Accept Offer">
+                                    </div>
+                                    <div class="lastServiceReview">
+                                        <h6 class="bold-font">Last Service Review</h6>
+                                        <div class="ServiceReview">
+                                            <div>
+                                                <img class="img-service" src="../../assets/img/client/user.jpg"
+                                                    alt="" />
+                                            </div>
+                                            <div>
+                                                <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+                                                    consectetur, adipisci velit..."</p>
+                                                <span class="client-name"> client name</span>
+                                                <div class="date">14 Sat 2018</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/TASK-PREVIEW  -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="contact.html" class="mt-2">Contact us</a>
+                        <a href="terms.html" class="mx-2 mt-2   ">Terms & Privecy</a>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a class=" logo bold-font main-color mx-2" href="index.html">Task<span
+                                class="normal-font s-color">app </span></a>
+                        <a href="#"> <i class="fab fa-facebook-f main-color   "></i></a>
+                        <a href="#"> <i class="fab fa-twitter  main-color  "></i></a>
+                        <a href="#"> <i class="fab fa-instagram  main-color  "></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+    <!-- <input type="text" class="datepicker" data-select="datepicker"> -->
+    <!-- JQUERY -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <!-- Bootstarp -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <!-- JQUERY Validation -->
+    <script src="../../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <!-- Slick -->
+    <script src="../../assets/plugins/slick/slick.min.js"></script>
+    <!-- Datepicker -->
+    <script src="../../assets/js/jquery.datepicker2.min.js"></script>
+    <!-- Custom Script -->
+    <script src="../../assets/js/script.js"></script>
+</body>
+
+</html>
