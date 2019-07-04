@@ -19,6 +19,7 @@ span {
 }
 
 h1, h2, h3, h4, h5, h6, .bold {
+
   font-weight: bold !important;
 }
 
@@ -51,7 +52,7 @@ h1, h2, h3, h4, h5, h6, .bold {
 }
 
 .grey-bg {
-  background-color: #f9f9f9  !important;
+  background-color: #f9f9f9 !important;
 }
 
 .main-btn {
@@ -243,7 +244,8 @@ section .section-title {
   bottom: -40px;
 }
 
-.transition, .form-control, div, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-list .offer-item, .pagination .page-item a {
+.transition, .form-control,
+div, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-list .offer-item, .pagination .page-item a {
   transition: all ease-in-out .4s;
   -webkit-transition: all ease-in-out .4s;
   -moz-transition: all ease-in-out .4s;
@@ -329,6 +331,10 @@ section .section-title {
   color: #a19ea3 !important;
 }
 
+.datepicker.form-control {
+  color: #a19ea3 !important;
+}
+
 li.notify::after {
   content: '';
   width: 9px;
@@ -350,6 +356,7 @@ li.notify::after {
 
 .page-content .page-content-head {
   margin-bottom: 30px;
+  margin-top: 18px;
 }
 
 .other-Service {
@@ -379,7 +386,8 @@ footer.home-footer {
   padding: 40px 0 0 0 !important;
 }
 
-i.fas, i.far {
+i.fas,
+i.far {
   color: #a19ea3;
 }
 
@@ -441,7 +449,8 @@ i.fas, i.far {
   margin: 0;
 }
 
-.form-control.error, div.error {
+.form-control.error,
+div.error {
   border-color: red !important;
 }
 
@@ -681,7 +690,8 @@ header.customer {
           flex-direction: column;
 }
 
-#testmonials .slider-gallery .test-item .info .p-name h5, #testmonials .slider-gallery .test-item .info .p-name p {
+#testmonials .slider-gallery .test-item .info .p-name h5,
+#testmonials .slider-gallery .test-item .info .p-name p {
   margin: 0;
 }
 
@@ -841,21 +851,25 @@ footer .copyright a.active {
   -o-transform: translateY(-50%);
 }
 
-.login-wrapper .login .provider-reg img, .login-wrapper .login .customer-reg img {
+.login-wrapper .login .provider-reg img,
+.login-wrapper .login .customer-reg img {
   width: 70px !important;
 }
 
-.login-wrapper .login #cUploadImg .d-flex .img-wrapper, .login-wrapper .login #pUploadImg .d-flex .img-wrapper {
+.login-wrapper .login #cUploadImg .d-flex .img-wrapper,
+.login-wrapper .login #pUploadImg .d-flex .img-wrapper {
   width: 77px;
   height: 77px;
   margin-right: 15px;
 }
 
-.login-wrapper .login #cUploadImg .d-flex .img-wrapper img, .login-wrapper .login #pUploadImg .d-flex .img-wrapper img {
+.login-wrapper .login #cUploadImg .d-flex .img-wrapper img,
+.login-wrapper .login #pUploadImg .d-flex .img-wrapper img {
   width: 115% !important;
 }
 
-.login-wrapper .login #cUploadImg .d-flex .upload, .login-wrapper .login #pUploadImg .d-flex .upload {
+.login-wrapper .login #cUploadImg .d-flex .upload,
+.login-wrapper .login #pUploadImg .d-flex .upload {
   display: inline-block;
   padding: 10px;
   background-color: #f9f9f9;
@@ -866,7 +880,10 @@ footer .copyright a.active {
   overflow: hidden;
 }
 
-.login-wrapper .login #cUploadImg .d-flex .upload span, .login-wrapper .login #cUploadImg .d-flex .upload input, .login-wrapper .login #pUploadImg .d-flex .upload span, .login-wrapper .login #pUploadImg .d-flex .upload input {
+.login-wrapper .login #cUploadImg .d-flex .upload span,
+.login-wrapper .login #cUploadImg .d-flex .upload input,
+.login-wrapper .login #pUploadImg .d-flex .upload span,
+.login-wrapper .login #pUploadImg .d-flex .upload input {
   position: absolute;
   top: 0;
   left: 0;
@@ -875,13 +892,15 @@ footer .copyright a.active {
   text-align: center;
 }
 
-.login-wrapper .login #cUploadImg .d-flex .upload span, .login-wrapper .login #pUploadImg .d-flex .upload span {
+.login-wrapper .login #cUploadImg .d-flex .upload span,
+.login-wrapper .login #pUploadImg .d-flex .upload span {
   z-index: 2;
   line-height: 40px;
   cursor: pointer;
 }
 
-.login-wrapper .login #cUploadImg .d-flex .upload input, .login-wrapper .login #pUploadImg .d-flex .upload input {
+.login-wrapper .login #cUploadImg .d-flex .upload input,
+.login-wrapper .login #pUploadImg .d-flex .upload input {
   opacity: 0;
   z-index: 3;
 }
@@ -1100,7 +1119,7 @@ footer .copyright a.active {
 
 /*======== /waiting Page  ===========*/
 /*======== pending-offers page ===========*/
-#pending-offers ul.pending-bookings-list li {
+#pending-offers ul.pending-bookings-list li, #credit ul.pending-bookings-list li {
   border-radius: 2px;
   border: solid 1px #e2e2e2;
   background-color: #ffffff;
@@ -1108,29 +1127,29 @@ footer .copyright a.active {
   padding: 15px;
 }
 
-#pending-offers ul.pending-bookings-list li img {
+#pending-offers ul.pending-bookings-list li img, #credit ul.pending-bookings-list li img {
   margin-right: 30px;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details {
+#pending-offers ul.pending-bookings-list li .booking-details, #credit ul.pending-bookings-list li .booking-details {
   padding: 10px 0;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .details-head {
+#pending-offers ul.pending-bookings-list li .booking-details .details-head, #credit ul.pending-bookings-list li .booking-details .details-head {
   margin-bottom: 50px;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .details-head > div {
+#pending-offers ul.pending-bookings-list li .booking-details .details-head > div, #credit ul.pending-bookings-list li .booking-details .details-head > div {
   margin-bottom: 20px;
   color: #7c2da2;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .details-head h5 {
+#pending-offers ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head h5 {
   display: inline-block;
   margin-right: 10px;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers {
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers, #credit ul.pending-bookings-list li .booking-details .messges-offers {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1139,11 +1158,13 @@ footer .copyright a.active {
           justify-content: flex-end;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers span, #pending-offers ul.pending-bookings-list li .booking-details .messges-offers i {
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers span,
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers i, #credit ul.pending-bookings-list li .booking-details .messges-offers span,
+#credit ul.pending-bookings-list li .booking-details .messges-offers i {
   margin-right: 10px;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications {
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications, #credit ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications {
   width: 17px;
   height: 16px;
   border-radius: 8.8px;
@@ -1402,7 +1423,8 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           justify-content: flex-end;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers span, #pending-offers ul.pending-bookings-list li .booking-details .messges-offers i {
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers span,
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers i {
   margin-right: 10px;
 }
 
@@ -1525,7 +1547,8 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-bottom: 20px;
 }
 
-#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers i, #task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers span {
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers i,
+#task-preview .tab-content #offers ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers span {
   color: #b68bcc;
 }
 
@@ -1594,7 +1617,8 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-bottom: 20px;
 }
 
-.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers i, .modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers span {
+.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers i,
+.modal.tasks .modal-dialog .modal-content .modal-body .moving-agency .tasks-numbers span {
   color: #b68bcc;
 }
 
@@ -1713,7 +1737,12 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-right: 13px;
 }
 
-#contact-us h1, #contact-us h2, #contact-us h3, #contact-us h4, #contact-us h5, #contact-us h6 {
+#contact-us h1,
+#contact-us h2,
+#contact-us h3,
+#contact-us h4,
+#contact-us h5,
+#contact-us h6 {
   font-weight: normal !important;
 }
 
@@ -1743,8 +1772,261 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 20%;
 }
 
+/*======== add-offer Page ===========*/
+#add-offer .box-content {
+  padding: 53px 21px 13px 21px;
+}
+
+#add-offer .box-content form > h6:first-child {
+  margin-bottom: 12px;
+}
+
+#add-offer .box-content .row {
+  margin-bottom: 15px;
+}
+
+#add-offer .box-content .row .addOffer {
+  text-transform: uppercase;
+  width: 240px;
+  padding: 8px;
+}
+
+#add-offer .box-content .form-group .uploadImages .addOffer-imgUpload {
+  position: relative;
+  cursor: pointer;
+}
+
+#add-offer .box-content .form-group .uploadImages .addOffer-imgUpload img,
+#add-offer .box-content .form-group .uploadImages .addOffer-imgUpload input {
+  width: 105px !important;
+  height: 104px !important;
+  cursor: pointer;
+}
+
+#add-offer .box-content .form-group .uploadImages .addOffer-imgUpload input {
+  outline: none !important;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 79px !important;
+  height: 104px !important;
+  right: 25px;
+}
+
+#add-offer .box-content .form-group .uploadImages .addOffer-imgUpload span {
+  position: absolute;
+  right: 38px;
+  font-size: 10px;
+  bottom: 35px;
+}
+
+#add-offer .box-content .dateTime .input-container {
+  position: relative;
+}
+
+#add-offer .box-content .dateTime .input-container h6 {
+  color: #7c2da2;
+}
+
+#add-offer .box-content .dateTime .input-container input {
+  padding-left: 33px;
+}
+
+#add-offer .box-content .dateTime .input-container i {
+  position: absolute;
+  left: 6px;
+  top: 29px;
+  padding: 9px 8px;
+  color: #aaa;
+}
+
+/*======== /add-offer Page ===========*/
+/*======== provider booking Page ===========*/
+#active-bookings ul.pending-bookings-list .client-img-block,
+#Scheduled ul.pending-bookings-list .client-img-block,
+#Closed ul.pending-bookings-list .client-img-block, #credit ul.pending-bookings-list .client-img-block {
+  width: 14%;
+  margin-right: 20px;
+}
+
+#active-bookings ul.pending-bookings-list .client-img-block .client-img,
+#Scheduled ul.pending-bookings-list .client-img-block .client-img,
+#Closed ul.pending-bookings-list .client-img-block .client-img, #credit ul.pending-bookings-list .client-img-block .client-img {
+  border-radius: 12px;
+}
+
+#active-bookings ul.pending-bookings-list li,
+#Scheduled ul.pending-bookings-list li,
+#Closed ul.pending-bookings-list li, #credit ul.pending-bookings-list li {
+  border-radius: 2px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  margin-bottom: 22px;
+  padding: 15px;
+}
+
+#active-bookings ul.pending-bookings-list li img,
+#Scheduled ul.pending-bookings-list li img,
+#Closed ul.pending-bookings-list li img, #credit ul.pending-bookings-list li img {
+  margin-right: 30px;
+}
+
+#active-bookings ul.pending-bookings-list li .booking-details,
+#Scheduled ul.pending-bookings-list li .booking-details,
+#Closed ul.pending-bookings-list li .booking-details, #credit ul.pending-bookings-list li .booking-details {
+  width: 86%;
+}
+
+#active-bookings ul.pending-bookings-list li .booking-details .details-head .details,
+#Scheduled ul.pending-bookings-list li .booking-details .details-head .details,
+#Closed ul.pending-bookings-list li .booking-details .details-head .details, #credit ul.pending-bookings-list li .booking-details .details-head .details {
+  width: 80%;
+}
+
+#active-bookings ul.pending-bookings-list li .booking-details .details-head h5,
+#Scheduled ul.pending-bookings-list li .booking-details .details-head h5,
+#Closed ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head h5 {
+  margin-bottom: 0;
+}
+
+#active-bookings ul.pending-bookings-list li .booking-details .details-head p,
+#Scheduled ul.pending-bookings-list li .booking-details .details-head p,
+#Closed ul.pending-bookings-list li .booking-details .details-head p, #credit ul.pending-bookings-list li .booking-details .details-head p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 53%;
+}
+
+#active-bookings ul.pending-bookings-list li .booking-details .details-head .client-name,
+#active-bookings ul.pending-bookings-list li .booking-details .details-head h5,
+#Scheduled ul.pending-bookings-list li .booking-details .details-head .client-name,
+#Scheduled ul.pending-bookings-list li .booking-details .details-head h5,
+#Closed ul.pending-bookings-list li .booking-details .details-head .client-name,
+#Closed ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head .client-name,
+#credit ul.pending-bookings-list li .booking-details .details-head h5 {
+  color: #7c2da2;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#active-bookings ul.pending-bookings-list li .booking-details .end-task,
+#Scheduled ul.pending-bookings-list li .booking-details .end-task,
+#Closed ul.pending-bookings-list li .booking-details .end-task, #credit ul.pending-bookings-list li .booking-details .end-task {
+  display: inline-block;
+  border-radius: 4px;
+  border: solid 1px #6e1799;
+  background-color: #413e43;
+  color: #ffffff;
+  text-align: center;
+  padding: 7px 17px;
+}
+
+#active-bookings ul.pending-bookings-list li .booking-details .end-task i,
+#Scheduled ul.pending-bookings-list li .booking-details .end-task i,
+#Closed ul.pending-bookings-list li .booking-details .end-task i, #credit ul.pending-bookings-list li .booking-details .end-task i {
+  margin-right: 5px;
+}
+
+#active-bookings ul.pending-bookings-list li .offers-numbers,
+#Scheduled ul.pending-bookings-list li .offers-numbers,
+#Closed ul.pending-bookings-list li .offers-numbers, #credit ul.pending-bookings-list li .offers-numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#active-bookings ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
+#active-bookings ul.pending-bookings-list li .offers-numbers .messges-offers i,
+#Scheduled ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
+#Scheduled ul.pending-bookings-list li .offers-numbers .messges-offers i,
+#Closed ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
+#Closed ul.pending-bookings-list li .offers-numbers .messges-offers i, #credit ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
+#credit ul.pending-bookings-list li .offers-numbers .messges-offers i {
+  margin-right: 6px;
+}
+
+#active-bookings ul.pending-bookings-list li .offers-numbers .offer-num,
+#Scheduled ul.pending-bookings-list li .offers-numbers .offer-num,
+#Closed ul.pending-bookings-list li .offers-numbers .offer-num, #credit ul.pending-bookings-list li .offers-numbers .offer-num {
+  width: 17px;
+  height: 16px;
+  border-radius: 8.8px;
+  background-color: #ff3f21;
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+#active-bookings .details-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#active-bookings .details-head p {
+  width: 85%;
+}
+
+/*======== /provider booking Page ===========*/
+/*======== credit Page ===========*/
+#credit .box-content h4 {
+  font-size: 19px;
+}
+
+#credit .box-content .booking-details {
+  padding: 0;
+}
+
+#credit .box-content .booking-details .details-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 0 !important;
+}
+
+#credit .box-content .booking-details .details-head .price {
+  font-size: 22px;
+  color: #ff3f21;
+}
+
+#credit .box-content .booking-details .payement-method .payement {
+  font-size: 13px;
+}
+
+#credit .box-content .booking-details .payement-method .payement > span:first-child {
+  font-weight: bold !important;
+}
+
+#credit .box-content .booking-details .payement-method .payement > span:last-child {
+  color: #7c2da2;
+  font-weight: bold !important;
+}
+
+#credit .box-content .booking-details .payement-method .date span {
+  font-size: 13px;
+  color: #a19ea3;
+  font-weight: bold !important;
+}
+
+/*======== /credit Page ===========*/
 @media (max-width: 991.98px) {
-  .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
+  .navbar-expand-lg > .container,
+  .navbar-expand-lg > .container-fluid {
     padding-right: 10px;
     padding-left: 10px;
   }
