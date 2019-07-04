@@ -35,7 +35,7 @@
                         <a class="nav-link main-btn px-3 py-2 normal" href="addNOffer.html">Add New Offer </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../provider/Providers.html">Providers</a>
+                        <a class="nav-link" href="../provider/dashboard.html">My Dashboard</a>
                     </li>
                     <li class="nav-item notify ">
                         <a class="nav-link " href="bookings.html">My Bookings</a>
@@ -83,8 +83,7 @@
                                 <a class="nav-link active" data-toggle="pill" href="#RecievedTasks">Recieved Tasks</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="pill" href="#SentOffers">Sent Offers <span
-                                        class="offers-num">(45)</span></a>
+                                <a class="nav-link" data-toggle="pill" href="#SentOffers">Sent Offers </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="pill" href="#HotOffers">Hot Offers</a>
@@ -96,27 +95,20 @@
                                 <ul class="moving-tasks-list">
                                     <li class="my-1">
                                         <div class="row">
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <img class="img-service"
                                                     src="../../assets/img/client/service-slider2.png" alt="" />
                                             </div>
-                                            <div class="col-sm-9">
-                                                <div class="moving-tasks">
-                                                    <div class="agency-tasks">
-                                                        <div class="moving-agency">
-                                                            <div>
-                                                                <h5>Gamal Moving Agency</h5>
-
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="check-offers">
-                                                            <a href="#" data-toggle="modal"
-                                                                data-target="#exampleModal">Check
-                                                                Offer</a>
-                                                        </div>
+                                            <div class="col-sm-8">
+                                                <div class="row no-gutters">
+                                                    <div class="col-9">
+                                                        <h4 class="main-color">Service name</h4>
+                                                        <h6 class="main-color normal">Client Name</h6>
+                                                        <span class="bold">18 Sep 2019 - 18:00am</span>
                                                     </div>
-
+                                                    <div class="col-3 text-right">
+                                                        <a href="seeTask.html" class="seeTask main-color"> <span class="position-relative">20 points</span> <i class="fas fa-chevron-right   pt-1 "></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -124,8 +116,8 @@
 
 
                                 </ul>
-                                <nav aria-label="...">
-                                    <ul class="pagination pagination-sm">
+                                <nav aria-label="..." id="RecievedTasksPaging">
+                                    <ul class="pagination pagination-sm justify-content-end">
                                         <li class="page-item active">
                                             <a class="page-link" href="#" tabindex="-1">1</a>
                                         </li>
@@ -138,14 +130,48 @@
                                 </nav>
                             </div>
                             <div id="SentOffers" class="container tab-pane fade">
-                                <h3>Messages</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing
-                                    and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                                    ever since
-                                    the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book.
-                                </p>
+                                <ul class="moving-tasks-list">
+                                    <li class="my-2 border p-2">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img class="img-service"
+                                                    src="../../assets/img/client/service-slider2.png" alt="" />
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="moving-tasks">
+                                                    <div class="agency-tasks">
+                                                        <div class="moving-agency">
+                                                            <div class="d-flex">
+                                                                <h6 class="main-color m-0 mr-2">Gamal Moving Agency</h6>
+                                                                <p class="main-color m-0">Client name</p>
+                                                            </div>
+                                                            <span class="date">18 Sep 2019 at 18:00 am</span>
+                                                            <p class="mt-3">
+                                                                    My Offer Description My Offer Description My Offer Description My Offer Description typesetting industry printing and industry...
+                                                            </p>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                                <nav aria-label="..." id="SentOffers">
+                                    <ul class="pagination pagination-sm justify-content-end">
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#" tabindex="-1">1</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                    </ul>
+                                </nav>
                             </div>
                             <div id="HotOffers" class="container tab-pane fade">
 
@@ -193,6 +219,18 @@
                                         </div>
                                     </li>
                                 </ul>
+                                <nav aria-label="..." id="HotOffers">
+                                    <ul class="pagination pagination-sm justify-content-end">
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#" tabindex="-1">1</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
 
@@ -201,7 +239,7 @@
                 <div class="col-md-3 ">
                     <div class="box-content p-3">
                         <h5 class="border-bottom p-2">Balance</h5>
-                        <div class="text-center text-danger py-3">
+                        <div class="text-center s-color py-3">
                             <h6 class="m-0">Total points</h6>
                             <h1 class="m-0">2000</h1>
                         </div>

@@ -14,6 +14,10 @@ body {
   color: #212121;
 }
 
+span {
+  font-size: 14px;
+}
+
 h1, h2, h3, h4, h5, h6, .bold {
   font-weight: bold !important;
 }
@@ -62,6 +66,11 @@ h1, h2, h3, h4, h5, h6, .bold {
   padding: 6px 15px;
 }
 
+.main-btn i {
+  color: #fff !important;
+  margin-right: 5px;
+}
+
 a {
   text-decoration: none;
   color: #7c2da2;
@@ -89,6 +98,58 @@ a:hover {
   color: #fff;
 }
 
+button:focus {
+  border: none;
+  outline: none;
+}
+
+.btn-default {
+  background-color: #e2e2e2;
+}
+
+.btn-default:hover {
+  color: #212121;
+}
+
+.modal-header {
+  border-bottom: 1px solid #e2e2e2 !important;
+  padding: 10px 20px !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-header h5 {
+  margin: 0 !important;
+}
+
+.modal-header span {
+  font-size: 35px;
+}
+
+.panel-section {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.panel-section .panel-head {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.panel-section .panel-body {
+  padding: 30px 0;
+}
+
+.panel-section .panel-body .client-image {
+  max-width: 100px !important;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 .btn-facebook {
   background-color: #4267b2;
   color: #fff !important;
@@ -114,7 +175,11 @@ ul {
 }
 
 .logo {
-  font-size: 1.7rem;
+  font-size: 1.7rem !important;
+}
+
+.logo span {
+  font-size: 1.7rem !important;
 }
 
 section {
@@ -1161,6 +1226,11 @@ footer .copyright a.active {
   height: 100%;
   width: 100%;
   position: absolute;
+}
+
+#task-preview .tab-content .seeTask span {
+  bottom: 2.5px;
+  right: 5px;
 }
 
 /*======== /task-preview page ===========*/

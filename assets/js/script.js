@@ -62,7 +62,7 @@ let providerNavbar = `
                 <a class="nav-link main-btn px-3 py-2 normal" href="addNOffer.html">Add New Offer </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/provider/Providers.html">Providers</a>
+                <a class="nav-link" href="pages/provider/dashboard.html">My Dashboard</a>
             </li>
             <li class="nav-item notify ">
                 <a class="nav-link " href="pages/provider/bookings.html">My Bookings</a>
