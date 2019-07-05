@@ -445,7 +445,23 @@ div {
         border-color: red !important;
     }
 }
-
+.service-name{
+    font-size: 20px;
+}
+.offer-num {
+    width: 17px;
+    height: 16px;
+    border-radius: 8.8px;
+    background-color: #ff3f21;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    &:hover{
+        color: #fff;
+    }
+}
 /*============================  Start Header Styling  ===============================*/
 header {
     height: 100vh;
@@ -1212,7 +1228,7 @@ footer {
                         color: $mainColor;
                     }
 
-                    h5 {
+                    a.service-name {
                         display: inline-block;
                         margin-right: 10px;
                     }
@@ -1222,24 +1238,12 @@ footer {
                     display: flex;
                     justify-content: flex-end;
 
-                    span,
+                   a,
                     i {
                         margin-right: 10px;
                     }
 
                     .offers {
-
-                        .notifications {
-                            width: 17px;
-                            height: 16px;
-                            border-radius: 8.8px;
-                            background-color: #ff3f21;
-                            display: inline-block;
-                            vertical-align: middle;
-                            color: #fff;
-                            text-align: center;
-                            font-size: 12px;
-                        }
                     }
                 }
             }
@@ -2207,22 +2211,19 @@ all pages
 /*======== HotOffers-details page ===========*/
 #HotOffers-details {
     .box-content {
-        padding: 53px 20px 86px 20px;
+        padding: 53px 20px 131px 20px;
         margin-bottom: 66px;
         .carousel-indicators {
             bottom: -45px;
             margin-right: 0;
             margin-left: 0;
-
             li {
                 width: 100%;
                 border-radius: 0;
-
                 &.active {
                     background-color: transparent;
                     opacity: 0.5;
                 }
-
             }
         }
         .carousel-inner .carousel-item {
@@ -2263,3 +2264,65 @@ all pages
     }
 }
 /*======== /HotOffers-details page ===========*/
+/*======== start-work page ===========*/
+#ActiveDetails {
+    p{
+        font-size: 16.5px;
+    }
+    &>.row:nth-child(1) {
+        margin-bottom: 50px;
+    }
+    .details {
+        justify-content: space-between;
+        .clientInfo{
+            span{
+                font-size: 20px;
+            }
+            img{
+                width: 118px !important;
+                height: 118px !important;
+                border-radius: 12px;
+            }
+            .rating{
+                span{
+                    color: $mainColor;
+                    margin: 2px;
+                    font-size: 14px;
+                }
+            }
+        }
+        h6 {
+            color: $mainColor;
+            margin: 0
+        }
+        span {
+            color: #212121ab;
+        }
+    }
+    .map-container {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 263px !important;
+
+        iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+    }
+    .myOffer{
+        img{
+            width: 158px !important;
+            height: 158px !important;
+            border-radius: 12px;
+        }
+        .date{
+            color: #a19ea3;
+            font-size: 15px; 
+        }
+    }
+}
+/*======== /start-work page ===========*/

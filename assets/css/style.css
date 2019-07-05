@@ -463,6 +463,26 @@ div.error {
   border-color: red !important;
 }
 
+.service-name {
+  font-size: 20px;
+}
+
+.offer-num {
+  width: 17px;
+  height: 16px;
+  border-radius: 8.8px;
+  background-color: #ff3f21;
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+.offer-num:hover {
+  color: #fff;
+}
+
 /*============================  Start Header Styling  ===============================*/
 header {
   height: 100vh;
@@ -1153,7 +1173,7 @@ footer .copyright a.active {
   color: #7c2da2;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head h5 {
+#pending-offers ul.pending-bookings-list li .booking-details .details-head a.service-name, #credit ul.pending-bookings-list li .booking-details .details-head a.service-name {
   display: inline-block;
   margin-right: 10px;
 }
@@ -1167,22 +1187,10 @@ footer .copyright a.active {
           justify-content: flex-end;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers span,
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers i, #credit ul.pending-bookings-list li .booking-details .messges-offers span,
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers a,
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers i, #credit ul.pending-bookings-list li .booking-details .messges-offers a,
 #credit ul.pending-bookings-list li .booking-details .messges-offers i {
   margin-right: 10px;
-}
-
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications, #credit ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications {
-  width: 17px;
-  height: 16px;
-  border-radius: 8.8px;
-  background-color: #ff3f21;
-  display: inline-block;
-  vertical-align: middle;
-  color: #fff;
-  text-align: center;
-  font-size: 12px;
 }
 
 /*======== /pending-offers page ===========*/
@@ -2040,7 +2048,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 /*======== /contact page ===========*/
 /*======== HotOffers-details page ===========*/
 #HotOffers-details .box-content {
-  padding: 53px 20px 86px 20px;
+  padding: 53px 20px 131px 20px;
   margin-bottom: 66px;
 }
 
@@ -2095,4 +2103,71 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 /*======== /HotOffers-details page ===========*/
+/*======== start-work page ===========*/
+#ActiveDetails p {
+  font-size: 16.5px;
+}
+
+#ActiveDetails > .row:nth-child(1) {
+  margin-bottom: 50px;
+}
+
+#ActiveDetails .details {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#ActiveDetails .details .clientInfo span {
+  font-size: 20px;
+}
+
+#ActiveDetails .details .clientInfo img {
+  width: 118px !important;
+  height: 118px !important;
+  border-radius: 12px;
+}
+
+#ActiveDetails .details .clientInfo .rating span {
+  color: #7c2da2;
+  margin: 2px;
+  font-size: 14px;
+}
+
+#ActiveDetails .details h6 {
+  color: #7c2da2;
+  margin: 0;
+}
+
+#ActiveDetails .details span {
+  color: #212121ab;
+}
+
+#ActiveDetails .map-container {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 263px !important;
+}
+
+#ActiveDetails .map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#ActiveDetails .myOffer img {
+  width: 158px !important;
+  height: 158px !important;
+  border-radius: 12px;
+}
+
+#ActiveDetails .myOffer .date {
+  color: #a19ea3;
+  font-size: 15px;
+}
+
+/*======== /start-work page ===========*/
 /*# sourceMappingURL=style.css.map */
