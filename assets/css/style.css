@@ -2038,4 +2038,61 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 /*======== /contact page ===========*/
+/*======== HotOffers-details page ===========*/
+#HotOffers-details .box-content {
+  padding: 53px 20px 86px 20px;
+  margin-bottom: 66px;
+}
+
+#HotOffers-details .box-content .carousel-indicators {
+  bottom: -45px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#HotOffers-details .box-content .carousel-indicators li {
+  width: 100%;
+  border-radius: 0;
+}
+
+#HotOffers-details .box-content .carousel-indicators li.active {
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+#HotOffers-details .box-content .carousel-inner .carousel-item {
+  height: auto;
+}
+
+#HotOffers-details .box-content .moving-tasks p {
+  font-size: 15px;
+}
+
+#HotOffers-details .box-content .moving-tasks .moving-agency .agency {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+#HotOffers-details .box-content .moving-tasks .moving-agency .agency a {
+  font-size: 20px;
+}
+
+#HotOffers-details .box-content .moving-tasks .moving-agency .agency img {
+  width: 40px !important;
+  height: 40px !important;
+  margin-right: 10px;
+}
+
+#HotOffers-details .box-content .moving-tasks .moving-agency .tasks-numbers i {
+  color: #b68bcc !important;
+}
+
+#HotOffers-details .box-content .rating span {
+  margin: 2px;
+  font-size: 14px;
+}
+
+/*======== /HotOffers-details page ===========*/
 /*# sourceMappingURL=style.css.map */

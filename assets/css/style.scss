@@ -2201,4 +2201,65 @@ all pages
 
 
 
+
 /*======== /contact page ===========*/
+
+/*======== HotOffers-details page ===========*/
+#HotOffers-details {
+    .box-content {
+        padding: 53px 20px 86px 20px;
+        margin-bottom: 66px;
+        .carousel-indicators {
+            bottom: -45px;
+            margin-right: 0;
+            margin-left: 0;
+
+            li {
+                width: 100%;
+                border-radius: 0;
+
+                &.active {
+                    background-color: transparent;
+                    opacity: 0.5;
+                }
+
+            }
+        }
+        .carousel-inner .carousel-item {
+            height: auto;
+        }
+        .moving-tasks {
+            p {
+                font-size: 15px;
+            }
+            .moving-agency {
+                .agency {
+                    align-items: center;
+                    margin-bottom: 10px;
+
+                    a {
+                        font-size: 20px;
+                    }
+
+                    img {
+                        width: 40px !important;
+                        height: 40px !important;
+                        margin-right: 10px;
+                    }
+                }
+                .tasks-numbers {
+                    i {
+                        color: #b68bcc !important;
+                    }
+                }
+            }
+        }
+        .rating {
+            span {
+                margin: 2px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+/*======== /HotOffers-details page ===========*/
