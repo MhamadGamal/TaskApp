@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
     <!-- Custom Style -->
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
+
 <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -64,23 +66,59 @@
     </nav>
     <!-- /NAVBAR -->
     <!--RATING  -->
-    <section id="rating" class="grey-bg page-content">
+    <section id="client-rating" class="grey-bg page-content">
         <div class="container">
             <div class="page-content-head">
                 <h4>My Ratings</h4>
             </div>
             <div class="box-content">
+                <div id="Pended-rating mb-5">
+                    <ul class="Pended-rating-list">
+                        <h5 class="mb-3">Pended</h5>
+                        <li>
+                            <div class="d-flex">
+                                <div class="service-img-block">
+                                    <img class="service-img" src="../../assets/img/client/service-img.png" alt="" />
+                                </div>
+                                <div class="rating-details">
+                                    <div class="details-head">
+                                        <div class="details">
+                                            <div>
+                                                <a href="#" class="bold-font service-name ">House moving</a>
+                                            </div>
+                                            <span class="service-name mb-2 d-block">Moving Service</span>
+                                            <a href="#" class="main-btn" data-toggle="modal"
+                                                data-target="#rateProvider">Rate Now</a>
+                                        </div>
+                                        <div class="starEndDate">
+                                            <div>
+                                                <i class="fas fa-calendar-alt mr-2"></i>
+                                                <span>18 sep 2019 at 18:00 am</span>
+                                            </div>
+                                            <div class="expireDate">
+                                                <span>Expirse at:</span>
+                                                <span class="date"> 30 Sep 2019</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <ul class="rating-list">
+                    <h5 class="mb-3">All Ratings</h5>
                     <li>
                         <div class="d-flex">
-                            <div class="provider-img-block">
-                                <img class="provider-img" src="../../assets/img/provider/provider-img.jpg" alt="" />
+                            <div class="service-img-block">
+                                <img class="service-img" src="../../assets/img/client/service-img.png" alt="" />
                             </div>
                             <div class="rating-details">
                                 <div class="details-head">
                                     <div class="details">
                                         <div>
-                                            <a href="#" class="bold-font provider-name">Hasssan salm</a>
+                                            <a href="#" class="bold-font service-name ">Cleaning agency</a>
                                         </div>
                                         <span class="service-name mb-2 d-block">Cleaning Service</span>
                                         <div class="rating main-color ">
@@ -112,14 +150,14 @@
                     </li>
                     <li>
                         <div class="d-flex">
-                            <div class="provider-img-block">
-                                <img class="provider-img" src="../../assets/img/provider/provider-img.jpg" alt="" />
+                            <div class="service-img-block">
+                                <img class="service-img" src="../../assets/img/client/service-img.png" alt="" />
                             </div>
                             <div class="rating-details">
                                 <div class="details-head">
                                     <div class="details">
                                         <div>
-                                            <a href="#" class="bold-font provider-name">Mohammed</a>
+                                            <a href="#" class="bold-font service-name ">Cleaning agency</a>
                                         </div>
                                         <span class="service-name mb-2 d-block">Cleaning Service</span>
                                         <div class="rating main-color ">
@@ -151,16 +189,16 @@
                     </li>
                     <li>
                         <div class="d-flex">
-                            <div class="provider-img-block">
-                                <img class="provider-img" src="../../assets/img/provider/provider-img.jpg" alt="" />
+                            <div class="service-img-block">
+                                <img class="service-img" src="../../assets/img/client/service-img.png" alt="" />
                             </div>
                             <div class="rating-details">
                                 <div class="details-head">
                                     <div class="details">
                                         <div>
-                                            <a href="#" class="bold-font provider-name">Hisham</a>
+                                            <a href="#" class="bold-font service-name ">Cleaning agency</a>
                                         </div>
-                                        <span class="service-name mb-2 d-block">Moving Service</span>
+                                        <span class="service-name mb-2 d-block">Cleaning Service</span>
                                         <div class="rating main-color ">
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
@@ -188,25 +226,70 @@
                             </div>
                         </div>
                     </li>
+
                 </ul>
                 <!-- pagenation -->
                 <nav aria-label="...">
-                    <ul class="pagination pagination-sm">
-                        <li class="page-item active">
-                            <a class="page-link" href="#" tabindex="-1">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                    </ul>
+                        <ul class="pagination pagination-sm">
+                            <li class="page-item active">
+                                <a class="page-link" href="#" tabindex="-1">1</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                        </ul>
                 </nav>
-                <!-- /pagenation -->
+                    <!-- /pagenation -->
             </div>
         </div>
     </section>
     <!--/RATING  -->
+    <!-- rate popup -->
+    <div class="modal rateProvider fade" id="rateProvider" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="rate-provider-bolck text-center">
+                            <div class="service-img-block mb-2">
+                                <img class="service-img" src="../../assets/img/client/user.jpg" alt="" />
+
+                            </div>
+                            <a href="#" class="bold-font provider-name mb-3">Gamal Moving Agency</a>
+                            <span class="d-block mb-3">
+                                Rate Your Provider
+                            </span>
+                            <div class="rating main-color mb-3">
+                                <span class="far fa-star "></span>
+                                <!-- <i class="far fa-star"></i> -->
+                                <span class="far fa-star"></span>
+                                <span class="far fa-star"></span>
+                                <span class="far fa-star"></span>
+                                <span class="far fa-star"></span>
+                            </div>
+                            <span class="mb-3 d-block">
+                                Write your review
+                            </span>
+                            <div>
+                                <textarea class="review-provider mb-3" placeholder="Review your provider"></textarea>
+                            </div>
+                            <a href="#" class="main-btn confirmRate">Confirm Rating</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rate popup -->
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -245,4 +328,5 @@
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
 </body>
+
 </html>
