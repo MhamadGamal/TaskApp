@@ -515,6 +515,28 @@ ul.Pended-rating-list li {
   cursor: pointer;
 }
 
+.nav.nav-pills {
+  padding: 7px 17px;
+  border-bottom: solid 1px #e2e2e2;
+  margin-bottom: 30px;
+}
+
+.nav.nav-pills .nav-item .nav-link.active {
+  color: #7c2da2;
+  background-color: transparent;
+  position: relative;
+}
+
+.nav.nav-pills .nav-item .nav-link.active::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #7c2da2;
+  bottom: -8px;
+  right: 0;
+}
+
 /*============================  Start Header Styling  ===============================*/
 header {
   height: 100vh;
@@ -1231,28 +1253,6 @@ footer .copyright a.active {
   padding: 0;
 }
 
-#task-preview .nav.nav-pills {
-  padding: 7px 17px;
-  border-bottom: solid 1px #e2e2e2;
-  margin-bottom: 30px;
-}
-
-#task-preview .nav.nav-pills .nav-item .nav-link.active {
-  color: #7c2da2;
-  background-color: transparent;
-  position: relative;
-}
-
-#task-preview .nav.nav-pills .nav-item .nav-link.active::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #7c2da2;
-  bottom: -7px;
-  right: 0;
-}
-
 #task-preview .tab-content .tab-pane {
   padding: 0 25px;
 }
@@ -1856,6 +1856,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 79px !important;
   height: 104px !important;
   right: 25px;
+  z-index: -1;
 }
 
 #add-offer .box-content .form-group .uploadImages .addOffer-imgUpload span {
@@ -2400,53 +2401,61 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 /*======== /HotOffers-details page ===========*/
 /*======== start-work page ===========*/
-#ActiveDetails p {
+#start-work .box-content {
+  padding: 0;
+}
+
+#start-work .tab-content .tab-pane {
+  padding: 0 25px;
+}
+
+#start-work .tab-content #ActiveDetails p {
   font-size: 16.5px;
 }
 
-#ActiveDetails > .row:nth-child(1) {
+#start-work .tab-content #ActiveDetails > .row:nth-child(1) {
   margin-bottom: 50px;
 }
 
-#ActiveDetails .details {
+#start-work .tab-content #ActiveDetails .details {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-#ActiveDetails .details .clientInfo span {
+#start-work .tab-content #ActiveDetails .details .clientInfo span {
   font-size: 20px;
 }
 
-#ActiveDetails .details .clientInfo img {
+#start-work .tab-content #ActiveDetails .details .clientInfo img {
   width: 118px !important;
   height: 118px !important;
   border-radius: 12px;
 }
 
-#ActiveDetails .details .clientInfo .rating span {
+#start-work .tab-content #ActiveDetails .details .clientInfo .rating span {
   color: #7c2da2;
   margin: 2px;
   font-size: 14px;
 }
 
-#ActiveDetails .details h6 {
+#start-work .tab-content #ActiveDetails .details h6 {
   color: #7c2da2;
   margin: 0;
 }
 
-#ActiveDetails .details span {
+#start-work .tab-content #ActiveDetails .details span {
   color: #212121ab;
 }
 
-#ActiveDetails .map-container {
+#start-work .tab-content #ActiveDetails .map-container {
   overflow: hidden;
   padding-bottom: 56.25%;
   position: relative;
   height: 263px !important;
 }
 
-#ActiveDetails .map-container iframe {
+#start-work .tab-content #ActiveDetails .map-container iframe {
   left: 0;
   top: 0;
   height: 100%;
@@ -2454,15 +2463,145 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   position: absolute;
 }
 
-#ActiveDetails .myOffer img {
-  width: 158px !important;
-  height: 158px !important;
+#start-work .tab-content #ActiveDetails .myOffer .service-img-block {
+  width: 158px;
+  height: 158px;
+}
+
+#start-work .tab-content #ActiveDetails .myOffer .service-img-block img {
   border-radius: 12px;
 }
 
-#ActiveDetails .myOffer .date {
+#start-work .tab-content #ActiveDetails .myOffer .date {
   color: #a19ea3;
   font-size: 15px;
+}
+
+#start-work .tab-content #Messages.tab-pane {
+  padding-bottom: 35px;
+}
+
+#start-work .tab-content #Messages .provider-chat {
+  margin-bottom: 20px;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block {
+  height: 440px;
+  overflow: auto;
+  padding: 20px 25px;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .messege-date {
+  color: #a19ea3;
+  font-size: 12px;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .service-request {
+  width: 40%;
+  margin: auto;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .service-request .client-name {
+  font-weight: bold;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .client-name {
+  color: #a19ea3;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg p {
+  border-radius: 6px;
+  background-color: #7c2da2;
+  color: #fff;
+  padding: 15px;
+  margin-bottom: 2px;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg .provider-name {
+  color: #a19ea3;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg p {
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  color: #a19ea3;
+  padding: 15px;
+  margin-bottom: 2px;
+}
+
+#start-work .tab-content .sendMessges {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#start-work .tab-content .sendMessges .send {
+  width: 90%;
+}
+
+#start-work .tab-content .sendMessges .send .form-control {
+  width: 98%;
+  margin: auto;
+}
+
+#start-work .tab-content .sendMessges .imgUpload {
+  position: relative;
+}
+
+#start-work .tab-content .sendMessges .imgUpload i {
+  cursor: pointer;
+  font-size: 27px;
+}
+
+#start-work .tab-content .sendMessges .imgUpload input[type=file] {
+  outline: none !important;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  width: 27px;
+  height: 27;
+  cursor: pointer;
 }
 
 /*======== /start-work page ===========*/
@@ -2642,6 +2781,10 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   outline: none;
 }
 
+.modal.rateProvider .modal-body .review-provider:focus {
+  background-color: #fff !important;
+}
+
 .modal.rateProvider .modal-body .review-provider::-webkit-input-placeholder {
   color: #a19ea3 !important;
   text-align: center;
@@ -2668,10 +2811,6 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 .modal.rateProvider .modal-body .confirmRate {
   padding: 6px 38px;
-}
-
-textarea:focus {
-  background-color: #fff !important;
 }
 
 /*======== /client  rating  page ===========*/
