@@ -445,7 +445,83 @@ div {
         border-color: red !important;
     }
 }
+// service-name
+.service-name, .provider-name{
+    font-size: 22px;
+}
+// offer-number
+.offer-num {
+    width: 17px;
+    height: 16px;
+    border-radius: 8.8px;
+    background-color: #ff3f21;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    &:hover{
+        color: #fff;
+    }
+}
+// list Style
+ul.pending-bookings-list ,
+ul.rating-list,
+ul.Pended-rating-list
+{
+    li {
+        border-radius: 2px;
+        border: solid 1px #e2e2e2;
+        background-color: #ffffff;
+        margin-bottom: 22px;
+        padding: 15px;
+    }
+}
 
+// scroll  
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 3px;
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 20px;
+    border-radius: 3px;
+    background-color: #a19ea3;
+}
+.rating{
+    cursor: pointer;
+}
+.nav.nav-pills {
+    padding: 7px 17px;
+    border-bottom: solid 1px #e2e2e2;
+    margin-bottom: 30px;
+
+    .nav-item {
+        .nav-link.active {
+            color: $mainColor;
+            background-color: transparent;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: #7c2da2;
+                bottom: -8px;
+                right: 0;
+            }
+        }
+    }
+}
 /*============================  Start Header Styling  ===============================*/
 header {
     height: 100vh;
@@ -1188,7 +1264,9 @@ footer {
 /*======== /waiting Page  ===========*/
 
 /*======== pending-offers page ===========*/
-#pending-offers , #credit {
+#pending-offers , #credit 
+
+{
     ul.pending-bookings-list {
         li {
             border-radius: 2px;
@@ -1212,7 +1290,7 @@ footer {
                         color: $mainColor;
                     }
 
-                    h5 {
+                    a.service-name {
                         display: inline-block;
                         margin-right: 10px;
                     }
@@ -1222,24 +1300,12 @@ footer {
                     display: flex;
                     justify-content: flex-end;
 
-                    span,
+                   a,
                     i {
                         margin-right: 10px;
                     }
 
                     .offers {
-
-                        .notifications {
-                            width: 17px;
-                            height: 16px;
-                            border-radius: 8.8px;
-                            background-color: #ff3f21;
-                            display: inline-block;
-                            vertical-align: middle;
-                            color: #fff;
-                            text-align: center;
-                            font-size: 12px;
-                        }
                     }
                 }
             }
@@ -1254,31 +1320,6 @@ footer {
     .box-content {
         padding: 0;
     }
-
-    .nav.nav-pills {
-        padding: 7px 17px;
-        border-bottom: solid 1px #e2e2e2;
-        margin-bottom: 30px;
-
-        .nav-item {
-            .nav-link.active {
-                color: $mainColor;
-                background-color: transparent;
-                position: relative;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 4px;
-                    background-color: #7c2da2;
-                    bottom: -7px;
-                    right: 0;
-                }
-            }
-        }
-    }
-
     .tab-content {
         .tab-pane {
             padding: 0 25px;
@@ -1511,7 +1552,8 @@ all pages
 
 /*======== pending-offers page ===========*/
 #pending-offers {
-    ul.pending-bookings-list {
+    ul.pending-bookings-list 
+    {
         li {
             border-radius: 2px;
             border: solid 1px #e2e2e2;
@@ -1991,6 +2033,7 @@ all pages
                         height: 104px !important;
                         cursor: pointer;
                         top: 0;
+
                     }
 
                     input {
@@ -2001,6 +2044,7 @@ all pages
                         width: 79px !important;
                         height: 104px !important;
                         right: 25px;
+                        z-index: -1;
                     }
 
                     span {
@@ -2041,12 +2085,17 @@ all pages
 /*======== provider booking Page ===========*/
 #active-bookings,
 #Scheduled,
-#Closed , #credit{
-    ul.pending-bookings-list {
-        .client-img-block {
-            width: 14%;
+#Closed , #credit ,#rating,#client-rating,#Pended-rating{
+    ul.pending-bookings-list,ul.rating-list,ul.Pended-rating-list {
+        .client-img-block,
+        .provider-img-block,
+        .service-img-block
+        {
+            // width: 14%;
+            width: 118px !important;
+            height: 118px !important;
             margin-right: 20px;
-            .client-img {
+            .client-img,.provider-img ,.service-img{
                 border-radius: 12px;
             }
         }
@@ -2154,7 +2203,7 @@ all pages
     
             }
             .payement-method {
-    
+
                 .payement{
                     font-size: 13px;
                     &>span:first-child{
@@ -2186,6 +2235,432 @@ all pages
 /*======== /credit Page ===========*/
 
 
+
+/*======== /contact page ===========*/
+
+/*======== HotOffers-details page ===========*/
+#HotOffers-details {
+    .box-content {
+        padding: 53px 20px 131px 20px;
+        margin-bottom: 66px;
+        .carousel-indicators {
+            bottom: -45px;
+            margin-right: 0;
+            margin-left: 0;
+            li {
+                width: 100%;
+                border-radius: 0;
+                &.active {
+                    background-color: transparent;
+                    opacity: 0.5;
+                }
+            }
+        }
+        .carousel-inner .carousel-item {
+            height: auto;
+        }
+        .moving-tasks {
+            p {
+                font-size: 15px;
+            }
+            .moving-agency {
+                .agency {
+                    align-items: center;
+                    margin-bottom: 10px;
+
+                    a {
+                        font-size: 20px;
+                    }
+
+                    img {
+                        width: 40px !important;
+                        height: 40px !important;
+                        margin-right: 10px;
+                    }
+                }
+                .tasks-numbers {
+                    i {
+                        color: #b68bcc !important;
+                    }
+                }
+            }
+        }
+        .rating {
+            span {
+                margin: 2px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+/*======== /HotOffers-details page ===========*/
+/*======== start-work page ===========*/
+#start-work{
+    .box-content {
+        padding: 0;
+    }
+    .tab-content {
+        .tab-pane {
+            padding: 0 25px;
+            
+        }
+        
+    #ActiveDetails {
+        p{
+            font-size: 16.5px;
+        }
+        &>.row:nth-child(1) {
+            margin-bottom: 50px;
+        }
+        .details {
+            justify-content: space-between;
+            .clientInfo{
+                span{
+                    font-size: 20px;
+                }
+                img{
+                    width: 118px !important;
+                    height: 118px !important;
+                    border-radius: 12px;
+                }
+                .rating{
+                    span{
+                        color: $mainColor;
+                        margin: 2px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            h6 {
+                color: $mainColor;
+                margin: 0
+            }
+            span {
+                color: #212121ab;
+            }
+        }
+        .map-container {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 263px !important;
+    
+            iframe {
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+            }
+        }
+        .myOffer{
+            .service-img-block{
+                width: 158px ;
+                height: 158px;
+                img{
+                    border-radius: 12px;
+                }
+            }
+
+            .date{
+                color: #a19ea3;
+                font-size: 15px; 
+            }
+        }
+    }
+
+    #Messages{
+        &.tab-pane{
+            padding-bottom: 35px;
+        }
+        .provider-chat{
+            margin-bottom: 20px;
+            .messges-block{
+                height: 440px;
+                overflow: auto;
+                padding: 20px 25px;
+                .messege-date{
+                    color: #a19ea3;
+                    font-size: 12px;
+                }
+                .service-request{
+                    width: 40%;
+                    margin: auto;
+                    .client-name{
+                        font-weight: bold;
+                        
+                      
+                    }
+                }
+           
+                .incoming-msg-block{
+                    .client-name{
+                        color: #a19ea3;
+                    }
+                    .incoming-msg{
+                  
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    
+                        p{
+                            border-radius: 6px;
+                            background-color:$mainColor;
+                            color: #fff;
+                            padding: 15px;
+                            margin-bottom: 2px;
+   
+                        }
+
+                    }
+                }
+                .received-msg-block{
+                    display: flex;
+                    justify-content: flex-end;
+                    .received-msg{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        // width: 50%;
+                        .provider-name{
+                            color: #a19ea3;
+                        }
+                        p{
+                            border-radius: 6px;
+                            background-color: #f5f5f5;
+                            color: #a19ea3;
+                            padding: 15px;
+                            margin-bottom: 2px;
+                        
+                        }
+
+                    }
+                }
+
+            }
+        }
+    
+}
+.sendMessges{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .send{
+        width: 90%;
+        .form-control{
+            width: 98%;
+            margin: auto;
+        }
+    }
+    .imgUpload {
+        position: relative;
+        i{
+            cursor: pointer;
+            font-size: 27px;
+        }
+        input[type=file]  {
+            outline: none !important;
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            width: 27px;
+            height: 27;
+            cursor: pointer;
+        }
+    }
+}
+    }
+    
+}
+
+
+/*======== /start-work page ===========*/
+/*======== Rating provider page ===========*/
+#rating{
+    .box-content{
+        padding: 35px;
+        .rating-list{
+            .rating-details{
+                width: 86%;
+                .details-head {
+                    display: flex;
+                    
+                    .details {
+                        .service-name{
+                            color: $mainColor;
+                            font-size: 17px;
+                        }
+                        width: 80%;
+                        .rating{
+                            span{
+                                margin: 2px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    h5 {
+                        margin-bottom: 0
+                    }
+                    .client-name,
+                    h5 {
+                        color: $mainColor;
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                    .starEndDate{
+                        i{
+                            vertical-align: middle;
+                        }
+                        span{
+                            font-size: 14px;
+                            color: $mainColor;
+                        }
+                    }
+                }
+    
+                .end-task {
+                    display: inline-block;
+                    border-radius: 4px;
+                    border: solid 1px #6e1799;
+                    background-color: #413e43;
+                    color: #ffffff;
+                    text-align: center;
+                    padding: 7px 17px;
+    
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+/*======== /Rating provider page ===========*/
+/*======== client  rating  page ===========*/
+#client-rating{
+    .box-content{
+        padding: 35px;
+        .rating-list,.Pended-rating-list{
+            .rating-details{
+                width: 86%;
+                .details-head {
+                    display: flex;
+                    
+                    .details {
+                        span.service-name {
+                            color: $mainColor;
+                            font-size: 17px;
+                        }
+                        width: 80%;
+                        .rating{
+                            span{
+                                margin: 2px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    h5 {
+                        margin-bottom: 0
+                    }
+                    .client-name,
+                    h5 {
+                        color: $mainColor;
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                    .starEndDate{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: flex-end;
+                    
+                        i{
+                            vertical-align: middle;
+                        }
+
+                        span{
+                            font-size: 14px;
+                            color: $mainColor;
+                        }
+                        .date{
+                            color: #000;
+                        }
+                    }
+                }
+    
+                .end-task {
+                    display: inline-block;
+                    border-radius: 4px;
+                    border: solid 1px #6e1799;
+                    background-color: #413e43;
+                    color: #ffffff;
+                    text-align: center;
+                    padding: 7px 17px;
+    
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+// model 
+.modal.rateProvider{
+    .modal-header{
+        border-bottom: 0 !important;
+    } 
+    .modal-body{
+ 
+        .service-img-block{
+            width: 118px;
+            height: 118px;
+            margin: auto;
+            img{
+                border-radius: 12px;
+            }
+        }
+        .rating {
+            span{
+                color: #e2e2e2;
+
+                
+            }
+        }
+        .review-provider{
+            width: 100%;
+            height: 89px;
+            border-radius: 4px;
+            border: solid 1px #a19ea3;
+            background-color: #f9f9f9;
+            resize: none;
+            outline: none;
+            &:focus{
+                background-color: #fff !important;
+            }
+           
+            &::placeholder{
+                color: #a19ea3 !important;  
+                text-align: center;
+                padding-top: 20px;
+            }
+        }
+        .confirmRate{
+            padding: 6px 38px;
+        }
+    }
+
+
+}
+
+  
+/*======== /client  rating  page ===========*/
 /////////////media//////////////////////
 @media (max-width: 991.98px) {
 
@@ -2195,10 +2670,4 @@ all pages
         padding-left: 10px;
     }
 }
-
-
-
-
-
-
-/*======== /contact page ===========*/
+     

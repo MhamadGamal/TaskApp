@@ -463,6 +463,80 @@ div.error {
   border-color: red !important;
 }
 
+.service-name, .provider-name {
+  font-size: 22px;
+}
+
+.offer-num {
+  width: 17px;
+  height: 16px;
+  border-radius: 8.8px;
+  background-color: #ff3f21;
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+.offer-num:hover {
+  color: #fff;
+}
+
+ul.pending-bookings-list li,
+ul.rating-list li,
+ul.Pended-rating-list li {
+  border-radius: 2px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  margin-bottom: 22px;
+  padding: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 3px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 20px;
+  border-radius: 3px;
+  background-color: #a19ea3;
+}
+
+.rating {
+  cursor: pointer;
+}
+
+.nav.nav-pills {
+  padding: 7px 17px;
+  border-bottom: solid 1px #e2e2e2;
+  margin-bottom: 30px;
+}
+
+.nav.nav-pills .nav-item .nav-link.active {
+  color: #7c2da2;
+  background-color: transparent;
+  position: relative;
+}
+
+.nav.nav-pills .nav-item .nav-link.active::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #7c2da2;
+  bottom: -8px;
+  right: 0;
+}
+
 /*============================  Start Header Styling  ===============================*/
 header {
   height: 100vh;
@@ -1153,7 +1227,7 @@ footer .copyright a.active {
   color: #7c2da2;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head h5 {
+#pending-offers ul.pending-bookings-list li .booking-details .details-head a.service-name, #credit ul.pending-bookings-list li .booking-details .details-head a.service-name {
   display: inline-block;
   margin-right: 10px;
 }
@@ -1167,50 +1241,16 @@ footer .copyright a.active {
           justify-content: flex-end;
 }
 
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers span,
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers i, #credit ul.pending-bookings-list li .booking-details .messges-offers span,
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers a,
+#pending-offers ul.pending-bookings-list li .booking-details .messges-offers i, #credit ul.pending-bookings-list li .booking-details .messges-offers a,
 #credit ul.pending-bookings-list li .booking-details .messges-offers i {
   margin-right: 10px;
-}
-
-#pending-offers ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications, #credit ul.pending-bookings-list li .booking-details .messges-offers .offers .notifications {
-  width: 17px;
-  height: 16px;
-  border-radius: 8.8px;
-  background-color: #ff3f21;
-  display: inline-block;
-  vertical-align: middle;
-  color: #fff;
-  text-align: center;
-  font-size: 12px;
 }
 
 /*======== /pending-offers page ===========*/
 /*======== task-preview page ===========*/
 #task-preview .box-content {
   padding: 0;
-}
-
-#task-preview .nav.nav-pills {
-  padding: 7px 17px;
-  border-bottom: solid 1px #e2e2e2;
-  margin-bottom: 30px;
-}
-
-#task-preview .nav.nav-pills .nav-item .nav-link.active {
-  color: #7c2da2;
-  background-color: transparent;
-  position: relative;
-}
-
-#task-preview .nav.nav-pills .nav-item .nav-link.active::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #7c2da2;
-  bottom: -7px;
-  right: 0;
 }
 
 #task-preview .tab-content .tab-pane {
@@ -1816,6 +1856,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 79px !important;
   height: 104px !important;
   right: 25px;
+  z-index: -1;
 }
 
 #add-offer .box-content .form-group .uploadImages .addOffer-imgUpload span {
@@ -1848,21 +1889,214 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 /*======== /add-offer Page ===========*/
 /*======== provider booking Page ===========*/
 #active-bookings ul.pending-bookings-list .client-img-block,
+#active-bookings ul.pending-bookings-list .provider-img-block,
+#active-bookings ul.pending-bookings-list .service-img-block, #active-bookings ul.rating-list .client-img-block,
+#active-bookings ul.rating-list .provider-img-block,
+#active-bookings ul.rating-list .service-img-block, #active-bookings ul.Pended-rating-list .client-img-block,
+#active-bookings ul.Pended-rating-list .provider-img-block,
+#active-bookings ul.Pended-rating-list .service-img-block,
 #Scheduled ul.pending-bookings-list .client-img-block,
-#Closed ul.pending-bookings-list .client-img-block, #credit ul.pending-bookings-list .client-img-block {
-  width: 14%;
+#Scheduled ul.pending-bookings-list .provider-img-block,
+#Scheduled ul.pending-bookings-list .service-img-block,
+#Scheduled ul.rating-list .client-img-block,
+#Scheduled ul.rating-list .provider-img-block,
+#Scheduled ul.rating-list .service-img-block,
+#Scheduled ul.Pended-rating-list .client-img-block,
+#Scheduled ul.Pended-rating-list .provider-img-block,
+#Scheduled ul.Pended-rating-list .service-img-block,
+#Closed ul.pending-bookings-list .client-img-block,
+#Closed ul.pending-bookings-list .provider-img-block,
+#Closed ul.pending-bookings-list .service-img-block,
+#Closed ul.rating-list .client-img-block,
+#Closed ul.rating-list .provider-img-block,
+#Closed ul.rating-list .service-img-block,
+#Closed ul.Pended-rating-list .client-img-block,
+#Closed ul.Pended-rating-list .provider-img-block,
+#Closed ul.Pended-rating-list .service-img-block, #credit ul.pending-bookings-list .client-img-block,
+#credit ul.pending-bookings-list .provider-img-block,
+#credit ul.pending-bookings-list .service-img-block, #credit ul.rating-list .client-img-block,
+#credit ul.rating-list .provider-img-block,
+#credit ul.rating-list .service-img-block, #credit ul.Pended-rating-list .client-img-block,
+#credit ul.Pended-rating-list .provider-img-block,
+#credit ul.Pended-rating-list .service-img-block, #rating ul.pending-bookings-list .client-img-block,
+#rating ul.pending-bookings-list .provider-img-block,
+#rating ul.pending-bookings-list .service-img-block, #rating ul.rating-list .client-img-block,
+#rating ul.rating-list .provider-img-block,
+#rating ul.rating-list .service-img-block, #rating ul.Pended-rating-list .client-img-block,
+#rating ul.Pended-rating-list .provider-img-block,
+#rating ul.Pended-rating-list .service-img-block, #client-rating ul.pending-bookings-list .client-img-block,
+#client-rating ul.pending-bookings-list .provider-img-block,
+#client-rating ul.pending-bookings-list .service-img-block, #client-rating ul.rating-list .client-img-block,
+#client-rating ul.rating-list .provider-img-block,
+#client-rating ul.rating-list .service-img-block, #client-rating ul.Pended-rating-list .client-img-block,
+#client-rating ul.Pended-rating-list .provider-img-block,
+#client-rating ul.Pended-rating-list .service-img-block, #Pended-rating ul.pending-bookings-list .client-img-block,
+#Pended-rating ul.pending-bookings-list .provider-img-block,
+#Pended-rating ul.pending-bookings-list .service-img-block, #Pended-rating ul.rating-list .client-img-block,
+#Pended-rating ul.rating-list .provider-img-block,
+#Pended-rating ul.rating-list .service-img-block, #Pended-rating ul.Pended-rating-list .client-img-block,
+#Pended-rating ul.Pended-rating-list .provider-img-block,
+#Pended-rating ul.Pended-rating-list .service-img-block {
+  width: 118px !important;
+  height: 118px !important;
   margin-right: 20px;
 }
 
-#active-bookings ul.pending-bookings-list .client-img-block .client-img,
+#active-bookings ul.pending-bookings-list .client-img-block .client-img, #active-bookings ul.pending-bookings-list .client-img-block .provider-img, #active-bookings ul.pending-bookings-list .client-img-block .service-img,
+#active-bookings ul.pending-bookings-list .provider-img-block .client-img,
+#active-bookings ul.pending-bookings-list .provider-img-block .provider-img,
+#active-bookings ul.pending-bookings-list .provider-img-block .service-img,
+#active-bookings ul.pending-bookings-list .service-img-block .client-img,
+#active-bookings ul.pending-bookings-list .service-img-block .provider-img,
+#active-bookings ul.pending-bookings-list .service-img-block .service-img, #active-bookings ul.rating-list .client-img-block .client-img, #active-bookings ul.rating-list .client-img-block .provider-img, #active-bookings ul.rating-list .client-img-block .service-img,
+#active-bookings ul.rating-list .provider-img-block .client-img,
+#active-bookings ul.rating-list .provider-img-block .provider-img,
+#active-bookings ul.rating-list .provider-img-block .service-img,
+#active-bookings ul.rating-list .service-img-block .client-img,
+#active-bookings ul.rating-list .service-img-block .provider-img,
+#active-bookings ul.rating-list .service-img-block .service-img, #active-bookings ul.Pended-rating-list .client-img-block .client-img, #active-bookings ul.Pended-rating-list .client-img-block .provider-img, #active-bookings ul.Pended-rating-list .client-img-block .service-img,
+#active-bookings ul.Pended-rating-list .provider-img-block .client-img,
+#active-bookings ul.Pended-rating-list .provider-img-block .provider-img,
+#active-bookings ul.Pended-rating-list .provider-img-block .service-img,
+#active-bookings ul.Pended-rating-list .service-img-block .client-img,
+#active-bookings ul.Pended-rating-list .service-img-block .provider-img,
+#active-bookings ul.Pended-rating-list .service-img-block .service-img,
 #Scheduled ul.pending-bookings-list .client-img-block .client-img,
-#Closed ul.pending-bookings-list .client-img-block .client-img, #credit ul.pending-bookings-list .client-img-block .client-img {
+#Scheduled ul.pending-bookings-list .client-img-block .provider-img,
+#Scheduled ul.pending-bookings-list .client-img-block .service-img,
+#Scheduled ul.pending-bookings-list .provider-img-block .client-img,
+#Scheduled ul.pending-bookings-list .provider-img-block .provider-img,
+#Scheduled ul.pending-bookings-list .provider-img-block .service-img,
+#Scheduled ul.pending-bookings-list .service-img-block .client-img,
+#Scheduled ul.pending-bookings-list .service-img-block .provider-img,
+#Scheduled ul.pending-bookings-list .service-img-block .service-img,
+#Scheduled ul.rating-list .client-img-block .client-img,
+#Scheduled ul.rating-list .client-img-block .provider-img,
+#Scheduled ul.rating-list .client-img-block .service-img,
+#Scheduled ul.rating-list .provider-img-block .client-img,
+#Scheduled ul.rating-list .provider-img-block .provider-img,
+#Scheduled ul.rating-list .provider-img-block .service-img,
+#Scheduled ul.rating-list .service-img-block .client-img,
+#Scheduled ul.rating-list .service-img-block .provider-img,
+#Scheduled ul.rating-list .service-img-block .service-img,
+#Scheduled ul.Pended-rating-list .client-img-block .client-img,
+#Scheduled ul.Pended-rating-list .client-img-block .provider-img,
+#Scheduled ul.Pended-rating-list .client-img-block .service-img,
+#Scheduled ul.Pended-rating-list .provider-img-block .client-img,
+#Scheduled ul.Pended-rating-list .provider-img-block .provider-img,
+#Scheduled ul.Pended-rating-list .provider-img-block .service-img,
+#Scheduled ul.Pended-rating-list .service-img-block .client-img,
+#Scheduled ul.Pended-rating-list .service-img-block .provider-img,
+#Scheduled ul.Pended-rating-list .service-img-block .service-img,
+#Closed ul.pending-bookings-list .client-img-block .client-img,
+#Closed ul.pending-bookings-list .client-img-block .provider-img,
+#Closed ul.pending-bookings-list .client-img-block .service-img,
+#Closed ul.pending-bookings-list .provider-img-block .client-img,
+#Closed ul.pending-bookings-list .provider-img-block .provider-img,
+#Closed ul.pending-bookings-list .provider-img-block .service-img,
+#Closed ul.pending-bookings-list .service-img-block .client-img,
+#Closed ul.pending-bookings-list .service-img-block .provider-img,
+#Closed ul.pending-bookings-list .service-img-block .service-img,
+#Closed ul.rating-list .client-img-block .client-img,
+#Closed ul.rating-list .client-img-block .provider-img,
+#Closed ul.rating-list .client-img-block .service-img,
+#Closed ul.rating-list .provider-img-block .client-img,
+#Closed ul.rating-list .provider-img-block .provider-img,
+#Closed ul.rating-list .provider-img-block .service-img,
+#Closed ul.rating-list .service-img-block .client-img,
+#Closed ul.rating-list .service-img-block .provider-img,
+#Closed ul.rating-list .service-img-block .service-img,
+#Closed ul.Pended-rating-list .client-img-block .client-img,
+#Closed ul.Pended-rating-list .client-img-block .provider-img,
+#Closed ul.Pended-rating-list .client-img-block .service-img,
+#Closed ul.Pended-rating-list .provider-img-block .client-img,
+#Closed ul.Pended-rating-list .provider-img-block .provider-img,
+#Closed ul.Pended-rating-list .provider-img-block .service-img,
+#Closed ul.Pended-rating-list .service-img-block .client-img,
+#Closed ul.Pended-rating-list .service-img-block .provider-img,
+#Closed ul.Pended-rating-list .service-img-block .service-img, #credit ul.pending-bookings-list .client-img-block .client-img, #credit ul.pending-bookings-list .client-img-block .provider-img, #credit ul.pending-bookings-list .client-img-block .service-img,
+#credit ul.pending-bookings-list .provider-img-block .client-img,
+#credit ul.pending-bookings-list .provider-img-block .provider-img,
+#credit ul.pending-bookings-list .provider-img-block .service-img,
+#credit ul.pending-bookings-list .service-img-block .client-img,
+#credit ul.pending-bookings-list .service-img-block .provider-img,
+#credit ul.pending-bookings-list .service-img-block .service-img, #credit ul.rating-list .client-img-block .client-img, #credit ul.rating-list .client-img-block .provider-img, #credit ul.rating-list .client-img-block .service-img,
+#credit ul.rating-list .provider-img-block .client-img,
+#credit ul.rating-list .provider-img-block .provider-img,
+#credit ul.rating-list .provider-img-block .service-img,
+#credit ul.rating-list .service-img-block .client-img,
+#credit ul.rating-list .service-img-block .provider-img,
+#credit ul.rating-list .service-img-block .service-img, #credit ul.Pended-rating-list .client-img-block .client-img, #credit ul.Pended-rating-list .client-img-block .provider-img, #credit ul.Pended-rating-list .client-img-block .service-img,
+#credit ul.Pended-rating-list .provider-img-block .client-img,
+#credit ul.Pended-rating-list .provider-img-block .provider-img,
+#credit ul.Pended-rating-list .provider-img-block .service-img,
+#credit ul.Pended-rating-list .service-img-block .client-img,
+#credit ul.Pended-rating-list .service-img-block .provider-img,
+#credit ul.Pended-rating-list .service-img-block .service-img, #rating ul.pending-bookings-list .client-img-block .client-img, #rating ul.pending-bookings-list .client-img-block .provider-img, #rating ul.pending-bookings-list .client-img-block .service-img,
+#rating ul.pending-bookings-list .provider-img-block .client-img,
+#rating ul.pending-bookings-list .provider-img-block .provider-img,
+#rating ul.pending-bookings-list .provider-img-block .service-img,
+#rating ul.pending-bookings-list .service-img-block .client-img,
+#rating ul.pending-bookings-list .service-img-block .provider-img,
+#rating ul.pending-bookings-list .service-img-block .service-img, #rating ul.rating-list .client-img-block .client-img, #rating ul.rating-list .client-img-block .provider-img, #rating ul.rating-list .client-img-block .service-img,
+#rating ul.rating-list .provider-img-block .client-img,
+#rating ul.rating-list .provider-img-block .provider-img,
+#rating ul.rating-list .provider-img-block .service-img,
+#rating ul.rating-list .service-img-block .client-img,
+#rating ul.rating-list .service-img-block .provider-img,
+#rating ul.rating-list .service-img-block .service-img, #rating ul.Pended-rating-list .client-img-block .client-img, #rating ul.Pended-rating-list .client-img-block .provider-img, #rating ul.Pended-rating-list .client-img-block .service-img,
+#rating ul.Pended-rating-list .provider-img-block .client-img,
+#rating ul.Pended-rating-list .provider-img-block .provider-img,
+#rating ul.Pended-rating-list .provider-img-block .service-img,
+#rating ul.Pended-rating-list .service-img-block .client-img,
+#rating ul.Pended-rating-list .service-img-block .provider-img,
+#rating ul.Pended-rating-list .service-img-block .service-img, #client-rating ul.pending-bookings-list .client-img-block .client-img, #client-rating ul.pending-bookings-list .client-img-block .provider-img, #client-rating ul.pending-bookings-list .client-img-block .service-img,
+#client-rating ul.pending-bookings-list .provider-img-block .client-img,
+#client-rating ul.pending-bookings-list .provider-img-block .provider-img,
+#client-rating ul.pending-bookings-list .provider-img-block .service-img,
+#client-rating ul.pending-bookings-list .service-img-block .client-img,
+#client-rating ul.pending-bookings-list .service-img-block .provider-img,
+#client-rating ul.pending-bookings-list .service-img-block .service-img, #client-rating ul.rating-list .client-img-block .client-img, #client-rating ul.rating-list .client-img-block .provider-img, #client-rating ul.rating-list .client-img-block .service-img,
+#client-rating ul.rating-list .provider-img-block .client-img,
+#client-rating ul.rating-list .provider-img-block .provider-img,
+#client-rating ul.rating-list .provider-img-block .service-img,
+#client-rating ul.rating-list .service-img-block .client-img,
+#client-rating ul.rating-list .service-img-block .provider-img,
+#client-rating ul.rating-list .service-img-block .service-img, #client-rating ul.Pended-rating-list .client-img-block .client-img, #client-rating ul.Pended-rating-list .client-img-block .provider-img, #client-rating ul.Pended-rating-list .client-img-block .service-img,
+#client-rating ul.Pended-rating-list .provider-img-block .client-img,
+#client-rating ul.Pended-rating-list .provider-img-block .provider-img,
+#client-rating ul.Pended-rating-list .provider-img-block .service-img,
+#client-rating ul.Pended-rating-list .service-img-block .client-img,
+#client-rating ul.Pended-rating-list .service-img-block .provider-img,
+#client-rating ul.Pended-rating-list .service-img-block .service-img, #Pended-rating ul.pending-bookings-list .client-img-block .client-img, #Pended-rating ul.pending-bookings-list .client-img-block .provider-img, #Pended-rating ul.pending-bookings-list .client-img-block .service-img,
+#Pended-rating ul.pending-bookings-list .provider-img-block .client-img,
+#Pended-rating ul.pending-bookings-list .provider-img-block .provider-img,
+#Pended-rating ul.pending-bookings-list .provider-img-block .service-img,
+#Pended-rating ul.pending-bookings-list .service-img-block .client-img,
+#Pended-rating ul.pending-bookings-list .service-img-block .provider-img,
+#Pended-rating ul.pending-bookings-list .service-img-block .service-img, #Pended-rating ul.rating-list .client-img-block .client-img, #Pended-rating ul.rating-list .client-img-block .provider-img, #Pended-rating ul.rating-list .client-img-block .service-img,
+#Pended-rating ul.rating-list .provider-img-block .client-img,
+#Pended-rating ul.rating-list .provider-img-block .provider-img,
+#Pended-rating ul.rating-list .provider-img-block .service-img,
+#Pended-rating ul.rating-list .service-img-block .client-img,
+#Pended-rating ul.rating-list .service-img-block .provider-img,
+#Pended-rating ul.rating-list .service-img-block .service-img, #Pended-rating ul.Pended-rating-list .client-img-block .client-img, #Pended-rating ul.Pended-rating-list .client-img-block .provider-img, #Pended-rating ul.Pended-rating-list .client-img-block .service-img,
+#Pended-rating ul.Pended-rating-list .provider-img-block .client-img,
+#Pended-rating ul.Pended-rating-list .provider-img-block .provider-img,
+#Pended-rating ul.Pended-rating-list .provider-img-block .service-img,
+#Pended-rating ul.Pended-rating-list .service-img-block .client-img,
+#Pended-rating ul.Pended-rating-list .service-img-block .provider-img,
+#Pended-rating ul.Pended-rating-list .service-img-block .service-img {
   border-radius: 12px;
 }
 
-#active-bookings ul.pending-bookings-list li,
+#active-bookings ul.pending-bookings-list li, #active-bookings ul.rating-list li, #active-bookings ul.Pended-rating-list li,
 #Scheduled ul.pending-bookings-list li,
-#Closed ul.pending-bookings-list li, #credit ul.pending-bookings-list li {
+#Scheduled ul.rating-list li,
+#Scheduled ul.Pended-rating-list li,
+#Closed ul.pending-bookings-list li,
+#Closed ul.rating-list li,
+#Closed ul.Pended-rating-list li, #credit ul.pending-bookings-list li, #credit ul.rating-list li, #credit ul.Pended-rating-list li, #rating ul.pending-bookings-list li, #rating ul.rating-list li, #rating ul.Pended-rating-list li, #client-rating ul.pending-bookings-list li, #client-rating ul.rating-list li, #client-rating ul.Pended-rating-list li, #Pended-rating ul.pending-bookings-list li, #Pended-rating ul.rating-list li, #Pended-rating ul.Pended-rating-list li {
   border-radius: 2px;
   border: solid 1px #e2e2e2;
   background-color: #ffffff;
@@ -1870,33 +2104,53 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   padding: 15px;
 }
 
-#active-bookings ul.pending-bookings-list li img,
+#active-bookings ul.pending-bookings-list li img, #active-bookings ul.rating-list li img, #active-bookings ul.Pended-rating-list li img,
 #Scheduled ul.pending-bookings-list li img,
-#Closed ul.pending-bookings-list li img, #credit ul.pending-bookings-list li img {
+#Scheduled ul.rating-list li img,
+#Scheduled ul.Pended-rating-list li img,
+#Closed ul.pending-bookings-list li img,
+#Closed ul.rating-list li img,
+#Closed ul.Pended-rating-list li img, #credit ul.pending-bookings-list li img, #credit ul.rating-list li img, #credit ul.Pended-rating-list li img, #rating ul.pending-bookings-list li img, #rating ul.rating-list li img, #rating ul.Pended-rating-list li img, #client-rating ul.pending-bookings-list li img, #client-rating ul.rating-list li img, #client-rating ul.Pended-rating-list li img, #Pended-rating ul.pending-bookings-list li img, #Pended-rating ul.rating-list li img, #Pended-rating ul.Pended-rating-list li img {
   margin-right: 30px;
 }
 
-#active-bookings ul.pending-bookings-list li .booking-details,
+#active-bookings ul.pending-bookings-list li .booking-details, #active-bookings ul.rating-list li .booking-details, #active-bookings ul.Pended-rating-list li .booking-details,
 #Scheduled ul.pending-bookings-list li .booking-details,
-#Closed ul.pending-bookings-list li .booking-details, #credit ul.pending-bookings-list li .booking-details {
+#Scheduled ul.rating-list li .booking-details,
+#Scheduled ul.Pended-rating-list li .booking-details,
+#Closed ul.pending-bookings-list li .booking-details,
+#Closed ul.rating-list li .booking-details,
+#Closed ul.Pended-rating-list li .booking-details, #credit ul.pending-bookings-list li .booking-details, #credit ul.rating-list li .booking-details, #credit ul.Pended-rating-list li .booking-details, #rating ul.pending-bookings-list li .booking-details, #rating ul.rating-list li .booking-details, #rating ul.Pended-rating-list li .booking-details, #client-rating ul.pending-bookings-list li .booking-details, #client-rating ul.rating-list li .booking-details, #client-rating ul.Pended-rating-list li .booking-details, #Pended-rating ul.pending-bookings-list li .booking-details, #Pended-rating ul.rating-list li .booking-details, #Pended-rating ul.Pended-rating-list li .booking-details {
   width: 86%;
 }
 
-#active-bookings ul.pending-bookings-list li .booking-details .details-head .details,
+#active-bookings ul.pending-bookings-list li .booking-details .details-head .details, #active-bookings ul.rating-list li .booking-details .details-head .details, #active-bookings ul.Pended-rating-list li .booking-details .details-head .details,
 #Scheduled ul.pending-bookings-list li .booking-details .details-head .details,
-#Closed ul.pending-bookings-list li .booking-details .details-head .details, #credit ul.pending-bookings-list li .booking-details .details-head .details {
+#Scheduled ul.rating-list li .booking-details .details-head .details,
+#Scheduled ul.Pended-rating-list li .booking-details .details-head .details,
+#Closed ul.pending-bookings-list li .booking-details .details-head .details,
+#Closed ul.rating-list li .booking-details .details-head .details,
+#Closed ul.Pended-rating-list li .booking-details .details-head .details, #credit ul.pending-bookings-list li .booking-details .details-head .details, #credit ul.rating-list li .booking-details .details-head .details, #credit ul.Pended-rating-list li .booking-details .details-head .details, #rating ul.pending-bookings-list li .booking-details .details-head .details, #rating ul.rating-list li .booking-details .details-head .details, #rating ul.Pended-rating-list li .booking-details .details-head .details, #client-rating ul.pending-bookings-list li .booking-details .details-head .details, #client-rating ul.rating-list li .booking-details .details-head .details, #client-rating ul.Pended-rating-list li .booking-details .details-head .details, #Pended-rating ul.pending-bookings-list li .booking-details .details-head .details, #Pended-rating ul.rating-list li .booking-details .details-head .details, #Pended-rating ul.Pended-rating-list li .booking-details .details-head .details {
   width: 80%;
 }
 
-#active-bookings ul.pending-bookings-list li .booking-details .details-head h5,
+#active-bookings ul.pending-bookings-list li .booking-details .details-head h5, #active-bookings ul.rating-list li .booking-details .details-head h5, #active-bookings ul.Pended-rating-list li .booking-details .details-head h5,
 #Scheduled ul.pending-bookings-list li .booking-details .details-head h5,
-#Closed ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head h5 {
+#Scheduled ul.rating-list li .booking-details .details-head h5,
+#Scheduled ul.Pended-rating-list li .booking-details .details-head h5,
+#Closed ul.pending-bookings-list li .booking-details .details-head h5,
+#Closed ul.rating-list li .booking-details .details-head h5,
+#Closed ul.Pended-rating-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.rating-list li .booking-details .details-head h5, #credit ul.Pended-rating-list li .booking-details .details-head h5, #rating ul.pending-bookings-list li .booking-details .details-head h5, #rating ul.rating-list li .booking-details .details-head h5, #rating ul.Pended-rating-list li .booking-details .details-head h5, #client-rating ul.pending-bookings-list li .booking-details .details-head h5, #client-rating ul.rating-list li .booking-details .details-head h5, #client-rating ul.Pended-rating-list li .booking-details .details-head h5, #Pended-rating ul.pending-bookings-list li .booking-details .details-head h5, #Pended-rating ul.rating-list li .booking-details .details-head h5, #Pended-rating ul.Pended-rating-list li .booking-details .details-head h5 {
   margin-bottom: 0;
 }
 
-#active-bookings ul.pending-bookings-list li .booking-details .details-head p,
+#active-bookings ul.pending-bookings-list li .booking-details .details-head p, #active-bookings ul.rating-list li .booking-details .details-head p, #active-bookings ul.Pended-rating-list li .booking-details .details-head p,
 #Scheduled ul.pending-bookings-list li .booking-details .details-head p,
-#Closed ul.pending-bookings-list li .booking-details .details-head p, #credit ul.pending-bookings-list li .booking-details .details-head p {
+#Scheduled ul.rating-list li .booking-details .details-head p,
+#Scheduled ul.Pended-rating-list li .booking-details .details-head p,
+#Closed ul.pending-bookings-list li .booking-details .details-head p,
+#Closed ul.rating-list li .booking-details .details-head p,
+#Closed ul.Pended-rating-list li .booking-details .details-head p, #credit ul.pending-bookings-list li .booking-details .details-head p, #credit ul.rating-list li .booking-details .details-head p, #credit ul.Pended-rating-list li .booking-details .details-head p, #rating ul.pending-bookings-list li .booking-details .details-head p, #rating ul.rating-list li .booking-details .details-head p, #rating ul.Pended-rating-list li .booking-details .details-head p, #client-rating ul.pending-bookings-list li .booking-details .details-head p, #client-rating ul.rating-list li .booking-details .details-head p, #client-rating ul.Pended-rating-list li .booking-details .details-head p, #Pended-rating ul.pending-bookings-list li .booking-details .details-head p, #Pended-rating ul.rating-list li .booking-details .details-head p, #Pended-rating ul.Pended-rating-list li .booking-details .details-head p {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -1904,20 +2158,45 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 #active-bookings ul.pending-bookings-list li .booking-details .details-head .client-name,
-#active-bookings ul.pending-bookings-list li .booking-details .details-head h5,
+#active-bookings ul.pending-bookings-list li .booking-details .details-head h5, #active-bookings ul.rating-list li .booking-details .details-head .client-name,
+#active-bookings ul.rating-list li .booking-details .details-head h5, #active-bookings ul.Pended-rating-list li .booking-details .details-head .client-name,
+#active-bookings ul.Pended-rating-list li .booking-details .details-head h5,
 #Scheduled ul.pending-bookings-list li .booking-details .details-head .client-name,
 #Scheduled ul.pending-bookings-list li .booking-details .details-head h5,
+#Scheduled ul.rating-list li .booking-details .details-head .client-name,
+#Scheduled ul.rating-list li .booking-details .details-head h5,
+#Scheduled ul.Pended-rating-list li .booking-details .details-head .client-name,
+#Scheduled ul.Pended-rating-list li .booking-details .details-head h5,
 #Closed ul.pending-bookings-list li .booking-details .details-head .client-name,
-#Closed ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head .client-name,
-#credit ul.pending-bookings-list li .booking-details .details-head h5 {
+#Closed ul.pending-bookings-list li .booking-details .details-head h5,
+#Closed ul.rating-list li .booking-details .details-head .client-name,
+#Closed ul.rating-list li .booking-details .details-head h5,
+#Closed ul.Pended-rating-list li .booking-details .details-head .client-name,
+#Closed ul.Pended-rating-list li .booking-details .details-head h5, #credit ul.pending-bookings-list li .booking-details .details-head .client-name,
+#credit ul.pending-bookings-list li .booking-details .details-head h5, #credit ul.rating-list li .booking-details .details-head .client-name,
+#credit ul.rating-list li .booking-details .details-head h5, #credit ul.Pended-rating-list li .booking-details .details-head .client-name,
+#credit ul.Pended-rating-list li .booking-details .details-head h5, #rating ul.pending-bookings-list li .booking-details .details-head .client-name,
+#rating ul.pending-bookings-list li .booking-details .details-head h5, #rating ul.rating-list li .booking-details .details-head .client-name,
+#rating ul.rating-list li .booking-details .details-head h5, #rating ul.Pended-rating-list li .booking-details .details-head .client-name,
+#rating ul.Pended-rating-list li .booking-details .details-head h5, #client-rating ul.pending-bookings-list li .booking-details .details-head .client-name,
+#client-rating ul.pending-bookings-list li .booking-details .details-head h5, #client-rating ul.rating-list li .booking-details .details-head .client-name,
+#client-rating ul.rating-list li .booking-details .details-head h5, #client-rating ul.Pended-rating-list li .booking-details .details-head .client-name,
+#client-rating ul.Pended-rating-list li .booking-details .details-head h5, #Pended-rating ul.pending-bookings-list li .booking-details .details-head .client-name,
+#Pended-rating ul.pending-bookings-list li .booking-details .details-head h5, #Pended-rating ul.rating-list li .booking-details .details-head .client-name,
+#Pended-rating ul.rating-list li .booking-details .details-head h5, #Pended-rating ul.Pended-rating-list li .booking-details .details-head .client-name,
+#Pended-rating ul.Pended-rating-list li .booking-details .details-head h5 {
   color: #7c2da2;
   display: inline-block;
   margin-right: 10px;
 }
 
-#active-bookings ul.pending-bookings-list li .booking-details .end-task,
+#active-bookings ul.pending-bookings-list li .booking-details .end-task, #active-bookings ul.rating-list li .booking-details .end-task, #active-bookings ul.Pended-rating-list li .booking-details .end-task,
 #Scheduled ul.pending-bookings-list li .booking-details .end-task,
-#Closed ul.pending-bookings-list li .booking-details .end-task, #credit ul.pending-bookings-list li .booking-details .end-task {
+#Scheduled ul.rating-list li .booking-details .end-task,
+#Scheduled ul.Pended-rating-list li .booking-details .end-task,
+#Closed ul.pending-bookings-list li .booking-details .end-task,
+#Closed ul.rating-list li .booking-details .end-task,
+#Closed ul.Pended-rating-list li .booking-details .end-task, #credit ul.pending-bookings-list li .booking-details .end-task, #credit ul.rating-list li .booking-details .end-task, #credit ul.Pended-rating-list li .booking-details .end-task, #rating ul.pending-bookings-list li .booking-details .end-task, #rating ul.rating-list li .booking-details .end-task, #rating ul.Pended-rating-list li .booking-details .end-task, #client-rating ul.pending-bookings-list li .booking-details .end-task, #client-rating ul.rating-list li .booking-details .end-task, #client-rating ul.Pended-rating-list li .booking-details .end-task, #Pended-rating ul.pending-bookings-list li .booking-details .end-task, #Pended-rating ul.rating-list li .booking-details .end-task, #Pended-rating ul.Pended-rating-list li .booking-details .end-task {
   display: inline-block;
   border-radius: 4px;
   border: solid 1px #6e1799;
@@ -1927,15 +2206,23 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   padding: 7px 17px;
 }
 
-#active-bookings ul.pending-bookings-list li .booking-details .end-task i,
+#active-bookings ul.pending-bookings-list li .booking-details .end-task i, #active-bookings ul.rating-list li .booking-details .end-task i, #active-bookings ul.Pended-rating-list li .booking-details .end-task i,
 #Scheduled ul.pending-bookings-list li .booking-details .end-task i,
-#Closed ul.pending-bookings-list li .booking-details .end-task i, #credit ul.pending-bookings-list li .booking-details .end-task i {
+#Scheduled ul.rating-list li .booking-details .end-task i,
+#Scheduled ul.Pended-rating-list li .booking-details .end-task i,
+#Closed ul.pending-bookings-list li .booking-details .end-task i,
+#Closed ul.rating-list li .booking-details .end-task i,
+#Closed ul.Pended-rating-list li .booking-details .end-task i, #credit ul.pending-bookings-list li .booking-details .end-task i, #credit ul.rating-list li .booking-details .end-task i, #credit ul.Pended-rating-list li .booking-details .end-task i, #rating ul.pending-bookings-list li .booking-details .end-task i, #rating ul.rating-list li .booking-details .end-task i, #rating ul.Pended-rating-list li .booking-details .end-task i, #client-rating ul.pending-bookings-list li .booking-details .end-task i, #client-rating ul.rating-list li .booking-details .end-task i, #client-rating ul.Pended-rating-list li .booking-details .end-task i, #Pended-rating ul.pending-bookings-list li .booking-details .end-task i, #Pended-rating ul.rating-list li .booking-details .end-task i, #Pended-rating ul.Pended-rating-list li .booking-details .end-task i {
   margin-right: 5px;
 }
 
-#active-bookings ul.pending-bookings-list li .offers-numbers,
+#active-bookings ul.pending-bookings-list li .offers-numbers, #active-bookings ul.rating-list li .offers-numbers, #active-bookings ul.Pended-rating-list li .offers-numbers,
 #Scheduled ul.pending-bookings-list li .offers-numbers,
-#Closed ul.pending-bookings-list li .offers-numbers, #credit ul.pending-bookings-list li .offers-numbers {
+#Scheduled ul.rating-list li .offers-numbers,
+#Scheduled ul.Pended-rating-list li .offers-numbers,
+#Closed ul.pending-bookings-list li .offers-numbers,
+#Closed ul.rating-list li .offers-numbers,
+#Closed ul.Pended-rating-list li .offers-numbers, #credit ul.pending-bookings-list li .offers-numbers, #credit ul.rating-list li .offers-numbers, #credit ul.Pended-rating-list li .offers-numbers, #rating ul.pending-bookings-list li .offers-numbers, #rating ul.rating-list li .offers-numbers, #rating ul.Pended-rating-list li .offers-numbers, #client-rating ul.pending-bookings-list li .offers-numbers, #client-rating ul.rating-list li .offers-numbers, #client-rating ul.Pended-rating-list li .offers-numbers, #Pended-rating ul.pending-bookings-list li .offers-numbers, #Pended-rating ul.rating-list li .offers-numbers, #Pended-rating ul.Pended-rating-list li .offers-numbers {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1945,18 +2232,43 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 #active-bookings ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
-#active-bookings ul.pending-bookings-list li .offers-numbers .messges-offers i,
+#active-bookings ul.pending-bookings-list li .offers-numbers .messges-offers i, #active-bookings ul.rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#active-bookings ul.rating-list li .offers-numbers .messges-offers i, #active-bookings ul.Pended-rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#active-bookings ul.Pended-rating-list li .offers-numbers .messges-offers i,
 #Scheduled ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
 #Scheduled ul.pending-bookings-list li .offers-numbers .messges-offers i,
+#Scheduled ul.rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#Scheduled ul.rating-list li .offers-numbers .messges-offers i,
+#Scheduled ul.Pended-rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#Scheduled ul.Pended-rating-list li .offers-numbers .messges-offers i,
 #Closed ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
-#Closed ul.pending-bookings-list li .offers-numbers .messges-offers i, #credit ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
-#credit ul.pending-bookings-list li .offers-numbers .messges-offers i {
+#Closed ul.pending-bookings-list li .offers-numbers .messges-offers i,
+#Closed ul.rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#Closed ul.rating-list li .offers-numbers .messges-offers i,
+#Closed ul.Pended-rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#Closed ul.Pended-rating-list li .offers-numbers .messges-offers i, #credit ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
+#credit ul.pending-bookings-list li .offers-numbers .messges-offers i, #credit ul.rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#credit ul.rating-list li .offers-numbers .messges-offers i, #credit ul.Pended-rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#credit ul.Pended-rating-list li .offers-numbers .messges-offers i, #rating ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
+#rating ul.pending-bookings-list li .offers-numbers .messges-offers i, #rating ul.rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#rating ul.rating-list li .offers-numbers .messges-offers i, #rating ul.Pended-rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#rating ul.Pended-rating-list li .offers-numbers .messges-offers i, #client-rating ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
+#client-rating ul.pending-bookings-list li .offers-numbers .messges-offers i, #client-rating ul.rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#client-rating ul.rating-list li .offers-numbers .messges-offers i, #client-rating ul.Pended-rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#client-rating ul.Pended-rating-list li .offers-numbers .messges-offers i, #Pended-rating ul.pending-bookings-list li .offers-numbers .messges-offers span:not(:last-child),
+#Pended-rating ul.pending-bookings-list li .offers-numbers .messges-offers i, #Pended-rating ul.rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#Pended-rating ul.rating-list li .offers-numbers .messges-offers i, #Pended-rating ul.Pended-rating-list li .offers-numbers .messges-offers span:not(:last-child),
+#Pended-rating ul.Pended-rating-list li .offers-numbers .messges-offers i {
   margin-right: 6px;
 }
 
-#active-bookings ul.pending-bookings-list li .offers-numbers .offer-num,
+#active-bookings ul.pending-bookings-list li .offers-numbers .offer-num, #active-bookings ul.rating-list li .offers-numbers .offer-num, #active-bookings ul.Pended-rating-list li .offers-numbers .offer-num,
 #Scheduled ul.pending-bookings-list li .offers-numbers .offer-num,
-#Closed ul.pending-bookings-list li .offers-numbers .offer-num, #credit ul.pending-bookings-list li .offers-numbers .offer-num {
+#Scheduled ul.rating-list li .offers-numbers .offer-num,
+#Scheduled ul.Pended-rating-list li .offers-numbers .offer-num,
+#Closed ul.pending-bookings-list li .offers-numbers .offer-num,
+#Closed ul.rating-list li .offers-numbers .offer-num,
+#Closed ul.Pended-rating-list li .offers-numbers .offer-num, #credit ul.pending-bookings-list li .offers-numbers .offer-num, #credit ul.rating-list li .offers-numbers .offer-num, #credit ul.Pended-rating-list li .offers-numbers .offer-num, #rating ul.pending-bookings-list li .offers-numbers .offer-num, #rating ul.rating-list li .offers-numbers .offer-num, #rating ul.Pended-rating-list li .offers-numbers .offer-num, #client-rating ul.pending-bookings-list li .offers-numbers .offer-num, #client-rating ul.rating-list li .offers-numbers .offer-num, #client-rating ul.Pended-rating-list li .offers-numbers .offer-num, #Pended-rating ul.pending-bookings-list li .offers-numbers .offer-num, #Pended-rating ul.rating-list li .offers-numbers .offer-num, #Pended-rating ul.Pended-rating-list li .offers-numbers .offer-num {
   width: 17px;
   height: 16px;
   border-radius: 8.8px;
@@ -2029,6 +2341,479 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 /*======== /credit Page ===========*/
+/*======== /contact page ===========*/
+/*======== HotOffers-details page ===========*/
+#HotOffers-details .box-content {
+  padding: 53px 20px 131px 20px;
+  margin-bottom: 66px;
+}
+
+#HotOffers-details .box-content .carousel-indicators {
+  bottom: -45px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#HotOffers-details .box-content .carousel-indicators li {
+  width: 100%;
+  border-radius: 0;
+}
+
+#HotOffers-details .box-content .carousel-indicators li.active {
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+#HotOffers-details .box-content .carousel-inner .carousel-item {
+  height: auto;
+}
+
+#HotOffers-details .box-content .moving-tasks p {
+  font-size: 15px;
+}
+
+#HotOffers-details .box-content .moving-tasks .moving-agency .agency {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+#HotOffers-details .box-content .moving-tasks .moving-agency .agency a {
+  font-size: 20px;
+}
+
+#HotOffers-details .box-content .moving-tasks .moving-agency .agency img {
+  width: 40px !important;
+  height: 40px !important;
+  margin-right: 10px;
+}
+
+#HotOffers-details .box-content .moving-tasks .moving-agency .tasks-numbers i {
+  color: #b68bcc !important;
+}
+
+#HotOffers-details .box-content .rating span {
+  margin: 2px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/*======== /HotOffers-details page ===========*/
+/*======== start-work page ===========*/
+#start-work .box-content {
+  padding: 0;
+}
+
+#start-work .tab-content .tab-pane {
+  padding: 0 25px;
+}
+
+#start-work .tab-content #ActiveDetails p {
+  font-size: 16.5px;
+}
+
+#start-work .tab-content #ActiveDetails > .row:nth-child(1) {
+  margin-bottom: 50px;
+}
+
+#start-work .tab-content #ActiveDetails .details {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#start-work .tab-content #ActiveDetails .details .clientInfo span {
+  font-size: 20px;
+}
+
+#start-work .tab-content #ActiveDetails .details .clientInfo img {
+  width: 118px !important;
+  height: 118px !important;
+  border-radius: 12px;
+}
+
+#start-work .tab-content #ActiveDetails .details .clientInfo .rating span {
+  color: #7c2da2;
+  margin: 2px;
+  font-size: 14px;
+}
+
+#start-work .tab-content #ActiveDetails .details h6 {
+  color: #7c2da2;
+  margin: 0;
+}
+
+#start-work .tab-content #ActiveDetails .details span {
+  color: #212121ab;
+}
+
+#start-work .tab-content #ActiveDetails .map-container {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 263px !important;
+}
+
+#start-work .tab-content #ActiveDetails .map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#start-work .tab-content #ActiveDetails .myOffer .service-img-block {
+  width: 158px;
+  height: 158px;
+}
+
+#start-work .tab-content #ActiveDetails .myOffer .service-img-block img {
+  border-radius: 12px;
+}
+
+#start-work .tab-content #ActiveDetails .myOffer .date {
+  color: #a19ea3;
+  font-size: 15px;
+}
+
+#start-work .tab-content #Messages.tab-pane {
+  padding-bottom: 35px;
+}
+
+#start-work .tab-content #Messages .provider-chat {
+  margin-bottom: 20px;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block {
+  height: 440px;
+  overflow: auto;
+  padding: 20px 25px;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .messege-date {
+  color: #a19ea3;
+  font-size: 12px;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .service-request {
+  width: 40%;
+  margin: auto;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .service-request .client-name {
+  font-weight: bold;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .client-name {
+  color: #a19ea3;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg p {
+  border-radius: 6px;
+  background-color: #7c2da2;
+  color: #fff;
+  padding: 15px;
+  margin-bottom: 2px;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg .provider-name {
+  color: #a19ea3;
+}
+
+#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg p {
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  color: #a19ea3;
+  padding: 15px;
+  margin-bottom: 2px;
+}
+
+#start-work .tab-content .sendMessges {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#start-work .tab-content .sendMessges .send {
+  width: 90%;
+}
+
+#start-work .tab-content .sendMessges .send .form-control {
+  width: 98%;
+  margin: auto;
+}
+
+#start-work .tab-content .sendMessges .imgUpload {
+  position: relative;
+}
+
+#start-work .tab-content .sendMessges .imgUpload i {
+  cursor: pointer;
+  font-size: 27px;
+}
+
+#start-work .tab-content .sendMessges .imgUpload input[type=file] {
+  outline: none !important;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  width: 27px;
+  height: 27;
+  cursor: pointer;
+}
+
+/*======== /start-work page ===========*/
+/*======== Rating provider page ===========*/
+#rating .box-content {
+  padding: 35px;
+}
+
+#rating .box-content .rating-list .rating-details {
+  width: 86%;
+}
+
+#rating .box-content .rating-list .rating-details .details-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#rating .box-content .rating-list .rating-details .details-head .details {
+  width: 80%;
+}
+
+#rating .box-content .rating-list .rating-details .details-head .details .service-name {
+  color: #7c2da2;
+  font-size: 17px;
+}
+
+#rating .box-content .rating-list .rating-details .details-head .details .rating span {
+  margin: 2px;
+  font-size: 14px;
+}
+
+#rating .box-content .rating-list .rating-details .details-head h5 {
+  margin-bottom: 0;
+}
+
+#rating .box-content .rating-list .rating-details .details-head .client-name,
+#rating .box-content .rating-list .rating-details .details-head h5 {
+  color: #7c2da2;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#rating .box-content .rating-list .rating-details .details-head .starEndDate i {
+  vertical-align: middle;
+}
+
+#rating .box-content .rating-list .rating-details .details-head .starEndDate span {
+  font-size: 14px;
+  color: #7c2da2;
+}
+
+#rating .box-content .rating-list .rating-details .end-task {
+  display: inline-block;
+  border-radius: 4px;
+  border: solid 1px #6e1799;
+  background-color: #413e43;
+  color: #ffffff;
+  text-align: center;
+  padding: 7px 17px;
+}
+
+#rating .box-content .rating-list .rating-details .end-task i {
+  margin-right: 5px;
+}
+
+/*======== /Rating provider page ===========*/
+/*======== client  rating  page ===========*/
+#client-rating .box-content {
+  padding: 35px;
+}
+
+#client-rating .box-content .rating-list .rating-details, #client-rating .box-content .Pended-rating-list .rating-details {
+  width: 86%;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head, #client-rating .box-content .Pended-rating-list .rating-details .details-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head .details, #client-rating .box-content .Pended-rating-list .rating-details .details-head .details {
+  width: 80%;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head .details span.service-name, #client-rating .box-content .Pended-rating-list .rating-details .details-head .details span.service-name {
+  color: #7c2da2;
+  font-size: 17px;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head .details .rating span, #client-rating .box-content .Pended-rating-list .rating-details .details-head .details .rating span {
+  margin: 2px;
+  font-size: 14px;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head h5, #client-rating .box-content .Pended-rating-list .rating-details .details-head h5 {
+  margin-bottom: 0;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head .client-name,
+#client-rating .box-content .rating-list .rating-details .details-head h5, #client-rating .box-content .Pended-rating-list .rating-details .details-head .client-name,
+#client-rating .box-content .Pended-rating-list .rating-details .details-head h5 {
+  color: #7c2da2;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head .starEndDate, #client-rating .box-content .Pended-rating-list .rating-details .details-head .starEndDate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head .starEndDate i, #client-rating .box-content .Pended-rating-list .rating-details .details-head .starEndDate i {
+  vertical-align: middle;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head .starEndDate span, #client-rating .box-content .Pended-rating-list .rating-details .details-head .starEndDate span {
+  font-size: 14px;
+  color: #7c2da2;
+}
+
+#client-rating .box-content .rating-list .rating-details .details-head .starEndDate .date, #client-rating .box-content .Pended-rating-list .rating-details .details-head .starEndDate .date {
+  color: #000;
+}
+
+#client-rating .box-content .rating-list .rating-details .end-task, #client-rating .box-content .Pended-rating-list .rating-details .end-task {
+  display: inline-block;
+  border-radius: 4px;
+  border: solid 1px #6e1799;
+  background-color: #413e43;
+  color: #ffffff;
+  text-align: center;
+  padding: 7px 17px;
+}
+
+#client-rating .box-content .rating-list .rating-details .end-task i, #client-rating .box-content .Pended-rating-list .rating-details .end-task i {
+  margin-right: 5px;
+}
+
+.modal.rateProvider .modal-header {
+  border-bottom: 0 !important;
+}
+
+.modal.rateProvider .modal-body .service-img-block {
+  width: 118px;
+  height: 118px;
+  margin: auto;
+}
+
+.modal.rateProvider .modal-body .service-img-block img {
+  border-radius: 12px;
+}
+
+.modal.rateProvider .modal-body .rating span {
+  color: #e2e2e2;
+}
+
+.modal.rateProvider .modal-body .review-provider {
+  width: 100%;
+  height: 89px;
+  border-radius: 4px;
+  border: solid 1px #a19ea3;
+  background-color: #f9f9f9;
+  resize: none;
+  outline: none;
+}
+
+.modal.rateProvider .modal-body .review-provider:focus {
+  background-color: #fff !important;
+}
+
+.modal.rateProvider .modal-body .review-provider::-webkit-input-placeholder {
+  color: #a19ea3 !important;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.modal.rateProvider .modal-body .review-provider:-ms-input-placeholder {
+  color: #a19ea3 !important;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.modal.rateProvider .modal-body .review-provider::-ms-input-placeholder {
+  color: #a19ea3 !important;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.modal.rateProvider .modal-body .review-provider::placeholder {
+  color: #a19ea3 !important;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.modal.rateProvider .modal-body .confirmRate {
+  padding: 6px 38px;
+}
+
+/*======== /client  rating  page ===========*/
 @media (max-width: 991.98px) {
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid {
@@ -2036,6 +2821,4 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
     padding-left: 10px;
   }
 }
-
-/*======== /contact page ===========*/
 /*# sourceMappingURL=style.css.map */
