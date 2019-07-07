@@ -164,6 +164,7 @@ function getCategory(data){
     return targetCateg;
 }
 
+
 // get home page testominals
 
 $.ajax({
@@ -174,7 +175,6 @@ $.ajax({
     cache: false,
     success: function (result) {
         let testominalsData = result.data, content = "";
-        console.log(testominalsData);
         if (result.error.status==true) {
             var message = result.error.message;
             alert(message);

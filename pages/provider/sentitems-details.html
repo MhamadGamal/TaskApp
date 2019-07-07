@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -71,7 +71,7 @@
     <section id="task-preview" class="grey-bg page-content">
         <div class="container">
             <div class="page-content-head">
-                <h4>Service name</h4>
+                <h4 id="Servicename"></h4>
             </div>
 
             <div class="row flex-column-reverse flex-md-row">
@@ -91,8 +91,8 @@
                             <div id="RecievedTasks" class="container tab-pane active">
                                     <div class="panel-section" id="seeTask">
                                     
-                                            <div class="panel-body">
-                                                <div class="row">
+                                            <div id="viewsentitem" class="panel-body">
+                                                <!--<div class="row">
                                                     <div class="col-md-8">
                                                         <div class="row no-gutters">
                                                             <div class="col-sm-8">
@@ -131,7 +131,7 @@
                                                         <iframe src="https://maps.google.com/maps?q=manhatan&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" height="100%" style="border:0" allowfullscreen=""></iframe>
                             
                                                     </div>
-                                                </div>
+                                                </div>-->
                                             </div>
                                     
                                     
@@ -190,9 +190,9 @@
                 <div class="col-md-3 ">
                     <div class="box-content p-3">
                         <h5 class="border-bottom p-2">Balance</h5>
-                        <div class="text-center s-color py-3">
+                        <div id="Points" class="text-center s-color py-3">
                             <h6 class="m-0">Total points</h6>
-                            <h1 class="m-0">2000</h1>
+                           
                         </div>
 
                     </div>
@@ -316,6 +316,115 @@
     <script src="../../assets/js/jquery.datepicker2.min.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script>
+        let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
+        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+        var supplierid = currentuserdata.id;
+        function GetOneTask(taskid) {
+            var supplierid = localStorage.getItem('CurrentUserid');
+            $.ajax({
+                url: "http://88.80.184.99/tasker/web/api/tasks/relateds/suppliers",
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    "supplier": "32"
+                },
+                success: function (result) {
+                    if (result.error.status == true) {
+                        var message = result.error.message;
+                        alert(message);
+                    }
+                    else {
+                        allTasks = result.data;
+                        let targetTask;
+                        for(let item of allTasks) {
+                            if (item.id == taskid) {
+                                targetTask = item;
+                            }
+                        }
+
+                        if (targetTask) {
+                            $("#Servicename").text(getCategory(Number(targetTask.category)).name_en);
+                            var dd = `
+                                <div class ="row">
+                        <div class ="col-md-8">
+                            <div class ="row no-gutters">
+                                <div class ="col-sm-8">
+                                    <div class ="my-2">
+                                        <span class ="main-color">Start Address</span>
+                                        <p> <i class ="fas fa-map-marker-alt    "></i> ${targetTask.start_location.location}</p>
+                                    </div>
+                                    <div class ="my-2">
+                                        <span class ="main-color">Destination</span>
+                                        <p> <i class ="fas fa-map-marker-alt    "></i> ${targetTask.end_location.location}</p>
+                                    </div>
+
+                                </div>
+                                <div class ="col-sm-4 text-center">
+                                    <div>
+                                        <img src="${'http://88.80.184.99/tasker/web/' + targetTask.client_image}" class ="img-fluid client-image" alt="">
+
+                                    </div>
+                                    <h6 class ="normal main-color m-0">${targetTask.client_name}</h6>
+                                    <div class ="rating main-color">
+                                        <span class ="fa fa-star checked"></span>
+                                        <span class ="fa fa-star checked"></span>
+                                        <span class ="fa fa-star checked"></span>
+                                        <span class ="fa fa-star"></span>
+                                        <span>4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class ="">
+                                <span class ="main-color">Service Details</span>
+                                <p>
+                                    ${targetTask.description}
+                                </p>
+                            </div>
+                        </div>
+                        <div class ="col-md-4">
+                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" height="100%" style="border:0" allowfullscreen></iframe>
+
+                        </div>
+                    </div>
+            `;
+                            $("#viewsentitem").html(dd);
+                        }
+                    }
+
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        }
+        function LoadPointsnumBySupplier(supplierid) {
+            $.ajax({
+                url: "http://88.80.184.99/tasker/web/api/points/remains/suppliers",
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    "supplier": supplierid
+                },
+                success: function (result) {
+                    if (result.error.status == true) {
+                        var message = result.error.message;
+                        alert(message);
+                    }
+                    else {
+                        var wrapper = `<h1 class="m-0">${result.data.remain_point}</h1>`;
+                        $("#Points").append(wrapper);
+                    }
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        }
+        GetOneTask(target);
+        LoadPointsnumBySupplier(supplierid);
+    </script>
 </body>
 
 </html>

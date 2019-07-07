@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -99,14 +99,14 @@
                                     <div class="col-md-4">
                                         <div class="input-container">
                                             <h6>Start Date</h6>
-                                            <input type="text" class="datepicker form-control" data-select="datepicker">
+                                            <input id="newofferstdate" type="text" class="datepicker form-control" data-select="datepicker">
                                             <i class="fas fa-calendar-alt"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-container">
                                             <h6>End Date</h6>
-                                            <input type="text" class="datepicker form-control" data-select="datepicker">
+                                            <input id="newofferenddate" type="text" class="datepicker form-control" data-select="datepicker">
                                             <i class="fas fa-calendar-alt"></i>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Offer Description</label>
-                                            <input class="form-control"
+                                            <input id="newofferdesc" class="form-control"
                                                 placeholder="What brings you here today?">
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <div class="form-group">
-                                                <input type="submit" class="main-btn btn addOffer" value="Add Offer">
+                                                <input id="addofferbtn" type="submit" class="main-btn btn addOffer" value="Add Offer">
                                         </div>
                                     </div>
                                 </div>
@@ -171,5 +171,45 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script>
+
+        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+        var supplierid = currentuserdata.id;
+        function AddNewOffer(supplier) {
+            let category = "7";
+            let task = "62";
+            let start_date = $("#newofferstdate").val();
+            let end_date = $("#newofferenddate").val();
+            let description = $("#newofferdesc").val();
+            if (start_date, end_date, description) {
+                $.ajax({
+                    url: "http://88.80.184.99/tasker/web/api/creates/offers",
+                    method: 'POST',
+                    dataType: "json",
+                    data: {
+                        "supplier": supplier, "start_date": start_date, "end_date": end_date, "category": 7, "type": "provider", "description": description
+                    },
+                    success: function (result) {
+                        if (result.error.status == true) {
+                            var message = result.error.message;
+                            alert(message);
+                        }
+                        else {
+                            window.location.pathname = 'pages/provider/dashboard.html';
+                        }
+                    },
+                    error: function (result) {
+                        alert('error');
+                    }
+                });
+            }
+        }
+
+
+        $("#addofferbtn").click(function () {
+            var id = localStorage.getItem('CurrentUserid');
+            AddNewOffer(supplierid);
+        });
+    </script>
 </body>
 </html>

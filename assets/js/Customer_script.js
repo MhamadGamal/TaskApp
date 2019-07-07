@@ -1,5 +1,5 @@
 $("#CustomerRegisterbtn").on("click", function (e) {
-    debugger;
+
     e.preventDefault();
     let user_name = $("#customerUserName").val();
     let email = $("#customerEmail").val();
@@ -58,6 +58,7 @@ $("#CustomerRegisterbtn").on("click", function (e) {
                     let usertype = "user";
                     localStorage.setItem('CurrentToken', usertoken);
                     localStorage.setItem('CurrentUserType', usertype);
+                    GetCurrentUserData(usertoken);
                     alert("signed goto verify");
                     window.location.pathname = 'pages/login/verify.html';
 
@@ -144,6 +145,7 @@ $("#ProviderRegisterbtn").on("click", function (e) {
                     let usertype = "supplier";
                     localStorage.setItem('CurrentToken', usertoken);
                     localStorage.setItem('CurrentUserType', usertype);
+                    GetCurrentUserData(usertoken);
                     window.location.pathname = 'pages/login/verify.html';
 
                 }
@@ -169,9 +171,7 @@ $("#confirmVerify").on("click", function (e) {
             url: "http://88.80.184.99/tasker/web/api/verifies/users",
             method: 'POST',
             dataType: "json",
-            async: false,
-            cache: false,
-            timeout: 30000,
+
             data: {
                 "code": code,
                 "token": currtoken
