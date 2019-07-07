@@ -1,5 +1,4 @@
 $("#CustomerRegisterbtn").on("click", function (e) {
-
     e.preventDefault();
     let user_name = $("#customerUserName").val();
     let email = $("#customerEmail").val();
