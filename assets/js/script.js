@@ -286,6 +286,7 @@ $(function(){
                 success: function (result) {
                     localStorage.removeItem('CurrentToken');
                     localStorage.removeItem('CurrentUserType');
+                    localStorage.removeItem('CurrentUserData');
                     window.location.pathname = 'index.html';
                     if(window.location.pathname == 'index.html'){
                         location.reload()

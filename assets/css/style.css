@@ -283,6 +283,11 @@ div, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-lis
   -o-transform: scale(1.2) rotate(2deg);
 }
 
+.task-img, .client-img-block {
+  height: 130px;
+  overflow: hidden;
+}
+
 .iti {
   display: block;
 }

@@ -17,24 +17,32 @@ function LoadRecievedTasksBySupplier(supplierid) {
             else {
 
                 allTasks = result.data;
-                let taskArr = result.data, wrapper, read;
+                let taskArr = result.data, wrapper="", read="";
+                let img;
                 for(let item of taskArr)
                 {
+
                     if (item.is_read == "0") {
                         read = `
                            <a href="seeTask.html?${item.id}" class ="seeTask main-color"> <span class ="position-relative">${item.category_point}</span> <i class="fas fa-chevron-right   pt-1 "></i></a>
                         `;
-
                     } else {
                         read = ""
                     }
                     
-                     wrapper = `
+                    if(item.client_image){
+                        img = `${'http://88.80.184.99/tasker/web/'  + item.client_image}`;
+                    }else{
+                        img = "https://via.placeholder.com/150";
+                    }
+
+                     wrapper += `
                                     <li class="my-1">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <img class="img-service"
-                                                    src="${'http://88.80.184.99/tasker/web/' + item.client_image}" alt="" />
+                                                <div class="task-img">
+                                                    <img class="img-service" src="${img}"   alt="" />
+                                                </div>
                                             </div>
                                             <div class="col-sm-8">
                                                 <div class="row no-gutters">
@@ -53,27 +61,9 @@ function LoadRecievedTasksBySupplier(supplierid) {
                                             </div>
                                         </div>
                                     </li>
-
-
                                 `
-                    $("#RecievedTasks .moving-tasks-list").append(wrapper);
-                    
-                    
-                }
-
-                //var dd = `<nav aria-label="..." id="RecievedTasksPaging">
-                //                    <ul class="pagination pagination-sm justify-content-end">
-                //                        <li class="page-item active">
-                //                            <a class="page-link" href="#" tabindex="-1">1</a>
-                //                        </li>
-                //                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                //                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                //                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                //                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                //                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                //                    </ul>
-                //                </nav>`;
-                //$("#RecievedTasks").append(dd);
+                            }
+                            $("#RecievedTasks .moving-tasks-list").html(wrapper);
 
                 
             }
@@ -101,16 +91,26 @@ function LoadHotOffersBySupplier(supplierid)
             }
             else {
 
-                let taskArr = result.data;
+                let taskArr = result.data, img="", wrapper ="";
                 for(let item of taskArr)
                 {
-                    var wrapper = `
+
+
+                    if(item.client_image){
+                        img = `${'http://88.80.184.99/tasker/web/'  + item.client_image}`;
+                    }else{
+                        img = "https://via.placeholder.com/150";
+                    }
+
+                     wrapper += `
 
                         <li class ="my-2 border p-2">
                                                 <div class ="row">
                                                     <div class ="col-sm-3">
-                                                        <img class ="img-service"
-                                                           src="${'http://88.80.184.99/tasker/web/' + item.client_image}" alt="" />
+                                                        <div class="task-img">
+                                                            <img class ="img-service"
+                                                                src="${img}" alt="" />
+                                                        </div>
                                                     </div>
                                                     <div class ="col-sm-9">
                                                         <div class ="moving-tasks">
@@ -134,8 +134,8 @@ function LoadHotOffersBySupplier(supplierid)
                                             </li>
 
                               `
-                    $("#HotOffers .moving-tasks-list").append(wrapper);
-                }
+                            }
+                            $("#HotOffers .moving-tasks-list").html(wrapper);
             }
 
         },
@@ -184,16 +184,25 @@ function LoadSentOffersBySupplier(supplierid)
                 aler(message);
             }
             else {
-                let taskArr = result.data;
+                let taskArr = result.data, img="", wrapper = "";
                 for(let item of taskArr)
                 {
                     
-                    var wrapper =`<ul class ="moving-tasks-list">
+                    if(item.client_image){
+                        img = `${'http://88.80.184.99/tasker/web/'  + item.client_image}`;
+                    }else{
+                        img = "https://via.placeholder.com/150";
+                    }
+
+                     wrapper +=`
                                     <li class ="my-2 border p-2">
                                         <div class ="row">
                                             <div class ="col-sm-3">
-                                                <img class ="img-service"
-                                                    src="${'http://88.80.184.99/tasker/web/' + item.client_image}" alt="" />
+                                                <div class="task-img">
+                                                    <img class ="img-service"
+                                                        src="${img}" alt="" />
+                                            
+                                                </div>
                                             </div>
                                             <div class ="col-sm-9">
                                                 <div class ="moving-tasks">
@@ -217,10 +226,10 @@ function LoadSentOffersBySupplier(supplierid)
                                     </li>
 
 
-                                </ul>  `
+                                  `
 
-                    $("#SentOffers").append(wrapper);
-                }
+                                }
+                                $("#SentOffers .moving-tasks-list").html(wrapper);
 
 
             }
