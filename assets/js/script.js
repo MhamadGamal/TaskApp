@@ -141,8 +141,6 @@ $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data){
 $(function(){
     setTimeout(function(){
         allCat = mainCategoryArr.concat(subCategoryArr);
-        console.log('allCat');
-        console.log(allCat);
     },500)
 })
 function getCategory(data){
