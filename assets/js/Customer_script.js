@@ -170,7 +170,9 @@ $("#confirmVerify").on("click", function (e) {
             url: "http://88.80.184.99/tasker/web/api/verifies/users",
             method: 'POST',
             dataType: "json",
-
+            async: false,
+            cache: false,
+            timeout: 30000,
             data: {
                 "code": code,
                 "token": currtoken

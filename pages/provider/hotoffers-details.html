@@ -129,8 +129,8 @@
 
         let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
         var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
-        // var supplierid = currentuserdata.id;
-        supplierid = '32';
+         var supplierid = currentuserdata.id;
+       // supplierid = '32';
         $.ajax({
             url: "http://88.80.184.99/tasker/web/api/lists/hots/offers/suppliers",
             method: 'POST',
@@ -152,6 +152,7 @@
                         }
                     }
 
+                    console.log(targetTask);
                     if (targetTask) {
                         let img1 = "",img2 = "",img3 = "",imgCl = "";   
 
@@ -278,8 +279,6 @@
                 alert('error');
             }
         });
-
-       
 
     </script>
 </body>

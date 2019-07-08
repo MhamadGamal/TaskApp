@@ -321,13 +321,13 @@
         var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
         var supplierid = currentuserdata.id;
         function GetOneTask(taskid) {
-            var supplierid = localStorage.getItem('CurrentUserid');
+           
             $.ajax({
                 url: "http://88.80.184.99/tasker/web/api/tasks/relateds/suppliers",
                 method: 'POST',
                 dataType: "json",
                 data: {
-                    "supplier": "32"
+                    "supplier": supplierid
                 },
                 success: function (result) {
                     if (result.error.status == true) {

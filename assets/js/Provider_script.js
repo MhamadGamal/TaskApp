@@ -1,6 +1,6 @@
 var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
 var supplierid = currentuserdata.id;
-supplierid = 32;
+//supplierid = 32;
 
 function LoadRecievedTasksBySupplier(supplierid) {
     $.ajax({
@@ -100,8 +100,9 @@ function LoadHotOffersBySupplier(supplierid)
                 let offerArr = result.data, img="", wrapper ="";
                 for(let item of offerArr)
                 {
+                    console.log(item);
                     if(item.image[0]){
-                        img = `${'http://88.80.184.99/tasker/web/'  + item.client_image}`;
+                        img = `${'http://88.80.184.99/tasker/web/'  + item.image[0]}`;
                     }else{
                         img = "https://via.placeholder.com/150";
                     }

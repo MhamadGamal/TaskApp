@@ -5,6 +5,9 @@ function GetCurrentUserData(token) {
         method: 'POST',
         dataType: "json",
         data: { 'token': token },
+        async: false,
+        cache: false,
+        timeout: 30000,
         success: function (result) {
             if (result.error.status == true) {
                 var message = result.error.message;
@@ -44,10 +47,11 @@ $("#loginbtn").on("click", function (e) {
                 url: "http://88.80.184.99/tasker/web/api/logins",
                 method: 'POST',
                 dataType: "json",
+                async: false,
+                cache: false,
+                timeout: 30000,
                 data: { 'phone': email, 'password': password},
                 success: function (result) {
-                    debugger;
-    
                     if (result.error.status==true) {
                         var message = result.error.message;
                         $("#alert").fadeIn().html(message);
@@ -59,7 +63,9 @@ $("#loginbtn").on("click", function (e) {
                         if (usertoken && usertype) {
                             localStorage.setItem('CurrentToken', usertoken);
                             localStorage.setItem('CurrentUserType', usertype);
-                            GetCurrentUserData(usertoken);
+                            setTimeout(function () { GetCurrentUserData(usertoken) }, 3000)
+                            // GetCurrentUserData(usertoken);
+
                             email = "";
                             password = "";
                             if (localStorage.getItem("CurrentUserType") == "user") {
@@ -94,7 +100,6 @@ $("#loginbtn").on("click", function (e) {
                 timeout: 3000,
                 data: { 'email': email, 'password': password, 'device_token': token },
                 success: function (result) {
-                    debugger;
     
                     if (result.error.status==true) {
                         var message = result.error.message;
@@ -110,7 +115,6 @@ $("#loginbtn").on("click", function (e) {
                             GetCurrentUserData(usertoken);
                             email = "";
                             password = "";
-                            debugger;
                             if (localStorage.getItem("CurrentUserType") == "user") {
                                 location.href = '../../index.html';
                             }else{
