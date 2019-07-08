@@ -1,5 +1,6 @@
 var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
 var supplierid = currentuserdata.id;
+supplierid = 32;
 
 function LoadRecievedTasksBySupplier(supplierid) {
     $.ajax({
@@ -276,7 +277,7 @@ function GetMessagesByOffer(id)
 }
 
 
-supplierid = 32;
+
 LoadRecievedTasksBySupplier(supplierid);
 LoadHotOffersBySupplier(supplierid);
 LoadPointsnumBySupplier(supplierid);
