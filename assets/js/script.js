@@ -320,4 +320,11 @@ $(function(){
         $(this).removeClass("error");
     })
 
+
+    //remove validatios
+    $(".form-control").on("keypress", function(){
+        $("#alert").fadeOut();
+        $(this).removeClass("error")
+    })
+
 });

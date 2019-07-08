@@ -125,6 +125,10 @@ button:focus {
   color: #212121;
 }
 
+.jquery-datepicker {
+  z-index: 10;
+}
+
 .modal-header {
   border-bottom: 1px solid #e2e2e2 !important;
   padding: 10px 20px !important;
@@ -465,6 +469,10 @@ i.far {
 
 .form-control.error,
 div.error {
+  border-color: red !important;
+}
+
+.error {
   border-color: red !important;
 }
 
@@ -1840,8 +1848,14 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   padding: 8px;
 }
 
+#add-offer .box-content .form-group .uploadImages {
+  margin-bottom: 20px;
+}
+
 #add-offer .box-content .form-group .uploadImages .addOffer-imgUpload {
   position: relative;
+  overflow: hidden;
+  margin: 5px;
   cursor: pointer;
 }
 

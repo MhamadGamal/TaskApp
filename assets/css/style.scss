@@ -123,6 +123,11 @@ button{
         color: #212121
     }
 }
+
+.jquery-datepicker{
+    z-index: 10;
+}
+
 .modal-header{
     border-bottom: 1px solid #e2e2e2 !important;
     padding: 10px 20px !important;
@@ -449,6 +454,9 @@ div {
     &.error {
         border-color: red !important;
     }
+}
+.error {
+    border-color: red !important;
 }
 // service-name
 .service-name, .provider-name{
@@ -2028,8 +2036,12 @@ all pages
         }
         .form-group {
             .uploadImages {
+                margin-bottom: 20px;
+
                 .addOffer-imgUpload {
                     position: relative;
+                    overflow: hidden;
+                    margin: 5px;
                     cursor: pointer;
 
                     img,

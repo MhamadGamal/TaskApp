@@ -72,6 +72,9 @@
             </div>
             <div class="box-content">
                 <div class="container">
+                    <div id="alert" class="alert alert-danger" style="display: none;" role="alert">
+                        
+                    </div>
                     <form>
                         <h6 class="normal-font">Upload image</h6>
                         <div class="form-group" id="pUploadImg">
@@ -115,8 +118,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Offer Description</label>
-                                            <input id="newofferdesc" class="form-control"
-                                                placeholder="What brings you here today?">
+                                            <textarea id="newofferdesc" rows="6" class="form-control"
+                                                placeholder="What brings you here today?"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -183,39 +186,40 @@
     <script src="../../assets/js/script.js"></script>
     <script>
         
-        $(function(){
-            setTimeout(function(){
-                let listOptions = ""
-            console.log(allCat);
-            for(let item of allCat){
-                listOptions += `<option value="${item.id}">${item.name_en}</option>`
-            }
-            console.log('listOptions')
-            console.log(listOptions)
-            $("#offersCat").html(listOptions)
-            },1500)
-        })
+       
 
         var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
         var supplierid = currentuserdata.id;
         function AddNewOffer(supplier) {
             let category = $("#offersCat :selected").val();
-            let task = "62";
             let start_date = $("#newofferstdate").val();
             let end_date = $("#newofferenddate").val();
             let description = $("#newofferdesc").val();
-            if (start_date, end_date, description) {
+            if(!category){
+                $("#offersCat").addClass("error");
+            }
+            if(!start_date){
+                $("#newofferstdate").addClass("error");
+            }
+            if(!end_date){
+                $("#newofferenddate").addClass("error");
+            }
+            if(!description){
+                $("#newofferdesc").addClass("error");
+            }
+            if (category && start_date && end_date && description) {
                 $.ajax({
                     url: "http://88.80.184.99/tasker/web/api/creates/offers",
                     method: 'POST',
                     dataType: "json",
                     data: {
-                        "supplier": supplier, "start_date": start_date, "end_date": end_date, "category": 7, "type": "provider", "description": description
+                        "supplier": supplier, "start_date": start_date, "end_date": end_date, "category": category, "type": "provider", "description": description
                     },
                     success: function (result) {
                         if (result.error.status == true) {
                             var message = result.error.message;
-                            alert(message);
+                            $("#alert").fadeIn().html(message)
+                            //alert(message);
                         }
                         else {
                             debugger;
@@ -230,11 +234,59 @@
             }
         }
 
+        function upload( img, input ) {
+            let preview = img;
+            let file    = input.files[0];
+            let reader  = new FileReader();
+            let reader2  = new FileReader();
 
-        $("#addofferbtn").click(function () {
-            var id = localStorage.getItem('CurrentUserid');
-            AddNewOffer(supplierid);
-        });
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            return reader;
+        }
+     
+        $(function(){
+            setTimeout(function(){
+                let listOptions = ""
+                
+                for(let item of allCat){
+                    listOptions += `<option value="${item.id}">${item.name_en}</option>`
+                }
+                
+                $("#offersCat").html(listOptions)
+            },1500);
+             imgsArr = [];
+            $(".addOffer-imgUpload").on("change", "input[type='file']", function(e){
+                upload(e.target.previousElementSibling, e.target)
+                console.log(e.target)
+                e.target.nextElementSibling.style.display = "none";
+                setTimeout(function(){
+                    imgsArr.push(upload(e.target.previousElementSibling, e.target))
+                    console.log(imgsArr[0].result)
+                }, 500)
+            });
+
+
+            $("#addofferbtn").click(function () {
+                let fs = document.querySelectorAll(".addOffer-imgUpload input[type='file']")
+                for(let item of fs){
+                    if(item.files.length == 0){
+                        $("#alert").fadeIn().html("you must upload all images")
+                    }else{
+                        $("#alert").fadeOut()
+                    }
+                }
+
+                var id = localStorage.getItem('CurrentUserid');
+                AddNewOffer(supplierid);
+            });
+
+        })
     </script>
 </body>
 </html>
