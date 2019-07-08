@@ -164,7 +164,8 @@
     <script>
         let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
         var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
-        var supplierid = currentuserdata.id;
+       // var supplierid = currentuserdata.id;
+         supplierid = '32';
         function ReadTaskBySupplier(supplierid, taskid) {
 
             $.ajax({

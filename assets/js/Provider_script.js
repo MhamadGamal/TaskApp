@@ -276,7 +276,7 @@ function GetMessagesByOffer(id)
 }
 
 
-
+supplierid = 32;
 LoadRecievedTasksBySupplier(supplierid);
 LoadHotOffersBySupplier(supplierid);
 LoadPointsnumBySupplier(supplierid);
