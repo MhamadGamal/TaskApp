@@ -128,21 +128,27 @@ function slider(selector){
 
 
 // get categories and sub categories
-let mainCategoryArr = [], subCategoryArr = [];
+let mainCategoryArr = [], subCategoryArr = [], allCat = [];
 $.get("http://88.80.184.99/tasker/web/api/main/catgeory", function(data){
     let d = data;
     mainCategoryArr = d.data;
-
+    
 });
 $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data){
     let d = data;
     subCategoryArr = d.data;
-
 });
-
+$(function(){
+    setTimeout(function(){
+        allCat = mainCategoryArr.concat(subCategoryArr);
+        console.log('allCat');
+        console.log(allCat);
+    },500)
+})
 function getCategory(data){
-    let allCat = mainCategoryArr.concat(subCategoryArr), targetCateg, targetCategArr = [];
-    if(typeof data == "number"){
+    allCat = mainCategoryArr.concat(subCategoryArr);
+     let targetCateg, targetCategArr = [];
+     if(typeof data == "number"){
         for(let categ of allCat){
             if( categ.id == data ){
                 targetCateg = categ;

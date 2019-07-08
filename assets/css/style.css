@@ -1861,7 +1861,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 79px !important;
   height: 104px !important;
   right: 25px;
-  z-index: -1;
+  z-index: 3;
 }
 
 #add-offer .box-content .form-group .uploadImages .addOffer-imgUpload span {
