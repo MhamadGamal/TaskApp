@@ -8,32 +8,86 @@
   src: url("../fonts/SourceSansPro-Bold.ttf");
 }
 
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url(../fonts/sans/OpenSans-Bold.woff);
+}
+
+@font-face {
+  font-family: 'OpenSans-Semibold';
+  src: url(../fonts/sans/OpenSans-Semibold.woff);
+}
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url(../fonts/sans/OpenSans-Light.woff);
+}
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url(../fonts/sans/OpenSans-Regular.woff);
+}
+
+@font-face {
+  font-family: 'SFUIText-Bold';
+  src: url(../fonts/SFUIText-Bold.woff);
+}
+
+@font-face {
+  font-family: 'SFUIText-Light';
+  src: url(../fonts/SFUIText-Light.woff);
+}
+
+@font-face {
+  font-family: 'SFUIText-Medium';
+  src: url(../fonts/SFUIText-Medium.woff);
+}
+
+@font-face {
+  font-family: 'SFUIText-Regular';
+  src: url(../fonts/SFUIText-Regular.woff);
+}
+
+.sansBold {
+  font-family: 'OpenSans-Bold';
+}
+
+.semibold {
+  font-family: 'OpenSans-Semibold';
+}
+
+.light {
+  font-family: 'OpenSans-Light';
+}
+
+.regular {
+  font-family: 'OpenSans-Regular';
+}
+
+.sfui-bold {
+  font-family: 'SFUIText-Bold';
+}
+
+.sfui-light {
+  font-family: 'SFUIText-Light';
+}
+
+.sfui-Medium {
+  font-family: 'SFUIText-Medium';
+}
+
+.sfui-regular {
+  font-family: 'SFUIText-Regular';
+}
+
+p, label, .btn, h6.date, .nav.nav-pills, .page-content-head h4 {
+  font-family: 'OpenSans-Regular';
+}
+
 body {
   margin: 0;
   font-family: "normal", cursive;
   color: #212121;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.bold {
-  font-weight: bold !important;
-}
-
-.normal {
-  font-weight: normal !important;
-}
-
-.normal-font {
-  font-family: "normal" !important;
-}
-
-.bold-font {
-  font-family: "bold-font" !important;
 }
 
 .main-color {
@@ -379,6 +433,7 @@ li.notify::after {
 
 .other-Service {
   margin-bottom: 25px;
+  font-family: 'OpenSans-Regular';
 }
 
 .box-content {
@@ -477,7 +532,8 @@ div.error {
 }
 
 .service-name, .provider-name {
-  font-size: 22px;
+  font-size: 20px;
+  font-family: 'OpenSans-Semibold';
 }
 
 .offer-num {
@@ -550,6 +606,18 @@ ul.Pended-rating-list li {
   right: 0;
 }
 
+.navbar-brand {
+  font-family: 'SFUIText-Bold' !important;
+}
+
+.navbar-brand span {
+  font-family: 'SFUIText-Regular' !important;
+}
+
+.details-head {
+  font-family: 'OpenSans-Semibold';
+}
+
 /*============================  Start Header Styling  ===============================*/
 header {
   height: 100vh;
@@ -619,6 +687,7 @@ header.customer {
 
 .navbar .navbar-brand {
   font-size: 2rem;
+  font-family: 'OpenSans-Bold';
 }
 
 .navbar .nav-item .nav-link {
@@ -930,6 +999,11 @@ footer .copyright a.active {
 
 .login-wrapper .login .logo {
   margin-bottom: 20px;
+  font-family: 'SFUIText-Bold';
+}
+
+.login-wrapper .login .logo span {
+  font-family: 'SFUIText-Regular';
 }
 
 .login-wrapper .login .btn-facebook {
@@ -1109,7 +1183,7 @@ footer .copyright a.active {
 }
 
 #task-details .details-form form .form-group:last-child input {
-  width: 200px;
+  width: 215px !important;
   display: block;
   margin: 30px auto;
 }
@@ -1207,8 +1281,7 @@ footer .copyright a.active {
 
 #client-waiting .container .box-content .waiting-sec p {
   color: #7c2da2;
-  font-size: 18px;
-  font-size: 18px;
+  font-size: 16px;
   width: 45%;
   margin: auto;
 }
@@ -1433,8 +1506,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #client-waiting .container .box-content .waiting-sec p {
   color: #7c2da2;
-  font-size: 18px;
-  font-size: 18px;
+  font-size: 16px;
   width: 45%;
   margin: auto;
 }
@@ -1528,10 +1600,14 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 #task-preview .tab-content #TaskDetails .details h6 {
   color: #7c2da2;
   margin: 0;
+  font-size: 13px;
+  font-family: 'OpenSans-Semibold';
 }
 
 #task-preview .tab-content #TaskDetails .details span {
   color: #212121ab;
+  font-family: 'OpenSans-Regular';
+  font-size: 13px;
 }
 
 #task-preview .tab-content #TaskDetails .details p {
@@ -1615,12 +1691,14 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #task-preview .tab-content #offers .row h6 {
   margin: 6px 20px 0 0;
+  font-family: 'OpenSans-Regular';
 }
 
 #task-preview .tab-content #offers .row a {
   border: 1px solid #7c2da2;
   border-radius: 4px;
   padding: 5px 14px;
+  font-family: 'OpenSans-Regular';
 }
 
 #task-preview .tab-content #offers .row a i {
@@ -1891,6 +1969,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #add-offer .box-content .dateTime .input-container h6 {
   color: #7c2da2;
+  font-family: 'OpenSans-Regular';
 }
 
 #add-offer .box-content .dateTime .input-container input {
@@ -2207,6 +2286,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   color: #7c2da2;
   display: inline-block;
   margin-right: 10px;
+  font-family: 'OpenSans-Regular';
 }
 
 #active-bookings ul.pending-bookings-list li .booking-details .end-task, #active-bookings ul.rating-list li .booking-details .end-task, #active-bookings ul.Pended-rating-list li .booking-details .end-task,
@@ -2651,7 +2731,8 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #rating .box-content .rating-list .rating-details .details-head .details .service-name {
   color: #7c2da2;
-  font-size: 17px;
+  font-size: 16px;
+  font-family: 'OpenSans-Regular';
 }
 
 #rating .box-content .rating-list .rating-details .details-head .details .rating span {
@@ -2675,8 +2756,9 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 #rating .box-content .rating-list .rating-details .details-head .starEndDate span {
-  font-size: 14px;
+  font-size: 12px;
   color: #7c2da2;
+  font-family: 'OpenSans-Regular';
 }
 
 #rating .box-content .rating-list .rating-details .end-task {
@@ -2715,7 +2797,8 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #client-rating .box-content .rating-list .rating-details .details-head .details span.service-name, #client-rating .box-content .Pended-rating-list .rating-details .details-head .details span.service-name {
   color: #7c2da2;
-  font-size: 17px;
+  font-size: 16px;
+  font-family: 'OpenSans-Regular';
 }
 
 #client-rating .box-content .rating-list .rating-details .details-head .details .rating span, #client-rating .box-content .Pended-rating-list .rating-details .details-head .details .rating span {
@@ -2756,7 +2839,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 #client-rating .box-content .rating-list .rating-details .details-head .starEndDate span, #client-rating .box-content .Pended-rating-list .rating-details .details-head .starEndDate span {
-  font-size: 14px;
+  font-size: 12px;
   color: #7c2da2;
 }
 

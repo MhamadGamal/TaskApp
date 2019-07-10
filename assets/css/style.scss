@@ -11,33 +11,95 @@ $secondaryColor: #ff7162;
     src: url("../fonts/SourceSansPro-Bold.ttf")
 }
 
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url(../fonts/sans/OpenSans-Bold.woff);
+}
+@font-face {
+    font-family: 'OpenSans-Semibold';
+    src: url(../fonts/sans/OpenSans-Semibold.woff);
+}
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url(../fonts/sans/OpenSans-Light.woff);
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url(../fonts/sans/OpenSans-Regular.woff);
+}
+@font-face {
+    font-family: 'SFUIText-Bold';
+    src: url(../fonts/SFUIText-Bold.woff);
+}
+
+@font-face {
+    font-family: 'SFUIText-Light';
+    src: url(../fonts/SFUIText-Light.woff);
+}
+@font-face {
+    font-family: 'SFUIText-Medium';
+    src: url(../fonts/SFUIText-Medium.woff);
+}
+@font-face {
+    font-family: 'SFUIText-Regular';
+    src: url(../fonts/SFUIText-Regular.woff);
+}
+.sansBold{
+    font-family: 'OpenSans-Bold';
+}
+.semibold {
+    font-family: 'OpenSans-Semibold';
+}
+.light{
+    font-family: 'OpenSans-Light';
+}
+.regular{
+    font-family: 'OpenSans-Regular';
+}
+.sfui-bold{
+    font-family: 'SFUIText-Bold';  
+}
+.sfui-light{
+    font-family: 'SFUIText-Light';
+}
+.sfui-Medium{
+    font-family: 'SFUIText-Medium';
+}
+.sfui-regular{
+    font-family: 'SFUIText-Regular';
+}
+p,label,.btn,h6.date ,.nav.nav-pills ,.page-content-head h4{
+    font-family: 'OpenSans-Regular'; 
+}
+
 body {
     margin: 0;
-    font-family: "normal", cursive;
+    font-family: "normal", cursive; 
     color: #212121
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.bold {
-    font-weight: bold !important
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// .bold {
+//     font-weight: bold !important
+// }
 
-.normal {
-    font-weight: normal !important
-}
+// .normal {
+//     font-weight: normal !important
+// }
 
-.normal-font {
-    font-family: "normal" !important;
-}
+// .normal-font {
+//     font-family: "normal" !important;
+// }
 
-.bold-font {
-    font-family: "bold-font" !important;
-}
+// .bold-font {
+//     font-family: "bold-font" !important;
+// }
 
 .main-color {
     color: $mainColor !important
@@ -356,7 +418,9 @@ li.notify::after {
 }
 
 .other-Service {
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    font-family: 'OpenSans-Regular'; 
+
 }
 
 .box-content {
@@ -460,7 +524,9 @@ div {
 }
 // service-name
 .service-name, .provider-name{
-    font-size: 22px;
+    font-size: 20px;
+    font-family: 'OpenSans-Semibold';
+
 }
 // offer-number
 .offer-num {
@@ -509,9 +575,11 @@ ul.Pended-rating-list
     border-radius: 3px;
     background-color: #a19ea3;
 }
+//rating
 .rating{
     cursor: pointer;
 }
+//tabs
 .nav.nav-pills {
     padding: 7px 17px;
     border-bottom: solid 1px #e2e2e2;
@@ -534,6 +602,16 @@ ul.Pended-rating-list
             }
         }
     }
+}
+// logo style
+.navbar-brand {
+    font-family: 'SFUIText-Bold' !important;  
+    span{
+        font-family: 'SFUIText-Regular' !important;
+    }
+}
+.details-head {
+    font-family: 'OpenSans-Semibold';
 }
 /*============================  Start Header Styling  ===============================*/
 header {
@@ -603,6 +681,7 @@ header {
 
     .navbar-brand {
         font-size: 2rem;
+        font-family: 'OpenSans-Bold';
     }
 
     .nav-item {
@@ -936,7 +1015,11 @@ footer {
         margin-top: 10vh;
 
         .logo {
-            margin-bottom: 20px
+            margin-bottom: 20px;
+            font-family: 'SFUIText-Bold'; 
+            span{
+                font-family: 'SFUIText-Regular';
+            } 
         }
 
         .btn-facebook {
@@ -1139,7 +1222,7 @@ footer {
 
             .form-group:last-child {
                 input {
-                    width: 200px;
+                    width: 215px !important;
                     display: block;
                     margin: 30px auto;
                 }
@@ -1262,8 +1345,7 @@ footer {
 
                 p {
                     color: $mainColor;
-                    font-size: 18px;
-                    font-size: 18px;
+                    font-size: 16px;
                     width: 45%;
                     margin: auto;
                 }
@@ -1538,7 +1620,6 @@ all pages
     .container {
         .box-content {
             height: 776px;
-
             .waiting-sec {
                 .waiting-img {
                     background-image: url("../img/client/wait-img.png");
@@ -1549,8 +1630,7 @@ all pages
 
                 p {
                     color: $mainColor;
-                    font-size: 18px;
-                    font-size: 18px;
+                    font-size: 16px;
                     width: 45%;
                     margin: auto;
                 }
@@ -1661,11 +1741,15 @@ all pages
 
                 h6 {
                     color: $mainColor;
-                    margin: 0
+                    margin: 0;
+                    font-size: 13px;
+                    font-family: 'OpenSans-Semibold';
                 }
 
                 span {
                     color: #212121ab;
+                    font-family: 'OpenSans-Regular';
+                    font-size: 13px;
                 }
 
                 p {
@@ -1720,6 +1804,7 @@ all pages
                                     color: #fff;
                                     width: 160px;
                                     text-align: center;
+
                                 }
                             }
 
@@ -1759,14 +1844,15 @@ all pages
                 margin: 0 0 25px 0;
 
                 h6 {
-                    margin: 6px 20px 0 0
+                    margin: 6px 20px 0 0;
+                    font-family: 'OpenSans-Regular';
                 }
 
                 a {
                     border: 1px solid #7c2da2;
                     border-radius: 4px;
                     padding: 5px 14px;
-
+                    font-family: 'OpenSans-Regular';
                     i {
                         color: $mainColor;
                         font-size: 12px;
@@ -2024,6 +2110,7 @@ all pages
         form {
             &>h6:first-child {
                 margin-bottom: 12px;
+
             }
         }
         .row {
@@ -2077,6 +2164,8 @@ all pages
             .input-container {
                 h6 {
                     color: $mainColor;
+                    font-family: 'OpenSans-Regular';
+                    
                 }
 
                 input {
@@ -2145,6 +2234,8 @@ all pages
                         color: $mainColor;
                         display: inline-block;
                         margin-right: 10px;
+                        font-family: 'OpenSans-Regular';
+
                     }
                 }
 
@@ -2250,9 +2341,6 @@ all pages
 
 }
 /*======== /credit Page ===========*/
-
-
-
 /*======== /contact page ===========*/
 
 /*======== HotOffers-details page ===========*/
@@ -2511,7 +2599,8 @@ all pages
                     .details {
                         .service-name{
                             color: $mainColor;
-                            font-size: 17px;
+                            font-size: 16px;
+                            font-family: 'OpenSans-Regular'; 
                         }
                         width: 80%;
                         .rating{
@@ -2535,8 +2624,9 @@ all pages
                             vertical-align: middle;
                         }
                         span{
-                            font-size: 14px;
-                            color: $mainColor;
+                            font-size: 12px;
+                            color: #7c2da2;
+                            font-family: 'OpenSans-Regular';
                         }
                     }
                 }
@@ -2575,7 +2665,8 @@ all pages
                     .details {
                         span.service-name {
                             color: $mainColor;
-                            font-size: 17px;
+                            font-size: 16px;
+                            font-family: 'OpenSans-Regular';
                         }
                         width: 80%;
                         .rating{
@@ -2605,7 +2696,7 @@ all pages
                         }
 
                         span{
-                            font-size: 14px;
+                            font-size: 12px;
                             color: $mainColor;
                         }
                         .date{
@@ -2630,8 +2721,6 @@ all pages
             }
         }
     }
-
-
 }
 // model 
 .modal.rateProvider{
@@ -2651,8 +2740,7 @@ all pages
         .rating {
             span{
                 color: #e2e2e2;
-
-                
+        
             }
         }
         .review-provider{
