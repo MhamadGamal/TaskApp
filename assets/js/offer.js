@@ -54,7 +54,7 @@ if(type  == "user"){
                                         TO
                                         <span class="main-color"> <i class="fas fa-calendar-alt    "></i> ${offer.end_date} </span>
                                     </div>
-                                    <a href="" class="btn main-btn">Check Offer</a>
+                                    <a href="viewoffer.html?${offer.id}" class="btn main-btn">Check Offer</a>
                                 </div>
                             </div>
                     </div>
@@ -79,7 +79,7 @@ if(type  == "user"){
                                     TO
                                     <span class="main-color"> <i class="fas fa-calendar-alt    "></i> ${offer.end_date} </span>
                                 </div>
-                                <a href="" class="btn main-btn">Check Offer</a>
+                                <a href="viewoffer.html?${offer.id}" class="btn main-btn">Check Offer</a>
                             </div>
                         </div>
                 </div>
