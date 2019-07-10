@@ -13,7 +13,7 @@ let loginnedNavbar = `
                 <a class="nav-link" href="index.html">Services </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/provider/Providers.html">Providers</a>
+                <a class="nav-link" href="pages/client/providers.html">Providers</a>
             </li>
             <li class="nav-item notify dropdown">
                 <a class="nav-link dropdown-toggle " href="../client/bookings.html" role="button" data-toggle="dropdown"
