@@ -128,21 +128,25 @@ function slider(selector){
 
 
 // get categories and sub categories
-let mainCategoryArr = [], subCategoryArr = [];
+let mainCategoryArr = [], subCategoryArr = [], allCat = [];
 $.get("http://88.80.184.99/tasker/web/api/main/catgeory", function(data){
     let d = data;
     mainCategoryArr = d.data;
-
+    
 });
 $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data){
     let d = data;
     subCategoryArr = d.data;
-
 });
-
+$(function(){
+    setTimeout(function(){
+        allCat = mainCategoryArr.concat(subCategoryArr);
+    },500)
+})
 function getCategory(data){
-    let allCat = mainCategoryArr.concat(subCategoryArr), targetCateg, targetCategArr = [];
-    if(typeof data == "number"){
+    allCat = mainCategoryArr.concat(subCategoryArr);
+     let targetCateg, targetCategArr = [];
+     if(typeof data == "number"){
         for(let categ of allCat){
             if( categ.id == data ){
                 targetCateg = categ;
@@ -164,6 +168,7 @@ function getCategory(data){
     return targetCateg;
 }
 
+
 // get home page testominals
 
 $.ajax({
@@ -174,7 +179,6 @@ $.ajax({
     cache: false,
     success: function (result) {
         let testominalsData = result.data, content = "";
-        console.log(testominalsData);
         if (result.error.status==true) {
             var message = result.error.message;
             alert(message);
@@ -286,6 +290,7 @@ $(function(){
                 success: function (result) {
                     localStorage.removeItem('CurrentToken');
                     localStorage.removeItem('CurrentUserType');
+                    localStorage.removeItem('CurrentUserData');
                     window.location.pathname = 'index.html';
                     if(window.location.pathname == 'index.html'){
                         location.reload()
@@ -311,6 +316,13 @@ $(function(){
     //remove validatios
     $(".error").on("keypress", function(){
         $(this).removeClass("error");
+    })
+
+
+    //remove validatios
+    $(".form-control").on("keypress", function(){
+        $("#alert").fadeOut();
+        $(this).removeClass("error")
     })
 
 });

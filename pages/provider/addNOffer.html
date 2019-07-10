@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -72,6 +72,9 @@
             </div>
             <div class="box-content">
                 <div class="container">
+                    <div id="alert" class="alert alert-danger" style="display: none;" role="alert">
+                        
+                    </div>
                     <form>
                         <h6 class="regular">Upload image</h6>
                         <div class="form-group" id="pUploadImg">
@@ -99,14 +102,14 @@
                                     <div class="col-md-4">
                                         <div class="input-container">
                                             <h6>Start Date</h6>
-                                            <input type="text" class="datepicker form-control" data-select="datepicker">
+                                            <input id="newofferstdate" type="text" class="datepicker form-control" data-select="datepicker">
                                             <i class="fas fa-calendar-alt"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-container">
                                             <h6>End Date</h6>
-                                            <input type="text" class="datepicker form-control" data-select="datepicker">
+                                            <input id="newofferenddate" type="text" class="datepicker form-control" data-select="datepicker">
                                             <i class="fas fa-calendar-alt"></i>
                                         </div>
                                     </div>
@@ -115,20 +118,16 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Offer Description</label>
-                                            <input class="form-control"
-                                                placeholder="What brings you here today?">
+                                            <textarea id="newofferdesc" rows="6" class="form-control"
+                                                placeholder="What brings you here today?"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                             <label>Offer category</label>
-                                        <select class="form-control">
-                                              
-                                            <option> select</option>
-                                            <option> select</option>
-                                            <option> select</option>
-                                            <option> select</option>
+                                        <select id="offersCat" class="form-control">
+                                           
                                         </select>
                                     </div>
                                     
@@ -137,7 +136,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <div class="form-group">
-                                                <input type="submit" class="main-btn btn addOffer" value="Add Offer">
+                                                <input id="addofferbtn" type="submit" class="main-btn btn addOffer" value="Add Offer">
                                         </div>
                                     </div>
                                 </div>
@@ -185,5 +184,149 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script>
+        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+
+        var supplierid = currentuserdata.id;
+
+        function AddNewOffer(supplier) {
+            let category = $("#offersCat :selected").val();
+            let start_date = $("#newofferstdate").val();
+            let end_date = $("#newofferenddate").val();
+            let description = $("#newofferdesc").val();
+            if (!category) {
+                $("#offersCat").addClass("error");
+            }
+            if (!start_date) {
+                $("#newofferstdate").addClass("error");
+            }
+            if (!end_date) {
+                $("#newofferenddate").addClass("error");
+            }
+            if (!description) {
+                $("#newofferdesc").addClass("error");
+            }
+            if (category && start_date && end_date && description) {
+                $.ajax({
+                    url: "http://88.80.184.99/tasker/web/api/creates/offers",
+                    method: 'POST',
+                    dataType: "json",
+                    data: {
+                        "supplier": supplier, "start_date": start_date, "end_date": end_date, "category": category, "type": "provider", "description": description
+                    },
+                    success: function (result) {
+                        if (result.error.status == true) {
+                            var message = result.error.message;
+                            $("#alert").fadeIn().html(message)
+                            //alert(message);
+                        }
+                        else {
+                            debugger;
+                            var offerid = result.data.id
+                            if (offerid) {
+                                for(let item of imgsArr)
+                                {
+                                    console.log(item.result);
+                                    $.ajax({
+                                        url: "http://88.80.184.99/tasker/web/api/uploads/images/bies/types",
+                                        method: 'POST',
+                                        dataType: "json",
+                                        data: {
+                                            "offer": offerid, "image": item.result
+                                        },
+                                        success: function (result) {
+                                            debugger;
+                                            if (result.error.status == true) {
+                                                var message = result.error.message;
+                                                alert(message);
+                                            }
+                                            else {
+                                                
+                                            }
+                                        },
+                                        error: function (result) {
+                                            alert('error');
+                                        }
+                                    });
+
+                                }
+                                window.location.pathname = 'pages/provider/dashboard.html';
+                            }
+
+                        }
+                    },
+                    error: function (result) {
+                        alert('error');
+                    }
+                });
+            }
+        }
+
+        function upload(img, input) {
+            let preview = img;
+            let file = input.files[0];
+            let reader = new FileReader();
+            let reader2 = new FileReader();
+
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            return reader;
+        }
+
+        $(function () {
+            setTimeout(function () {
+                let listOptions = ""
+
+                for(let item of allCat) {
+                    listOptions += `<option value="${item.id}">${item.name_en}</option>`
+                }
+
+                $("#offersCat").html(listOptions)
+            }, 1500);
+            imgsArr = [];
+            $(".addOffer-imgUpload").on("change", "input[type='file']", function (e) {
+                upload(e.target.previousElementSibling, e.target)
+                console.log(e.target)
+                e.target.nextElementSibling.style.display = "none";
+                setTimeout(function () {
+                    imgsArr.push(upload(e.target.previousElementSibling, e.target))
+                }, 500)
+            });
+
+
+            $("#addofferbtn").click(function () {
+                let fs = document.querySelectorAll(".addOffer-imgUpload input[type='file']")
+                for(let item of fs) {
+                    if (item.files.length == 0) {
+                        $("#alert").fadeIn().html("you must upload all images")
+                    } else {
+                        $("#alert").fadeOut()
+                    }
+                }
+
+                var id = localStorage.getItem('CurrentUserid');
+                AddNewOffer(supplierid);
+            });
+
+        })
+       
+        $(function(){
+            setTimeout(function(){
+                let listOptions = ""
+          
+            for(let item of allCat){
+                listOptions += `<option value="${item.id}">${item.name_en}</option>`
+            }
+         
+            $("#offersCat").html(listOptions)
+            },1500)
+        })
+      
+    </script>
 </body>
 </html>

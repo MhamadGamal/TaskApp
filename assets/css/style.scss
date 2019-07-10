@@ -185,6 +185,11 @@ button{
         color: #212121
     }
 }
+
+.jquery-datepicker{
+    z-index: 10;
+}
+
 .modal-header{
     border-bottom: 1px solid #e2e2e2 !important;
     padding: 10px 20px !important;
@@ -335,6 +340,11 @@ section {
             -o-transform: scale(1.2) rotate(2deg);
         }
     }
+}
+
+.task-img, .client-img-block, .provider-img-block{
+    height: 130px;
+    overflow: hidden;
 }
 
 .iti {
@@ -508,6 +518,9 @@ div {
     &.error {
         border-color: red !important;
     }
+}
+.error {
+    border-color: red !important;
 }
 // service-name
 .service-name, .provider-name{
@@ -2110,8 +2123,12 @@ all pages
         }
         .form-group {
             .uploadImages {
+                margin-bottom: 20px;
+
                 .addOffer-imgUpload {
                     position: relative;
+                    overflow: hidden;
+                    margin: 5px;
                     cursor: pointer;
 
                     img,
@@ -2131,6 +2148,7 @@ all pages
                         width: 79px !important;
                         height: 104px !important;
                         right: 25px;
+                        z-index: 3;
                     }
 
                     span {
@@ -2337,6 +2355,9 @@ all pages
             li {
                 width: 100%;
                 border-radius: 0;
+                img{
+                    height: 80px;;
+                }
                 &.active {
                     background-color: transparent;
                     opacity: 0.5;
@@ -2344,7 +2365,8 @@ all pages
             }
         }
         .carousel-inner .carousel-item {
-            height: auto;
+            height: 300px;
+            overflow: hidden;
         }
         .moving-tasks {
             p {
@@ -2457,7 +2479,12 @@ all pages
         }
     }
 
-    #Messages{
+    
+
+    }
+    
+}
+#Messages{
         &.tab-pane{
             padding-bottom: 35px;
         }
@@ -2552,16 +2579,12 @@ all pages
             left: 0;
             opacity: 0;
             width: 27px;
-            height: 27;
+            height: 27px;
+            top: 0;
             cursor: pointer;
         }
     }
 }
-    }
-    
-}
-
-
 /*======== /start-work page ===========*/
 /*======== Rating provider page ===========*/
 #rating{

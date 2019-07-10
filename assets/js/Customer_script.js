@@ -1,5 +1,4 @@
 $("#CustomerRegisterbtn").on("click", function (e) {
-    debugger;
     e.preventDefault();
     let user_name = $("#customerUserName").val();
     let email = $("#customerEmail").val();
@@ -58,6 +57,7 @@ $("#CustomerRegisterbtn").on("click", function (e) {
                     let usertype = "user";
                     localStorage.setItem('CurrentToken', usertoken);
                     localStorage.setItem('CurrentUserType', usertype);
+                    GetCurrentUserData(usertoken);
                     alert("signed goto verify");
                     window.location.pathname = 'pages/login/verify.html';
 
@@ -144,6 +144,7 @@ $("#ProviderRegisterbtn").on("click", function (e) {
                     let usertype = "supplier";
                     localStorage.setItem('CurrentToken', usertoken);
                     localStorage.setItem('CurrentUserType', usertype);
+                    GetCurrentUserData(usertoken);
                     window.location.pathname = 'pages/login/verify.html';
 
                 }

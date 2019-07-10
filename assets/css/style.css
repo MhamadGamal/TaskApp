@@ -179,6 +179,10 @@ button:focus {
   color: #212121;
 }
 
+.jquery-datepicker {
+  z-index: 10;
+}
+
 .modal-header {
   border-bottom: 1px solid #e2e2e2 !important;
   padding: 10px 20px !important;
@@ -335,6 +339,11 @@ div, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-lis
   -moz-transform: scale(1.2) rotate(2deg);
   -ms-transform: scale(1.2) rotate(2deg);
   -o-transform: scale(1.2) rotate(2deg);
+}
+
+.task-img, .client-img-block, .provider-img-block {
+  height: 130px;
+  overflow: hidden;
 }
 
 .iti {
@@ -515,6 +524,10 @@ i.far {
 
 .form-control.error,
 div.error {
+  border-color: red !important;
+}
+
+.error {
   border-color: red !important;
 }
 
@@ -1913,8 +1926,14 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   padding: 8px;
 }
 
+#add-offer .box-content .form-group .uploadImages {
+  margin-bottom: 20px;
+}
+
 #add-offer .box-content .form-group .uploadImages .addOffer-imgUpload {
   position: relative;
+  overflow: hidden;
+  margin: 5px;
   cursor: pointer;
 }
 
@@ -1934,6 +1953,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 79px !important;
   height: 104px !important;
   right: 25px;
+  z-index: 3;
 }
 
 #add-offer .box-content .form-group .uploadImages .addOffer-imgUpload span {
@@ -2438,13 +2458,18 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   border-radius: 0;
 }
 
+#HotOffers-details .box-content .carousel-indicators li img {
+  height: 80px;
+}
+
 #HotOffers-details .box-content .carousel-indicators li.active {
   background-color: transparent;
   opacity: 0.5;
 }
 
 #HotOffers-details .box-content .carousel-inner .carousel-item {
-  height: auto;
+  height: 300px;
+  overflow: hidden;
 }
 
 #HotOffers-details .box-content .moving-tasks p {
@@ -2556,39 +2581,39 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   font-size: 15px;
 }
 
-#start-work .tab-content #Messages.tab-pane {
+#Messages.tab-pane {
   padding-bottom: 35px;
 }
 
-#start-work .tab-content #Messages .provider-chat {
+#Messages .provider-chat {
   margin-bottom: 20px;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block {
+#Messages .provider-chat .messges-block {
   height: 440px;
   overflow: auto;
   padding: 20px 25px;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .messege-date {
+#Messages .provider-chat .messges-block .messege-date {
   color: #a19ea3;
   font-size: 12px;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .service-request {
+#Messages .provider-chat .messges-block .service-request {
   width: 40%;
   margin: auto;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .service-request .client-name {
+#Messages .provider-chat .messges-block .service-request .client-name {
   font-weight: bold;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .client-name {
+#Messages .provider-chat .messges-block .incoming-msg-block .client-name {
   color: #a19ea3;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg {
+#Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2601,7 +2626,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: flex-start;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg p {
+#Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg p {
   border-radius: 6px;
   background-color: #7c2da2;
   color: #fff;
@@ -2609,7 +2634,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-bottom: 2px;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block {
+#Messages .provider-chat .messges-block .received-msg-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2618,7 +2643,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           justify-content: flex-end;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg {
+#Messages .provider-chat .messges-block .received-msg-block .received-msg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2631,11 +2656,11 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: flex-end;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg .provider-name {
+#Messages .provider-chat .messges-block .received-msg-block .received-msg .provider-name {
   color: #a19ea3;
 }
 
-#start-work .tab-content #Messages .provider-chat .messges-block .received-msg-block .received-msg p {
+#Messages .provider-chat .messges-block .received-msg-block .received-msg p {
   border-radius: 6px;
   background-color: #f5f5f5;
   color: #a19ea3;
@@ -2643,7 +2668,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-bottom: 2px;
 }
 
-#start-work .tab-content .sendMessges {
+.sendMessges {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2655,31 +2680,32 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: center;
 }
 
-#start-work .tab-content .sendMessges .send {
+.sendMessges .send {
   width: 90%;
 }
 
-#start-work .tab-content .sendMessges .send .form-control {
+.sendMessges .send .form-control {
   width: 98%;
   margin: auto;
 }
 
-#start-work .tab-content .sendMessges .imgUpload {
+.sendMessges .imgUpload {
   position: relative;
 }
 
-#start-work .tab-content .sendMessges .imgUpload i {
+.sendMessges .imgUpload i {
   cursor: pointer;
   font-size: 27px;
 }
 
-#start-work .tab-content .sendMessges .imgUpload input[type=file] {
+.sendMessges .imgUpload input[type=file] {
   outline: none !important;
   position: absolute;
   left: 0;
   opacity: 0;
   width: 27px;
-  height: 27;
+  height: 27px;
+  top: 0;
   cursor: pointer;
 }
 
