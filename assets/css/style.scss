@@ -20,6 +20,10 @@ $secondaryColor: #ff7162;
     src: url(../fonts/sans/OpenSans-Semibold.woff);
 }
 @font-face {
+    font-family: 'OpenSans-SemiboldItalic';
+    src: url(../fonts/sans/OpenSans-SemiboldItalic.woff);
+}
+@font-face {
     font-family: 'OpenSans-Light';
     src: url(../fonts/sans/OpenSans-Light.woff);
 }
@@ -50,6 +54,10 @@ $secondaryColor: #ff7162;
 }
 .semibold {
     font-family: 'OpenSans-Semibold';
+}
+
+.semiItalicbold {
+    font-family: 'OpenSans-SemiboldItalic';
 }
 .light{
     font-family: 'OpenSans-Light';
@@ -614,7 +622,7 @@ ul.Pended-rating-list
     font-family: 'OpenSans-Semibold';
 }
 /*============================  Start Header Styling  ===============================*/
-header {
+header ,header.search-provider{
     height: 100vh;
     padding-top: 30px;
     background-image: url("../img/home/header-bg.png");
@@ -2376,7 +2384,6 @@ all pages
                 .agency {
                     align-items: center;
                     margin-bottom: 10px;
-
                     a {
                         font-size: 20px;
                     }
@@ -2780,4 +2787,202 @@ all pages
         padding-left: 10px;
     }
 }
-     
+/*======== search-provider Page ===========*/ 
+// .search-provider{
+//     #subCatHead {
+//         background: url('../img/client/providers-banner.png') no-repeat !important;
+//         background-size: cover;
+//         height: 350px;
+//     }
+    
+// }
+
+#search-provider-page{
+    header.search-provider{
+        &#subCatHead {
+            background:url('../img/client/providers-banner.png') no-repeat;
+            height: 350px;
+            margin-top: 79px;
+            background-size: 100% 100%;
+    
+        }  
+}
+
+#providers-list {
+    .row.filter-list-block{
+        justify-content:space-between;
+         margin: 50px auto;
+         &>.col-md-4:first-child{
+             padding-left: 0; 
+         }
+         &>.col-md-4:last-child{
+            padding-right : 0; 
+                .btn.btn-outline-secondary {
+                   border-top-left-radius: 0; 
+                   border-bottom-left-radius: 0;
+                   &:hover .fa.fa-search{
+                       color: #fff;
+                   }
+                }
+    
+             
+        }
+         .input-group{
+             label{
+                margin: 7px 24px 7px 0;
+             }
+             select{
+                border-radius: .25rem;
+             }
+             .fa.fa-search{
+                color: #212121;  
+             }
+ 
+         }
+
+         
+
+    }
+    ul.moving-tasks-list {
+
+        li {
+            border-radius: 2px;
+            border: solid 1px #e2e2e2;
+            background-color: #ffffff;
+            margin-bottom: 22px;
+            padding: 15px;
+            .img-service-block{
+                img {
+                    margin-right: 30px;
+                    border-radius: 12px;
+                }
+            }
+            .moving-tasks {
+                p{
+                    width: 86%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;  
+                }
+                .agency-tasks {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .view-profile {
+                        a {
+                            background: #6e1799;
+                            color: #fff;
+                            width: 160px;
+                            text-align: center;
+                            border: 1px solid #7c2da2;
+                             border-radius: 4px;
+                               padding: 5px 14px;
+
+                        }
+                    }
+
+                    .moving-agency {
+                        h5 {
+                            color: $mainColor
+                        }
+
+                        .rating {
+                            margin-bottom: 20px;
+
+                            span {
+                                color: $mainColor;
+                                margin: 2px;
+                                font-size: 14px;
+                            }
+
+                            &>span:last-child {
+                                margin-left: 6px;
+                            }
+                        }
+
+                        .tasks-numbers {
+                            margin-bottom: 20px;
+
+                            i,
+                            span {
+                                color: #b68bcc;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .row {
+        margin: 0 0 25px 0;
+
+        h6 {
+            margin: 6px 20px 0 0;
+            font-family: 'OpenSans-Regular';
+        }
+    }
+}
+
+
+    
+}
+/*======== /search-provider Page ===========*/   
+/*======== select-provider Page ===========*/   
+#select-provider{
+
+    .box-content{
+        padding: 44px 25px;
+        .img-service-block{
+        img{
+            border-radius: 12px;
+        }
+        }
+        .moving-agency {
+            .rating {
+                span {
+                    color: $mainColor;
+                    margin: 2px;
+                    font-size: 14px;
+                }
+            }
+
+            .tasks-numbers {
+                margin-bottom: 20px;
+
+                i,
+                span {
+                    color: #b68bcc;
+                }
+            }
+            .clientReviews{
+                .ServiceReview{
+                    margin-bottom: 35px;
+                    .client-img-block{
+                        width: 66px;
+                        height: 66px;
+                        margin-right: 20px;
+
+                        img{
+                            border-radius: 5px;
+                        }
+                    }
+                    .client-name{
+                        font-family: 'OpenSans-SemiboldItalic';
+                        color:$mainColor;
+                        font-size: 13px;
+                    }
+                    .date {
+                        color: #a19ea3;
+                        font-size: 13px;
+                        font-family: 'OpenSans-Regular';
+
+                    }
+                }
+            }
+        }
+    }
+}
+/*======== /select-provider Page ===========*/   
+
