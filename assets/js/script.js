@@ -10,19 +10,19 @@ let loginnedNavbar = `
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav ">
             <li class="nav-item active ">
-                <a class="nav-link" href="../../index.html">Services </a>
+                <a class="nav-link" href="index.html">Services </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../provider/Providers.html">Providers</a>
+                <a class="nav-link" href="pages/provider/Providers.html">Providers</a>
             </li>
             <li class="nav-item notify dropdown">
                 <a class="nav-link dropdown-toggle " href="../client/bookings.html" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">My Bookings</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../client/pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
-                    <a class="dropdown-item" href="../client/booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
+                    <a class="dropdown-item" href="pages/client/pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
+                    <a class="dropdown-item" href="pages/client/booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../client/rating.html"><i class="fas fa-star"></i>Ratings</a>
+                    <a class="dropdown-item" href="pages/client/rating.html"><i class="fas fa-star"></i>Ratings</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -31,17 +31,14 @@ let loginnedNavbar = `
                     <img src="../../assets/img/client/user.png" alt="" srcset="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../client/account.html"> <i class="far fa-address-card"></i> My Account</a>
-                    <a class="dropdown-item" href="../client/rating.html"><i class="fas fa-star"></i>My Ratings</a>
+                    <a class="dropdown-item" href="pages/client/account.html"> <i class="far fa-address-card"></i> My Account</a>
+                    <a class="dropdown-item" href="pages/client/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                     <div class="dropdown-divider"></div>
                     <a  id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
             </li>
         </ul>
-        <!-- <a href="../login/login.html" class="login-btn">
-            <img src="../../assets/img/client/user.png"  alt="" srcset="">
         
-        </a> -->
     </div>
 </div>
 </nav>
