@@ -59,7 +59,7 @@ let providerNavbar = `
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav ">
             <li class="nav-item active ">
-                <a class="nav-link main-btn px-3 py-2 normal" href="addNOffer.html">Add New Offer </a>
+                <a class="nav-link main-btn px-3 py-2 normal" href="pages/provider/addNOffer.html">Add New Offer </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="pages/provider/dashboard.html">My Dashboard</a>
@@ -75,7 +75,6 @@ let providerNavbar = `
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="pages/provider/profile.html"> <i class="fas fa-user"></i>Profile</a>
-                    <a class="dropdown-item" href="pages/provider/account.html"> <i class="far fa-address-card"></i> My Account</a>
                     <a class="dropdown-item" href="pages/provider/credit.html"> <i class="far fa-credit-card"></i> My Credit</a>
                     <a class="dropdown-item" href="pages/provider/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                     <div class="dropdown-divider"></div>
