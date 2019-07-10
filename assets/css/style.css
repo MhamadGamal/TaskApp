@@ -113,12 +113,13 @@ body {
 .main-btn {
   background-color: #7c2da2 !important;
   color: #fff !important;
-  border-radius: 5px;
+  border-radius: 2px;
+  font-size: 18px;
   cursor: pointer;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
   padding: 6px 15px;
 }
 
@@ -2491,6 +2492,11 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 40px !important;
   height: 40px !important;
   margin-right: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 #HotOffers-details .box-content .moving-tasks .moving-agency .tasks-numbers i {

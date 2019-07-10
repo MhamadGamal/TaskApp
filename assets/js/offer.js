@@ -24,7 +24,7 @@ if(type  == "user"){
                 }else{
                     categName = "not exist";
                 }
-
+                
                 
                 if(offer.image.length > 1){
                     imgs = "";
