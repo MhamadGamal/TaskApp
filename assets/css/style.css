@@ -123,7 +123,7 @@ body {
   background-color: #7c2da2 !important;
   color: #fff !important;
   border-radius: 2px;
-  font-size: 18px;
+  font-size: 15px;
   cursor: pointer;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -2890,8 +2890,29 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   border-radius: 12px;
 }
 
+.modal.rateProvider .modal-body .rating {
+  direction: rtl;
+}
+
 .modal.rateProvider .modal-body .rating span {
   color: #e2e2e2;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star {
+  color: #dddddd !important;
+  cursor: pointer;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star.active {
+  color: #7c2da2 !important;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star:hover {
+  color: #7c2da2 !important;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star:hover ~ .fa {
+  color: #7c2da2 !important;
 }
 
 .modal.rateProvider .modal-body .review-provider {
@@ -3091,6 +3112,9 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #select-provider .box-content .moving-agency .clientReviews .ServiceReview {
   margin-bottom: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #select-provider .box-content .moving-agency .clientReviews .ServiceReview .client-img-block {
