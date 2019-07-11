@@ -134,7 +134,7 @@ body {
     background-color: $mainColor !important;
     color: #fff !important;
     border-radius: 2px;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -2751,9 +2751,23 @@ all pages
             }
         }
         .rating {
+            direction: rtl; 
             span{
                 color: #e2e2e2;
-        
+            }
+                       
+            .fa.fa-star{
+                color:#dddddd !important;
+                cursor: pointer;
+            }
+            .fa.fa-star.active {
+                color: $mainColor !important;
+            }
+            .fa.fa-star:hover {
+                color: $mainColor!important;
+            }
+            .fa.fa-star:hover ~ .fa{
+                color:$mainColor !important;
             }
         }
         .review-provider{
@@ -2778,11 +2792,7 @@ all pages
             padding: 6px 38px;
         }
     }
-
-
 }
-
-  
 /*======== /client  rating  page ===========*/
 /////////////media//////////////////////
 @media (max-width: 991.98px) {
@@ -2965,6 +2975,7 @@ all pages
             .clientReviews{
                 .ServiceReview{
                     margin-bottom: 35px;
+                    display: flex;
                     .client-img-block{
                         width: 66px;
                         height: 66px;
