@@ -19,6 +19,11 @@
 }
 
 @font-face {
+  font-family: 'OpenSans-SemiboldItalic';
+  src: url(../fonts/sans/OpenSans-SemiboldItalic.woff);
+}
+
+@font-face {
   font-family: 'OpenSans-Light';
   src: url(../fonts/sans/OpenSans-Light.woff);
 }
@@ -54,6 +59,10 @@
 
 .semibold {
   font-family: 'OpenSans-Semibold';
+}
+
+.semiItalicbold {
+  font-family: 'OpenSans-SemiboldItalic';
 }
 
 .light {
@@ -113,12 +122,13 @@ body {
 .main-btn {
   background-color: #7c2da2 !important;
   color: #fff !important;
-  border-radius: 5px;
+  border-radius: 2px;
+  font-size: 15px;
   cursor: pointer;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
   padding: 6px 15px;
 }
 
@@ -343,6 +353,11 @@ div, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-lis
 
 .task-img, .client-img-block, .provider-img-block {
   height: 130px;
+  overflow: hidden;
+}
+
+.pending-img {
+  height: 180px;
   overflow: hidden;
 }
 
@@ -619,7 +634,7 @@ ul.Pended-rating-list li {
 }
 
 /*============================  Start Header Styling  ===============================*/
-header {
+header, header.search-provider {
   height: 100vh;
   padding-top: 30px;
   background-image: url("../img/home/header-bg.png");
@@ -628,7 +643,7 @@ header {
   position: relative;
 }
 
-header .header-content {
+header .header-content, header.search-provider .header-content {
   height: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -636,35 +651,35 @@ header .header-content {
   text-align: center;
 }
 
-header .header-content .wrapper {
+header .header-content .wrapper, header.search-provider .header-content .wrapper {
   margin-top: -30px;
 }
 
-header .header-content .wrapper .form-group .form-control {
+header .header-content .wrapper .form-group .form-control, header.search-provider .header-content .wrapper .form-group .form-control {
   padding: 25px;
   font-size: 1.2rem;
   position: relative;
 }
 
-header .header-content .wrapper .form-group .fas {
+header .header-content .wrapper .form-group .fas, header.search-provider .header-content .wrapper .form-group .fas {
   position: absolute;
   right: 40px;
   top: 18px;
   font-size: 1rem;
 }
 
-header#subCatHead {
+header#subCatHead, header.search-provider#subCatHead {
   background-image: url("../img/home/home_services.jpg");
   height: 350px;
 }
 
-header#subCatHead .wrapper {
+header#subCatHead .wrapper, header.search-provider#subCatHead .wrapper {
   margin: 0;
   color: #fff;
   font-weight: bold;
 }
 
-header#subCatHead:before {
+header#subCatHead:before, header.search-provider#subCatHead:before {
   content: "";
   position: absolute;
   top: 0;
@@ -674,7 +689,7 @@ header#subCatHead:before {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-header.customer {
+header.customer, header.search-provider.customer {
   background-image: none;
 }
 
@@ -1146,6 +1161,12 @@ footer .copyright a.active {
 
 .navbar .navbar-nav .dropdown a img {
   width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .navbar .navbar-nav .dropdown .dropdown-menu {
@@ -1953,6 +1974,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 79px !important;
   height: 104px !important;
   right: 25px;
+  z-index: -1;
   z-index: 3;
 }
 
@@ -2491,6 +2513,11 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 40px !important;
   height: 40px !important;
   margin-right: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 #HotOffers-details .box-content .moving-tasks .moving-agency .tasks-numbers i {
@@ -2543,6 +2570,21 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   font-size: 14px;
 }
 
+#start-work .tab-content #ActiveDetails .details .clientInfo .rating span {
+  color: #7c2da2;
+  margin: 2px;
+  font-size: 14px;
+}
+
+#start-work .tab-content #ActiveDetails .details h6 {
+  color: #7c2da2;
+  margin: 0;
+}
+
+#start-work .tab-content #ActiveDetails .details span {
+  color: #212121ab;
+}
+
 #start-work .tab-content #ActiveDetails .details h6 {
   color: #7c2da2;
   margin: 0;
@@ -2581,39 +2623,39 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   font-size: 15px;
 }
 
-#Messages.tab-pane {
+#start-work #Messages.tab-pane {
   padding-bottom: 35px;
 }
 
-#Messages .provider-chat {
+#start-work #Messages .provider-chat {
   margin-bottom: 20px;
 }
 
-#Messages .provider-chat .messges-block {
+#start-work #Messages .provider-chat .messges-block {
   height: 440px;
   overflow: auto;
   padding: 20px 25px;
 }
 
-#Messages .provider-chat .messges-block .messege-date {
+#start-work #Messages .provider-chat .messges-block .messege-date {
   color: #a19ea3;
   font-size: 12px;
 }
 
-#Messages .provider-chat .messges-block .service-request {
+#start-work #Messages .provider-chat .messges-block .service-request {
   width: 40%;
   margin: auto;
 }
 
-#Messages .provider-chat .messges-block .service-request .client-name {
+#start-work #Messages .provider-chat .messges-block .service-request .client-name {
   font-weight: bold;
 }
 
-#Messages .provider-chat .messges-block .incoming-msg-block .client-name {
+#start-work #Messages .provider-chat .messges-block .incoming-msg-block .client-name {
   color: #a19ea3;
 }
 
-#Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg {
+#start-work #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2626,7 +2668,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: flex-start;
 }
 
-#Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg p {
+#start-work #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg p {
   border-radius: 6px;
   background-color: #7c2da2;
   color: #fff;
@@ -2634,7 +2676,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-bottom: 2px;
 }
 
-#Messages .provider-chat .messges-block .received-msg-block {
+#start-work #Messages .provider-chat .messges-block .received-msg-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2643,7 +2685,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           justify-content: flex-end;
 }
 
-#Messages .provider-chat .messges-block .received-msg-block .received-msg {
+#start-work #Messages .provider-chat .messges-block .received-msg-block .received-msg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2656,11 +2698,11 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: flex-end;
 }
 
-#Messages .provider-chat .messges-block .received-msg-block .received-msg .provider-name {
+#start-work #Messages .provider-chat .messges-block .received-msg-block .received-msg .provider-name {
   color: #a19ea3;
 }
 
-#Messages .provider-chat .messges-block .received-msg-block .received-msg p {
+#start-work #Messages .provider-chat .messges-block .received-msg-block .received-msg p {
   border-radius: 6px;
   background-color: #f5f5f5;
   color: #a19ea3;
@@ -2668,7 +2710,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-bottom: 2px;
 }
 
-.sendMessges {
+#start-work .sendMessges {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2680,25 +2722,25 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: center;
 }
 
-.sendMessges .send {
+#start-work .sendMessges .send {
   width: 90%;
 }
 
-.sendMessges .send .form-control {
+#start-work .sendMessges .send .form-control {
   width: 98%;
   margin: auto;
 }
 
-.sendMessges .imgUpload {
+#start-work .sendMessges .imgUpload {
   position: relative;
 }
 
-.sendMessges .imgUpload i {
+#start-work .sendMessges .imgUpload i {
   cursor: pointer;
   font-size: 27px;
 }
 
-.sendMessges .imgUpload input[type=file] {
+#start-work .sendMessges .imgUpload input[type=file] {
   outline: none !important;
   position: absolute;
   left: 0;
@@ -2875,8 +2917,29 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   border-radius: 12px;
 }
 
+.modal.rateProvider .modal-body .rating {
+  direction: rtl;
+}
+
 .modal.rateProvider .modal-body .rating span {
   color: #e2e2e2;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star {
+  color: #dddddd !important;
+  cursor: pointer;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star.active {
+  color: #7c2da2 !important;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star:hover {
+  color: #7c2da2 !important;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star:hover ~ .fa {
+  color: #7c2da2 !important;
 }
 
 .modal.rateProvider .modal-body .review-provider {
@@ -2927,6 +2990,191 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   .navbar-expand-lg > .container-fluid {
     padding-right: 10px;
     padding-left: 10px;
+  }
+}
+
+/*======== search-provider Page ===========*/
+#search-provider-page header.search-provider#subCatHead {
+  background: url("../img/client/providers-banner.png") no-repeat;
+  height: 350px;
+  margin-top: 79px;
+  background-size: 100% 100%;
+}
+
+#search-provider-page #providers-list .row.filter-list-block {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px auto;
+}
+
+#search-provider-page #providers-list .row.filter-list-block > .col-md-4:first-child {
+  padding-left: 0;
+}
+
+#search-provider-page #providers-list .row.filter-list-block > .col-md-4:last-child {
+  padding-right: 0;
+}
+
+#search-provider-page #providers-list .row.filter-list-block > .col-md-4:last-child .btn.btn-outline-secondary {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#search-provider-page #providers-list .row.filter-list-block > .col-md-4:last-child .btn.btn-outline-secondary:hover .fa.fa-search {
+  color: #fff;
+}
+
+#search-provider-page #providers-list .row.filter-list-block .input-group label {
+  margin: 7px 24px 7px 0;
+}
+
+#search-provider-page #providers-list .row.filter-list-block .input-group select {
+  border-radius: .25rem;
+}
+
+#search-provider-page #providers-list .row.filter-list-block .input-group .fa.fa-search {
+  color: #212121;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li {
+  border-radius: 2px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  margin-bottom: 22px;
+  padding: 15px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .img-service-block img {
+  margin-right: 30px;
+  border-radius: 12px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks p {
+  width: 86%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .view-profile a {
+  background: #6e1799;
+  color: #fff;
+  width: 160px;
+  text-align: center;
+  border: 1px solid #7c2da2;
+  border-radius: 4px;
+  padding: 5px 14px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency h5 {
+  color: #7c2da2;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating {
+  margin-bottom: 20px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating span {
+  color: #7c2da2;
+  margin: 2px;
+  font-size: 14px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating > span:last-child {
+  margin-left: 6px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers {
+  margin-bottom: 20px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers i,
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers span {
+  color: #b68bcc;
+}
+
+#search-provider-page #providers-list .row {
+  margin: 0 0 25px 0;
+}
+
+#search-provider-page #providers-list .row h6 {
+  margin: 6px 20px 0 0;
+  font-family: 'OpenSans-Regular';
+}
+
+/*======== /search-provider Page ===========*/
+/*======== select-provider Page ===========*/
+#select-provider .box-content {
+  padding: 44px 25px;
+}
+
+#select-provider .box-content .img-service-block img {
+  border-radius: 12px;
+}
+
+#select-provider .box-content .moving-agency .rating span {
+  color: #7c2da2;
+  margin: 2px;
+  font-size: 14px;
+}
+
+#select-provider .box-content .moving-agency .tasks-numbers {
+  margin-bottom: 20px;
+}
+
+#select-provider .box-content .moving-agency .tasks-numbers i,
+#select-provider .box-content .moving-agency .tasks-numbers span {
+  color: #b68bcc;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview {
+  margin-bottom: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview .client-img-block {
+  width: 66px;
+  height: 66px;
+  margin-right: 20px;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview .client-img-block img {
+  border-radius: 5px;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview .client-name {
+  font-family: 'OpenSans-SemiboldItalic';
+  color: #7c2da2;
+  font-size: 13px;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview .date {
+  color: #a19ea3;
+  font-size: 13px;
+  font-family: 'OpenSans-Regular';
+}
+
+/*======== /select-provider Page ===========*/
+/*==========================================================================
+============================================================================
+============================ MEDIA QUERY ===================================
+============================================================================
+============================================================================*/
+@media (max-width: 767px) {
+  .moving-tasks {
+    margin-top: 120px;
   }
 }
 /*# sourceMappingURL=style.css.map */

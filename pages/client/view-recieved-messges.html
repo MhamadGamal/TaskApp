@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +18,10 @@
     <!-- Custom Style -->
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
+
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+     <!-- NAVBAR -->
+     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand logo bold-font main-color" href="../../index.html">Task<span
                     class="normal-font s-color">app </span></a>
@@ -39,10 +41,8 @@
                         <a class="nav-link dropdown-toggle " href="bookings.html" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">My Bookings</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="pendings.html"> <i class="far fa-address-card"></i> Pending
-                                Bookingst</a>
-                            <a class="dropdown-item" href="booking-list.html"><i
-                                    class="far fa-address-card"></i>Bookings List</a>
+                            <a class="dropdown-item" href="pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
+                            <a class="dropdown-item" href="booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>Ratings</a>
                         </div>
@@ -53,8 +53,7 @@
                             <img src=" " alt="" srcset="">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My
-                                Account</a>
+                            <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My Account</a>
                             <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
                             <div class="dropdown-divider"></div>
                             <a id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -68,19 +67,74 @@
             </div>
         </div>
     </nav>
+
     <!-- /NAVBAR -->
-    <!--PENDING-OFFERS  -->
-    <section id="pending-offers" class="grey-bg page-content">
+    <!--view-recieved-messges  -->
+    <section id="view-recieved-messges" class="grey-bg page-content">
         <div class="container">
             <div class="page-content-head">
-                <h4>Pending bookings</h4>
+                <h4>view recieved messges</h4>
             </div>
-            <ul class="pending-bookings-list">
-               
-            </ul>
+            <div class="box-content">
+                    <div id="Messages" class="container">
+                            <div class="provider-chat">
+                                <div class="messges-block">
+                                    <div class="service-request main-color text-center">
+                                        <span class="client-name ">Client name </span>
+                                        <span>
+                                            Send You Message for service Request at 18:00am
+                                        </span>
+                                    </div>
+                                    <div class="incoming-msg-block">
+                                        <div class="incoming-msg">
+                                            <span class="client-name">client-name</span>
+                                            <p>hi, Lorem Ipsum</p>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <span class="messege-date">25/09/2017, 23:19</span>
+                                        </div>
+                                    </div>
+                                    <div class="received-msg-block">
+                                        <div class="received-msg">
+                                            <span class="provider-name">me</span>
+                                            <p>hi, Lorem Ipsum</p>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <span class="messege-date">25/09/2017, 23:19</span>
+                                        </div>
+                                    </div>
+                                    <div class="incoming-msg-block">
+                                        <div class="incoming-msg">
+                                            <span class="client-name">client-name</span>
+                                            <p>hi, Lorem Ipsum</p>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <span class="messege-date">25/09/2017, 23:19</span>
+                                        </div>
+                                    </div>
+                                    <div class="received-msg-block">
+                                        <div class="received-msg">
+                                            <span class="provider-name">me</span>
+                                            <p>hi, Lorem Ipsum</p>
+                                            <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                            <span class="messege-date">25/09/2017, 23:19</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sendMessges">
+                                <div class="imgUpload">
+                                    <i class="fas fa-camera"></i>
+                                    <input type="file">
+                                </div>
+                                <div class="send">
+                                    <input class="form-control" placeholder="Send message">
+                                </div>
+                                <button class="btn  main-btn">send
+                                </button>
+                            </div>
+                        </div>
+            </div>
         </div>
     </section>
-    <!--/PENDING-OFFERS  -->
+    <!--/view-recieved-messges -->
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -91,7 +145,7 @@
                         <a href="terms.html" class="mx-2 mt-2   ">Terms & Privecy</a>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a class=" logo bold-font main-color mx-2" href="../../index.html">Task<span
+                        <a class=" logo bold-font main-color mx-2" href="index.html">Task<span
                                 class="normal-font s-color">app </span></a>
                         <a href="#"> <i class="fab fa-facebook-f main-color   "></i></a>
                         <a href="#"> <i class="fab fa-twitter  main-color  "></i></a>
@@ -118,15 +172,6 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
-<<<<<<< HEAD
-    <script>
-        //http: //88.80.184.99/tasker/web/api/pendings/tasks/users
-        //http: //88.80.184.99/tasker/web/api/inprogres/tasks/users
-        //http://88.80.184.99/tasker/web/api/completes/tasks/users
-        //   param: client
-    </script>
-=======
-    <script src="../../assets/js/pending.js"></script>
->>>>>>> 6953e7e9f8649983a2fee34347a3e9b35299c741
 </body>
+
 </html>
