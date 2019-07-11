@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -72,12 +72,12 @@
     <section id="task-details" class="grey-bg page-content">
         <div class="container">
             <div class="page-content-head">
-                <h4>Moving help Service</h4>
+                <h4 class="CatName"></h4>
             </div>
             <div class="other-Service">
                 <div class="text-right">
-                    <span>Is Moving help not the right task? Choose other Service</span>
-                    <a href="#">Choose other Service</a>
+                    <span>Is <a class="CatName">Moving help</a> not the right task? Choose other Service</span>
+                    <a id="link" href="">Choose other Service</a>
                 </div>
             </div>
             <div class="details-form box-content">
@@ -91,26 +91,26 @@
                 <form>
                     <div class="form-group">
                         <label >Service interest</label>
-                        <input  class="form-control" 
+                        <input id="taskDesc" class="form-control" 
                             placeholder="What brings you here today?">
                     </div>
                     <div class="form-group">
                         <label >Start Address</label>
-                        <input  class="form-control" 
+                        <input id="taskstadd"  class="form-control" 
                             placeholder="Enter Street Adress,falt number, floor">
                     </div>
                     <div class="form-group">
                         <label>Destination</label>
-                        <input  class="form-control"  
+                        <input id="taskedadd" class="form-control"  
                             placeholder="Enter Street Adress,falt number, floor">
                     </div>
                     <div class="form-group">
                         <label >Service Details</label>
-                        <input  class="form-control"
-                            placeholder="Enter Street Adress,falt number, floor">
+                        <input id="taskdetails" class="form-control"
+                            placeholder="Enter Service Details">
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="main-btn btn " value="Proceed to recieve offers">
+                        <input id="addnewtask" type="submit" class="main-btn btn " value="Proceed to recieve offers">
                     </div>
                 </form>
             </div>
@@ -155,5 +155,112 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script>
+       
+        var check = localStorage.getItem('CurrentToken')
+        if (!check) {
+            location.href = '../../index.html';
+        }
+        let targetcatid = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
+        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+        var currentid = currentuserdata.id;
+        let MainID;
+        $.ajax({
+            url: "http://88.80.184.99/tasker/web/api/sub/category",
+            method: 'GET',
+            dataType: "json",
+            data: {
+                "category": targetcatid
+            },
+            success: function (result) {
+                if (result.error.status == true) {
+                    var message = result.error.message;
+                    alert(message);
+                }
+                else {
+                    allcats = result.data;
+                    console.log(allcats);
+                    let targetcat;
+                    for(let element of allcats) {
+                        if (element.id == targetcatid) {
+                            targetcat = element;
+                        }
+                    }
+
+
+
+                    if (targetcat) {
+                        
+                        $(".CatName").text(targetcat.name_en);
+                        MainID = targetcat.main_id;
+                        $("#link").attr("href", "../home/subcategory.html?" + targetcat.main_id)
+
+                        console.log(MainID);
+
+
+          
+                    }
+                }
+
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
+        $("#addnewtask").on("click", function () {
+          
+            let start_add = $("#taskstadd").val();
+            let end_add = $("#taskedadd").val();
+            let description = $("#taskDesc").val();
+            let details = $("#taskdetails").val();
+            let form_id = 4;
+            if (!start_add) {
+                    $("#taskstadd").addClass("error");
+                }
+            if (!end_add) {
+                $("#taskedadd").addClass("error");
+                }
+                if (!description) {
+                    $("#taskDesc").addClass("error");
+                }
+                if (!details) {
+                    $("#taskdetails").addClass("error");
+                }
+                if (start_add && end_add && description && details) {
+                    $.ajax({
+                        url: "http://88.80.184.99/tasker/web/api/creates/tasks",
+                        method: 'POST',
+                        dataType: "json",
+                        data: {
+                            "client": currentid, "date": "", "category": targetcatid, "description": description, "note": details, "vehicle_req": "333",
+                            "start_location": { "location": start_add, "lang": "sdsdsdfsdfsd", "lant": "test" },
+                            "end_location": { "location": end_add, "lang": "sdsdsdfsdfsd", "lant": "test" },
+                            "options": {"test":"sdsad"},
+                            "extra_options": {"test":"sdsad"},
+                            "form_id": form_id
+                        },
+                        success: function (result) {
+                         
+                            if (result.error.status == true) {
+                                var message = result.error.message;
+                                $("#alert").fadeIn().html(message)
+                                alert(message);
+                            }
+                            else {
+                                let taskid = result.data.id;
+                                window.location.href = "task-preview.html?32";
+
+                            }
+                        },
+                        error: function (result) {
+                            alert('error');
+                        }
+                    });
+                }
+            
+
+        });
+
+    </script>
 </body>
 </html>
