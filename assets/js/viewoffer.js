@@ -103,6 +103,15 @@ $(function(){
                      </div>
                  
                  </div>
+                 <div>
+                    <div class="form-group row nogutters mt-3">
+                        <div class="col-sm-2">Select Date </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="datepicker form-control"  data-select="datepicker" date-format="DD-MM-YYYY">
+                        </div>
+
+                    </div>
+                 </div>
                  <div class="accept mt-5 d-flex justify-content-end">
                      <a href="#" id="AcceptOffer" class="main-btn px-5 py-2">Accept Offer</a>
                  </div>
@@ -111,7 +120,11 @@ $(function(){
          </div>
      </div>
     
-    `)
+    `);
+    $("body").append('<script src="../../assets/js/jquery.datepicker2.min.js"></script>');
+    $.datePicker.defaults.dateFormat =  function(date) {
+        return  date.getDate() + '-' +(date.getMonth() + 1)  + '-' + date.getFullYear();
+      }
    },1200)
 
 
@@ -119,32 +132,45 @@ $(function(){
 
 
    $("#HotOffers-details").on("click", "#AcceptOffer", function(){
-    $.ajax({
-        url: "http://88.80.184.99/tasker/web/api/creates/tasks/hots/offers",
-        method: 'POST',
-        cache: false,
-        async: false,
-        timeout: 30000,
-        dataType: "json",
-        data: {
-            "offer": targetOffer.id,
-            "client": userData.id,
-            "selected_date": targetOffer.start_date
-        },
-        success: function (result) {
-           console.log(result);
-           let data = result;
-           if(data.error.status == true){
-               $("#alert").html(data.error.message).fadeIn();
-               $('body, html').animate({
-                   scrollTop: 0
-               }, 400)
-           }
-        },
-        error: function (result) {
-            alert('error');
-        }
-    });
+    debugger;
+    let selectedDate = $(".datepicker").val();
+    let start =  targetOffer.start_date;
+    let end =  targetOffer.end_date;
+
+    if(start <= selectedDate <= end){
+        console.log(true)
+    }else{
+        console.log(false)
+
+    }
+    // $.ajax({
+    //     url: "http://88.80.184.99/tasker/web/api/creates/tasks/hots/offers",
+    //     method: 'POST',
+    //     cache: false,
+    //     async: false,
+    //     timeout: 30000,
+    //     dataType: "json",
+    //     data: {
+    //         "offer": targetOffer.id,
+    //         "client": userData.id,
+    //         "selected_date": targetOffer.start_date
+    //     },
+    //     success: function (result) {
+    //        console.log(result);
+    //        let data = result;
+    //        if(data.error.status == true){
+    //            $("#alert").html(data.error.message).fadeIn();
+    //            $('body, html').animate({
+    //                scrollTop: 0
+    //            }, 400)
+    //        }else if(data.error.status == false){
+    //            location.href = "pending.html"
+    //        }
+    //     },
+    //     error: function (result) {
+    //         alert('error');
+    //     }
+    // });
    });
 
 

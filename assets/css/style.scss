@@ -355,7 +355,10 @@ section {
     height: 130px;
     overflow: hidden;
 }
-
+.pending-img{
+    height: 180px;
+    overflow: hidden;
+}
 .iti {
     display: block;
 }
@@ -1182,7 +1185,13 @@ footer {
             a {
                 img {
                     width: 40px !important;
-                }
+                    height: 40px !important;
+                    border-radius: 50%                ;
+                    -webkit-border-radius: 50%                ;
+                    -moz-border-radius: 50%                ;
+                    -ms-border-radius: 50%                ;
+                    -o-border-radius: 50%                ;
+}
             }
 
             .dropdown-menu {

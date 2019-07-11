@@ -322,4 +322,10 @@ if(loginnedUserData.image){
         $(this).removeClass("error")
     })
 
+
+
+    $.datePicker.defaults.dateFormat =  function(date) {
+        return  date.getDate() + '-' +(date.getMonth() + 1)  + '-' + date.getFullYear();
+    }
+
 });
