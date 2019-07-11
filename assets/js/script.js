@@ -28,7 +28,7 @@ let loginnedNavbar = `
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="../../assets/img/client/user.png" alt="" srcset="">
+                    <img src="" alt="" srcset="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="pages/client/account.html"> <i class="far fa-address-card"></i> My Account</a>
@@ -68,7 +68,7 @@ let providerNavbar = `
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="assets/img/client/user.png" alt="" srcset="">
+                    <img src="" alt="" srcset="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="pages/provider/profile.html"> <i class="fas fa-user"></i>Profile</a>
@@ -79,10 +79,7 @@ let providerNavbar = `
                 </div>
             </li>
         </ul>
-        <!-- <a href="../login/login.html" class="login-btn">
-            <img src="../../assets/img/client/user.png"  alt="" srcset="">
         
-        </a> -->
     </div>
 </div>
 `;
@@ -221,11 +218,15 @@ $.ajax({
 
 
 
-
+let loginnedUserData = JSON.parse(localStorage.getItem("CurrentUserData"))
 
 $(function(){
     
-
+if(loginnedUserData.image){
+    $(".navbar-nav li a img ").attr("src", "http://88.80.184.99/tasker/web/"+loginnedUserData.image)
+}else{
+    $(".navbar-nav li a img ").attr("src", "../../assets/img/client/user.png")
+}
     
 
     // home filter category

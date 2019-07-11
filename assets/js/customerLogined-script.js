@@ -58,6 +58,11 @@ if(type  == "user"){
 
             $("header").addClass("customer");
             $("header").html(pageContent);
+            if(loginnedUserData.image){
+                $(".navbar-nav li a img ").attr("src", "http://88.80.184.99/tasker/web/"+loginnedUserData.image)
+            }else{
+                $(".navbar-nav li a img ").attr("src", "../../assets/img/client/user.png")
+            }
         },
         error: function (result) {
             alert('error');
