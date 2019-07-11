@@ -12,6 +12,8 @@ if(type  == "user"){
         url: "http://88.80.184.99/tasker/web/api/list/hot/offer",
         method: 'GET',
         cache: false,
+        async: false,
+        timeout: 30000,
         dataType: "json",
         success: function (result) {
             offersArr = result.data;

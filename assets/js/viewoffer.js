@@ -1,7 +1,7 @@
 $(function(){
     let target  = Number(window.location.href.slice(window.location.href.lastIndexOf("?") +1));         
     let targetOffer;
-
+    let userData = JSON.parse(localStorage.getItem("CurrentUserData"))
    setTimeout(function(){
     for( let offer of offersArr ){
         if(offer.id == target){
@@ -104,7 +104,7 @@ $(function(){
                  
                  </div>
                  <div class="accept mt-5 d-flex justify-content-end">
-                     <a href="" class="main-btn px-5 py-2">Accept Offer</a>
+                     <a href="#" id="AcceptOffer" class="main-btn px-5 py-2">Accept Offer</a>
                  </div>
              </div>
  
@@ -113,5 +113,45 @@ $(function(){
     
     `)
    },1200)
+
+
+
+
+
+   $("#HotOffers-details").on("click", "#AcceptOffer", function(){
+    $.ajax({
+        url: "http://88.80.184.99/tasker/web/api/creates/tasks/hots/offers",
+        method: 'POST',
+        cache: false,
+        async: false,
+        timeout: 30000,
+        dataType: "json",
+        data: {
+            "offer": targetOffer.id,
+            "client": userData.id,
+            "selected_date": targetOffer.start_date
+        },
+        success: function (result) {
+           console.log(result);
+           let data = result;
+           if(data.error.status == true){
+               $("#alert").html(data.error.message).fadeIn();
+               $('body, html').animate({
+                   scrollTop: 0
+               }, 400)
+           }
+        },
+        error: function (result) {
+            alert('error');
+        }
+    });
+   });
+
+
+
+
+
+
+
 
 });
