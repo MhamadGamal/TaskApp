@@ -1,6 +1,7 @@
 let categoryArr, categoryArrFiltered = [], wrapper = "";
 let target  = Number(window.location.href.slice(window.location.href.lastIndexOf("?") +1));         
 let loginedType = localStorage.getItem("CurrentUserType");
+var check = localStorage.getItem('CurrentToken')
 console.log(target);
 
 $.get("http://88.80.184.99/tasker/web/api/main/catgeory", function(data){
@@ -24,15 +25,28 @@ $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data, status){
             categoryArrFiltered.push(item)
         }        
      }
+
+
+
+     
+
+
      for(let item of categoryArrFiltered){
-        wrapper += `
+         if (check) {
+             link = `<h4><a href="../client/describing-task.html?${item.id}">${item.name_en}<a/></h4>`
+         }
+         else {
+             link = `  <h4>${item.name_en}</h4>`;
+         }
+       wrapper += `
         <div class="col-md-4 col-sm-6">
             <div class="item">
                 <div class="img-holder">
                     <img src="${'http://88.80.184.99/tasker/web/'+item.image}" class="img-fluid" alt="">
                 </div>
-                <div class="info">
-                    <h4>${item.name_en}</h4>
+                <div class ="info">
+                    ${link}
+                    
                 </div>
             </div>
         </div>
@@ -145,7 +159,7 @@ $(function(){
                     <a class="dropdown-item" href="../client/account.html"> <i class="far fa-address-card"></i> My Account</a>
                     <a class="dropdown-item" href="../client/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                    <a id="LogOut" class ="dropdown-item" href="#"><i class ="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
             </li>
         </ul>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -99,45 +99,7 @@
                 </ul>
                 <div class="tab-content">
                     <div id="TaskDetails" class="container tab-pane active">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="details">
-                                    <div>
-                                        <h6>start address</h6>
-                                        <i class="fas fa-map-marker-alt">
-                                            <span>Ilford Station ATM, Ilford</span>
-                                        </i>
-                                    </div>
-                                    <div>
-                                        <h6>Destination</h6>
-                                        <i class="fas fa-map-marker-alt">
-                                            <span>Ilford Station ATM, Ilford</span>
-                                        </i>
-                                    </div>
-                                    <div>
-                                        <h6>Service Details</h6>
-                                        <p>Lorem Ipsum is simply dummy text of the printing
-                                            and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy
-                                            text ever since the 1500s,
-                                            when an unknown printer took a galley of type and
-                                            scrambled it to make a type specimen book.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div id="map-container-google-1" class="z-depth-1-half map-container">
-                                    <iframe
-                                        src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                        frameborder="0" style="border:0" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 text-right">
-                                <input type="submit" class="main-btn btn " value="Start Task">
-                            </div>
-                        </div>
+                       
                     </div>
                     <div id="Messages" class="container tab-pane fade">
                         <h3>Messages</h3>
@@ -320,7 +282,7 @@
                         </ul>
                     </div>
                 </div>
-                <nav aria-label="...">
+                <!--<nav aria-label="...">
                     <ul class="pagination pagination-sm">
                         <li class="page-item active">
                             <a class="page-link" href="#" tabindex="-1">1</a>
@@ -331,7 +293,7 @@
                         <li class="page-item"><a class="page-link" href="#">5</a></li>
                         <li class="page-item"><a class="page-link" href="#">6</a></li>
                     </ul>
-                </nav>
+                </nav>-->
             </div>
         </div>
     </section>
@@ -453,6 +415,93 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script>
+        let targettaskid = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
+        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+        var currentid = currentuserdata.id;
+        let MainID;
+       
+            $.ajax({
+                url: "http://88.80.184.99/tasker/web/api/tasks/users",
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    "client": currentid
+                },
+                success: function (result) {
+                    if (result.error.status == true) {
+                        var message = result.error.message;
+                        alert(message);
+                    }
+                    else {
+                        alltasks = result.data;
+                        console.log(alltasks);
+                        let targettask;
+                        for(let element of alltasks) {
+                            if (element.id == targettaskid) {
+                                targettask = element;
+                            }
+                        }
+                        
+                        if (targettask) {
+                            var dd = `
+                                <div class ="row">
+                            <div class ="col-sm-8">
+                                <div class ="details">
+                                    <div>
+                                        <h6>start address</h6>
+                                        <i class ="fas fa-map-marker-alt">
+                                            <span>${targettask.end_location.location}</span>
+                                        </i>
+                                    </div>
+                                    <div>
+                                        <h6>Destination</h6>
+                                        <i class ="fas fa-map-marker-alt">
+                                            <span>${targettask.start_location.location}</span>
+                                        </i>
+                                    </div>
+                                    <div>
+                                        <h6>Service Details</h6>
+                                        <p>${targettask.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class ="col-sm-4">
+                                <div id="map-container-google-1" class ="z-depth-1-half map-container">
+                                    <iframe
+                                        src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                        frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class ="row">
+                            <div class ="col-sm-12 text-right">
+                                <!--<input type="submit" class ="main-btn btn " value="Start Task">-->
+                                <a href="client-waiting.html" class ="main-btn btn ">Start Task</a>
+                            </div>
+                        </div>
+
+                                `;
+                            $("#TaskDetails").append(dd);
+                            console.log(targettask);
+                        }
+                    }
+
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        
+       
+
+        function GetOffersOfTask()
+        {
+            //http://88.80.184.99/tasker/web/api/offers/tasks/selects
+            //    task
+        }
+    </script>
 </body>
 
 </html>
