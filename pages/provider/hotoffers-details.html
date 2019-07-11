@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -48,8 +48,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="profile.html"> <i class="fas fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My
-                                Account</a>
+                           
                             <a class="dropdown-item" href="credit.html"> <i class="far fa-credit-card"></i> My
                                 Credit</a>
                             <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
@@ -77,96 +76,8 @@
             <div class="row flex-column-reverse flex-md-row">
                 <div class="col-md-12">
                     <div class="box-content">
-                            <div  class="container tab-pane ">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                        
-                                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                                <ol class="carousel-indicators">
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="0"
-                                                        class="active">
-                                                        <img class="d-block" src="../../assets/img/provider/first.jpg">
-                                                    </li>
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="1">
-                                                        <img class="d-block" src="../../assets/img/provider/second.jpg">
-                                                    </li>
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="2">
-                                                        <img class="d-block" src="../../assets/img/provider/third.jpg  ">
-                                                    </li>
-                                                </ol>
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img class="d-block w-100"
-                                                            src="../../assets/img/provider/first.jpg">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100"
-                                                            src="../../assets/img/provider/second.jpg">
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100"
-                                                            src="../../assets/img/provider/third.jpg  ">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="moving-tasks">
-                                                <div class="agency-tasks">
-                                                    <div class="moving-agency">
-                                                        <div>
-                                                            <div class="d-flex agency">
-                                                                <img src="../../assets/img/provider/logo.png" alt=""
-                                                                    srcset="">
-                                                                <a href="#" class="bold">Gamal Moving comp.</a>
-                                                            </div>
-                                                            <div class="rating main-color mb-3">
-                                                                <span class="fa fa-star checked"></span>
-                                                                <span class="fa fa-star checked"></span>
-                                                                <span class="fa fa-star checked"></span>
-                                                                <span class="fa fa-star"></span>
-                                                                <span class="fa fa-star"></span>
-                                                                <span>4.5</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="tasks-numbers main-color mb-3">
-                                                            <i class="fas fa-business-time"></i>
-                                                            <span>72 Moving Tasks</span>
-                                                            </i>
-                                                        </div>
-                                                    </div>
-    
-                                                </div>
-                                                <div>
-                                                    <p class="mb-4">
-                                                        offer description is simply dummy text of
-                                                        the printing and typesetting industry.
-                                                        Lorem Ipsum has been the industry's standard
-                                                        dummy text ever since the 1500s, when an unknown
-                                                        printer took a galley of type and scrambled it to make
-                                                        a type specimen book.
-    
-                                                    </p>
-                                                </div>
-    
-                                                <div class="starEndDate d-flex">
-                                                    <div>
-                                                        <i class="fas fa-calendar-alt main-color mr-2"></i>
-                                                        <span class="mr-2">18-5-2019 </span>
-                                                
-                                                
-                                                    </div>
-                                                    <span class="mr-2">TO</span>
-                                                    <div>
-                                                        <i class="fas fa-calendar-alt main-color mr-2"></i>
-                                                        <span>18-5-2019 </span>
-                                                    </div>
-                                                
-                                                </div>
-                                            </div>
-    
-                                        </div>
-                                    </div>
+                            <div id="hotdetails" class="container tab-pane ">
+                                    
                                 </div>
 
                     </div>
@@ -212,6 +123,163 @@
     <script src="../../assets/js/jquery.datepicker2.min.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+
+    <script>
+
+        let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
+        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+         var supplierid = currentuserdata.id;
+       // supplierid = '32';
+        $.ajax({
+            url: "http://88.80.184.99/tasker/web/api/lists/hots/offers/suppliers",
+            method: 'POST',
+            dataType: "json",
+            data: {
+                "supplier": supplierid
+            },
+            success: function (result) {
+                if (result.error.status == true) {
+                    var message = result.error.message;
+                    alert(message);
+                }
+                else {
+                    allTasks = result.data;
+                    let targetTask;
+                    for(let item of allTasks) {
+                        if (item.id == target) {
+                            targetTask = item;
+                        }
+                    }
+
+                    console.log(targetTask);
+                    if (targetTask) {
+                        let img1 = "",img2 = "",img3 = "",imgCl = "";   
+
+                        if(targetTask.image[0]){
+                            img1 = `${'http://88.80.184.99/tasker/web/' + targetTask.image[0]}`;
+                        }else{
+                            img1 = "https://via.placeholder.com/150";
+                        }
+
+                        if(targetTask.image[1]) {
+                            img2 = `${'http://88.80.184.99/tasker/web/' + targetTask.image[1]}`;
+                        }else{
+                            img2 = "https://via.placeholder.com/150";
+                        }
+
+                        if(targetTask.image[2]) {
+                            img3 = `${'http://88.80.184.99/tasker/web/' + targetTask.image[2]}`;
+                        }else{
+                            img3 = "https://via.placeholder.com/150";
+                        }
+                        
+                        if(targetTask.supplier.image) {
+                            imgCl = `${'http://88.80.184.99/tasker/web/' + targetTask.supplier.image}`;
+                        }else{
+                            imgCl = "https://via.placeholder.com/100";
+                        }
+
+                        var d = `
+
+            <div class ="row">
+
+                                        <div class ="col-md-4">
+
+                                            <div id="carouselExampleIndicators" class ="carousel slide" data-ride="carousel">
+                                                <ol class ="carousel-indicators">
+                                                    <li data-target="#carouselExampleIndicators" data-slide-to="0"
+                                                        class ="active">
+                                                        <img class ="d-block" src="${img1}}">
+                                                    </li>
+                                                    <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                                                        <img class ="d-block" src="${img2}">
+                                                    </li>
+                                                    <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                                                        <img class ="d-block" src="${img3}">
+                                                    </li>
+                                                </ol>
+                                                <div class ="carousel-inner">
+                                                    <div class ="carousel-item active">
+                                                        <img class ="d-block w-100"
+                                                            src="${img1}">
+                                                    </div>
+                                                    <div class ="carousel-item">
+                                                        <img class ="d-block w-100"
+                                                            src="${img2}">
+                                                    </div>
+                                                    <div class ="carousel-item">
+                                                        <img class ="d-block w-100"
+                                                            src="${img3}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class ="col-md-8">
+                                            <div class ="moving-tasks">
+                                                <div class ="agency-tasks">
+                                                    <div class ="moving-agency">
+                                                        <div>
+                                                            <div class ="d-flex agency">
+                                                                <img src="${imgCl}" alt=""
+                                                                    srcset="">
+                                                                <a href="#" class ="bold">${targetTask.supplier.name}</a>
+                                                            </div>
+                                                            <div class ="rating main-color mb-3">
+                                                                <span class ="fa fa-star checked"></span>
+                                                                <span class ="fa fa-star checked"></span>
+                                                                <span class ="fa fa-star checked"></span>
+                                                                <span class ="fa fa-star"></span>
+                                                                <span class ="fa fa-star"></span>
+                                                                <span>4.5</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class ="tasks-numbers main-color mb-3">
+                                                            <i class ="fas fa-business-time"></i>
+                                                            <span>${getCategory(Number(targetTask.category)).name_en}</span>
+                                                            </i>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div>
+                                                    <p class ="mb-4">
+                                                   ${targetTask.description}
+
+                                                    </p>
+                                                </div>
+
+                                                <div class ="starEndDate d-flex">
+                                                    <div>
+                                                        <i class ="fas fa-calendar-alt main-color mr-2"></i>
+                                                        <span class ="mr-2">${targetTask.start_date}</span>
+
+
+                                                    </div>
+                                                    <span class ="mr-2">TO</span>
+                                                    <div>
+                                                        <i class ="fas fa-calendar-alt main-color mr-2"></i>
+                                                        <span>${targetTask.end_date} </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+            `;
+                        $("#hotdetails").html(d);
+                    }
+                }
+
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
+
+    </script>
 </body>
 
 </html>

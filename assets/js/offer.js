@@ -12,6 +12,8 @@ if(type  == "user"){
         url: "http://88.80.184.99/tasker/web/api/list/hot/offer",
         method: 'GET',
         cache: false,
+        async: false,
+        timeout: 30000,
         dataType: "json",
         success: function (result) {
             offersArr = result.data;
@@ -24,7 +26,7 @@ if(type  == "user"){
                 }else{
                     categName = "not exist";
                 }
-
+                
                 
                 if(offer.image.length > 1){
                     imgs = "";
@@ -54,7 +56,7 @@ if(type  == "user"){
                                         TO
                                         <span class="main-color"> <i class="fas fa-calendar-alt    "></i> ${offer.end_date} </span>
                                     </div>
-                                    <a href="" class="btn main-btn">Check Offer</a>
+                                    <a href="viewoffer.html?${offer.id}" class="btn main-btn">Check Offer</a>
                                 </div>
                             </div>
                     </div>
@@ -79,7 +81,7 @@ if(type  == "user"){
                                     TO
                                     <span class="main-color"> <i class="fas fa-calendar-alt    "></i> ${offer.end_date} </span>
                                 </div>
-                                <a href="" class="btn main-btn">Check Offer</a>
+                                <a href="viewoffer.html?${offer.id}" class="btn main-btn">Check Offer</a>
                             </div>
                         </div>
                 </div>

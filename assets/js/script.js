@@ -10,38 +10,35 @@ let loginnedNavbar = `
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav ">
             <li class="nav-item active ">
-                <a class="nav-link" href="../../index.html">Services </a>
+                <a class="nav-link" href="index.html">Services </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../provider/Providers.html">Providers</a>
+                <a class="nav-link" href="pages/client/providers.html">Providers</a>
             </li>
             <li class="nav-item notify dropdown">
                 <a class="nav-link dropdown-toggle " href="../client/bookings.html" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">My Bookings</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../client/pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
-                    <a class="dropdown-item" href="../client/booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
+                    <a class="dropdown-item" href="pages/client/pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
+                    <a class="dropdown-item" href="pages/client/booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../client/rating.html"><i class="fas fa-star"></i>Ratings</a>
+                    <a class="dropdown-item" href="pages/client/rating.html"><i class="fas fa-star"></i>Ratings</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="../../assets/img/client/user.png" alt="" srcset="">
+                    <img src="" alt="" srcset="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../client/account.html"> <i class="far fa-address-card"></i> My Account</a>
-                    <a class="dropdown-item" href="../client/rating.html"><i class="fas fa-star"></i>My Ratings</a>
+                    <a class="dropdown-item" href="pages/client/account.html"> <i class="far fa-address-card"></i> My Account</a>
+                    <a class="dropdown-item" href="pages/client/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                     <div class="dropdown-divider"></div>
                     <a  id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
             </li>
         </ul>
-        <!-- <a href="../login/login.html" class="login-btn">
-            <img src="../../assets/img/client/user.png"  alt="" srcset="">
         
-        </a> -->
     </div>
 </div>
 </nav>
@@ -59,7 +56,7 @@ let providerNavbar = `
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav ">
             <li class="nav-item active ">
-                <a class="nav-link main-btn px-3 py-2 normal" href="addNOffer.html">Add New Offer </a>
+                <a class="nav-link main-btn px-3 py-2 normal" href="pages/provider/addNOffer.html">Add New Offer </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="pages/provider/dashboard.html">My Dashboard</a>
@@ -71,11 +68,10 @@ let providerNavbar = `
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="assets/img/client/user.png" alt="" srcset="">
+                    <img src="" alt="" srcset="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="pages/provider/profile.html"> <i class="fas fa-user"></i>Profile</a>
-                    <a class="dropdown-item" href="pages/provider/account.html"> <i class="far fa-address-card"></i> My Account</a>
                     <a class="dropdown-item" href="pages/provider/credit.html"> <i class="far fa-credit-card"></i> My Credit</a>
                     <a class="dropdown-item" href="pages/provider/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                     <div class="dropdown-divider"></div>
@@ -83,10 +79,7 @@ let providerNavbar = `
                 </div>
             </li>
         </ul>
-        <!-- <a href="../login/login.html" class="login-btn">
-            <img src="../../assets/img/client/user.png"  alt="" srcset="">
         
-        </a> -->
     </div>
 </div>
 `;
@@ -128,21 +121,25 @@ function slider(selector){
 
 
 // get categories and sub categories
-let mainCategoryArr = [], subCategoryArr = [];
+let mainCategoryArr = [], subCategoryArr = [], allCat = [];
 $.get("http://88.80.184.99/tasker/web/api/main/catgeory", function(data){
     let d = data;
     mainCategoryArr = d.data;
-
+    
 });
 $.get("http://88.80.184.99/tasker/web/api/sub/category", function(data){
     let d = data;
     subCategoryArr = d.data;
-
 });
-
+$(function(){
+    setTimeout(function(){
+        allCat = mainCategoryArr.concat(subCategoryArr);
+    },500)
+})
 function getCategory(data){
-    let allCat = mainCategoryArr.concat(subCategoryArr), targetCateg, targetCategArr = [];
-    if(typeof data == "number"){
+    allCat = mainCategoryArr.concat(subCategoryArr);
+     let targetCateg, targetCategArr = [];
+     if(typeof data == "number"){
         for(let categ of allCat){
             if( categ.id == data ){
                 targetCateg = categ;
@@ -164,6 +161,7 @@ function getCategory(data){
     return targetCateg;
 }
 
+
 // get home page testominals
 
 $.ajax({
@@ -174,7 +172,6 @@ $.ajax({
     cache: false,
     success: function (result) {
         let testominalsData = result.data, content = "";
-        console.log(testominalsData);
         if (result.error.status==true) {
             var message = result.error.message;
             alert(message);
@@ -221,11 +218,15 @@ $.ajax({
 
 
 
-
+let loginnedUserData = JSON.parse(localStorage.getItem("CurrentUserData"))
 
 $(function(){
     
-
+if(loginnedUserData.image){
+    $(".navbar-nav li a img ").attr("src", "http://88.80.184.99/tasker/web/"+loginnedUserData.image)
+}else{
+    $(".navbar-nav li a img ").attr("src", "../../assets/img/client/user.png")
+}
     
 
     // home filter category
@@ -286,6 +287,7 @@ $(function(){
                 success: function (result) {
                     localStorage.removeItem('CurrentToken');
                     localStorage.removeItem('CurrentUserType');
+                    localStorage.removeItem('CurrentUserData');
                     window.location.pathname = 'index.html';
                     if(window.location.pathname == 'index.html'){
                         location.reload()
@@ -311,6 +313,13 @@ $(function(){
     //remove validatios
     $(".error").on("keypress", function(){
         $(this).removeClass("error");
+    })
+
+
+    //remove validatios
+    $(".form-control").on("keypress", function(){
+        $("#alert").fadeOut();
+        $(this).removeClass("error")
     })
 
 });

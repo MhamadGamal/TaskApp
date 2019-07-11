@@ -8,32 +8,95 @@
   src: url("../fonts/SourceSansPro-Bold.ttf");
 }
 
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url(../fonts/sans/OpenSans-Bold.woff);
+}
+
+@font-face {
+  font-family: 'OpenSans-Semibold';
+  src: url(../fonts/sans/OpenSans-Semibold.woff);
+}
+
+@font-face {
+  font-family: 'OpenSans-SemiboldItalic';
+  src: url(../fonts/sans/OpenSans-SemiboldItalic.woff);
+}
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url(../fonts/sans/OpenSans-Light.woff);
+}
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url(../fonts/sans/OpenSans-Regular.woff);
+}
+
+@font-face {
+  font-family: 'SFUIText-Bold';
+  src: url(../fonts/SFUIText-Bold.woff);
+}
+
+@font-face {
+  font-family: 'SFUIText-Light';
+  src: url(../fonts/SFUIText-Light.woff);
+}
+
+@font-face {
+  font-family: 'SFUIText-Medium';
+  src: url(../fonts/SFUIText-Medium.woff);
+}
+
+@font-face {
+  font-family: 'SFUIText-Regular';
+  src: url(../fonts/SFUIText-Regular.woff);
+}
+
+.sansBold {
+  font-family: 'OpenSans-Bold';
+}
+
+.semibold {
+  font-family: 'OpenSans-Semibold';
+}
+
+.semiItalicbold {
+  font-family: 'OpenSans-SemiboldItalic';
+}
+
+.light {
+  font-family: 'OpenSans-Light';
+}
+
+.regular {
+  font-family: 'OpenSans-Regular';
+}
+
+.sfui-bold {
+  font-family: 'SFUIText-Bold';
+}
+
+.sfui-light {
+  font-family: 'SFUIText-Light';
+}
+
+.sfui-Medium {
+  font-family: 'SFUIText-Medium';
+}
+
+.sfui-regular {
+  font-family: 'SFUIText-Regular';
+}
+
+p, label, .btn, h6.date, .nav.nav-pills, .page-content-head h4 {
+  font-family: 'OpenSans-Regular';
+}
+
 body {
   margin: 0;
   font-family: "normal", cursive;
   color: #212121;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.bold {
-  font-weight: bold !important;
-}
-
-.normal {
-  font-weight: normal !important;
-}
-
-.normal-font {
-  font-family: "normal" !important;
-}
-
-.bold-font {
-  font-family: "bold-font" !important;
 }
 
 .main-color {
@@ -59,12 +122,13 @@ h6,
 .main-btn {
   background-color: #7c2da2 !important;
   color: #fff !important;
-  border-radius: 5px;
+  border-radius: 2px;
+  font-size: 15px;
   cursor: pointer;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
   padding: 6px 15px;
 }
 
@@ -123,6 +187,10 @@ button:focus {
 
 .btn-default:hover {
   color: #212121;
+}
+
+.jquery-datepicker {
+  z-index: 10;
 }
 
 .modal-header {
@@ -283,6 +351,11 @@ div, .navbar, .navbar .login-btn, #sub-services .item, #task-details .offers-lis
   -o-transform: scale(1.2) rotate(2deg);
 }
 
+.task-img, .client-img-block, .provider-img-block {
+  height: 130px;
+  overflow: hidden;
+}
+
 .iti {
   display: block;
 }
@@ -370,6 +443,7 @@ li.notify::after {
 
 .other-Service {
   margin-bottom: 25px;
+  font-family: 'OpenSans-Regular';
 }
 
 .box-content {
@@ -463,8 +537,13 @@ div.error {
   border-color: red !important;
 }
 
+.error {
+  border-color: red !important;
+}
+
 .service-name, .provider-name {
-  font-size: 22px;
+  font-size: 20px;
+  font-family: 'OpenSans-Semibold';
 }
 
 .offer-num {
@@ -537,8 +616,23 @@ ul.Pended-rating-list li {
   right: 0;
 }
 
+<<<<<<< HEAD
+=======
+.navbar-brand {
+  font-family: 'SFUIText-Bold' !important;
+}
+
+.navbar-brand span {
+  font-family: 'SFUIText-Regular' !important;
+}
+
+.details-head {
+  font-family: 'OpenSans-Semibold';
+}
+
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
 /*============================  Start Header Styling  ===============================*/
-header {
+header, header.search-provider {
   height: 100vh;
   padding-top: 30px;
   background-image: url("../img/home/header-bg.png");
@@ -547,7 +641,7 @@ header {
   position: relative;
 }
 
-header .header-content {
+header .header-content, header.search-provider .header-content {
   height: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -555,35 +649,35 @@ header .header-content {
   text-align: center;
 }
 
-header .header-content .wrapper {
+header .header-content .wrapper, header.search-provider .header-content .wrapper {
   margin-top: -30px;
 }
 
-header .header-content .wrapper .form-group .form-control {
+header .header-content .wrapper .form-group .form-control, header.search-provider .header-content .wrapper .form-group .form-control {
   padding: 25px;
   font-size: 1.2rem;
   position: relative;
 }
 
-header .header-content .wrapper .form-group .fas {
+header .header-content .wrapper .form-group .fas, header.search-provider .header-content .wrapper .form-group .fas {
   position: absolute;
   right: 40px;
   top: 18px;
   font-size: 1rem;
 }
 
-header#subCatHead {
+header#subCatHead, header.search-provider#subCatHead {
   background-image: url("../img/home/home_services.jpg");
   height: 350px;
 }
 
-header#subCatHead .wrapper {
+header#subCatHead .wrapper, header.search-provider#subCatHead .wrapper {
   margin: 0;
   color: #fff;
   font-weight: bold;
 }
 
-header#subCatHead:before {
+header#subCatHead:before, header.search-provider#subCatHead:before {
   content: "";
   position: absolute;
   top: 0;
@@ -593,7 +687,7 @@ header#subCatHead:before {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-header.customer {
+header.customer, header.search-provider.customer {
   background-image: none;
 }
 
@@ -606,6 +700,7 @@ header.customer {
 
 .navbar .navbar-brand {
   font-size: 2rem;
+  font-family: 'OpenSans-Bold';
 }
 
 .navbar .nav-item .nav-link {
@@ -917,6 +1012,11 @@ footer .copyright a.active {
 
 .login-wrapper .login .logo {
   margin-bottom: 20px;
+  font-family: 'SFUIText-Bold';
+}
+
+.login-wrapper .login .logo span {
+  font-family: 'SFUIText-Regular';
 }
 
 .login-wrapper .login .btn-facebook {
@@ -1096,7 +1196,7 @@ footer .copyright a.active {
 }
 
 #task-details .details-form form .form-group:last-child input {
-  width: 200px;
+  width: 215px !important;
   display: block;
   margin: 30px auto;
 }
@@ -1194,8 +1294,7 @@ footer .copyright a.active {
 
 #client-waiting .container .box-content .waiting-sec p {
   color: #7c2da2;
-  font-size: 18px;
-  font-size: 18px;
+  font-size: 16px;
   width: 45%;
   margin: auto;
 }
@@ -1420,8 +1519,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #client-waiting .container .box-content .waiting-sec p {
   color: #7c2da2;
-  font-size: 18px;
-  font-size: 18px;
+  font-size: 16px;
   width: 45%;
   margin: auto;
 }
@@ -1515,10 +1613,14 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 #task-preview .tab-content #TaskDetails .details h6 {
   color: #7c2da2;
   margin: 0;
+  font-size: 13px;
+  font-family: 'OpenSans-Semibold';
 }
 
 #task-preview .tab-content #TaskDetails .details span {
   color: #212121ab;
+  font-family: 'OpenSans-Regular';
+  font-size: 13px;
 }
 
 #task-preview .tab-content #TaskDetails .details p {
@@ -1602,12 +1704,14 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #task-preview .tab-content #offers .row h6 {
   margin: 6px 20px 0 0;
+  font-family: 'OpenSans-Regular';
 }
 
 #task-preview .tab-content #offers .row a {
   border: 1px solid #7c2da2;
   border-radius: 4px;
   padding: 5px 14px;
+  font-family: 'OpenSans-Regular';
 }
 
 #task-preview .tab-content #offers .row a i {
@@ -1835,8 +1939,14 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   padding: 8px;
 }
 
+#add-offer .box-content .form-group .uploadImages {
+  margin-bottom: 20px;
+}
+
 #add-offer .box-content .form-group .uploadImages .addOffer-imgUpload {
   position: relative;
+  overflow: hidden;
+  margin: 5px;
   cursor: pointer;
 }
 
@@ -1856,7 +1966,11 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 79px !important;
   height: 104px !important;
   right: 25px;
+<<<<<<< HEAD
   z-index: -1;
+=======
+  z-index: 3;
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
 }
 
 #add-offer .box-content .form-group .uploadImages .addOffer-imgUpload span {
@@ -1872,6 +1986,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #add-offer .box-content .dateTime .input-container h6 {
   color: #7c2da2;
+  font-family: 'OpenSans-Regular';
 }
 
 #add-offer .box-content .dateTime .input-container input {
@@ -2188,6 +2303,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   color: #7c2da2;
   display: inline-block;
   margin-right: 10px;
+  font-family: 'OpenSans-Regular';
 }
 
 #active-bookings ul.pending-bookings-list li .booking-details .end-task, #active-bookings ul.rating-list li .booking-details .end-task, #active-bookings ul.Pended-rating-list li .booking-details .end-task,
@@ -2359,13 +2475,18 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   border-radius: 0;
 }
 
+#HotOffers-details .box-content .carousel-indicators li img {
+  height: 80px;
+}
+
 #HotOffers-details .box-content .carousel-indicators li.active {
   background-color: transparent;
   opacity: 0.5;
 }
 
 #HotOffers-details .box-content .carousel-inner .carousel-item {
-  height: auto;
+  height: 300px;
+  overflow: hidden;
 }
 
 #HotOffers-details .box-content .moving-tasks p {
@@ -2387,6 +2508,11 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 40px !important;
   height: 40px !important;
   margin-right: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 #HotOffers-details .box-content .moving-tasks .moving-agency .tasks-numbers i {
@@ -2477,6 +2603,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   font-size: 15px;
 }
 
+<<<<<<< HEAD
 #start-work .tab-content #Messages.tab-pane {
   padding-bottom: 35px;
 }
@@ -2486,6 +2613,17 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 #start-work .tab-content #Messages .provider-chat .messges-block {
+=======
+#Messages.tab-pane {
+  padding-bottom: 35px;
+}
+
+#Messages .provider-chat {
+  margin-bottom: 20px;
+}
+
+#Messages .provider-chat .messges-block {
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
   height: 440px;
   overflow: auto;
   padding: 20px 25px;
@@ -2626,7 +2764,8 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #rating .box-content .rating-list .rating-details .details-head .details .service-name {
   color: #7c2da2;
-  font-size: 17px;
+  font-size: 16px;
+  font-family: 'OpenSans-Regular';
 }
 
 #rating .box-content .rating-list .rating-details .details-head .details .rating span {
@@ -2650,8 +2789,9 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 #rating .box-content .rating-list .rating-details .details-head .starEndDate span {
-  font-size: 14px;
+  font-size: 12px;
   color: #7c2da2;
+  font-family: 'OpenSans-Regular';
 }
 
 #rating .box-content .rating-list .rating-details .end-task {
@@ -2690,7 +2830,8 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 
 #client-rating .box-content .rating-list .rating-details .details-head .details span.service-name, #client-rating .box-content .Pended-rating-list .rating-details .details-head .details span.service-name {
   color: #7c2da2;
-  font-size: 17px;
+  font-size: 16px;
+  font-family: 'OpenSans-Regular';
 }
 
 #client-rating .box-content .rating-list .rating-details .details-head .details .rating span, #client-rating .box-content .Pended-rating-list .rating-details .details-head .details .rating span {
@@ -2731,7 +2872,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 #client-rating .box-content .rating-list .rating-details .details-head .starEndDate span, #client-rating .box-content .Pended-rating-list .rating-details .details-head .starEndDate span {
-  font-size: 14px;
+  font-size: 12px;
   color: #7c2da2;
 }
 
@@ -2767,8 +2908,29 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   border-radius: 12px;
 }
 
+.modal.rateProvider .modal-body .rating {
+  direction: rtl;
+}
+
 .modal.rateProvider .modal-body .rating span {
   color: #e2e2e2;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star {
+  color: #dddddd !important;
+  cursor: pointer;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star.active {
+  color: #7c2da2 !important;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star:hover {
+  color: #7c2da2 !important;
+}
+
+.modal.rateProvider .modal-body .rating .fa.fa-star:hover ~ .fa {
+  color: #7c2da2 !important;
 }
 
 .modal.rateProvider .modal-body .review-provider {
@@ -2819,6 +2981,191 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   .navbar-expand-lg > .container-fluid {
     padding-right: 10px;
     padding-left: 10px;
+  }
+}
+
+/*======== search-provider Page ===========*/
+#search-provider-page header.search-provider#subCatHead {
+  background: url("../img/client/providers-banner.png") no-repeat;
+  height: 350px;
+  margin-top: 79px;
+  background-size: 100% 100%;
+}
+
+#search-provider-page #providers-list .row.filter-list-block {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px auto;
+}
+
+#search-provider-page #providers-list .row.filter-list-block > .col-md-4:first-child {
+  padding-left: 0;
+}
+
+#search-provider-page #providers-list .row.filter-list-block > .col-md-4:last-child {
+  padding-right: 0;
+}
+
+#search-provider-page #providers-list .row.filter-list-block > .col-md-4:last-child .btn.btn-outline-secondary {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#search-provider-page #providers-list .row.filter-list-block > .col-md-4:last-child .btn.btn-outline-secondary:hover .fa.fa-search {
+  color: #fff;
+}
+
+#search-provider-page #providers-list .row.filter-list-block .input-group label {
+  margin: 7px 24px 7px 0;
+}
+
+#search-provider-page #providers-list .row.filter-list-block .input-group select {
+  border-radius: .25rem;
+}
+
+#search-provider-page #providers-list .row.filter-list-block .input-group .fa.fa-search {
+  color: #212121;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li {
+  border-radius: 2px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  margin-bottom: 22px;
+  padding: 15px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .img-service-block img {
+  margin-right: 30px;
+  border-radius: 12px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks p {
+  width: 86%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .view-profile a {
+  background: #6e1799;
+  color: #fff;
+  width: 160px;
+  text-align: center;
+  border: 1px solid #7c2da2;
+  border-radius: 4px;
+  padding: 5px 14px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency h5 {
+  color: #7c2da2;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating {
+  margin-bottom: 20px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating span {
+  color: #7c2da2;
+  margin: 2px;
+  font-size: 14px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .rating > span:last-child {
+  margin-left: 6px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers {
+  margin-bottom: 20px;
+}
+
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers i,
+#search-provider-page #providers-list ul.moving-tasks-list li .moving-tasks .agency-tasks .moving-agency .tasks-numbers span {
+  color: #b68bcc;
+}
+
+#search-provider-page #providers-list .row {
+  margin: 0 0 25px 0;
+}
+
+#search-provider-page #providers-list .row h6 {
+  margin: 6px 20px 0 0;
+  font-family: 'OpenSans-Regular';
+}
+
+/*======== /search-provider Page ===========*/
+/*======== select-provider Page ===========*/
+#select-provider .box-content {
+  padding: 44px 25px;
+}
+
+#select-provider .box-content .img-service-block img {
+  border-radius: 12px;
+}
+
+#select-provider .box-content .moving-agency .rating span {
+  color: #7c2da2;
+  margin: 2px;
+  font-size: 14px;
+}
+
+#select-provider .box-content .moving-agency .tasks-numbers {
+  margin-bottom: 20px;
+}
+
+#select-provider .box-content .moving-agency .tasks-numbers i,
+#select-provider .box-content .moving-agency .tasks-numbers span {
+  color: #b68bcc;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview {
+  margin-bottom: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview .client-img-block {
+  width: 66px;
+  height: 66px;
+  margin-right: 20px;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview .client-img-block img {
+  border-radius: 5px;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview .client-name {
+  font-family: 'OpenSans-SemiboldItalic';
+  color: #7c2da2;
+  font-size: 13px;
+}
+
+#select-provider .box-content .moving-agency .clientReviews .ServiceReview .date {
+  color: #a19ea3;
+  font-size: 13px;
+  font-family: 'OpenSans-Regular';
+}
+
+/*======== /select-provider Page ===========*/
+/*==========================================================================
+============================================================================
+============================ MEDIA QUERY ===================================
+============================================================================
+============================================================================*/
+@media (max-width: 767px) {
+  .moving-tasks {
+    margin-top: 120px;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -11,33 +11,104 @@ $secondaryColor: #ff7162;
     src: url("../fonts/SourceSansPro-Bold.ttf")
 }
 
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url(../fonts/sans/OpenSans-Bold.woff);
+}
+@font-face {
+    font-family: 'OpenSans-Semibold';
+    src: url(../fonts/sans/OpenSans-Semibold.woff);
+}
+@font-face {
+    font-family: 'OpenSans-SemiboldItalic';
+    src: url(../fonts/sans/OpenSans-SemiboldItalic.woff);
+}
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url(../fonts/sans/OpenSans-Light.woff);
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url(../fonts/sans/OpenSans-Regular.woff);
+}
+@font-face {
+    font-family: 'SFUIText-Bold';
+    src: url(../fonts/SFUIText-Bold.woff);
+}
+
+@font-face {
+    font-family: 'SFUIText-Light';
+    src: url(../fonts/SFUIText-Light.woff);
+}
+@font-face {
+    font-family: 'SFUIText-Medium';
+    src: url(../fonts/SFUIText-Medium.woff);
+}
+@font-face {
+    font-family: 'SFUIText-Regular';
+    src: url(../fonts/SFUIText-Regular.woff);
+}
+.sansBold{
+    font-family: 'OpenSans-Bold';
+}
+.semibold {
+    font-family: 'OpenSans-Semibold';
+}
+
+.semiItalicbold {
+    font-family: 'OpenSans-SemiboldItalic';
+}
+.light{
+    font-family: 'OpenSans-Light';
+}
+.regular{
+    font-family: 'OpenSans-Regular';
+}
+.sfui-bold{
+    font-family: 'SFUIText-Bold';  
+}
+.sfui-light{
+    font-family: 'SFUIText-Light';
+}
+.sfui-Medium{
+    font-family: 'SFUIText-Medium';
+}
+.sfui-regular{
+    font-family: 'SFUIText-Regular';
+}
+p,label,.btn,h6.date ,.nav.nav-pills ,.page-content-head h4{
+    font-family: 'OpenSans-Regular'; 
+}
+
 body {
     margin: 0;
-    font-family: "normal", cursive;
-    color: #212121
+    font-family: "normal", cursive; 
+    color: #212121;
+    
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.bold {
-    font-weight: bold !important
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// .bold {
+//     font-weight: bold !important
+// }
 
-.normal {
-    font-weight: normal !important
-}
+// .normal {
+//     font-weight: normal !important
+// }
 
-.normal-font {
-    font-family: "normal" !important;
-}
+// .normal-font {
+//     font-family: "normal" !important;
+// }
 
-.bold-font {
-    font-family: "bold-font" !important;
-}
+// .bold-font {
+//     font-family: "bold-font" !important;
+// }
 
 .main-color {
     color: $mainColor !important
@@ -62,14 +133,14 @@ h6,
 .main-btn {
     background-color: $mainColor !important;
     color: #fff !important;
-    border-radius: 5px;
+    border-radius: 2px;
+    font-size: 15px;
     cursor: pointer;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
     padding: 6px 15px;
-
 }
 
 a {
@@ -123,6 +194,11 @@ button{
         color: #212121
     }
 }
+
+.jquery-datepicker{
+    z-index: 10;
+}
+
 .modal-header{
     border-bottom: 1px solid #e2e2e2 !important;
     padding: 10px 20px !important;
@@ -275,6 +351,11 @@ section {
     }
 }
 
+.task-img, .client-img-block, .provider-img-block{
+    height: 130px;
+    overflow: hidden;
+}
+
 .iti {
     display: block;
 }
@@ -346,7 +427,9 @@ li.notify::after {
 }
 
 .other-Service {
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    font-family: 'OpenSans-Regular'; 
+
 }
 
 .box-content {
@@ -445,9 +528,14 @@ div {
         border-color: red !important;
     }
 }
+.error {
+    border-color: red !important;
+}
 // service-name
 .service-name, .provider-name{
-    font-size: 22px;
+    font-size: 20px;
+    font-family: 'OpenSans-Semibold';
+
 }
 // offer-number
 .offer-num {
@@ -496,9 +584,14 @@ ul.Pended-rating-list
     border-radius: 3px;
     background-color: #a19ea3;
 }
+//rating
 .rating{
     cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+//tabs
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
 .nav.nav-pills {
     padding: 7px 17px;
     border-bottom: solid 1px #e2e2e2;
@@ -522,8 +615,21 @@ ul.Pended-rating-list
         }
     }
 }
+<<<<<<< HEAD
+=======
+// logo style
+.navbar-brand {
+    font-family: 'SFUIText-Bold' !important;  
+    span{
+        font-family: 'SFUIText-Regular' !important;
+    }
+}
+.details-head {
+    font-family: 'OpenSans-Semibold';
+}
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
 /*============================  Start Header Styling  ===============================*/
-header {
+header ,header.search-provider{
     height: 100vh;
     padding-top: 30px;
     background-image: url("../img/home/header-bg.png");
@@ -590,6 +696,7 @@ header {
 
     .navbar-brand {
         font-size: 2rem;
+        font-family: 'OpenSans-Bold';
     }
 
     .nav-item {
@@ -923,7 +1030,11 @@ footer {
         margin-top: 10vh;
 
         .logo {
-            margin-bottom: 20px
+            margin-bottom: 20px;
+            font-family: 'SFUIText-Bold'; 
+            span{
+                font-family: 'SFUIText-Regular';
+            } 
         }
 
         .btn-facebook {
@@ -1126,7 +1237,7 @@ footer {
 
             .form-group:last-child {
                 input {
-                    width: 200px;
+                    width: 215px !important;
                     display: block;
                     margin: 30px auto;
                 }
@@ -1249,8 +1360,7 @@ footer {
 
                 p {
                     color: $mainColor;
-                    font-size: 18px;
-                    font-size: 18px;
+                    font-size: 16px;
                     width: 45%;
                     margin: auto;
                 }
@@ -1305,8 +1415,7 @@ footer {
                         margin-right: 10px;
                     }
 
-                    .offers {
-                    }
+                   
                 }
             }
         }
@@ -1525,7 +1634,6 @@ all pages
     .container {
         .box-content {
             height: 776px;
-
             .waiting-sec {
                 .waiting-img {
                     background-image: url("../img/client/wait-img.png");
@@ -1536,8 +1644,7 @@ all pages
 
                 p {
                     color: $mainColor;
-                    font-size: 18px;
-                    font-size: 18px;
+                    font-size: 16px;
                     width: 45%;
                     margin: auto;
                 }
@@ -1648,11 +1755,15 @@ all pages
 
                 h6 {
                     color: $mainColor;
-                    margin: 0
+                    margin: 0;
+                    font-size: 13px;
+                    font-family: 'OpenSans-Semibold';
                 }
 
                 span {
                     color: #212121ab;
+                    font-family: 'OpenSans-Regular';
+                    font-size: 13px;
                 }
 
                 p {
@@ -1707,6 +1818,7 @@ all pages
                                     color: #fff;
                                     width: 160px;
                                     text-align: center;
+
                                 }
                             }
 
@@ -1746,14 +1858,15 @@ all pages
                 margin: 0 0 25px 0;
 
                 h6 {
-                    margin: 6px 20px 0 0
+                    margin: 6px 20px 0 0;
+                    font-family: 'OpenSans-Regular';
                 }
 
                 a {
                     border: 1px solid #7c2da2;
                     border-radius: 4px;
                     padding: 5px 14px;
-
+                    font-family: 'OpenSans-Regular';
                     i {
                         color: $mainColor;
                         font-size: 12px;
@@ -2011,6 +2124,7 @@ all pages
         form {
             &>h6:first-child {
                 margin-bottom: 12px;
+
             }
         }
         .row {
@@ -2023,8 +2137,12 @@ all pages
         }
         .form-group {
             .uploadImages {
+                margin-bottom: 20px;
+
                 .addOffer-imgUpload {
                     position: relative;
+                    overflow: hidden;
+                    margin: 5px;
                     cursor: pointer;
 
                     img,
@@ -2044,7 +2162,11 @@ all pages
                         width: 79px !important;
                         height: 104px !important;
                         right: 25px;
+<<<<<<< HEAD
                         z-index: -1;
+=======
+                        z-index: 3;
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
                     }
 
                     span {
@@ -2060,6 +2182,8 @@ all pages
             .input-container {
                 h6 {
                     color: $mainColor;
+                    font-family: 'OpenSans-Regular';
+                    
                 }
 
                 input {
@@ -2128,6 +2252,8 @@ all pages
                         color: $mainColor;
                         display: inline-block;
                         margin-right: 10px;
+                        font-family: 'OpenSans-Regular';
+
                     }
                 }
 
@@ -2233,9 +2359,6 @@ all pages
 
 }
 /*======== /credit Page ===========*/
-
-
-
 /*======== /contact page ===========*/
 
 /*======== HotOffers-details page ===========*/
@@ -2250,6 +2373,9 @@ all pages
             li {
                 width: 100%;
                 border-radius: 0;
+                img{
+                    height: 80px;;
+                }
                 &.active {
                     background-color: transparent;
                     opacity: 0.5;
@@ -2257,7 +2383,8 @@ all pages
             }
         }
         .carousel-inner .carousel-item {
-            height: auto;
+            height: 300px;
+            overflow: hidden;
         }
         .moving-tasks {
             p {
@@ -2267,7 +2394,6 @@ all pages
                 .agency {
                     align-items: center;
                     margin-bottom: 10px;
-
                     a {
                         font-size: 20px;
                     }
@@ -2276,6 +2402,11 @@ all pages
                         width: 40px !important;
                         height: 40px !important;
                         margin-right: 10px;
+                        border-radius: 50%;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        -ms-border-radius: 50%;
+                        -o-border-radius: 50%;
                     }
                 }
                 .tasks-numbers {
@@ -2323,6 +2454,16 @@ all pages
                     width: 118px !important;
                     height: 118px !important;
                     border-radius: 12px;
+<<<<<<< HEAD
+=======
+                }
+                .rating{
+                    span{
+                        color: $mainColor;
+                        margin: 2px;
+                        font-size: 14px;
+                    }
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
                 }
                 .rating{
                     span{
@@ -2331,6 +2472,13 @@ all pages
                         font-size: 14px;
                     }
                 }
+            }
+            h6 {
+                color: $mainColor;
+                margin: 0
+            }
+            span {
+                color: #212121ab;
             }
             h6 {
                 color: $mainColor;
@@ -2370,7 +2518,16 @@ all pages
         }
     }
 
+<<<<<<< HEAD
     #Messages{
+=======
+    
+
+    }
+    
+}
+#Messages{
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
         &.tab-pane{
             padding-bottom: 35px;
         }
@@ -2465,7 +2622,12 @@ all pages
             left: 0;
             opacity: 0;
             width: 27px;
+<<<<<<< HEAD
             height: 27;
+=======
+            height: 27px;
+            top: 0;
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
             cursor: pointer;
         }
     }
@@ -2489,7 +2651,8 @@ all pages
                     .details {
                         .service-name{
                             color: $mainColor;
-                            font-size: 17px;
+                            font-size: 16px;
+                            font-family: 'OpenSans-Regular'; 
                         }
                         width: 80%;
                         .rating{
@@ -2513,8 +2676,9 @@ all pages
                             vertical-align: middle;
                         }
                         span{
-                            font-size: 14px;
-                            color: $mainColor;
+                            font-size: 12px;
+                            color: #7c2da2;
+                            font-family: 'OpenSans-Regular';
                         }
                     }
                 }
@@ -2553,7 +2717,8 @@ all pages
                     .details {
                         span.service-name {
                             color: $mainColor;
-                            font-size: 17px;
+                            font-size: 16px;
+                            font-family: 'OpenSans-Regular';
                         }
                         width: 80%;
                         .rating{
@@ -2583,7 +2748,7 @@ all pages
                         }
 
                         span{
-                            font-size: 14px;
+                            font-size: 12px;
                             color: $mainColor;
                         }
                         .date{
@@ -2608,8 +2773,6 @@ all pages
             }
         }
     }
-
-
 }
 // model 
 .modal.rateProvider{
@@ -2627,10 +2790,23 @@ all pages
             }
         }
         .rating {
+            direction: rtl; 
             span{
                 color: #e2e2e2;
-
-                
+            }
+                       
+            .fa.fa-star{
+                color:#dddddd !important;
+                cursor: pointer;
+            }
+            .fa.fa-star.active {
+                color: $mainColor !important;
+            }
+            .fa.fa-star:hover {
+                color: $mainColor!important;
+            }
+            .fa.fa-star:hover ~ .fa{
+                color:$mainColor !important;
             }
         }
         .review-provider{
@@ -2655,11 +2831,12 @@ all pages
             padding: 6px 38px;
         }
     }
-
-
 }
+<<<<<<< HEAD
 
   
+=======
+>>>>>>> ece46622639f3d7533a51c332d3f8f2a50603c78
 /*======== /client  rating  page ===========*/
 /////////////media//////////////////////
 @media (max-width: 991.98px) {
@@ -2670,4 +2847,213 @@ all pages
         padding-left: 10px;
     }
 }
-     
+/*======== search-provider Page ===========*/ 
+// .search-provider{
+//     #subCatHead {
+//         background: url('../img/client/providers-banner.png') no-repeat !important;
+//         background-size: cover;
+//         height: 350px;
+//     }
+    
+// }
+
+#search-provider-page{
+    header.search-provider{
+        &#subCatHead {
+            background:url('../img/client/providers-banner.png') no-repeat;
+            height: 350px;
+            margin-top: 79px;
+            background-size: 100% 100%;
+    
+        }  
+}
+
+#providers-list {
+    .row.filter-list-block{
+        justify-content:space-between;
+         margin: 50px auto;
+         &>.col-md-4:first-child{
+             padding-left: 0; 
+         }
+         &>.col-md-4:last-child{
+            padding-right : 0; 
+                .btn.btn-outline-secondary {
+                   border-top-left-radius: 0; 
+                   border-bottom-left-radius: 0;
+                   &:hover .fa.fa-search{
+                       color: #fff;
+                   }
+                }
+    
+             
+        }
+         .input-group{
+             label{
+                margin: 7px 24px 7px 0;
+             }
+             select{
+                border-radius: .25rem;
+             }
+             .fa.fa-search{
+                color: #212121;  
+             }
+ 
+         }
+
+         
+
+    }
+    ul.moving-tasks-list {
+
+        li {
+            border-radius: 2px;
+            border: solid 1px #e2e2e2;
+            background-color: #ffffff;
+            margin-bottom: 22px;
+            padding: 15px;
+            .img-service-block{
+                img {
+                    margin-right: 30px;
+                    border-radius: 12px;
+                }
+            }
+            .moving-tasks {
+                p{
+                    width: 86%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;  
+                }
+                .agency-tasks {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .view-profile {
+                        a {
+                            background: #6e1799;
+                            color: #fff;
+                            width: 160px;
+                            text-align: center;
+                            border: 1px solid #7c2da2;
+                             border-radius: 4px;
+                               padding: 5px 14px;
+
+                        }
+                    }
+
+                    .moving-agency {
+                        h5 {
+                            color: $mainColor
+                        }
+
+                        .rating {
+                            margin-bottom: 20px;
+
+                            span {
+                                color: $mainColor;
+                                margin: 2px;
+                                font-size: 14px;
+                            }
+
+                            &>span:last-child {
+                                margin-left: 6px;
+                            }
+                        }
+
+                        .tasks-numbers {
+                            margin-bottom: 20px;
+
+                            i,
+                            span {
+                                color: #b68bcc;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .row {
+        margin: 0 0 25px 0;
+
+        h6 {
+            margin: 6px 20px 0 0;
+            font-family: 'OpenSans-Regular';
+        }
+    }
+}
+
+
+    
+}
+/*======== /search-provider Page ===========*/   
+/*======== select-provider Page ===========*/   
+#select-provider{
+
+    .box-content{
+        padding: 44px 25px;
+        .img-service-block{
+        img{
+            border-radius: 12px;
+        }
+        }
+        .moving-agency {
+            .rating {
+                span {
+                    color: $mainColor;
+                    margin: 2px;
+                    font-size: 14px;
+                }
+            }
+
+            .tasks-numbers {
+                margin-bottom: 20px;
+
+                i,
+                span {
+                    color: #b68bcc;
+                }
+            }
+            .clientReviews{
+                .ServiceReview{
+                    margin-bottom: 35px;
+                    display: flex;
+                    .client-img-block{
+                        width: 66px;
+                        height: 66px;
+                        margin-right: 20px;
+
+                        img{
+                            border-radius: 5px;
+                        }
+                    }
+                    .client-name{
+                        font-family: 'OpenSans-SemiboldItalic';
+                        color:$mainColor;
+                        font-size: 13px;
+                    }
+                    .date {
+                        color: #a19ea3;
+                        font-size: 13px;
+                        font-family: 'OpenSans-Regular';
+
+                    }
+                }
+            }
+        }
+    }
+}
+/*======== /select-provider Page ===========*/   
+
+/*==========================================================================
+============================================================================
+============================ MEDIA QUERY ===================================
+============================================================================
+============================================================================*/
+@media(max-width: 767px){
+    .moving-tasks{
+        margin-top: 120px;
+    }
+}

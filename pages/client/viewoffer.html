@@ -39,8 +39,10 @@
                         <a class="nav-link dropdown-toggle " href="bookings.html" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">My Bookings</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="pendings.html"> <i class="far fa-address-card"></i> Pending Bookingst</a>
-                            <a class="dropdown-item" href="booking-list.html"><i class="far fa-address-card"></i>Bookings List</a>
+                            <a class="dropdown-item" href="pendings.html"> <i class="far fa-address-card"></i> Pending
+                                Bookingst</a>
+                            <a class="dropdown-item" href="booking-list.html"><i
+                                    class="far fa-address-card"></i>Bookings List</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>Ratings</a>
                         </div>
@@ -51,7 +53,10 @@
                             <img src=" " alt="" srcset="">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My Account</a>
+                            <a class="dropdown-item" href="profile.html"> <i class="fas fa-user"></i>Profile</a>
+                            
+                            <a class="dropdown-item" href="credit.html"> <i class="far fa-credit-card"></i> My
+                                Credit</a>
                             <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
                             <div class="dropdown-divider"></div>
                             <a id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -59,47 +64,34 @@
                     </li>
                 </ul>
                 <!-- <a href="../login/login.html" class="login-btn">
-                    <img src="../../assets/img/client/user.png"  alt="" srcset="">
+                    <img src=" "  alt="" srcset="">
                 
                 </a> -->
             </div>
         </div>
     </nav>
-
     <!-- /NAVBAR -->
-    <!--CLIENT-WATING  -->
-    <section id="client-waiting" class="grey-bg page-content">
+    
+    <!--HotOffers-details  -->
+    <section id="HotOffers-details" class="grey-bg page-content">
         <div class="container">
-            <div class="page-content-head">
-                <h4>Moving help Service</h4>
+            <div class="alert alert-danger" id="alert" role="alert" style="display: none">
             </div>
-            <div class="other-Service">
-                <div class="text-right">
-                    <span>Is Moving help not the right task? Choose other Service</span>
-                    <a href="#">Choose other Service</a>
-                </div>
-            </div>
-            <div class="box-content">
-                <div class="details-head box-head semibold">
-                    <h5>
-                        step
-                        <span>(3/3):</span>
-                    </h5>
-                    <span>Wait for providers offers</span>
-                </div>
-                <div class="waiting-sec text-center">
-                    <div  class="waiting-img">
-
+            <div class="row flex-column-reverse flex-md-row">
+                <div class="col-md-12">
+                    <div class="box-content">
+                            <div  class="container tab-pane">
+                                  
+                            </div>
                     </div>
-                    <p>Stay Tuned While available Providers are checking your request You will be notified when you recieve offers</p>
                 </div>
-
+ 
             </div>
         </div>
     </section>
-    <!--/CLIENT-WATING  -->
+   
+    <!--/HotOffers-details -->
     <!-- Footer -->
-    
     <footer>
         <div class="container">
             <div class="copyright">
@@ -109,7 +101,7 @@
                         <a href="terms.html" class="mx-2 mt-2   ">Terms & Privecy</a>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a class=" logo bold-font main-color mx-2" href="../../index.html">Task<span
+                        <a class=" logo bold-font main-color mx-2" href="index.html">Task<span
                                 class="normal-font s-color">app </span></a>
                         <a href="#"> <i class="fab fa-facebook-f main-color   "></i></a>
                         <a href="#"> <i class="fab fa-twitter  main-color  "></i></a>
@@ -136,5 +128,7 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/offer.js"></script>
+    <script src="../../assets/js/viewoffer.js"></script>
 </body>
 </html>
