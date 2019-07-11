@@ -499,6 +499,29 @@ ul.Pended-rating-list
 .rating{
     cursor: pointer;
 }
+.nav.nav-pills {
+    padding: 7px 17px;
+    border-bottom: solid 1px #e2e2e2;
+    margin-bottom: 30px;
+
+    .nav-item {
+        .nav-link.active {
+            color: $mainColor;
+            background-color: transparent;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: #7c2da2;
+                bottom: -8px;
+                right: 0;
+            }
+        }
+    }
+}
 /*============================  Start Header Styling  ===============================*/
 header {
     height: 100vh;
@@ -1297,31 +1320,6 @@ footer {
     .box-content {
         padding: 0;
     }
-
-    .nav.nav-pills {
-        padding: 7px 17px;
-        border-bottom: solid 1px #e2e2e2;
-        margin-bottom: 30px;
-
-        .nav-item {
-            .nav-link.active {
-                color: $mainColor;
-                background-color: transparent;
-                position: relative;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 4px;
-                    background-color: #7c2da2;
-                    bottom: -7px;
-                    right: 0;
-                }
-            }
-        }
-    }
-
     .tab-content {
         .tab-pane {
             padding: 0 25px;
@@ -2035,6 +2033,7 @@ all pages
                         height: 104px !important;
                         cursor: pointer;
                         top: 0;
+
                     }
 
                     input {
@@ -2045,6 +2044,7 @@ all pages
                         width: 79px !important;
                         height: 104px !important;
                         right: 25px;
+                        z-index: -1;
                     }
 
                     span {
@@ -2296,66 +2296,185 @@ all pages
 }
 /*======== /HotOffers-details page ===========*/
 /*======== start-work page ===========*/
-#ActiveDetails {
-    p{
-        font-size: 16.5px;
+#start-work{
+    .box-content {
+        padding: 0;
     }
-    &>.row:nth-child(1) {
-        margin-bottom: 50px;
-    }
-    .details {
-        justify-content: space-between;
-        .clientInfo{
-            span{
-                font-size: 20px;
-            }
-            img{
-                width: 118px !important;
-                height: 118px !important;
-                border-radius: 12px;
-            }
-            .rating{
+    .tab-content {
+        .tab-pane {
+            padding: 0 25px;
+            
+        }
+        
+    #ActiveDetails {
+        p{
+            font-size: 16.5px;
+        }
+        &>.row:nth-child(1) {
+            margin-bottom: 50px;
+        }
+        .details {
+            justify-content: space-between;
+            .clientInfo{
                 span{
-                    color: $mainColor;
-                    margin: 2px;
-                    font-size: 14px;
+                    font-size: 20px;
+                }
+                img{
+                    width: 118px !important;
+                    height: 118px !important;
+                    border-radius: 12px;
+                }
+                .rating{
+                    span{
+                        color: $mainColor;
+                        margin: 2px;
+                        font-size: 14px;
+                    }
                 }
             }
+            h6 {
+                color: $mainColor;
+                margin: 0
+            }
+            span {
+                color: #212121ab;
+            }
         }
-        h6 {
-            color: $mainColor;
-            margin: 0
+        .map-container {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 263px !important;
+    
+            iframe {
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+            }
         }
-        span {
-            color: #212121ab;
-        }
-    }
-    .map-container {
-        overflow: hidden;
-        padding-bottom: 56.25%;
-        position: relative;
-        height: 263px !important;
+        .myOffer{
+            .service-img-block{
+                width: 158px ;
+                height: 158px;
+                img{
+                    border-radius: 12px;
+                }
+            }
 
-        iframe {
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            position: absolute;
+            .date{
+                color: #a19ea3;
+                font-size: 15px; 
+            }
         }
     }
-    .myOffer{
-        img{
-            width: 158px !important;
-            height: 158px !important;
-            border-radius: 12px;
+
+    #Messages{
+        &.tab-pane{
+            padding-bottom: 35px;
         }
-        .date{
-            color: #a19ea3;
-            font-size: 15px; 
+        .provider-chat{
+            margin-bottom: 20px;
+            .messges-block{
+                height: 440px;
+                overflow: auto;
+                padding: 20px 25px;
+                .messege-date{
+                    color: #a19ea3;
+                    font-size: 12px;
+                }
+                .service-request{
+                    width: 40%;
+                    margin: auto;
+                    .client-name{
+                        font-weight: bold;
+                        
+                      
+                    }
+                }
+           
+                .incoming-msg-block{
+                    .client-name{
+                        color: #a19ea3;
+                    }
+                    .incoming-msg{
+                  
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    
+                        p{
+                            border-radius: 6px;
+                            background-color:$mainColor;
+                            color: #fff;
+                            padding: 15px;
+                            margin-bottom: 2px;
+   
+                        }
+
+                    }
+                }
+                .received-msg-block{
+                    display: flex;
+                    justify-content: flex-end;
+                    .received-msg{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        // width: 50%;
+                        .provider-name{
+                            color: #a19ea3;
+                        }
+                        p{
+                            border-radius: 6px;
+                            background-color: #f5f5f5;
+                            color: #a19ea3;
+                            padding: 15px;
+                            margin-bottom: 2px;
+                        
+                        }
+
+                    }
+                }
+
+            }
+        }
+    
+}
+.sendMessges{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .send{
+        width: 90%;
+        .form-control{
+            width: 98%;
+            margin: auto;
+        }
+    }
+    .imgUpload {
+        position: relative;
+        i{
+            cursor: pointer;
+            font-size: 27px;
+        }
+        input[type=file]  {
+            outline: none !important;
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            width: 27px;
+            height: 27;
+            cursor: pointer;
         }
     }
 }
+    }
+    
+}
+
+
 /*======== /start-work page ===========*/
 /*======== Rating provider page ===========*/
 #rating{
@@ -2522,6 +2641,9 @@ all pages
             background-color: #f9f9f9;
             resize: none;
             outline: none;
+            &:focus{
+                background-color: #fff !important;
+            }
            
             &::placeholder{
                 color: #a19ea3 !important;  
@@ -2538,15 +2660,6 @@ all pages
 }
 
   
-  textarea::placeholder {
- 
-  }
-  textarea:focus{
-      background-color: #fff !important;
-
-      
-
-  }
 /*======== /client  rating  page ===========*/
 /////////////media//////////////////////
 @media (max-width: 991.98px) {
