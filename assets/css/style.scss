@@ -2165,6 +2165,7 @@ all pages
                         width: 79px !important;
                         height: 104px !important;
                         right: 25px;
+                        z-index: -1;
                         z-index: 3;
                     }
 
@@ -2461,6 +2462,20 @@ all pages
                         font-size: 14px;
                     }
                 }
+                .rating{
+                    span{
+                        color: $mainColor;
+                        margin: 2px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            h6 {
+                color: $mainColor;
+                margin: 0
+            }
+            span {
+                color: #212121ab;
             }
             h6 {
                 color: $mainColor;
@@ -2500,9 +2515,6 @@ all pages
         }
     }
 
-    
-
-    }
     
 }
 #Messages{
@@ -2606,6 +2618,9 @@ all pages
         }
     }
 }
+    }
+
+
 /*======== /start-work page ===========*/
 /*======== Rating provider page ===========*/
 #rating{
@@ -2801,6 +2816,8 @@ all pages
         }
     }
 }
+
+  
 /*======== /client  rating  page ===========*/
 /////////////media//////////////////////
 @media (max-width: 991.98px) {

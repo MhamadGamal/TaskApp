@@ -1974,6 +1974,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 79px !important;
   height: 104px !important;
   right: 25px;
+  z-index: -1;
   z-index: 3;
 }
 
@@ -2569,6 +2570,21 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   font-size: 14px;
 }
 
+#start-work .tab-content #ActiveDetails .details .clientInfo .rating span {
+  color: #7c2da2;
+  margin: 2px;
+  font-size: 14px;
+}
+
+#start-work .tab-content #ActiveDetails .details h6 {
+  color: #7c2da2;
+  margin: 0;
+}
+
+#start-work .tab-content #ActiveDetails .details span {
+  color: #212121ab;
+}
+
 #start-work .tab-content #ActiveDetails .details h6 {
   color: #7c2da2;
   margin: 0;
@@ -2607,39 +2623,39 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   font-size: 15px;
 }
 
-#Messages.tab-pane {
+#start-work #Messages.tab-pane {
   padding-bottom: 35px;
 }
 
-#Messages .provider-chat {
+#start-work #Messages .provider-chat {
   margin-bottom: 20px;
 }
 
-#Messages .provider-chat .messges-block {
+#start-work #Messages .provider-chat .messges-block {
   height: 440px;
   overflow: auto;
   padding: 20px 25px;
 }
 
-#Messages .provider-chat .messges-block .messege-date {
+#start-work #Messages .provider-chat .messges-block .messege-date {
   color: #a19ea3;
   font-size: 12px;
 }
 
-#Messages .provider-chat .messges-block .service-request {
+#start-work #Messages .provider-chat .messges-block .service-request {
   width: 40%;
   margin: auto;
 }
 
-#Messages .provider-chat .messges-block .service-request .client-name {
+#start-work #Messages .provider-chat .messges-block .service-request .client-name {
   font-weight: bold;
 }
 
-#Messages .provider-chat .messges-block .incoming-msg-block .client-name {
+#start-work #Messages .provider-chat .messges-block .incoming-msg-block .client-name {
   color: #a19ea3;
 }
 
-#Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg {
+#start-work #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2652,7 +2668,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: flex-start;
 }
 
-#Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg p {
+#start-work #Messages .provider-chat .messges-block .incoming-msg-block .incoming-msg p {
   border-radius: 6px;
   background-color: #7c2da2;
   color: #fff;
@@ -2660,7 +2676,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-bottom: 2px;
 }
 
-#Messages .provider-chat .messges-block .received-msg-block {
+#start-work #Messages .provider-chat .messges-block .received-msg-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2669,7 +2685,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           justify-content: flex-end;
 }
 
-#Messages .provider-chat .messges-block .received-msg-block .received-msg {
+#start-work #Messages .provider-chat .messges-block .received-msg-block .received-msg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2682,11 +2698,11 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: flex-end;
 }
 
-#Messages .provider-chat .messges-block .received-msg-block .received-msg .provider-name {
+#start-work #Messages .provider-chat .messges-block .received-msg-block .received-msg .provider-name {
   color: #a19ea3;
 }
 
-#Messages .provider-chat .messges-block .received-msg-block .received-msg p {
+#start-work #Messages .provider-chat .messges-block .received-msg-block .received-msg p {
   border-radius: 6px;
   background-color: #f5f5f5;
   color: #a19ea3;
@@ -2694,7 +2710,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   margin-bottom: 2px;
 }
 
-.sendMessges {
+#start-work .sendMessges {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2706,25 +2722,25 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           align-items: center;
 }
 
-.sendMessges .send {
+#start-work .sendMessges .send {
   width: 90%;
 }
 
-.sendMessges .send .form-control {
+#start-work .sendMessges .send .form-control {
   width: 98%;
   margin: auto;
 }
 
-.sendMessges .imgUpload {
+#start-work .sendMessges .imgUpload {
   position: relative;
 }
 
-.sendMessges .imgUpload i {
+#start-work .sendMessges .imgUpload i {
   cursor: pointer;
   font-size: 27px;
 }
 
-.sendMessges .imgUpload input[type=file] {
+#start-work .sendMessges .imgUpload input[type=file] {
   outline: none !important;
   position: absolute;
   left: 0;
