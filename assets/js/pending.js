@@ -14,7 +14,6 @@ $(function(){
                alert(data.error.message);
                
            }else if(data.error.status == false){
-               debugger;
                let data = result.data;
                let wrapper = "", img="";
                setTimeout(function(){
@@ -67,4 +66,6 @@ $(function(){
             alert('error');
         }
     });
+  
 });
+
