@@ -88,6 +88,7 @@ body {
     
 }
 
+
 // h1,
 // h2,
 // h3,
@@ -624,6 +625,161 @@ ul.Pended-rating-list
 }
 .details-head {
     font-family: 'OpenSans-Semibold';
+}
+
+// chat
+#Messages{
+    &.tab-pane{
+        padding-bottom: 35px;
+    }
+    .provider-chat{
+        margin-bottom: 20px;
+        .messges-block{
+            height: 440px;
+            overflow: auto;
+            padding: 20px 25px;
+            .messege-date{
+                color: #a19ea3;
+                font-size: 12px;
+            }
+            .service-request{
+                width: 40%;
+                margin: auto;
+                .client-name{
+                    font-weight: bold;
+                    
+                  
+                }
+            }
+       
+            .incoming-msg-block{
+                .client-name{
+                    color: #a19ea3;
+                }
+                .incoming-msg{
+              
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                
+                    p{
+                        border-radius: 6px;
+                        background-color:$mainColor;
+                        color: #fff;
+                        padding: 15px;
+                        margin-bottom: 2px;
+
+                    }
+
+                }
+            }
+            .received-msg-block{
+                display: flex;
+                justify-content: flex-end;
+                .received-msg{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    // width: 50%;
+                    .provider-name{
+                        color: #a19ea3;
+                    }
+                    p{
+                        border-radius: 6px;
+                        background-color: #f5f5f5;
+                        color: #a19ea3;
+                        padding: 15px;
+                        margin-bottom: 2px;
+                    
+                    }
+
+                }
+            }
+
+        }
+    }
+    .sendMessges{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .send{
+            width: 90%;
+            .form-control{
+                width: 98%;
+                margin: auto;
+            }
+        }
+        .imgUpload {
+            position: relative;
+            i{
+                cursor: pointer;
+                font-size: 27px;
+            }
+            input[type=file]  {
+                outline: none !important;
+                position: absolute;
+                left: 0;
+                opacity: 0;
+                width: 27px;
+                height: 27px;
+                top: 0;
+                cursor: pointer;
+            }
+        }
+        }
+
+}
+.d-block{
+    display: block;
+}
+// switch button
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 49px;
+    height: 29px;
+}
+.switch input {display:none;}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}          
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input.success:checked + .slider {
+    background-color: #4fd262;
+  }
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(23px);
+    -ms-transform: translateX(23px);
+    transform: translateX(23px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
 /*============================  Start Header Styling  ===============================*/
 header ,header.search-provider{
@@ -2517,107 +2673,6 @@ all pages
 
     
 }
-#Messages{
-        &.tab-pane{
-            padding-bottom: 35px;
-        }
-        .provider-chat{
-            margin-bottom: 20px;
-            .messges-block{
-                height: 440px;
-                overflow: auto;
-                padding: 20px 25px;
-                .messege-date{
-                    color: #a19ea3;
-                    font-size: 12px;
-                }
-                .service-request{
-                    width: 40%;
-                    margin: auto;
-                    .client-name{
-                        font-weight: bold;
-                        
-                      
-                    }
-                }
-           
-                .incoming-msg-block{
-                    .client-name{
-                        color: #a19ea3;
-                    }
-                    .incoming-msg{
-                  
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-                    
-                        p{
-                            border-radius: 6px;
-                            background-color:$mainColor;
-                            color: #fff;
-                            padding: 15px;
-                            margin-bottom: 2px;
-   
-                        }
-
-                    }
-                }
-                .received-msg-block{
-                    display: flex;
-                    justify-content: flex-end;
-                    .received-msg{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-end;
-                        // width: 50%;
-                        .provider-name{
-                            color: #a19ea3;
-                        }
-                        p{
-                            border-radius: 6px;
-                            background-color: #f5f5f5;
-                            color: #a19ea3;
-                            padding: 15px;
-                            margin-bottom: 2px;
-                        
-                        }
-
-                    }
-                }
-
-            }
-        }
-    
-}
-.sendMessges{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .send{
-        width: 90%;
-        .form-control{
-            width: 98%;
-            margin: auto;
-        }
-    }
-    .imgUpload {
-        position: relative;
-        i{
-            cursor: pointer;
-            font-size: 27px;
-        }
-        input[type=file]  {
-            outline: none !important;
-            position: absolute;
-            left: 0;
-            opacity: 0;
-            width: 27px;
-            height: 27px;
-            top: 0;
-            cursor: pointer;
-        }
-    }
-}
     }
 
 
@@ -3046,7 +3101,7 @@ all pages
                 .provider-name{
                     font-family: 'OpenSans-Regular';
                     font-size: 14px;
-                    color: #b68bcc;ddd
+                    color: #b68bcc;
                 }
                  .fa-user-check{
                     font-size: 14px;
@@ -3071,8 +3126,207 @@ all pages
 }
 
 /*======== /booking-client-list page ===========*/
+/*======== client-account page ===========*/
+#client-account{
+    .box-content{
+        padding: 0;
+        .tab-content{
+            padding: 20px 20px 55px 20px;
+            .change-img-block{
+                .client-img-block{
+                    width: 113px;
+                    height: 113px;
+                    margin-left: 8px;
+                    img{
+                        border-radius: 12px
+                    }
+    
+                }
+                .upload-img{
+                    position: relative;
+                    input[type=file]{
+                    outline: none;
+                    opacity: 0;
+                    }
+                    .upload-btn{
+                        position: absolute;
+                        background-color: #f9f9f9 !important;
+                        color: #212121 !important;  
+                        white-space: nowrap;             
+                    }
+          
+                }
+            }
+            .client-info{
+                font-family: 'OpenSans-Regular';
+                .details-group{
+                    margin-bottom: 20px;
+                    .user-edit{
+                        display: none;
+                        .cansel-btn{
+                            background-color: #f5f5f5 !important;
+                            color: #212121 !important;
+                            border: solid 1px #d4d0d6 !important;
+    
+                        }
+                    }
+                    label{
+                        margin-bottom: -3px;
+                        font-size: 13px;
+                        display: block;
+                        color:$mainColor;
+                    }
+                  
+                    .edit{
+                        color:$mainColor;
+                        font-family: 'OpenSans-Regular';   
+                        cursor: pointer;
+                    }
+                    .fa-edit {
+                        color: #7c2da2cf;
+                        margin-left: 20px;
+                        cursor: pointer;
+                        
+                    }
+                }
+    
+            }  
+    
+            #Settings{
+                .text-uppercase{
+                    font-size: 12px;
+                }
+                .status{
+                  
+                    
+                    .email-status{
+                        display: flex;
+                        justify-content: space-between;
+
+        
+                    }
+    
+                }
+    
+            }
+        }
+
+    }
+}
+/*======== /client-account page ===========*/
 
 
+/*======== provider-account page ===========*/
+#provider-account{
+.box-content{
+    padding: 0;
+    .activStatus{
+        font-size: 13px;
+    }
+    .tab-content{
+        padding: 20px 20px 55px 20px;
+       
+        .change-img-block{
+            display: flex;
+            align-items: center;
+            .service-img-block{
+                width: 113px;
+                height: 113px;
+                margin-right: 20px;
+                img{
+                    border-radius: 12px
+                }
+    
+            }
+            .upload-img{
+                position: relative;
+                input[type=file]{
+                outline: none;
+                opacity: 0;
+                }
+                .upload-btn{
+                    position: absolute;
+                    background-color: #f9f9f9 !important;
+                    color: #212121 !important;  
+                    white-space: nowrap;             
+                }
+      
+            }
+        }
+        .provider-info{
+            font-family: 'OpenSans-Regular';
+            .details-group{
+       
+                margin-bottom: 20px;
+                .user-edit{
+                    display: none;
+                    .cansel-btn{
+                        background-color: #f5f5f5 !important;
+                        color: #212121 !important;
+                        border: solid 1px #d4d0d6 !important;
+
+                    }
+                }
+                label{
+                    margin-bottom: -3px;
+                    font-size: 13px;
+                    display: block;
+                    color:$mainColor;
+                }
+              
+                .edit{
+                    color:$mainColor;
+                    font-family: 'OpenSans-Regular';   
+                    cursor: pointer;
+                }
+                .fa-edit {
+                    color: #7c2da2cf;
+                    margin-left: 20px;
+                    cursor: pointer;
+                    
+                }
+                p{
+                    width: 70%;
+                }
+                .details.categories{
+                    width: 43%;
+                    label{
+                        margin: 5px;
+                        display: block;
+                        padding: 10px;
+                        float: left;
+                        border-radius: 4px;
+                        box-shadow: 0px 2px 3px 0 rgba(35, 31, 32, 0.12);
+                        background-color: #f5f5f5;
+                    }
+                }
+
+            }
+
+        }  
+        
+        #Settings{
+            .text-uppercase{
+                font-size: 12px;
+            }
+            .status{
+              
+                
+                .email-status{
+                    display: flex;
+                    justify-content: space-between;
+
+    
+                }
+
+            }
+
+        }
+    }
+
+}
+}
+/*======== /provider-account page ===========*/
 
 /*==========================================================================
 ============================================================================
