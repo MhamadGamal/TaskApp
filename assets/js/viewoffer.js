@@ -122,9 +122,9 @@ $(function(){
     
     `);
     $("body").append('<script src="../../assets/js/jquery.datepicker2.min.js"></script>');
-    $.datePicker.defaults.dateFormat =  function(date) {
-        return  date.getDate() + '-' +(date.getMonth() + 1)  + '-' + date.getFullYear();
-      }
+    // $.datePicker.defaults.dateFormat =  function(date) {
+    //     return  date.getDate() + '-' +(date.getMonth() + 1)  + '-' + date.getFullYear();
+    //   }
    },1200)
 
 
@@ -132,45 +132,61 @@ $(function(){
 
 
    $("#HotOffers-details").on("click", "#AcceptOffer", function(){
-    debugger;
-    let selectedDate = $(".datepicker").val();
+       debugger;
+    let selectedData = $(".datepicker").val();
+    let selectedDate = new Date(selectedData);
     let start =  targetOffer.start_date;
+    let startArr = start.split("-");
+    let startData = new Date(`${startArr[1]}-${startArr[0]}-${startArr[2]}`);
     let end =  targetOffer.end_date;
-
-    if(start <= selectedDate <= end){
-        console.log(true)
+    let endArr = end.split("-");
+    let endData = new Date(`${endArr[1]}-${endArr[0]}-${endArr[2]}`);
+    let selected_date;
+    if(startData <= selectedDate && selectedDate <= endData){
+            selected_date = selectedData;
+            $("#alert").fadeOut();
+            $(".datepicker").removeClass("error");
+            $.ajax({
+                url: "http://88.80.184.99/tasker/web/api/creates/tasks/hots/offers",
+                method: 'POST',
+                cache: false,
+                async: false,
+                timeout: 30000,
+                dataType: "json",
+                data: {
+                    "offer": targetOffer.id,
+                    "client": userData.id,
+                    "selected_date": selected_date
+                },
+                success: function (result) {
+                   console.log(result);
+                   let data = result;
+                   if(data.error.status == true){
+                       $("#alert").html(data.error.message).fadeIn();
+                       $('body, html').animate({
+                           scrollTop: 0
+                       }, 400)
+                   }else if(data.error.status == false){
+                       location.href = "pending.html"
+                   }
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        
     }else{
-        console.log(false)
-
+        if(!selectedData){
+            $(".datepicker").addClass("error");
+        }else{
+            $(".datepicker").removeClass("error");
+            $("#alert").html("please entered date between the end & the start date ").fadeIn();
+            $('body, html').animate({
+                scrollTop: 0
+            }, 400);
+        }
     }
-    // $.ajax({
-    //     url: "http://88.80.184.99/tasker/web/api/creates/tasks/hots/offers",
-    //     method: 'POST',
-    //     cache: false,
-    //     async: false,
-    //     timeout: 30000,
-    //     dataType: "json",
-    //     data: {
-    //         "offer": targetOffer.id,
-    //         "client": userData.id,
-    //         "selected_date": targetOffer.start_date
-    //     },
-    //     success: function (result) {
-    //        console.log(result);
-    //        let data = result;
-    //        if(data.error.status == true){
-    //            $("#alert").html(data.error.message).fadeIn();
-    //            $('body, html').animate({
-    //                scrollTop: 0
-    //            }, 400)
-    //        }else if(data.error.status == false){
-    //            location.href = "pending.html"
-    //        }
-    //     },
-    //     error: function (result) {
-    //         alert('error');
-    //     }
-    // });
+   
    });
 
 
