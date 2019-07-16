@@ -99,6 +99,11 @@ body {
   color: #212121;
 }
 
+#map, .map-container {
+  min-height: 300px;
+  width: 100%;
+}
+
 .main-color {
   color: #7c2da2 !important;
 }
@@ -1583,7 +1588,7 @@ footer .copyright a.active {
   overflow: hidden;
   padding-bottom: 56.25%;
   position: relative;
-  height: 263px !important;
+  min-height: 263px !important;
 }
 
 #task-preview .tab-content #TaskDetails .map-container iframe {
