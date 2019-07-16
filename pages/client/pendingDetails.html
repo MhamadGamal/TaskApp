@@ -78,13 +78,7 @@
             </div>
            
             <div class="box-content">
-                <div class="details-head box-head bold-font">
-                    <h5>
-                        step
-                        <span>(2/3):</span>
-                    </h5>
-                    <span>Choose your provider</span>
-                </div>
+               
                 <ul class="nav nav-pills" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="pill" href="#TaskDetails">Task Details</a>
@@ -103,40 +97,12 @@
                         <div class="row">
                             <div class="col-sm-8">
                                 <div class="details">
-                                    <div>
-                                        <h6>start address</h6>
-                                        <i class="fas fa-map-marker-alt">
-                                            <span>Ilford Station ATM, Ilford</span>
-                                        </i>
-                                    </div>
-                                    <div>
-                                        <h6>Destination</h6>
-                                        <i class="fas fa-map-marker-alt">
-                                            <span>Ilford Station ATM, Ilford</span>
-                                        </i>
-                                    </div>
-                                    <div>
-                                        <h6>Service Details</h6>
-                                        <p>Lorem Ipsum is simply dummy text of the printing
-                                            and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy
-                                            text ever since the 1500s,
-                                            when an unknown printer took a galley of type and
-                                            scrambled it to make a type specimen book.</p>
-                                    </div>
+                                   
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div id="map-container-google-1" class="z-depth-1-half map-container">
-                                    <iframe
-                                        src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                        frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <div id="map-container-google" class="z-depth-1-half map-container">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 text-right">
-                                <input type="submit" class="main-btn btn " value="Start Task">
                             </div>
                         </div>
                     </div>
@@ -321,18 +287,6 @@
                         </ul>
                     </div>
                 </div>
-                <nav aria-label="...">
-                    <ul class="pagination pagination-sm">
-                        <li class="page-item active">
-                            <a class="page-link" href="#" tabindex="-1">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </section>
@@ -456,5 +410,49 @@
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/pending.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places%2Cdrawing&sensor=false&key=AIzaSyDkbETKNDtUAZvH0-jPdFW3JBxYWnMElPk&fbclid=IwAR0tAKV-b-tYG-SH4dzuK75P55zrj2kwhTLtpkz_Va1UxdTQNxjMocrdoyU" type="text/javascript"></script>
+    
+    <script>
+        let lat="30.0195954",lang="31.4429645";
+        let stLocation, endLocation;
+        $(function(){
+            let target  = Number(window.location.href.slice(window.location.href.lastIndexOf("?") +1));
+            for(let item of pendingData){
+                if(item.id == target){
+                    console.log(target);
+                    console.log(item);
+                    stLocation = item.start_location;
+                    endLocation = item.end_location;
+                    $("#TaskDetails .details").html(`
+
+                        <div>
+                            <h6>start address</h6>
+                            <i class="fas fa-map-marker-alt">
+                                <span>${stLocation.location}</span>
+                            </i>
+                        </div>
+                        <div>
+                            <h6>Destination</h6>
+                            <i class="fas fa-map-marker-alt">
+                                <span> ${endLocation.location} </span>
+                            </i>
+                        </div>
+                        <div>
+                            <h6>Service Details</h6>
+                            <p>
+                                ${item.description}
+                            </p>
+                        </div>
+
+                    `)
+                }
+            }
+
+            GoogleMapInit()
+        });
+        
+    </script>
+
+
 </body>
 </html>

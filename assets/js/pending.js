@@ -1,3 +1,4 @@
+let pendingData;
 $(function(){
     $.ajax({
         url: "http://88.80.184.99/tasker/web/api/pendings/tasks/users",
@@ -8,17 +9,18 @@ $(function(){
         dataType: "json",
         data: {"client": loginnedUserData.id},
         success: function (result) {
-            console.log(result)
            let data = result;
            if(data.error.status == true){
                alert(data.error.message);
                
            }else if(data.error.status == false){
                debugger;
-               let data = result.data;
+               pendingData = result.data;
                let wrapper = "", img="";
+               console.log("pending");
+               console.log(pendingData);
                setTimeout(function(){
-                for(let item of data){
+                for(let item of pendingData){
                     if (item.image) {
                         img = `${'http://88.80.184.99/tasker/web/' + item.image}`;
                     } else {
@@ -48,7 +50,7 @@ $(function(){
                                        </div>
                                        <div class="offers">
                                            <i class="fas fa-comments"></i>
-                                           <span>Messages empty</span>
+                                           <span>Messages</span>
                                              <a href="#" class="offer-num"> 0</a>
                                        </div>
                                    </div>

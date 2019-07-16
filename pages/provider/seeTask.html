@@ -160,10 +160,12 @@
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/Provider_script.js"></script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places%2Cdrawing&sensor=false&key=AIzaSyDkbETKNDtUAZvH0-jPdFW3JBxYWnMElPk&fbclid=IwAR0tAKV-b-tYG-SH4dzuK75P55zrj2kwhTLtpkz_Va1UxdTQNxjMocrdoyU" type="text/javascript"></script>
     <script>
         let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
         var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+        let lat="30.0195954",lang="31.4429645";
+        let stLocation, endLocation;
        // var supplierid = currentuserdata.id;
         supplierid = '32';
 
@@ -214,6 +216,8 @@
                         for(let item of allTasks) {
                             if (item.id == taskid) {
                                 targetTask = item;
+                               
+                                
                             }
                         }
 
@@ -226,8 +230,8 @@
                                 ReadTaskBySupplier(supplierid, target);
                             }
                           
-                           
-
+                            stLocation = targetTask.start_location;
+                            endLocation = targetTask.end_location;
                             $("#catname").text(getCategory(Number(targetTask.category)).name_en);
                             var dd = `
                                 <div class ="row">
@@ -267,9 +271,8 @@
                             </div>
                         </div>
                         <div class ="col-md-4">
-                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            frameborder="0" height="200px" width="100%" style="border:0" allowfullscreen></iframe>
-
+                                <div id="map-container-google" class="z-depth-1-half map-container">
+                                </div>
                         </div>
                     </div>
             `;
@@ -321,6 +324,10 @@
            
         };
         GetOneTask(target, supplierid);
+        setTimeout(() => {
+            GoogleMapInit();
+        }, 500);
+
         $("#sendoffbtn").on('click', function () {
             AddOfferForTask(supplierid, target);
         });
