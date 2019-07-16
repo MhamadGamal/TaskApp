@@ -14,15 +14,9 @@ $(function(){
                alert(data.error.message);
                
            }else if(data.error.status == false){
-<<<<<<< HEAD
                debugger;
                pendingData = result.data;
-||||||| merged common ancestors
-               debugger;
                let data = result.data;
-=======
-               let data = result.data;
->>>>>>> 54ce151ad64363a945ab32271544d45b44242045
                let wrapper = "", img="";
                console.log("pending");
                console.log(pendingData);
