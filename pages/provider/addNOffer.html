@@ -184,10 +184,6 @@
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
     <script>
-        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
-
-        var supplierid = currentuserdata.id;
-
         function AddNewOffer(supplier) {
             let category = $("#offersCat :selected").val();
             let start_date = $("#newofferstdate").val();
@@ -220,34 +216,36 @@
                             //alert(message);
                         }
                         else {
-                            debugger;
+                            
                             var offerid = result.data.id
                             if (offerid) {
                                 for(let item of imgsArr)
                                 {
-                                    console.log(item.result);
-                                    $.ajax({
-                                        url: "http://88.80.184.99/tasker/web/api/uploads/images/bies/types",
-                                        method: 'POST',
-                                        dataType: "json",
-                                        data: {
-                                            "offer": offerid, "image": item.result
-                                        },
-                                        success: function (result) {
-                                            debugger;
-                                            if (result.error.status == true) {
-                                                var message = result.error.message;
-                                                alert(message);
-                                            }
-                                            else {
-                                                
-                                            }
-                                        },
-                                        error: function (result) {
-                                            alert('error');
-                                        }
-                                    });
+                                    var st = item.result;
+                                    if (st) {
+                                        var img = st.substring(23);
+                                        $.ajax({
+                                            url: "http://88.80.184.99/tasker/web/api/uploads/images/bies/types",
+                                            method: 'POST',
+                                            dataType: "json",
+                                            data: {
+                                                "offer": offerid, "image": img
+                                            },
+                                            success: function (result) {
+                                                debugger;
+                                                if (result.error.status == true) {
+                                                    var message = result.error.message;
+                                                    alert(message);
+                                                }
+                                                else {
 
+                                                }
+                                            },
+                                            error: function (result) {
+                                                alert('error');
+                                            }
+                                        });
+                                    }
                                 }
                                 window.location.pathname = 'pages/provider/dashboard.html';
                             }
@@ -260,7 +258,6 @@
                 });
             }
         }
-
         function upload(img, input) {
             let preview = img;
             let file = input.files[0];
@@ -276,8 +273,9 @@
             }
             return reader;
         }
-
         $(function () {
+            var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+            var supplierid = currentuserdata.id;
             setTimeout(function () {
                 let listOptions = ""
 
@@ -296,8 +294,15 @@
                     imgsArr.push(upload(e.target.previousElementSibling, e.target))
                 }, 500)
             });
+            setTimeout(function () {
+                let listOptions = ""
 
+                for(let item of allCat) {
+                    listOptions += `<option value="${item.id}">${item.name_en}</option>`
+                }
 
+                $("#offersCat").html(listOptions)
+            }, 1500)
             $("#addofferbtn").click(function () {
                 let fs = document.querySelectorAll(".addOffer-imgUpload input[type='file']")
                 for(let item of fs) {
@@ -308,24 +313,9 @@
                     }
                 }
 
-                var id = localStorage.getItem('CurrentUserid');
                 AddNewOffer(supplierid);
             });
-
         })
-       
-        $(function(){
-            setTimeout(function(){
-                let listOptions = ""
-          
-            for(let item of allCat){
-                listOptions += `<option value="${item.id}">${item.name_en}</option>`
-            }
-         
-            $("#offersCat").html(listOptions)
-            },1500)
-        })
-      
     </script>
 </body>
 </html>
