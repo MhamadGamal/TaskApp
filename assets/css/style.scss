@@ -110,6 +110,11 @@ body {
 //     font-family: "bold-font" !important;
 // }
 
+#map, .map-container{
+    min-height: 300px;
+    width: 100%
+}
+
 .main-color {
     color: $mainColor !important
 }
@@ -1472,7 +1477,7 @@ footer {
                 overflow: hidden;
                 padding-bottom: 56.25%;
                 position: relative;
-                height: 263px !important;
+                min-height: 263px !important;
 
                 iframe {
                     left: 0;
@@ -2791,6 +2796,7 @@ all pages
             }
             .fa.fa-star:hover ~ .fa{
                 color:$mainColor !important;
+                
             }
         }
         .review-provider{
@@ -3046,7 +3052,7 @@ all pages
                 .provider-name{
                     font-family: 'OpenSans-Regular';
                     font-size: 14px;
-                    color: #b68bcc;ddd
+                    color: #b68bcc;
                 }
                  .fa-user-check{
                     font-size: 14px;

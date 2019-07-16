@@ -99,6 +99,11 @@ body {
   color: #212121;
 }
 
+#map, .map-container {
+  min-height: 300px;
+  width: 100%;
+}
+
 .main-color {
   color: #7c2da2 !important;
 }
@@ -1394,7 +1399,7 @@ footer .copyright a.active {
   overflow: hidden;
   padding-bottom: 56.25%;
   position: relative;
-  height: 263px !important;
+  min-height: 263px !important;
 }
 
 #task-preview .tab-content #TaskDetails .map-container iframe {
@@ -3167,6 +3172,47 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 /*======== /select-provider Page ===========*/
+/*======== booking-client-list page ===========*/
+#booking-list .box-content {
+  padding: 0;
+}
+
+#booking-list .box-content .service-img-block img {
+  border-radius: 12px;
+}
+
+#booking-list .box-content .booking-details .details-head {
+  display: block;
+}
+
+#booking-list .box-content .booking-details .details-head .provider-name {
+  font-family: 'OpenSans-Regular';
+  font-size: 14px;
+  color: #b68bcc;
+}
+
+#booking-list .box-content .booking-details .details-head .fa-user-check {
+  font-size: 14px;
+  color: #b68bcc;
+}
+
+#booking-list .box-content .booking-details .date-offers {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#booking-list .box-content .booking-details .date-offers .date {
+  font-family: 'OpenSans-Semibold';
+  font-size: 12px;
+  color: #7c2da2;
+}
+
+#booking-list .box-content .booking-details .date-offers .date i {
+  font-size: 15px;
+}
+
+/*======== /booking-client-list page ===========*/
 /*==========================================================================
 ============================================================================
 ============================ MEDIA QUERY ===================================
