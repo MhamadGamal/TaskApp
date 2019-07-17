@@ -2376,10 +2376,10 @@ all pages
         .provider-img-block,
         .service-img-block
         {
-            // width: 14%;
             width: 118px !important;
             height: 118px !important;
             margin-right: 20px;
+            overflow: hidden;
             .client-img,.provider-img ,.service-img{
                 border-radius: 12px;
             }
@@ -2664,6 +2664,7 @@ all pages
             .service-img-block{
                 width: 158px ;
                 height: 158px;
+                overflow: hidden;
                 img{
                     border-radius: 12px;
                 }
@@ -2828,6 +2829,7 @@ all pages
         .service-img-block{
             width: 118px;
             height: 118px;
+            overflow: hidden;
             margin: auto;
             img{
                 border-radius: 12px;
@@ -3238,6 +3240,7 @@ all pages
             .service-img-block{
                 width: 113px;
                 height: 113px;
+                overflow: hidden;
                 margin-right: 20px;
                 img{
                     border-radius: 12px
@@ -3295,7 +3298,8 @@ all pages
                     width: 70%;
                 }
                 .details.categories{
-                    width: 43%;
+                    width: 70%;
+                    overflow: hidden;
                     label{
                         margin: 5px;
                         display: block;

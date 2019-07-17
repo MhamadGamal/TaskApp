@@ -32,7 +32,6 @@ let loginnedNavbar = `
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="pages/client/account.html"> <i class="far fa-address-card"></i> My Account</a>
-                    <a class="dropdown-item" href="pages/client/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                     <div class="dropdown-divider"></div>
                     <a  id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
@@ -54,7 +53,7 @@ let providerNavbar = `
         <span class=""> <i class="fas fa-bars    "></i> </span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav ">
+        <ul class="navbar-nav">
             <li class="nav-item active ">
                 <a class="nav-link main-btn px-3 py-2 normal" href="pages/provider/addNOffer.html">Add New Offer </a>
             </li>
@@ -71,7 +70,8 @@ let providerNavbar = `
                     <img src="" alt="" srcset="">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="pages/provider/profile.html"> <i class="fas fa-user"></i>Profile</a>
+                <a class="dropdown-item" href="pages/provider/account.html"> <i class="far fa-address-card"></i> My
+                    Account</a>
                     <a class="dropdown-item" href="pages/provider/credit.html"> <i class="far fa-credit-card"></i> My Credit</a>
                     <a class="dropdown-item" href="pages/provider/rating.html"><i class="fas fa-star"></i>My Ratings</a>
                     <div class="dropdown-divider"></div>
@@ -116,6 +116,23 @@ function slider(selector){
             
           ]
         });
+}
+
+
+//upload image
+function upload(img, input) {
+    let preview = img;
+    let file = input.files[0];
+    let reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+        preview.src = reader.result;
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+    return reader;
 }
 
 
