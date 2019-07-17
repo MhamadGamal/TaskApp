@@ -160,9 +160,7 @@
 
         var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
         var supplierid = currentuserdata.id;
-        GetAllSuppliersByCat(8, 1);
-        GetAllCategories();
-        function GetAllSuppliersByCat(category,page) {
+        function GetAllSuppliersByCat(category, page) {
             $.ajax({
                 url: "http://88.80.184.99/tasker/web/api/gets/suppliers",
                 method: 'POST',
@@ -177,10 +175,11 @@
                     }
                     else {
                         $("#allproviders").html('');
-                        let providersArr = result.data;
+                        let providersArr = result.data.result;
+                        console.log(providersArr);
                         for(let item of providersArr)
                         {
-                            if (item.image ) {
+                            if (item.image) {
                                 img = "http://88.80.184.99/tasker/web/" + item.image;
                             } else {
                                 img = "https://via.placeholder.com/150"
@@ -189,7 +188,7 @@
                             let rate = "";
                             let desc = "";
                             if (item.reviews.length != 0) {
-                                desc=item.reviews[0].message;
+                                desc = item.reviews[0].message;
                                 if (ratevalue == 1) {
                                     rate = `
                                      <span class ="fa fa-star checked"></span>
@@ -231,7 +230,7 @@
                                     `;
                                 }
                             }
-                           
+
                             var dd = `
                                 <li>
                 <div class="row">
@@ -272,8 +271,8 @@
                                 `;
                             $("#allproviders").append(dd);
                         }
-                        
-                      
+
+
                     }
 
                 },
@@ -282,15 +281,13 @@
                 }
             });
         }
-       
-        function GetAllCategories()
-        {
+        function GetAllCategories() {
             $.ajax({
                 url: "http://88.80.184.99/tasker/web/api/sub/category",
                 method: 'GET',
                 dataType: "json",
                 //data: {
-                   
+
                 //},
                 success: function (result) {
 
@@ -305,7 +302,7 @@
                             var cat = `
                                  <option value=${item.id}>${item.name_en}</option>
                                 `;
-                            
+
                             $("#allcats").append(cat);
                         }
 
@@ -318,6 +315,8 @@
                 }
             });
         }
+        GetAllSuppliersByCat(8, 1);
+        GetAllCategories();
         $("#allcats").change(function () {
             debugger;
             var currentval = $('#allcats option:selected').val();
