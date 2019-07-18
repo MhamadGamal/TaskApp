@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -413,17 +413,33 @@
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places%2Cdrawing&sensor=false&key=AIzaSyDkbETKNDtUAZvH0-jPdFW3JBxYWnMElPk&fbclid=IwAR0tAKV-b-tYG-SH4dzuK75P55zrj2kwhTLtpkz_Va1UxdTQNxjMocrdoyU" type="text/javascript"></script>
     
     <script>
-        let lat="30.0195954",lang="31.4429645";
+        let lat = "30.0195954", lang = "31.4429645";
+        let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
+        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+        var userid = currentuserdata.id;
         let stLocation, endLocation;
-        $(function(){
-            let target  = Number(window.location.href.slice(window.location.href.lastIndexOf("?") +1));
-            for(let item of pendingData){
-                if(item.id == target){
-                    console.log(target);
-                    console.log(item);
-                    stLocation = item.start_location;
-                    endLocation = item.end_location;
-                    $("#TaskDetails .details").html(`
+        function GetTaskDetails()
+        {
+            $.ajax({
+                url: "http://88.80.184.99/tasker/web/api/pendings/tasks/users",
+                method: 'POST',
+                cache: false,
+                async: false,
+                timeout: 30000,
+                dataType: "json",
+                data: { "client": userid },
+                success: function (result) {
+                    let data = result;
+                    if (data.error.status == true) {
+                        alert(data.error.message);
+                    }
+                    else {
+                        let pendingData = result.data;
+                        for(let item of pendingData) {
+                            if (item.id == target) {
+                                stLocation = item.start_location;
+                                endLocation = item.end_location;
+                                var d = `
 
                         <div>
                             <h6>start address</h6>
@@ -444,11 +460,77 @@
                             </p>
                         </div>
 
-                    `)
+                    `;
+                                $("#TaskDetails").html(d);
+                            }
+                        }
+                    }
+                },
+                error: function (result) {
+                    alert('error');
                 }
-            }
+            });
+        }
+        function GetTaskOffers()
+        {
+            //24
+            $.ajax({
+                url: "http://88.80.184.99/tasker/web/api/offers/tasks/selects",
+                method: 'POST',
+                cache: false,
+                async: false,
+                timeout: 30000,
+                dataType: "json",
+                data: { "task": "24" },
+                success: function (result) {
+                    let data = result;
+                    if (data.error.status == true) {
+                        alert(data.error.message);
+                    }
+                    else {
+                        let taskoffers = result.data;
+                        for(let item of taskoffers) {
+                            console.log(item);
+                            var d = `
 
-            GoogleMapInit()
+                        <div>
+                            <h6>start address</h6>
+                            <i class="fas fa-map-marker-alt">
+                                <span>${stLocation.location}</span>
+                            </i>
+                        </div>
+                        <div>
+                            <h6>Destination</h6>
+                            <i class="fas fa-map-marker-alt">
+                                <span> ${endLocation.location} </span>
+                            </i>
+                        </div>
+                        <div>
+                            <h6>Service Details</h6>
+                            <p>
+                                ${item.description}
+                            </p>
+                        </div>
+
+                    `;
+                            $("#").html(d);
+                        }
+                    }
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+
+        }
+        function GetTaskMessages() {
+
+        }
+
+        $(function(){
+            GetTaskDetails();
+            GetTaskOffers();
+            GoogleMapInit();
         });
         
     </script>

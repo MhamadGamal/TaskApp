@@ -259,7 +259,7 @@
                                     </div>
                                 </div>
                                 <div class="view-profile">
-                                    <a href="#" data-id=${item.id} data-toggle="modal" data-target="#exampleModal">View Profile</a>
+                                    <a href="selectprovider.html?${item.id}">View Profile</a>
                                 </div>
                             </div>
                             <div>
@@ -272,6 +272,8 @@
                                 `;
                             $("#allproviders").append(dd);
                         }
+
+
 
 
                     }
@@ -287,9 +289,6 @@
                 url: "http://88.80.184.99/tasker/web/api/sub/category",
                 method: 'GET',
                 dataType: "json",
-                //data: {
-
-                //},
                 success: function (result) {
 
                     if (result.error.status == true) {

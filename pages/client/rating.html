@@ -115,27 +115,27 @@
 
                         <div class="rate-provider-bolck text-center">
                             <div class="service-img-block mb-2">
-                                <img class="service-img" src="../../assets/img/client/user.jpg" alt="" />
+                                <img class="service-img" src=${TaskIMAGE} alt="" />
 
                             </div>
-                            <a href="#" class="bold-font provider-name mb-3">Gamal Moving Agency</a>
+                            <a href="#" class="bold-font provider-name mb-3">${TaskName}</a>
                             <span class="d-block mb-3">
                                 Rate Your Provider
                             </span>
                             <div class="rating main-color mb-3">
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
+                                <span ratvalue="1" class="fa fa-star rateclick"></span>
+                                <span ratvalue="2" class="fa fa-star rateclick"></span>
+                                <span ratvalue="3" class="fa fa-star rateclick"></span>
+                                <span ratvalue="4" class="fa fa-star rateclick"></span>
+                                <span ratvalue="5" class="fa fa-star rateclick"></span>
                             </div>
                             <span class="mb-3 d-block">
                                 Write your review
                             </span>
                             <div>
-                                <textarea class="review-provider mb-3" placeholder="Review your provider"></textarea>
+                                <textarea id="rateMSG" class="review-provider mb-3" placeholder="Review your provider"></textarea>
                             </div>
-                            <a href="#" class="main-btn confirmRate">Confirm Rating</a>
+                            <a id="ratesubmit" href="#" class="main-btn confirmRate">Confirm Rating</a>
                         </div>
 
                     </div>
@@ -185,6 +185,7 @@
     <script src="../../assets/js/script.js"></script>
 
     <script>
+        let RateValue, TaskId, tasksnotrated, TaskIMAGE, TaskName;
         var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
         var userid = currentuserdata.id;
         GetAllRatesByuser(userid);
@@ -206,6 +207,8 @@
                         let ratesArr = result.data;
                         for(let item of ratesArr)
                         {
+                            console.log("ttt");
+                            console.log(item);
                             if (item.supplier.image) {
                                 img = "http://88.80.184.99/tasker/web/" + item.supplier.image;
                             } else {
@@ -304,7 +307,6 @@
                 }
             });
         }
-
         function Reatetask(taskid,rate,msg)
         {
                     $.ajax({
@@ -423,7 +425,6 @@
                     });
 
             }
-
         function GetTasksNotTated(clientid)
             {
                 $.ajax({
@@ -440,8 +441,8 @@
                         }
                         else {
 
-                            let ratesArr = result.data;
-                            for(let item of ratesArr)
+                            tasksnotrated = result.data;
+                            for(let item of tasksnotrated)
                             {
                                 console.log(item);
                                 if (item.images[0]) {
@@ -494,18 +495,37 @@
                 });
             }
         GetTasksNotTated(userid);
-
-        $(".ratenow").on('click', function () {
-            debugger;
-            var id = $(this).attr("data-id");
-
-            $("#rateProviderbody").html('');
-            $("#rateProviderbody").html(body);
-            $("#rateProvider").modal('show');
-
-
+        $(".rateclick").on('click', function () {
+            RateValue = $(this).attr("ratvalue");
         });
+        $(".ratenow").on('click', function () {
+            TaskId = $(this).attr("data-id");
+            if (TaskId) {
+                for(let item of tasksnotrated)
+                {
+                    if (item.id == TaskId) {
+                        console.log(item);
+                        if (item.images[0]) {
+                            TaskIMAGE = "http://88.80.184.99/tasker/web/" + item.images[0];
+                        } else {
+                            TaskIMAGE = "https://via.placeholder.com/150"
+                        }
+                        TaskName = item.category_name;
+                    }
 
+                }
+            }
+
+            //$("#rateProviderbody").html('');
+            //$("#rateProviderbody").html(body);
+            $("#rateProvider").modal('show');
+        });
+        $(".ratesubmit").on('click', function () {
+            var msg = $("#rateMSG").val();
+            if (msg && RateValue) {
+                Reatetask(TaskId, RateValue, msg);
+            }
+        });
     </script>
 </body>
 
