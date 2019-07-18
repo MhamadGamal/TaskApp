@@ -91,11 +91,7 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <input class="form-control py-2 border-right-0 border" id="search-provider" type="search"
-                        placeholder="search" class="input-group-append">
-                    <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                    </span>
+                        placeholder="search providers" class="input-group-append"/>
                 </div>
             </div>
         </div>
@@ -106,15 +102,15 @@
 
         <!-- pagenation -->
         <nav aria-label="...">
-            <ul class="pagination pagination-sm">
-                <li class="page-item active">
+            <ul id ="providerspaganation" class="pagination pagination-sm">
+                <!--<li class="page-item active">
                     <a class="page-link" href="#" tabindex="-1">1</a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                 <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                <li class="page-item"><a class="page-link" href="#">6</a></li>-->
             </ul>
         </nav>
         <!-- /pagenation -->
@@ -158,10 +154,139 @@
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
     <script>
+        function GetAllSuppliers(page) {
+            $.ajax({
+                url: "http://88.80.184.99/tasker/web/api/gets/suppliers",
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    "page": page
+                },
+                success: function (result) {
+                    if (result.error.status == true) {
+                        var message = result.error.message;
+                        alert(message);
+                    }
+                    else {
+                        $("#allproviders").html('');
+                        let providersArr = result.data.result;
+                        
+                        for(let item of providersArr)
+                        {
+                            
+                            if (item.image) {
+                                img = "http://88.80.184.99/tasker/web/" + item.image;
+                            } else {
+                                img = "https://via.placeholder.com/150"
+                            }
+                            let ratevalue = item.rate;
+                            let rate = "";
+                            let desc = "";
+                            if (item.reviews.length != 0) {
+                                desc = item.reviews[0].message;
+                                if (ratevalue == 1) {
+                                    rate = `
+                                     <span class ="fa fa-star checked"></span>
+                                     <span>${item.rate_count}</span>
+                                    `;
+                                }
+                                if (ratevalue == 2) {
+                                    rate = `
+                                     <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span>${item.rate_count}</span>
+                                    `;
+                                }
+                                if (ratevalue == 3) {
+                                    rate = `
+                                     <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
 
-        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
-        var supplierid = currentuserdata.id;
-        function GetAllSuppliersByCat(category, page) {
+                                    `;
+                                }
+                                if (ratevalue == 4) {
+                                    rate = `
+                                     <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span>${item.rate_count}</span>
+                                    `;
+                                }
+                                if (ratevalue == 5) {
+                                    rate = `
+                                     <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class ="fa fa-star"></span>
+                                            <span>${item.rate_count}</span>
+                                    `;
+                                }
+                            }
+
+                            var dd = `
+                                <li>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="img-service-block">
+                            <img class="img-service" src=${img} alt="" />
+                        </div>
+
+                    </div>
+                    <div class="col-md-10">
+                        <div class="moving-tasks">
+                            <div class="agency-tasks">
+                                <div class="moving-agency">
+                                    <div>
+                                        <a class="service-name" href="#">${item.name}</a>
+                                        <div class="rating">
+                                           ${rate}
+
+                                        </div>
+                                    </div>
+                                    <div class="tasks-numbers">
+                                        <i class="fas fa-business-time"></i>
+                                        <span>${item.num_of_tasks} Moving Tasks</span>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="view-profile">
+                                    <a href="selectprovider.html?${item.id}">View Profile</a>
+                                </div>
+                            </div>
+                            <div>
+                                <p> ${desc} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+                                `;
+                            $("#allproviders").append(dd);
+                        }
+
+                        let pages = result.data.pages;
+                        let paganation = "";
+                        if (Number(pages)>1) {
+                            for (var i = 1; i <= pages; i++) {
+                                paganation += `
+                                <li class ="page-item"><a from="all" pagenumber=${i} class ="page-link provpager" href="#">${i}</a></li>
+                                `;
+                            }
+                            $("#providers-list #providerspaganation").html(paganation);
+                        }
+
+                    }
+
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        }
+        function GetAllSuppliersByCatid(category, page) {
             $.ajax({
                 url: "http://88.80.184.99/tasker/web/api/gets/suppliers",
                 method: 'POST',
@@ -273,7 +398,147 @@
                             $("#allproviders").append(dd);
                         }
 
+                        let pages = result.data.pages;
+                        let paganation = "";
+                        if (Number(pages) > 1) {
+                            for (var i = 1; i <= pages; i++) {
+                                paganation += `
+                                <li class ="page-item"><a from="id" pagenumber=${i} class ="page-link provpager" href="#">${i}</a></li>
+                                `;
+                            }
+                            $("#providers-list #providerspaganation").html(paganation);
+                        }
 
+                    }
+
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        }
+        function GetAllSuppliersByCatname(name, page) {
+            $.ajax({
+                url: "http://88.80.184.99/tasker/web/api/gets/suppliers",
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    "name": name, "page": page
+                },
+                success: function (result) {
+                    if (result.error.status == true) {
+                        var message = result.error.message;
+                        alert(message);
+                    }
+                    else {
+                        $("#allproviders").html('');
+                        let providersArr = result.data.result;
+                        console.log(providersArr);
+                        for(let item of providersArr)
+                        {
+                            if (item.image) {
+                                img = "http://88.80.184.99/tasker/web/" + item.image;
+                            } else {
+                                img = "https://via.placeholder.com/150"
+                            }
+                            let ratevalue = item.rate;
+                            let rate = "";
+                            let desc = "";
+                            if (item.reviews.length != 0) {
+                                desc = item.reviews[0].message;
+                                if (ratevalue == 1) {
+                                    rate = `
+                                     <span class ="fa fa-star checked"></span>
+                                     <span>${item.rate_count}</span>
+                                    `;
+                                }
+                                if (ratevalue == 2) {
+                                    rate = `
+                                     <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span>${item.rate_count}</span>
+                                    `;
+                                }
+                                if (ratevalue == 3) {
+                                    rate = `
+                                     <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+
+                                    `;
+                                }
+                                if (ratevalue == 4) {
+                                    rate = `
+                                     <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span>${item.rate_count}</span>
+                                    `;
+                                }
+                                if (ratevalue == 5) {
+                                    rate = `
+                                     <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class ="fa fa-star"></span>
+                                            <span>${item.rate_count}</span>
+                                    `;
+                                }
+                            }
+
+                            var dd = `
+                                <li>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="img-service-block">
+                            <img class="img-service" src=${img} alt="" />
+                        </div>
+
+                    </div>
+                    <div class="col-md-10">
+                        <div class="moving-tasks">
+                            <div class="agency-tasks">
+                                <div class="moving-agency">
+                                    <div>
+                                        <a class="service-name" href="#">${item.name}</a>
+                                        <div class="rating">
+                                           ${rate}
+
+                                        </div>
+                                    </div>
+                                    <div class="tasks-numbers">
+                                        <i class="fas fa-business-time"></i>
+                                        <span>${item.num_of_tasks} Moving Tasks</span>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="view-profile">
+                                    <a href="selectprovider.html?${item.id}">View Profile</a>
+                                </div>
+                            </div>
+                            <div>
+                                <p> ${desc} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+                                `;
+                            $("#allproviders").append(dd);
+                        }
+
+                        let pages = result.data.pages;
+                        let paganation = "";
+                        if (Number(pages) > 1) {
+                            for (var i = 1; i <= pages; i++) {
+                                paganation += `
+                                <li class ="page-item"><a from="name" pagenumber=${i} class ="page-link provpager" href="#">${i}</a></li>
+                                `;
+                            }
+                            $("#providers-list #providerspaganation").html(paganation);
+                        }
 
 
                     }
@@ -315,16 +580,53 @@
                 }
             });
         }
-        GetAllSuppliersByCat(8, 1);
-        GetAllCategories();
-        $("#allcats").change(function () {
-            debugger;
-            var currentval = $('#allcats option:selected').val();
-            if (currentval) {
-                GetAllSuppliersByCat(currentval, 1);
-            }
-        });
+        $(document).ready(function () {
+            var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+            var supplierid = currentuserdata.id;
+            GetAllSuppliers(1);
+            GetAllCategories();
+            $("#allcats").change(function () {
+                var currentval = $('#allcats option:selected').val();
+                if (currentval) {
+                    GetAllSuppliersByCatid(currentval, 1);
+                }
+                $("#search-provider").val('');
+            });
+            $("#search-provider").on('keyup', function () {
 
+                var text = $(this).val();
+                if (text) {
+                    GetAllSuppliersByCatname(text, 1)
+                }
+                else {
+                    GetAllSuppliers()
+                }
+                $('#allcats option:eq(0)').attr('Selected', true);
+
+            });
+            $(document).on('click', '.provpager', function () {
+                var type = $(this).attr("from");
+                var value = $(this).attr("pagenumber");
+                if (type && value) {
+
+                    if (type == "all") {
+                        GetAllSuppliers(value)
+                    }
+                    if (type == "id") {
+                        var currentval = $('#allcats option:selected').val();
+                        if (currentval) {
+                            GetAllSuppliersByCatid(currentval, value);
+                        }
+                    }
+                    if (type == "name") {
+                        var text = $("#search-provider").val();
+                        if (text) {
+                            GetAllSuppliersByCatname(text, 1)
+                        }
+                    }
+                }
+            });
+        });
     </script>
 </body>
 
