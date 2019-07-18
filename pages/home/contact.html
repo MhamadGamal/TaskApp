@@ -20,34 +20,14 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand logo bold-font main-color" href="index.html">Task<span
-                    class="normal-font s-color">app </span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class=""> <i class="fas fa-bars    "></i> </span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav ">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Services </a>
-                    </li>
-                    <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li> -->
-
-
-                </ul>
-                <a href="../login/login.html" class="login-btn">Login / Register</a>
-            </div>
-        </div>
+       
     </nav>
     <!-- /NAVBAR -->
     <!--contact us  -->
     <section id="contact-us" class="grey-bg page-content">
         <div class="container">
+            <div class="alert alert-success" style="display: none" role="alert">
+            </div>
             <div class="page-content-head">
                 <h4>My Account</h4>
             </div>
@@ -63,7 +43,7 @@
                                 </div>
                                 <div class="email">
                                     <h6>Email</h6>
-                                    <span>info@taskapp.com</span>
+                                    <span >info@taskapp.com</span>
                                 </div>
                                 <div class="follow-us">
                                     <h6>Follow us</h6>
@@ -74,22 +54,22 @@
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <form id="contact">
+                            <form id="contact" autocomplete="off">
                                     <h5 >send messges</h5>
                                 <div class="form-group" id="pUserName">
                                     <label class="control-label">Username</label>
-                                    <input type="text" class="form-control" placeholder="Client Name">
+                                    <input type="text" id="userName" class="form-control" placeholder="Client Name">
                                 </div>
                                 <div class="form-group" id="pEmail">
                                     <label class="control-label">Email</label>
-                                    <input type="email" class="form-control" placeholder="example@email.com">
+                                    <input type="email" id="userEmail" class="form-control" placeholder="example@email.com">
                                 </div>
                                 <div class="form-group messges">
                                     <label class="control-label">messeges</label>
-                                    <textarea name="" id="" class="form-control" rows="4" placeholder="Message"></textarea>
+                                    <textarea name="" id="userMessage" id="" class="form-control" rows="4" placeholder="Message"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-block main-btn" value="send">
+                                    <input type="submit" id="contactForm" class="btn btn-block main-btn" value="send">
                                 </div>
                             </form>
                         </div>
@@ -162,5 +142,6 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/contact.js"></script>
 </body>
 </html>

@@ -2478,6 +2478,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 118px !important;
   height: 118px !important;
   margin-right: 20px;
+  overflow: hidden;
 }
 
 #active-bookings ul.pending-bookings-list .client-img-block .client-img, #active-bookings ul.pending-bookings-list .client-img-block .provider-img, #active-bookings ul.pending-bookings-list .client-img-block .service-img,
@@ -3030,6 +3031,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 #start-work .tab-content #ActiveDetails .myOffer .service-img-block {
   width: 158px;
   height: 158px;
+  overflow: hidden;
 }
 
 #start-work .tab-content #ActiveDetails .myOffer .service-img-block img {
@@ -3200,6 +3202,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 .modal.rateProvider .modal-body .service-img-block {
   width: 118px;
   height: 118px;
+  overflow: hidden;
   margin: auto;
 }
 
@@ -3609,6 +3612,7 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 #provider-account .box-content .tab-content .change-img-block .service-img-block {
   width: 113px;
   height: 113px;
+  overflow: hidden;
   margin-right: 20px;
 }
 
@@ -3674,7 +3678,8 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 #provider-account .box-content .tab-content .provider-info .details-group .details.categories {
-  width: 43%;
+  width: 70%;
+  overflow: hidden;
 }
 
 #provider-account .box-content .tab-content .provider-info .details-group .details.categories label {

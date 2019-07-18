@@ -14,14 +14,4 @@ $('.clientReviews').simpleLoadMore({
   btnHTML:'<div class="text-right semiItalicbold "><a href="#" class="load-more__btn">see more</a></div>'
 });
 
-
-// client edit
-$(".fas.fa-edit ,.edit").on('click',function(){
-  console.log('esraaaa');
-$(".user-edit").addClass('d-block');
-
-
-})
-
-
 });
