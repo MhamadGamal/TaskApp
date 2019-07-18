@@ -1,3 +1,5 @@
+var loginnedUserData = JSON.parse(localStorage.getItem("CurrentUserData"))
+
 let loginnedNavbar = `
 <nav class="navbar navbar-expand-lg fixed-top">
 <div class="container">
@@ -135,6 +137,35 @@ function upload(img, input) {
     return reader;
 }
 
+//user data
+
+
+function GetCurrentUserData(token) {
+    $.ajax({
+        url: "http://88.80.184.99/tasker/web/api/profiles/data",
+        method: 'POST',
+        dataType: "json",
+        data: { 'token': token },
+        async: false,
+        cache: false,
+        timeout: 30000,
+        success: function (result) {
+            if (result.error.status == true) {
+                var message = result.error.message;
+                $("#alert").fadeIn().html(message);
+            }
+            else {
+                let data = JSON.stringify(result.data)
+                localStorage.setItem('CurrentUserData', data);
+            }
+        },
+        error: function (result) {
+
+            $("#alert").fadeIn().html(message);
+            //alert('error');
+        }
+    });
+}
 
 
 // get categories and sub categories
@@ -264,7 +295,6 @@ function  GoogleMapInit(){
     }
 }
 
-let loginnedUserData = JSON.parse(localStorage.getItem("CurrentUserData"))
 
 $(function(){
     

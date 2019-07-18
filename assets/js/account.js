@@ -210,6 +210,8 @@ $(function(){
                     else {
     
                         console.log(result);
+                          GetCurrentUserData(currtoken)
+
                         //location.reload()
                         
                     }
@@ -258,6 +260,7 @@ $(function(){
                     }
                     else {
                         console.log(result);
+                        GetCurrentUserData(currtoken)
                         location.reload();
                     }
                 },
@@ -316,6 +319,7 @@ $(function(){
                 else {
 
                     console.log(result);
+                    GetCurrentUserData(currtoken)
                     location.reload()
                     
                 }
@@ -370,6 +374,7 @@ $(function(){
                 else {
 
                     console.log(result);
+                    GetCurrentUserData(currtoken)
                     //location.reload()
                     
                 }
