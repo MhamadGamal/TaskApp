@@ -55,7 +55,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="account.html"> <i class="far fa-address-card"></i> My
                                 Account</a>
-                            <a class="dropdown-item" href="rating.html"><i class="fas fa-star"></i>My Ratings</a>
                             <div class="dropdown-divider"></div>
                             <a id="LogOut" class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         </div>
@@ -72,6 +71,9 @@
     <!--ACCOUNT -->
     <section id="client-account" class="grey-bg page-content">
         <div class="container">
+            <div class="alert alert-danger" style="display: none" role="alert">
+                
+            </div>
             <div class="page-content-head">
                 <h4>My Account</h4>
             </div>
@@ -86,63 +88,62 @@
                 </ul>
                 <div class="tab-content">
                     <div id="Profileinfo" class="container tab-pane active">
-                        <div class="row">
-                            <div class="col-md-2 p-0">
+                        <div class="row no-gutters">
+                            <div class="col-md-3 col-lg-2 py-2">
                                 <div class="change-img-block">
                                     <div class="client-img-block mb-3">
-                                        <img src="../../assets/img/client/user.jpg" alt="" srcset="">
+                                        <img id="userImg" src="../../assets/img/client/user.jpg" alt="" srcset="">
                                     </div>
                                     <div class="upload-img">
                                         <button class="main-btn btn upload-btn">Change Image </button>
-                                        <input type="file">
+                                        <input id="imgUpload" type="file">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4  p-0">
+                            <div class="col-md-6  py-2">
                                 <div class="client-info">
                                     <div class="details-group">
                                         <label for="">Username</label>
                                         <div>
-                                            <span class="details">Client Username</span>
+                                            <span class="details" id="showUserName"></span>
                                             <i class="fas fa-edit"></i> <span
-                                                class="regular main-color edit">edit</span>
-                                            <div class="user-edit">
-                                                <input id="usermail" type="email" class="form-control mb-3">
-                                                <div class="iput-group text-right">
-                                                    <button class="btn main-btn cansel-btn">Cancel</button> <button
-                                                        class="btn main-btn">Save edit</button>
-                                                </div>
+                                                class="regular main-color edit" for="#editUserName">edit</span>
+                                            <div class="user-edit" id="editUserName">
+                                                <input  type="text" class="form-control mb-3">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="details-group">
                                         <label for="">Phone</label>
                                         <div>
-                                            <span class="details">+02 002 444 5556</span>
-                                            <!-- <i class="fas fa-edit"></i> <span class="regular main-color edit">edit</span> -->
+                                            <span class="details" id="phone"></span>
                                         </div>
                                     </div>
                                     <div class="details-group">
                                         <label for="">Email</label>
                                         <div>
-                                            <span class="details">Email@mail.com</span>
-                                            <!-- <i class="fas fa-edit"></i> <span class="regular main-color edit">edit</span> -->
+                                            <span class="details" id="userEmail"></span>
                                         </div>
                                     </div>
                                     <div class="details-group">
                                         <label for="">Password</label>
                                         <div>
                                             <span class="details">********</span>
-                                            <!-- <i class="fas fa-edit"></i> <span class="regular main-color edit">edit</span> -->
                                         </div>
                                     </div>
                                     <div class="details-group">
                                         <label for="">Address</label>
                                         <div>
-                                            <span class="details">1233 gree st,. new york</span>
-                                            <i class="fas fa-edit"></i> <span
-                                                class="regular main-color edit">edit</span>
+                                            <span id="userAddress" class="details"></span>
+                                            <i class="fas fa-edit"></i> <span class="regular main-color edit" for="#editAddress">edit</span>
+                                            <div class="user-edit" id="editAddress">
+                                                <input  type="text" class="form-control mb-3">
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="justify-content-end" style="display: none" id="updateData">
+                                        <button class="btn btn-default" id="cancel">Cancel</button>
+                                        <button class="btn main-btn mx-2" id="save">Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +157,7 @@
                                     <div class="email-status">
                                             <span>Email</span>
                                         <div>
-                                            <label class="switch ">
+                                            <label class="switch switch-email">
                                                 <input type="checkbox" class="success">
                                                 <span class="slider round"></span>
                                             </label>
@@ -168,9 +169,8 @@
                                 <div class="language">
                                     <span class="text-uppercase main-color regular d-block mb-3">Language</span>
                                     <select class="form-control regular">
-                                            <option>English</option>
-                                            <option> English</option>
-                                            <option> English</option>
+                                            <option value="en">English</option>
+                                            <option value="fr"> French</option>
                                         </select>
                         
                                 </div>
@@ -191,8 +191,8 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="contact.html" class="mt-2">Contact us</a>
-                        <a href="terms.html" class="mx-2 mt-2   ">Terms & Privecy</a>
+                        <a href="../home/contact.html" class="mt-2">Contact us</a>
+                        <a href="../home/terms.html" class="mx-2 mt-2   ">Terms & Privecy</a>
                     </div>
                     <div class="col-md-6 text-right">
                         <a class=" logo bold-font main-color mx-2" href="index.html">Task<span
@@ -225,5 +225,6 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/account.js"></script>
 </body>
 </!-->
