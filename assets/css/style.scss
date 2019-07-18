@@ -652,11 +652,9 @@ ul.Pended-rating-list
                 margin: auto;
                 .client-name{
                     font-weight: bold;
-                    
-                  
+
                 }
             }
-       
             .incoming-msg-block{
                 .client-name{
                     color: #a19ea3;
@@ -786,6 +784,72 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+// radio Button
+
+.radio {
+    display: block;
+   position: relative;
+   padding-left: 30px;
+   margin-bottom: 12px;
+   cursor: pointer;
+   font-size: 20px;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none
+}
+.radio input {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+}
+
+.checkround {
+   position: absolute;
+   top: 6px;
+   left: 0;
+   height: 20px;
+   width: 20px;
+   background-color: #fff ;
+   border-color:$mainColor;
+   border-style:solid;
+   border-width:2px;
+    border-radius: 50%;
+}
+.radio input:checked ~ .checkround {
+   background-color: #fff;
+}
+.radio input:not(:checked) ~ .checkround {
+    background-color: #fff;
+    border-color:#a19ea3;
+ }
+.checkround:after {
+   content: "";
+   position: absolute;
+   display: none;
+}
+
+.radio input:checked ~ .checkround:after {
+   display: block;
+}
+
+.radio .checkround:after {
+    left: 2px;
+   top: 2px;
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   background:$mainColor;
+}
+// cansel Btn
+.cansel-btn{
+    background-color: #f5f5f5 !important;
+    color: #212121 !important;
+    border: solid 1px #d4d0d6 !important;
+
+}
+
+
 /*============================  Start Header Styling  ===============================*/
 header ,header.search-provider{
     height: 100vh;
@@ -1400,7 +1464,7 @@ footer {
             padding: 15px 25px;
 
             .form-group:last-child {
-                input {
+                .ProceedBtn {
                     width: 215px !important;
                     display: block;
                     margin: 30px auto;
@@ -1772,22 +1836,148 @@ all pages
             padding: 15px 25px;
 
             .form-group:last-child {
-                input {
-                    width: 200px;
+                .ProceedBtn {
                     display: block;
                     margin: 30px auto;
+                }
+            }
+            #map-container-google-1{
+                height: 300px;
+                width: 100%;
+                iframe{
+                    height: 100%;
+                    width: 100%;
+                }
+
+            }
+        }
+
+    }
+    #stepThree{
+        .form-group{
+    
+            .rooms-num{
+                display: flex;
+                align-items: center;
+                input{
+                    width: 37px !important;
+                    height: 37px !important;
+                    margin-right: 8px;
+                    border-color: #a19ea3 !important;
+                    background-color: #f9f9f9 !important;
+                    &:focus{
+                        background-color: #fff !important;
+                    }
+        
+                }
+                span{
+                    color: #a19ea3;
+                }
+            }
+            .form-check{
+                padding-left: 0;
+            }
+            .form-check.other{
+                display: flex;
+                flex-direction: column;
+                textarea{
+                    border-radius: 4px;
+                    border: solid 1px #a19ea3;
+                    background-color: #f9f9f9;
+                    resize: none;
+                    outline: none;
+                    &:focus{
+                        background-color: #fff !important;
+                    }
+                    &::placeholder{
+                        color: #a19ea3 !important;  
+                        padding: 5px 9px;
+                    }
+        
+        
+                }
+            }
+        }
+        .dateTime {
+            width: 50%;
+            .input-container {
+                h6 {
+                    color: $mainColor;
+                    font-family: 'OpenSans-Regular';
+                  
+                    
+                }
+
+                input {
+                    padding-left: 33px;
+                }
+
+                position: relative;
+
+                i {
+                    position: absolute;
+                    right: 6px;
+                    top: 34px;
+                    padding: 9px 8px;
+                    color: #aaa;
                 }
             }
         }
 
     }
+    #stepFour{
+        .top-providers {
+            li {
+                border-radius: 2px;
+                border: solid 1px #e2e2e2;
+                background-color: #ffffff;
+                margin-bottom: 22px;
+                padding: 15px;
+            }
+            .client-img-block{
+                width: 118px;
+                height: 118px;
+                margin-right: 20px;
+                img{
+                    border-radius: 12px;
+                }
+               }
+               .d-flex.select-provider{
+                align-items: flex-start;
+                justify-content: space-between;
+                width: 100%;
+                .ratenumber{
+                    color: $mainColor;
+                    i{
+                        color:#b68bcc !important;
+                    }
+                } 
+               }
+        }
+        
 
+
+        }
+
+}
+.modal.selectProvider{
+    .actions{
+        background: #f9f7f780;
+        padding: 13px;
+        display: flex;
+        justify-content: center;
+        a{
+            padding: 7px 45px;
+            margin-right: 10px; 
+            font-family: 'OpenSans-Regular';
+        }
+   
+    }
 }
 
 /*======== /task-details  ===========*/
 
 /*======== /describing task Page  ===========*/
-
 
 /*======== waiting Page  ===========*/
 #client-waiting {
