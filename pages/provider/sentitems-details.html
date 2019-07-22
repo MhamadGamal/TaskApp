@@ -287,122 +287,24 @@
     <script src="../../assets/js/jquery.datepicker2.min.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/Provider_script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places%2Cdrawing&sensor=false&key=AIzaSyDkbETKNDtUAZvH0-jPdFW3JBxYWnMElPk&fbclid=IwAR0tAKV-b-tYG-SH4dzuK75P55zrj2kwhTLtpkz_Va1UxdTQNxjMocrdoyU" type="text/javascript"></script>
 
     <script>
-        let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
-        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
-        let lat="30.0195954",lang="31.4429645";
-        let stLocation, endLocation;
-        var supplierid = currentuserdata.id;
-        function GetOneTask(taskid) {
-           
-            $.ajax({
-                url: "http://88.80.184.99/tasker/web/api/tasks/relateds/suppliers",
-                method: 'POST',
-                dataType: "json",
-                data: {
-                    "supplier": supplierid
-                },
-                success: function (result) {
-                    if (result.error.status == true) {
-                        var message = result.error.message;
-                        alert(message);
-                    }
-                    else {
-                        allTasks = result.data;
-                        let targetTask;
-                        for(let item of allTasks) {
-                            if (item.id == taskid) {
-                                targetTask = item;
-                            }
-                        }
 
-                        if (targetTask) {
-                            stLocation = targetTask.start_location;
-                            endLocation = targetTask.end_location;
-                            $("#Servicename").text(getCategory(Number(targetTask.category)).name_en);
-                            var dd = `
-                                <div class ="row">
-                        <div class ="col-md-8">
-                            <div class ="row no-gutters">
-                                <div class ="col-sm-8">
-                                    <div class ="my-2">
-                                        <span class ="main-color">Start Address</span>
-                                        <p> <i class ="fas fa-map-marker-alt    "></i> ${targetTask.start_location.location}</p>
-                                    </div>
-                                    <div class ="my-2">
-                                        <span class ="main-color">Destination</span>
-                                        <p> <i class ="fas fa-map-marker-alt    "></i> ${targetTask.end_location.location}</p>
-                                    </div>
-
-                                </div>
-                                <div class ="col-sm-4 text-center">
-                                    <div class="task-img">
-                                        <img src="${'http://88.80.184.99/tasker/web/' + targetTask.client_image}" class ="img-fluid client-image" alt="">
-
-                                    </div>
-                                    <h6 class ="normal main-color m-0">${targetTask.client_name}</h6>
-                                    <div class ="rating main-color">
-                                        <span class ="fa fa-star checked"></span>
-                                        <span class ="fa fa-star checked"></span>
-                                        <span class ="fa fa-star checked"></span>
-                                        <span class ="fa fa-star"></span>
-                                        <span>4.5</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class ="">
-                                <span class ="main-color">Service Details</span>
-                                <p>
-                                    ${targetTask.description}
-                                </p>
-                            </div>
-                        </div>
-                        <div class ="col-md-4">
-                            <div id="map-container-google" class="z-depth-1-half map-container">
-                                </div>
-                        </div>
-                    </div>
-            `;
-                            $("#viewsentitem").html(dd);
-                        }
-                    }
-
-                },
-                error: function (result) {
-                    alert('error');
-                }
-            });
-        }
-        function LoadPointsnumBySupplier(supplierid) {
-            $.ajax({
-                url: "http://88.80.184.99/tasker/web/api/points/remains/suppliers",
-                method: 'POST',
-                dataType: "json",
-                data: {
-                    "supplier": supplierid
-                },
-                success: function (result) {
-                    if (result.error.status == true) {
-                        var message = result.error.message;
-                        alert(message);
-                    }
-                    else {
-                        var wrapper = `<h1 class="m-0">${result.data.remain_point}</h1>`;
-                        $("#Points").append(wrapper);
-                    }
-                },
-                error: function (result) {
-                    alert('error');
-                }
-            });
-        }
-        GetOneTask(target);
-        LoadPointsnumBySupplier(supplierid);
-        setTimeout(() => {
-            GoogleMapInit();
-        }, 500);
+        $(document).ready(function () {
+            let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
+            var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+            let lat = "30.0195954", lang = "31.4429645";
+            let stLocation, endLocation;
+            var supplierid = currentuserdata.id;
+            GetOneTaskdetails(target, supplierid);
+            LoadPointsnumBySupplier_details(supplierid);
+            setTimeout(() => {
+                GoogleMapInit();
+            }, 500);
+        });
+  
 
     </script>
 </body>

@@ -548,7 +548,7 @@
                 }
             });
         }
-        function GetAllCategories() {
+        function GetAllCategoriesforfilter() {
             $.ajax({
                 url: "http://88.80.184.99/tasker/web/api/sub/category",
                 method: 'GET',
@@ -583,7 +583,7 @@
             var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
             var supplierid = currentuserdata.id;
             GetAllSuppliers(1);
-            GetAllCategories();
+            GetAllCategoriesforfilter();
             $("#allcats").change(function () {
                 var currentval = $('#allcats option:selected').val();
                 if (currentval) {

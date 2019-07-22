@@ -97,14 +97,8 @@
                                 </ul>
                                 <nav aria-label="...">
                                     <ul class="pagination pagination-sm justify-content-end">
-                                        <li data-id="1" class="page-item active Recievedpage-item">
-                                            <a class="page-link" href="#" tabindex="-1">1</a>
-                                        </li>
-                                        <li data-id="2" class="page-item Recievedpage-item"><a class="page-link" href="#">2</a></li>
-                                        <li data-id="3" class="page-item Recievedpage-item"><a class="page-link" href="#">3</a></li>
-                                        <li data-id="4" class="page-item Recievedpage-item"><a class="page-link" href="#">4</a></li>
-                                        <li data-id="5" class="page-item Recievedpage-item"><a class="page-link" href="#">5</a></li>
-                                        <li data-id="6" class="page-item Recievedpage-item"><a class="page-link" href="#">6</a></li>
+
+
                                     </ul>
                                 </nav>
                             </div>
@@ -113,14 +107,7 @@
                                 <ul class="moving-tasks-list">  </ul>
                                 <nav aria-label="...">
                                     <ul class="pagination pagination-sm justify-content-end">
-                                        <li class="page-item active">
-                                            <a class="page-link" href="#" tabindex="-1">1</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                      
                                     </ul>
                                 </nav>
                             </div>
@@ -130,14 +117,7 @@
                                     
                                 <nav aria-label="...">
                                     <ul class="pagination pagination-sm justify-content-end">
-                                        <li class="page-item active">
-                                            <a class="page-link" href="#" tabindex="-1">1</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                     
                                     </ul>
                                 </nav>
                             </div>
@@ -158,6 +138,7 @@
             </div>
         </div>
     </section>
+
     <div class="modal tasks fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -276,6 +257,80 @@
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/Provider_script.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            LoadRecievedTasksBySupplier(supplierid, 1);
+            LoadHotOffersBySupplier(supplierid,1);
+            LoadSentOffersBySupplier(supplierid, 1);
+            LoadPointsnumBySupplier(supplierid);
+
+            //$(".Recievedpage-item").on('click', function () {
+            //    var pagenum = $(this).attr("data-id");
+            //    $(this).addClass("active").siblings().removeClass("active");
+            //    LoadRecievedTasksBySupplier(supplierid, pagenum)
+            //});
+
+            $(document).on('click', '.Recivedpager', function () {
+                var page = $(this).attr("pagenumber");
+                if (page) {
+                    Rcounter = Number(page);
+                    LoadRecievedTasksBySupplier(supplierid,page);
+                }
+            });
+
+            $(document).on('click', '.Recivedpagernext', function () {
+                Rcounter = Rcounter + 1;
+                LoadRecievedTasksBySupplier(supplierid, Rcounter);
+            });
+
+            $(document).on('click', '.Recivedpagerback', function () {
+                Rcounter = Rcounter - 1;
+                LoadRecievedTasksBySupplier(supplierid, Rcounter);
+            });
+
+            
+            $(document).on('click', '.Hotofferpager', function () {
+                var page = $(this).attr("pagenumber");
+                if (page) {
+                    Hcounter = Number(page);
+                    LoadRecievedTasksBySupplier(supplierid, page);
+                }
+            });
+
+            $(document).on('click', '.Hotofferpagernext', function () {
+                Hcounter = Hcounter + 1;
+                LoadRecievedTasksBySupplier(supplierid, Hcounter);
+            });
+
+            $(document).on('click', '.Hotofferpagerback', function () {
+                Hcounter = Hcounter - 1;
+                LoadRecievedTasksBySupplier(supplierid, Hcounter);
+            });
+
+
+            $(document).on('click', '.Sentpager', function () {
+                var page = $(this).attr("pagenumber");
+                if (page) {
+                    Scounter = Number(page);
+                    LoadRecievedTasksBySupplier(supplierid, page);
+                }
+            });
+
+            $(document).on('click', '.Sentpagernext', function () {
+                Scounter = Scounter + 1;
+                LoadRecievedTasksBySupplier(supplierid, Scounter);
+            });
+
+            $(document).on('click', '.Sentpagerback', function () {
+                Scounter = Scounter - 1;
+                LoadRecievedTasksBySupplier(supplierid, Scounter);
+            });
+
+
+            
+        });
+    </script>
 
 </body>
 

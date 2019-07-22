@@ -73,7 +73,7 @@
             <div class="page-content-head">
                 <h4 id="catname"></h4>
             </div>
-            <div class="panel-section" id="seeTask">
+            <div class="panel-section" id="seeTask2">
                 <div class="panel-head">
                     <div class="d-flex mb-2 justify-content-between" >
                         <h5>Task Details</h5>
@@ -162,174 +162,19 @@
     <script src="../../assets/js/Provider_script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places%2Cdrawing&sensor=false&key=AIzaSyDkbETKNDtUAZvH0-jPdFW3JBxYWnMElPk&fbclid=IwAR0tAKV-b-tYG-SH4dzuK75P55zrj2kwhTLtpkz_Va1UxdTQNxjMocrdoyU" type="text/javascript"></script>
     <script>
-        let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
-        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
-        let lat="30.0195954",lang="31.4429645";
-        let stLocation, endLocation;
-       // var supplierid = currentuserdata.id;
-        supplierid = '32';
-
-        function ReadTaskBySupplier(supplierid, taskid) {
-
-            $.ajax({
-                url: "http://88.80.184.99/tasker/web/api/tasks/reads/suppliers",
-                method: 'POST',
-                dataType: "json",
-                data: {
-                    "supplier": supplierid, "task": taskid
-                },
-                success: function (result) {
-                    
-                    if (result.error.status == true) {
-                        var message = result.error.message;
-                        alert(message);
-                    }
-                    else {
-                       // alert('success');
-                    }
-
-                },
-                error: function (result) {
-                    alert('error');
-                }
+        $(document).ready(function () {
+            let target = Number(window.location.href.slice(window.location.href.lastIndexOf("?") + 1));
+            var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+            let lat = "30.0195954", lang = "31.4429645";
+            let stLocation, endLocation;
+            var supplierid = currentuserdata.id;
+            GetOneTask(target, supplierid);
+            setTimeout(() => {
+                GoogleMapInit();
+            }, 500);
+            $(document).on('click',"#sendoffbtn", function () {
+                AddOfferForTask(supplierid, target);
             });
-
-        }
-        function GetOneTask(taskid, supplierid)
-        {
-            
-            $.ajax({
-                url: "http://88.80.184.99/tasker/web/api/pendings/tasks/suppliers/categories",
-                method: 'POST',
-                dataType: "json",
-                data: {
-                    "supplier": supplierid
-                },
-                success: function (result) {
-                    if (result.error.status == true) {
-                        var message = result.error.message;
-                        alert(message);
-                    }
-                    else {
-                        allTasks = result.data;
-                        let targetTask;
-                        for(let item of allTasks) {
-                            if (item.id == taskid) {
-                                targetTask = item;
-                               
-                                
-                            }
-                        }
-
-                       
-
-                        if (targetTask) {
-                           
-
-                            if (targetTask.is_read==0) {
-                                ReadTaskBySupplier(supplierid, target);
-                            }
-                          
-                            stLocation = targetTask.start_location;
-                            endLocation = targetTask.end_location;
-                            $("#catname").text(getCategory(Number(targetTask.category)).name_en);
-                            var dd = `
-                                <div class ="row">
-                        <div class ="col-md-8">
-                            <div class ="row no-gutters">
-                                <div class ="col-sm-8">
-                                    <div class ="my-2">
-                                        <span class ="main-color">Start Address</span>
-                                        <p> <i class ="fas fa-map-marker-alt    "></i> ${targetTask.start_location.location}</p>
-                                    </div>
-                                    <div class ="my-2">
-                                        <span class ="main-color">Destination</span>
-                                        <p> <i class ="fas fa-map-marker-alt    "></i> ${targetTask.end_location.location}</p>
-                                    </div>
-
-                                </div>
-                                <div class ="col-sm-4 text-center">
-                                    <div class="task-img">
-                                        <img src="${'http://88.80.184.99/tasker/web/' + targetTask.client_image}" class ="img-fluid client-image" alt="">
-
-                                    </div>
-                                    <h6 class ="normal main-color m-0">${targetTask.client_name}</h6>
-                                    <div class ="rating main-color">
-                                        <span class ="fa fa-star checked"></span>
-                                        <span class ="fa fa-star checked"></span>
-                                        <span class ="fa fa-star checked"></span>
-                                        <span class ="fa fa-star"></span>
-                                        <span>4.5</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class ="">
-                                <span class ="main-color">Service Details</span>
-                                <p>
-                                    ${targetTask.description}
-                                </p>
-                            </div>
-                        </div>
-                        <div class ="col-md-4">
-                                <div id="map-container-google" class="z-depth-1-half map-container">
-                                </div>
-                        </div>
-                    </div>
-            `;
-                            $("#seetask").html(dd);
-                        }
-                    }
-
-                },
-                error: function (result) {
-                    alert('error');
-                }
-            });
-        }
-        function AddOfferForTask(supplierid,taskid) {
-            let price = $("#offprice").val();
-            let type = "task";
-            let note = $("#offdesc").val();
-
-            if (!price) {
-                $("#offprice").addClass("error")
-            }
-
-            if (!note) {
-                $("#offdesc").addClass("error")
-            }
-            if (price && note) {
-                $.ajax({
-                    url: "http://88.80.184.99/tasker/web/api/creates/offers",
-                    method: 'POST',
-                    dataType: "json",
-                    data: {
-                        "price": price, "supplier": supplierid, "task": taskid, "type": type, "note": note
-                    },
-                    success: function (result) {
-                       
-                        if (result.error.status == true) {
-                            var message = result.error.message;
-                            alert(message);
-                        }
-                        else {
-                            location.href = 'dashboard.html';
-                        }
-                    },
-                    error: function (result) {
-                        alert('error');
-                    }
-                });
-            }
-           
-        };
-        GetOneTask(target, supplierid);
-        setTimeout(() => {
-            GoogleMapInit();
-        }, 500);
-
-        $("#sendoffbtn").on('click', function () {
-            AddOfferForTask(supplierid, target);
         });
     </script>
 </body>

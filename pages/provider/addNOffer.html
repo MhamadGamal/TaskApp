@@ -185,6 +185,7 @@
     <script src="../../assets/js/script.js"></script>
     <script>
         function AddNewOffer(supplier) {
+            debugger;
             let category = $("#offersCat :selected").val();
             let start_date = $("#newofferstdate").val();
             let end_date = $("#newofferenddate").val();
@@ -202,60 +203,74 @@
                 $("#newofferdesc").addClass("error");
             }
             if (category && start_date && end_date && description) {
-                $.ajax({
-                    url: "http://88.80.184.99/tasker/web/api/creates/offers",
-                    method: 'POST',
-                    dataType: "json",
-                    data: {
-                        "supplier": supplier, "start_date": start_date, "end_date": end_date, "category": category, "type": "provider", "description": description
-                    },
-                    success: function (result) {
-                        if (result.error.status == true) {
-                            var message = result.error.message;
-                            $("#alert").fadeIn().html(message)
-                            //alert(message);
-                        }
-                        else {
-                            
-                            var offerid = result.data.id
-                            if (offerid) {
-                                for(let item of imgsArr)
-                                {
-                                    var st = item.result;
-                                    if (st) {
-                                        var img = st.substring(23);
-                                        $.ajax({
-                                            url: "http://88.80.184.99/tasker/web/api/uploads/images/bies/types",
-                                            method: 'POST',
-                                            dataType: "json",
-                                            data: {
-                                                "offer": offerid, "image": img
-                                            },
-                                            success: function (result) {
-                                                debugger;
-                                                if (result.error.status == true) {
-                                                    var message = result.error.message;
-                                                    alert(message);
-                                                }
-                                                else {
-
-                                                }
-                                            },
-                                            error: function (result) {
-                                                alert('error');
-                                            }
-                                        });
-                                    }
-                                }
-                                window.location.pathname = 'pages/provider/dashboard.html';
-                            }
-
-                        }
-                    },
-                    error: function (result) {
-                        alert('error');
+              
+                var current = new Date();
+                var start = new Date(start_date);
+                var end = new Date(end_date);
+                if (start > current) {
+                    $("#alert").fadeIn().html('Start Date Is Greater Than Current date..')
+                }
+                else {
+                    if (start >= end) {
+                        $("#alert").fadeIn().html('End Date Is Greater Than Start date..')
                     }
-                });
+                    else {
+                        $.ajax({
+                            url: "http://88.80.184.99/tasker/web/api/creates/offers",
+                            method: 'POST',
+                            dataType: "json",
+                            data: {
+                                "supplier": supplier, "start_date": start_date, "end_date": end_date, "category": category, "type": "provider", "description": description
+                            },
+                            success: function (result) {
+                                if (result.error.status == true) {
+                                    var message = result.error.message;
+                                    $("#alert").fadeIn().html(message)
+                                    //alert(message);
+                                }
+                                else {
+
+                                    var offerid = result.data.id
+                                    if (offerid) {
+                                        for(let item of imgsArr)
+                                        {
+                                            var st = item.result;
+                                            if (st) {
+                                                var img = st.substring(23);
+                                                $.ajax({
+                                                    url: "http://88.80.184.99/tasker/web/api/uploads/images/bies/types",
+                                                    method: 'POST',
+                                                    dataType: "json",
+                                                    data: {
+                                                        "offer": offerid, "image": img
+                                                    },
+                                                    success: function (result) {
+                                                        if (result.error.status == true) {
+                                                            var message = result.error.message;
+                                                            alert(message);
+                                                        }
+                                                        else {
+
+                                                        }
+                                                    },
+                                                    error: function (result) {
+                                                        alert('error');
+                                                    }
+                                                });
+                                            }
+                                        }
+                                        window.location.pathname = 'pages/provider/dashboard.html';
+                                    }
+
+                                }
+                            },
+                            error: function (result) {
+                                alert('error');
+                            }
+                        });
+                    }
+                }
+                
             }
         }
         

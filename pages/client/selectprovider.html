@@ -110,7 +110,7 @@
                 <div class="p-3">
                     <div class="d-flex justify-content-center">
                         <div class="col-6">
-                            <a href="" id="Select" class="btn btn-block main-btn">Select</a>
+                            <a href="" id="Selectbtn" class="btn btn-block main-btn">Select</a>
                         </div>
                     </div>
                 </div>
@@ -151,14 +151,11 @@
                     "taskId": taskId, "supplierId": supplierId
                 },
                 success: function (result) {
+                    debugger;
                     if (result.error.status == true) {
                         var message = result.error.message;
                         alert(message);
                     }
-                    else {
-
-                    }
-
                 },
                 error: function (result) {
                     alert('error');
@@ -166,7 +163,47 @@
             });
         }
 
-        let rate="", CATEGORYNAME="";
+        let rate = "", CATEGORYNAME = "", pendengtasks, invite = "", wrapper = "";
+
+        $.ajax({
+            url: "http://88.80.184.99/tasker/web/api/pendings/tasks/users",
+            method: 'POST',
+            cache: false,
+            async: false,
+            timeout: 30000,
+            dataType: "json",
+            data: { "client": userid },
+            success: function (result) {
+                let data = result;
+                if (data.error.status == true) {
+                    alert(data.error.message);
+
+                }
+                else {
+                    pendengtasks = result.data;
+                }
+            },
+            error: function (result) {
+                alert('error');
+            }
+        });
+
+        if (pendengtasks.length>0) {
+            invite = ` <div class ="text-right mb-4">
+                        <a id="invitebtn" href="#" class ="main-btn btn regular">Invite</a>
+                     </div>`;
+
+            for(let item of pendengtasks) {
+                       wrapper += `
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class ="custom-control-input" value="${item.category_name}" data-id="${item.id}"  id="${item.category_name}">
+                    <label class ="custom-control-label" for="${item.category_name}">${item.category_name} </label>
+                </div>
+            `
+            }
+
+        }
+
         $.ajax({
             url: "http://88.80.184.99/tasker/web/api/gets/suppliers",
             method: 'POST',
@@ -329,9 +366,9 @@
                                             <span>${item.num_of_tasks} Moving Tasks</span>
                                             </i>
                                         </div>
-                                        <div class ="text-right mb-4">
-                                                <a id="invitebtn" href="#" class ="main-btn btn regular">Invite</a>
-                                            </div>
+
+                                        ${invite}
+                                       
 
                                         <div class ="row">
                                                 <div class ="clientReviews col-md-8">
@@ -358,78 +395,29 @@
             }
         });
 
-
-        function GetAllSuppliersByCat(category, page) {
-            $.ajax({
-                url: "http://88.80.184.99/tasker/web/api/gets/suppliers",
-                method: 'POST',
-                dataType: "json",
-                data: {
-                    "category": category, "page": page
-                },
-                success: function (result) {
-                    if (result.error.status == true) {
-                        var message = result.error.message;
-                        alert(message);
-                    }
-                    else {
-                        debugger;
-                        let providersArr = result.data.result;
-                        for(let item of providersArr)
-                        {
-                            console.log(item);
-
-                            wrapper += `
-         <div class="custom-control custom-checkbox">
-             <input type="checkbox" class="custom-control-input" value="${item.name}" data-id="${item.id}"  id="${item.name_en}">
-             <label class="custom-control-label" for="${item.name}">${item.name} </label>
-         </div>`;
-                        }
-
-                    }
-
-                },
-                error: function (result) {
-                    alert('error');
-                }
-            });
-        }
-        let categoryArr, wrapper = "";
-        //   $.get("http://88.80.184.99/tasker/web/api/sub/category", function (data, status) {
-     //       let d = data;
-     //       categoryArr = d.data;
-     //       for(let item of categoryArr) {
-     //           wrapper += `
-     //    <div class="custom-control custom-checkbox">
-     //        <input type="checkbox" class="custom-control-input" value="${item.name_en}" data-id="${item.id}"  id="${item.name_en}">
-     //        <label class="custom-control-label" for="${item.name_en}">${item.name_en} </label>
-     //    </div>
-     //`
-     //       }
-
         $(document).on('click', "#invitebtn", function () {
             $("#providersNames").modal("show").find(".modal-body").html(wrapper)
         });
 
         $(document).ready(function () {
-            GetAllSuppliersByCat(8, 1)
-            $("#providersNames #Select").on("click", function (e) {
+          
+            $("#providersNames #Selectbtn").on("click", function (e) {
                 e.preventDefault();
-                let divContent = "";
-
+                var tskids = [];
                 let checkbox = document.querySelectorAll("#providersNames input[type='checkbox']");
                 for(let checkitem of checkbox) {
                     if (checkitem.checked == true) {
-
-                        divContent += `${checkitem.getAttribute('data-id')},`
+                        var id = checkitem.getAttribute('data-id')
+                        tskids.push(Number(id));
                     }
                 }
-                
-                $("#providersNames").modal("hide")
-                alert(divContent);
 
-                InviteProvider(11,11)
+                for(let tskid of tskids) {
 
+                    InviteProvider(tskid, currentproviderid)
+                }
+
+                $("#providersNames").modal("hide");
 
             })
         });

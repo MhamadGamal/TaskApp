@@ -205,103 +205,11 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/Provider_script.js"></script>
 
     <script>
-        $(document).ready(
-            
-            function () {
-                let supplierid=32;
-                $.ajax({
-                    url: "http://88.80.184.99/tasker/web/api/suppliers/reviews",
-                    method: 'POST',
-                    dataType: "json",
-                    data: {
-                        "supplier": supplierid
-                    },
-                    success: function (result) {
-                        if (result.error.status == true) {
-                            var message = result.error.message;
-                            alert(message);
-                        }
-                        else {
-                            let ratesarr = result.data;
-                            for(let item of ratesarr)
-                            {
-                                let stars, rate = item.rate;
-                                if (rate=="1") { 
-                                    stars =`
-                                    <span class ="fa fa-star checked"></span>`
-                                    }
-                                else if (rate=="2") { 
-                                    stars =`
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star checked"></span> `;
-                                    }
-                                else if (rate=="3") { 
-                                    stars =`
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star checked"></span>`
-                                           
-                                    }
-                                else if (rate=="4") { 
-                                    stars =`
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star"></span>`
-                                            
-                                    }
-                                else {
-                                    stars =`
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star checked"></span>
-                                    <span class ="fa fa-star"></span>
-                                    <span class ="fa fa-star"></span>`
-                                    }
-
-                                var d = `
-                                    <li>
-                        <div class="d-flex">
-                            <div class="provider-img-block">
-                                <img class ="provider-img" src="${'http://88.80.184.99/tasker/web/' + item.client.image}" alt="" />
-                            </div>
-                            <div class="rating-details">
-                                <div class="details-head">
-                                    <div class="details">
-                                        <div>
-                                            <a href="#" class="bold-font provider-name">${item.client.name}</a>
-                                        </div>
-                                        <span class="service-name mb-2 d-block">Cleaning Service</span>
-                                        <div class ="rating main-color ">
-
-                                       ${stars}
-                                           
-                                        </div>
-                                        <p>${item.message}</p>
-                                    </div>
-                                    <div class="starEndDate">
-                                        <div>
-                                            <i class="fas fa-calendar-alt mr-2"></i>
-                                            <span class="mr-2">18 sep 2019 at 18:00 am</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>`;
-                                $("#supplyerrates").append(d);
-                            }
-                           
-                            }
-                        
-
-                    },
-                    error: function (result) {
-                        alert('error');
-                    }
-                });
+        $(document).ready( function () {
+                GetAllSuplyierRates(supplierid)
             });
     </script>
 </body>
