@@ -25,6 +25,8 @@
     <!-- /NAVBAR -->
     <!--ACCOUNT -->
     <section id="provider-account" class="grey-bg page-content">
+        <div class="alert alert-danger" style="display: none" role="alert">
+        </div>
         <div class="container">
             <div class="page-content-head">
                 <h4>My Account</h4>
@@ -44,7 +46,7 @@
                             <div class="col-md-12">
                                 <div class="change-img-block">
                                     <div class="service-img-block mb-3">
-                                            <img id="userImg" src="../../assets/img/client/user.jpg" alt="" srcset="">
+                                            <img id="userImg" src="" alt="" srcset="">
                                         </div>
                                     <div class="upload-img">
                                         <button class="main-btn btn upload-btn">Change Image </button>
@@ -56,7 +58,7 @@
                                     <div class="email-status">
                                         <div>
                                             <label class="switch " id="activStatus">
-                                                <input type="checkbox" class="success">
+                                                <input type="checkbox"  class="success">
                                                 <span class="slider round"></span>
                                             </label>
                                         </div>
@@ -137,7 +139,7 @@
                                                     
                                                 </div>
                                                 <div class="col">
-                                                        <i class="fas fa-edit"></i> <span class="regular main-color edit"> edit </span>
+                                                        <i class="fas fa-edit"></i> <span class="regular main-color edit" id="editProvCateg"> edit </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,7 +171,7 @@
                                         </div>
                                         <div class="language">
                                             <span class="text-uppercase main-color regular d-block mb-3">Language</span>
-                                            <select class="form-control regular">
+                                            <select  id="language" class="form-control regular">
                                                     <option value="en">English</option>
                                                     <option value="fr"> French</option>
                                                 </select>
@@ -186,6 +188,40 @@
         </div>
     </section>
     <!--/ ACCOUNT -->
+
+
+
+    <div class="modal fade" tabindex="-1" id="providersCategories" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                
+               
+            </div>
+            <div class="p-3">
+                <div class="d-flex justify-content-center">
+                    <div class="col-6">
+                        <button id="SaveCategories" class="btn btn-block main-btn">Select</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
     <!-- Footer -->
     <footer>
         <div class="container">

@@ -831,13 +831,10 @@ input:checked + .slider:before {
   display: block;
   position: relative;
   padding-left: 30px;
-  margin-bottom: 12px;
+  padding-top: 2px;
+  margin-bottom: 4px;
   cursor: pointer;
-  font-size: 20px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  font-size: 17px;
 }
 
 .radio input {
@@ -1752,60 +1749,91 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
 }
 
 /*======== /navbar  ===========*/
-/*======== task-details  ===========*/
+/*======== /describing task Page  ===========*/
 #task-details .page-content-head {
   margin-bottom: -12px;
 }
 
-#task-details .details-form form {
-  padding: 15px 25px;
+#task-details textarea {
+  border-radius: 4px;
+  border: solid 1px #a19ea3;
+  background-color: #f9f9f9;
+  resize: none;
+  outline: none;
+  width: 50%;
 }
 
-#task-details .details-form form .form-group:last-child .ProceedBtn {
-  display: block;
-  margin: 30px auto;
+#task-details textarea:focus {
+  background-color: #fff !important;
 }
 
-#task-details .details-form form #map-container-google-1 {
+#task-details textarea::-webkit-input-placeholder {
+  color: #a19ea3 !important;
+  padding: 5px 9px;
+}
+
+#task-details textarea:-ms-input-placeholder {
+  color: #a19ea3 !important;
+  padding: 5px 9px;
+}
+
+#task-details textarea::-ms-input-placeholder {
+  color: #a19ea3 !important;
+  padding: 5px 9px;
+}
+
+#task-details textarea::placeholder {
+  color: #a19ea3 !important;
+  padding: 5px 9px;
+}
+
+#task-details #map-container-google-1 {
   height: 300px;
   width: 100%;
 }
 
-#task-details .details-form form #map-container-google-1 iframe {
+#task-details #map-container-google-1 iframe {
   height: 100%;
   width: 100%;
 }
 
-#task-details #stepThree .form-group .rooms-num {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+#task-details .dateTime {
+  width: 50%;
 }
 
-#task-details #stepThree .form-group .rooms-num input {
-  width: 37px !important;
-  height: 37px !important;
-  margin-right: 8px;
-  border-color: #a19ea3 !important;
-  background-color: #f9f9f9 !important;
+#task-details .dateTime .input-container {
+  position: relative;
 }
 
-#task-details #stepThree .form-group .rooms-num input:focus {
-  background-color: #fff !important;
+#task-details .dateTime .input-container h6 {
+  color: #7c2da2;
+  font-family: 'OpenSans-Regular';
 }
 
-#task-details #stepThree .form-group .rooms-num span {
-  color: #a19ea3;
+#task-details .dateTime .input-container input {
+  padding-left: 33px;
 }
 
-#task-details #stepThree .form-group .form-check {
-  padding-left: 0;
+#task-details .dateTime .input-container i {
+  position: absolute;
+  right: 6px;
+  top: 34px;
+  padding: 9px 8px;
+  color: #aaa;
 }
 
-#task-details #stepThree .form-group .form-check.other {
+#task-details .char-num {
+  width: 50%;
+  color: #f71717;
+}
+
+#task-details .ProceedBtn {
+  display: block;
+  margin: 20px auto;
+  width: 20%;
+}
+
+#task-details .describe-form .form-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1815,64 +1843,73 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           flex-direction: column;
 }
 
-#task-details #stepThree .form-group .form-check.other textarea {
-  border-radius: 4px;
-  border: solid 1px #a19ea3;
-  background-color: #f9f9f9;
-  resize: none;
-  outline: none;
+#task-details .describe-form .form-group .uploadImages .addOffer-imgUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 5px;
+  cursor: pointer;
 }
 
-#task-details #stepThree .form-group .form-check.other textarea:focus {
+#task-details .describe-form .form-group .uploadImages .addOffer-imgUpload img,
+#task-details .describe-form .form-group .uploadImages .addOffer-imgUpload input {
+  width: 105px !important;
+  height: 104px !important;
+  cursor: pointer;
+  top: 0;
+}
+
+#task-details .describe-form .form-group .uploadImages .addOffer-imgUpload input {
+  outline: none !important;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 79px !important;
+  height: 104px !important;
+  right: 25px;
+  z-index: -1;
+  z-index: 3;
+}
+
+#task-details #form-one #stepThree .form-group .rooms-num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#task-details #form-one #stepThree .form-group .rooms-num input {
+  width: 37px !important;
+  height: 37px !important;
+  margin-right: 8px;
+  border-color: #a19ea3 !important;
+  background-color: #f9f9f9 !important;
+}
+
+#task-details #form-one #stepThree .form-group .rooms-num input:focus {
   background-color: #fff !important;
 }
 
-#task-details #stepThree .form-group .form-check.other textarea::-webkit-input-placeholder {
-  color: #a19ea3 !important;
-  padding: 5px 9px;
+#task-details #form-one #stepThree .form-group .rooms-num span {
+  color: #a19ea3;
 }
 
-#task-details #stepThree .form-group .form-check.other textarea:-ms-input-placeholder {
-  color: #a19ea3 !important;
-  padding: 5px 9px;
+#task-details #form-one #stepThree .form-group .form-check {
+  padding-left: 0;
 }
 
-#task-details #stepThree .form-group .form-check.other textarea::-ms-input-placeholder {
-  color: #a19ea3 !important;
-  padding: 5px 9px;
+#task-details #form-one #stepThree .form-group .form-check.other {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-#task-details #stepThree .form-group .form-check.other textarea::placeholder {
-  color: #a19ea3 !important;
-  padding: 5px 9px;
-}
-
-#task-details #stepThree .dateTime {
-  width: 50%;
-}
-
-#task-details #stepThree .dateTime .input-container {
-  position: relative;
-}
-
-#task-details #stepThree .dateTime .input-container h6 {
-  color: #7c2da2;
-  font-family: 'OpenSans-Regular';
-}
-
-#task-details #stepThree .dateTime .input-container input {
-  padding-left: 33px;
-}
-
-#task-details #stepThree .dateTime .input-container i {
-  position: absolute;
-  right: 6px;
-  top: 34px;
-  padding: 9px 8px;
-  color: #aaa;
-}
-
-#task-details #stepFour .top-providers li {
+#task-details #form-one #stepFour .top-providers li {
   border-radius: 2px;
   border: solid 1px #e2e2e2;
   background-color: #ffffff;
@@ -1880,17 +1917,17 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   padding: 15px;
 }
 
-#task-details #stepFour .top-providers .client-img-block {
+#task-details #form-one #stepFour .top-providers .client-img-block {
   width: 118px;
   height: 118px;
   margin-right: 20px;
 }
 
-#task-details #stepFour .top-providers .client-img-block img {
+#task-details #form-one #stepFour .top-providers .client-img-block img {
   border-radius: 12px;
 }
 
-#task-details #stepFour .top-providers .d-flex.select-provider {
+#task-details #form-one #stepFour .top-providers .d-flex.select-provider {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -1900,15 +1937,19 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
   width: 100%;
 }
 
-#task-details #stepFour .top-providers .d-flex.select-provider .ratenumber {
+#task-details #form-one #stepFour .top-providers .d-flex.select-provider .ratenumber {
   color: #7c2da2;
 }
 
-#task-details #stepFour .top-providers .d-flex.select-provider .ratenumber i {
+#task-details #form-one #stepFour .top-providers .d-flex.select-provider .ratenumber i {
   color: #b68bcc !important;
 }
 
-.modal.selectProvider .actions {
+#task-details #form-one #stepFour .top-providers .d-flex.select-provider .selectBtn {
+  padding: 6px 28px;
+}
+
+.modal.selectProvider .actions, .modal.congratolateMesg .actions {
   background: #f9f7f780;
   padding: 13px;
   display: -webkit-box;
@@ -1919,13 +1960,20 @@ all pages .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item i {
           justify-content: center;
 }
 
-.modal.selectProvider .actions a {
+.modal.selectProvider .actions a, .modal.congratolateMesg .actions a {
   padding: 7px 45px;
   margin-right: 10px;
   font-family: 'OpenSans-Regular';
 }
 
-/*======== /task-details  ===========*/
+.modal.congratolateMesg .modal-body > span:first-child {
+  font-size: 20px;
+}
+
+.modal.congratolateMesg .modal-body > span:last-child {
+  font-size: 18px;
+}
+
 /*======== /describing task Page  ===========*/
 /*======== waiting Page  ===========*/
 #client-waiting .page-content-head {

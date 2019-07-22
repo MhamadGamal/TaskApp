@@ -790,13 +790,11 @@ input:checked + .slider:before {
     display: block;
    position: relative;
    padding-left: 30px;
-   margin-bottom: 12px;
+   padding-top: 2px;
+   margin-bottom: 4px;
    cursor: pointer;
-   font-size: 20px;
-   -webkit-user-select: none;
-   -moz-user-select: none;
-   -ms-user-select: none;
-   user-select: none
+   font-size: 17px;
+  
 }
 .radio input {
    position: absolute;
@@ -1823,108 +1821,132 @@ all pages
 }
 
 /*======== /navbar  ===========*/
-/*======== task-details  ===========*/
-
-
+/*======== /describing task Page  ===========*/
 #task-details {
     .page-content-head {
         margin-bottom: -12px;
     }
-
-    .details-form {
-        form {
-            padding: 15px 25px;
-
-            .form-group:last-child {
-                .ProceedBtn {
-                    display: block;
-                    margin: 30px auto;
-                }
+    // most used
+    textarea{
+        border-radius: 4px;
+        border: solid 1px #a19ea3;
+        background-color: #f9f9f9;
+        resize: none;
+        outline: none;
+        width: 50%;
+        
+        &:focus{
+            background-color: #fff !important;
+        }
+        &::placeholder{
+            color: #a19ea3 !important;  
+            padding: 5px 9px;
+        }
+    }
+    #map-container-google-1{
+        height: 300px;
+        width: 100%;
+        iframe{
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .dateTime {
+        width: 50%;
+        .input-container {
+            h6 {
+                color: $mainColor;
+                font-family: 'OpenSans-Regular';
             }
-            #map-container-google-1{
-                height: 300px;
-                width: 100%;
-                iframe{
-                    height: 100%;
-                    width: 100%;
-                }
+            input {
+                padding-left: 33px;
+            }
 
+            position: relative;
+
+            i {
+                position: absolute;
+                right: 6px;
+                top: 34px;
+                padding: 9px 8px;
+                color: #aaa;
             }
         }
-
     }
-    #stepThree{
+    .char-num{
+        width: 50%;
+        color: #f71717;
+    }
+    .ProceedBtn {
+        display: block;
+        margin: 20px auto;
+        width: 20%;
+    }
+    .describe-form{
         .form-group{
-    
-            .rooms-num{
-                display: flex;
-                align-items: center;
-                input{
-                    width: 37px !important;
-                    height: 37px !important;
-                    margin-right: 8px;
-                    border-color: #a19ea3 !important;
-                    background-color: #f9f9f9 !important;
-                    &:focus{
-                        background-color: #fff !important;
+            display: flex;
+            flex-direction: column;
+            .uploadImages {
+                .addOffer-imgUpload {
+                    position: relative;
+                    overflow: hidden;
+                    margin: 5px;
+                    cursor: pointer;
+                    img,
+                    input {
+                        width: 105px !important;
+                        height: 104px !important;
+                        cursor: pointer;
+                        top: 0;
                     }
-        
-                }
-                span{
-                    color: #a19ea3;
-                }
-            }
-            .form-check{
-                padding-left: 0;
-            }
-            .form-check.other{
-                display: flex;
-                flex-direction: column;
-                textarea{
-                    border-radius: 4px;
-                    border: solid 1px #a19ea3;
-                    background-color: #f9f9f9;
-                    resize: none;
-                    outline: none;
-                    &:focus{
-                        background-color: #fff !important;
+                    input {
+                        outline: none !important;
+                        opacity: 0;
+                        position: absolute;
+                        right: 0;
+                        width: 79px !important;
+                        height: 104px !important;
+                        right: 25px;
+                        z-index: -1;
+                        z-index: 3;
                     }
-                    &::placeholder{
-                        color: #a19ea3 !important;  
-                        padding: 5px 9px;
-                    }
-        
-        
                 }
             }
         }
-        .dateTime {
-            width: 50%;
-            .input-container {
-                h6 {
-                    color: $mainColor;
-                    font-family: 'OpenSans-Regular';
-                  
-                    
-                }
-
-                input {
-                    padding-left: 33px;
-                }
-
-                position: relative;
-
-                i {
-                    position: absolute;
-                    right: 6px;
-                    top: 34px;
-                    padding: 9px 8px;
-                    color: #aaa;
-                }
-            }
-        }
-
     }
+    // form one
+    #form-one{
+        #stepThree{
+            .form-group{
+        
+                .rooms-num{
+                    display: flex;
+                    align-items: center;
+                    input{
+                        width: 37px !important;
+                        height: 37px !important;
+                        margin-right: 8px;
+                        border-color: #a19ea3 !important;
+                        background-color: #f9f9f9 !important;
+                        &:focus{
+                            background-color: #fff !important;
+                        }
+            
+                    }
+                    span{
+                        color: #a19ea3;
+                    }
+                }
+                .form-check{
+                    padding-left: 0;
+                }
+                .form-check.other{
+                    display: flex;
+                    flex-direction: column;
+
+                }
+            }
+        }
     #stepFour{
         .top-providers {
             li {
@@ -1952,15 +1974,27 @@ all pages
                         color:#b68bcc !important;
                     }
                 } 
+                .selectBtn{
+                    padding: 6px 28px;
+                }
                }
+           }
         }
-        
-
+    }
+    // form two
+    #form-two{
+        #stepOne{
 
         }
+
+    }
+    #form-three{
+
+    }
+
 
 }
-.modal.selectProvider{
+.modal.selectProvider ,.modal.congratolateMesg{
     .actions{
         background: #f9f7f780;
         padding: 13px;
@@ -1974,9 +2008,20 @@ all pages
    
     }
 }
+.modal.congratolateMesg{
+    .modal-body{
 
-/*======== /task-details  ===========*/
+        &>span:first-child{
+            font-size: 20px;
+        }
+        &>span:last-child{
+            font-size: 18px;
+        }
+    
+    }
 
+
+}
 /*======== /describing task Page  ===========*/
 
 /*======== waiting Page  ===========*/

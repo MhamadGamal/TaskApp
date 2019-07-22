@@ -23,8 +23,6 @@ $(function(){
          </div>
      `
      }
- 
-     
  });
     // provider can do popup
     $("#providersServices").on("click", function(){
