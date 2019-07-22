@@ -82,7 +82,7 @@
                 <div class="input-group">
                     <label class="regular"> Filter by</label>
                     <select id="allcats" class="form-control regular">
-                        <option>Select..</option>
+                        <option value="Select..">Select..</option>
                        
                     </select>
                 </div>
@@ -152,7 +152,11 @@
     <script src="../../assets/js/api_script.js"></script>
     <!-- Custom Script -->
     <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/Customer_Scripts.js"></script>
     <script>
+        var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
+        var customerid = currentuserdata.id;
+        let Allcounter = 1, Idcounter = 1, Namecounter = 1;
         function GetAllSuppliers(page) {
             $.ajax({
                 url: "http://88.80.184.99/tasker/web/api/gets/suppliers",
@@ -168,53 +172,54 @@
                     }
                     else {
                         $("#allproviders").html('');
-                        let providersArr = result.data.result;
-                        
-                        for(let item of providersArr)
-                        {
-                            
-                            if (item.image) {
-                                img = "http://88.80.184.99/tasker/web/" + item.image;
-                            } else {
-                                img = "https://via.placeholder.com/150"
-                            }
-                            let ratevalue = item.rate;
-                            let rate = "";
-                            let desc = "";
-                            if (item.reviews.length != 0) {
-                                desc = item.reviews[0].message;
-                                if (ratevalue == 1) {
-                                    rate = `
+                        let providersArr = result.data.result, dd = "";
+
+                        if (providersArr.length > 0) {
+                            for(let item of providersArr)
+                            {
+
+                                if (item.image) {
+                                    img = "http://88.80.184.99/tasker/web/" + item.image;
+                                } else {
+                                    img = "https://via.placeholder.com/150"
+                                }
+                                let ratevalue = item.rate;
+                                let rate = "";
+                                let desc = "";
+                                if (item.reviews.length != 0) {
+                                    desc = item.reviews[0].message;
+                                    if (ratevalue == 1) {
+                                        rate = `
                                      <span class ="fa fa-star checked"></span>
                                      <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 2) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 2) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 3) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 3) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
 
                                     `;
-                                }
-                                if (ratevalue == 4) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 4) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span>
                                             <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 5) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 5) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
@@ -222,10 +227,10 @@
                                             <span class ="fa fa-star"></span>
                                             <span>${item.rate_count}</span>
                                     `;
+                                    }
                                 }
-                            }
 
-                            var dd = `
+                                dd += `
                                 <li>
                 <div class="row">
                     <div class="col-md-2">
@@ -263,17 +268,38 @@
                 </div>
             </li>
                                 `;
-                            $("#allproviders").append(dd);
+
+
+                            }
                         }
+
+                        else {
+                            dd = `
+                        <li class ="page-item"><a class ="page-link" href="#">No Related Data</a></li>
+                        `;
+                        }
+
+                        $("#allproviders").html(dd);
 
                         let pages = result.data.pages;
                         let paganation = "";
-                        if (Number(pages)>1) {
+
+                        if (Number(pages) > 1) {
+
+                            paganation += `
+                                <li class ="page-item"><a from="all"  class ="page-link backprovpager" href="#">Back</a></li>
+                                `;
+
                             for (var i = 1; i <= pages; i++) {
                                 paganation += `
                                 <li class ="page-item"><a from="all" pagenumber=${i} class ="page-link provpager" href="#">${i}</a></li>
                                 `;
                             }
+
+                            paganation += `
+                                <li class ="page-item"><a from="all" pagenumber=${i} class ="page-link nextprovpager" href="#">Next</a></li>
+                                `;
+
                             $("#providers-list #providerspaganation").html(paganation);
                         }
 
@@ -300,52 +326,52 @@
                     }
                     else {
                         $("#allproviders").html('');
-                        let providersArr = result.data.result;
-                        console.log(providersArr);
-                        for(let item of providersArr)
-                        {
-                            if (item.image) {
-                                img = "http://88.80.184.99/tasker/web/" + item.image;
-                            } else {
-                                img = "https://via.placeholder.com/150"
-                            }
-                            let ratevalue = item.rate;
-                            let rate = "";
-                            let desc = "";
-                            if (item.reviews.length != 0) {
-                                desc = item.reviews[0].message;
-                                if (ratevalue == 1) {
-                                    rate = `
+                        let providersArr = result.data.result, dd = "";
+                        if (providersArr.length > 0) {
+                            for(let item of providersArr)
+                            {
+                                if (item.image) {
+                                    img = "http://88.80.184.99/tasker/web/" + item.image;
+                                } else {
+                                    img = "https://via.placeholder.com/150"
+                                }
+                                let ratevalue = item.rate;
+                                let rate = "";
+                                let desc = "";
+                                if (item.reviews.length != 0) {
+                                    desc = item.reviews[0].message;
+                                    if (ratevalue == 1) {
+                                        rate = `
                                      <span class ="fa fa-star checked"></span>
                                      <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 2) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 2) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 3) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 3) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
 
                                     `;
-                                }
-                                if (ratevalue == 4) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 4) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span>
                                             <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 5) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 5) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
@@ -353,10 +379,10 @@
                                             <span class ="fa fa-star"></span>
                                             <span>${item.rate_count}</span>
                                     `;
+                                    }
                                 }
-                            }
 
-                            var dd = `
+                                dd += `
                                 <li>
                 <div class="row">
                     <div class="col-md-2">
@@ -394,17 +420,32 @@
                 </div>
             </li>
                                 `;
-                            $("#allproviders").append(dd);
+
+                            }
                         }
+                        else {
+                            dd = `
+                        <li class ="page-item"><a class ="page-link" href="#">No Related Data</a></li>
+                        `;
+                        }
+
+                        $("#allproviders").append(dd);
 
                         let pages = result.data.pages;
                         let paganation = "";
                         if (Number(pages) > 1) {
+                            paganation += `
+                                <li class ="page-item"><a from="id"  class ="page-link backprovpager" href="#">Back</a></li>
+                                `;
                             for (var i = 1; i <= pages; i++) {
                                 paganation += `
                                 <li class ="page-item"><a from="id" pagenumber=${i} class ="page-link provpager" href="#">${i}</a></li>
                                 `;
                             }
+
+                            paganation += `
+                                <li class ="page-item"><a from="id"  class ="page-link nextprovpager" href="#">Back</a></li>
+                                `;
                             $("#providers-list #providerspaganation").html(paganation);
                         }
 
@@ -431,52 +472,52 @@
                     }
                     else {
                         $("#allproviders").html('');
-                        let providersArr = result.data.result;
-                        console.log(providersArr);
-                        for(let item of providersArr)
-                        {
-                            if (item.image) {
-                                img = "http://88.80.184.99/tasker/web/" + item.image;
-                            } else {
-                                img = "https://via.placeholder.com/150"
-                            }
-                            let ratevalue = item.rate;
-                            let rate = "";
-                            let desc = "";
-                            if (item.reviews.length != 0) {
-                                desc = item.reviews[0].message;
-                                if (ratevalue == 1) {
-                                    rate = `
+                        let providersArr = result.data.result, dd = "";
+                        if (providersArr.length > 0) {
+                            for(let item of providersArr)
+                            {
+                                if (item.image) {
+                                    img = "http://88.80.184.99/tasker/web/" + item.image;
+                                } else {
+                                    img = "https://via.placeholder.com/150"
+                                }
+                                let ratevalue = item.rate;
+                                let rate = "";
+                                let desc = "";
+                                if (item.reviews.length != 0) {
+                                    desc = item.reviews[0].message;
+                                    if (ratevalue == 1) {
+                                        rate = `
                                      <span class ="fa fa-star checked"></span>
                                      <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 2) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 2) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 3) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 3) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
 
                                     `;
-                                }
-                                if (ratevalue == 4) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 4) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span>
                                             <span>${item.rate_count}</span>
                                     `;
-                                }
-                                if (ratevalue == 5) {
-                                    rate = `
+                                    }
+                                    if (ratevalue == 5) {
+                                        rate = `
                                      <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
@@ -484,10 +525,10 @@
                                             <span class ="fa fa-star"></span>
                                             <span>${item.rate_count}</span>
                                     `;
+                                    }
                                 }
-                            }
 
-                            var dd = `
+                                dd += `
                                 <li>
                 <div class="row">
                     <div class="col-md-2">
@@ -525,17 +566,30 @@
                 </div>
             </li>
                                 `;
-                            $("#allproviders").append(dd);
+
+                            }
                         }
+                        else {
+                            dd = `
+                        <li class ="page-item"><a class ="page-link" href="#">No Related Data</a></li>
+                        `;
+                        }
+                        $("#allproviders").html(dd);
 
                         let pages = result.data.pages;
                         let paganation = "";
                         if (Number(pages) > 1) {
+                            paganation += `
+                                <li class ="page-item"><a from="name"  class ="page-link backprovpager" href="#">Back</a></li>
+                                `;
                             for (var i = 1; i <= pages; i++) {
                                 paganation += `
                                 <li class ="page-item"><a from="name" pagenumber=${i} class ="page-link provpager" href="#">${i}</a></li>
                                 `;
                             }
+                            paganation += `
+                                <li class ="page-item"><a from="name"  class ="page-link nextprovpager" href="#">Back</a></li>
+                                `;
                             $("#providers-list #providerspaganation").html(paganation);
                         }
 
@@ -580,26 +634,27 @@
             });
         }
         $(document).ready(function () {
-            var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
-            var supplierid = currentuserdata.id;
             GetAllSuppliers(1);
             GetAllCategoriesforfilter();
             $("#allcats").change(function () {
                 var currentval = $('#allcats option:selected').val();
                 if (currentval) {
+                    if (currentval == "Select..") {
+                        GetAllSuppliers(1)
+                    }
                     GetAllSuppliersByCatid(currentval, 1);
                 }
                 $("#search-provider").val('');
             });
             $("#search-provider").on('keyup', function () {
-
                 var text = $(this).val();
                 if (text) {
                     GetAllSuppliersByCatname(text, 1)
                 }
                 else {
-                    GetAllSuppliers()
+                    GetAllSuppliers(1)
                 }
+
                 $('#allcats option:eq(0)').attr('Selected', true);
 
             });
@@ -609,22 +664,80 @@
                 if (type && value) {
 
                     if (type == "all") {
-                        GetAllSuppliers(value)
+                        Allcounter = value;
+                        GetAllSuppliers(Allcounter)
                     }
                     if (type == "id") {
                         var currentval = $('#allcats option:selected').val();
                         if (currentval) {
-                            GetAllSuppliersByCatid(currentval, value);
+                            Idcounter = value;
+                            GetAllSuppliersByCatid(currentval, Idcounter);
                         }
                     }
                     if (type == "name") {
                         var text = $("#search-provider").val();
                         if (text) {
-                            GetAllSuppliersByCatname(text, 1)
+                            Namecounter = value;
+                            GetAllSuppliersByCatname(text, Namecounter)
                         }
                     }
                 }
             });
+            $(document).on('click', '.nextprovpager', function () {
+                var type = $(this).attr("from");
+                var value = $(this).attr("pagenumber");
+                if (type) {
+
+                    if (type == "all") {
+                        Allcounter = Allcounter + 1;
+                        GetAllSuppliers(Allcounter)
+                    }
+                    if (type == "id") {
+                        var currentval = $('#allcats option:selected').val();
+                        if (currentval) {
+                            Idcounter = Idcounter + 1;
+                            GetAllSuppliersByCatid(currentval, Idcounter);
+                        }
+                    }
+                    if (type == "name") {
+                        var text = $("#search-provider").val();
+                        if (text) {
+                            Namecounter = Namecounter + 1;
+                            GetAllSuppliersByCatname(text, Namecounter)
+                        }
+                    }
+                }
+            });
+            $(document).on('click', '.backprovpager', function () {
+               
+                var type = $(this).attr("from");
+                var value = $(this).attr("pagenumber");
+                if (type) {
+
+                    if (type == "all") {
+                        let x = Allcounter - 1;
+                        Allcounter = x;
+                        GetAllSuppliers(Allcounter)
+                    }
+                    if (type == "id") {
+                        var currentval = $('#allcats option:selected').val();
+                        if (currentval) {
+                            let x = Idcounter - 1;
+                            Idcounter = x;
+                            GetAllSuppliersByCatid(currentval, Idcounter);
+                        }
+                    }
+                    if (type == "name") {
+                        var text = $("#search-provider").val();
+                        if (text) {
+                            let x = Namecounter - 1;
+                            Namecounter = x;
+                            GetAllSuppliersByCatname(text, Namecounter)
+                        }
+                    }
+                }
+            });
+                
         });
     </script>
 </body>

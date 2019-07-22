@@ -2,6 +2,7 @@ var currentuserdata = JSON.parse(localStorage.getItem('CurrentUserData'));
 var supplierid = currentuserdata.id;
 let Rcounter = 1, Scounter = 1, Hcounter = 1;
 function LoadRecievedTasksBySupplier(supplierid, page) {
+
     $.ajax({
         url: "http://88.80.184.99/tasker/web/api/pendings/tasks/suppliers/categories",
         method: 'POST',
@@ -18,9 +19,10 @@ function LoadRecievedTasksBySupplier(supplierid, page) {
             else {
 
                 let taskArr = result.data.result, wrapper = "", read = "", img = "";
-                for(let item of taskArr)
-                {
-                   
+                if (taskArr.length>0) {
+                    for(let item of taskArr)
+                    {
+
                         if (item.is_read == "0") {
                             read = `
                            <a href="seeTask.html?${item.id}" class ="seeTask main-color"> <span class ="position-relative">${item.category_point}</span> <i class="fas fa-chevron-right   pt-1 "></i></a>
@@ -61,11 +63,14 @@ function LoadRecievedTasksBySupplier(supplierid, page) {
                                         </div>
                                     </li>
                                 `
+                    }
                 }
-
+                else {
+                    wrapper = `
+                    <li class ="page-item"><a class ="page-link" href="#">No Tasks Found</a></li>
+                        `;
+                }
                 $("#RecievedTasks .moving-tasks-list").html(wrapper);
-
-
                 let pages = result.data.pages;
                 let paganation = "";
                 if (Number(pages) > 1) {
@@ -115,17 +120,19 @@ function LoadHotOffersBySupplier(supplierid, page)
             }
             else {
 
-                let offerArr = result.data, img="", wrapper ="";
-                for(let item of offerArr)
-                {
-                    
-                    if(item.image[0]){
-                        img = `${'http://88.80.184.99/tasker/web/'  + item.image[0]}`;
-                    }else{
-                        img = "https://via.placeholder.com/150";
-                    }
+                let offerArr = result.data, img = "", wrapper = "";
+               
+                if (offerArr.length>0) {
+                    for(let item of offerArr)
+                    {
 
-                    wrapper += `
+                        if (item.image[0]) {
+                            img = `${'http://88.80.184.99/tasker/web/' + item.image[0]}`;
+                        } else {
+                            img = "https://via.placeholder.com/150";
+                        }
+
+                        wrapper += `
 
                         <li class ="my-2 border p-2">
                                                 <div class ="row">
@@ -140,7 +147,7 @@ function LoadHotOffersBySupplier(supplierid, page)
                                                             <div class ="agency-tasks">
                                                                 <div class ="moving-agency">
                                                                     <div class ="d-flex">
-                                                                    
+
                                                                         <h6 class ="main-color m-0 mr-2"><a href="hotoffers-details.html?${item.id}">${getCategory(Number(item.category)).name_en}</a></h6>
                                                                         <p class ="main-color m-0">${item.supplier.name}</p>
                                                                     </div>
@@ -158,34 +165,43 @@ function LoadHotOffersBySupplier(supplierid, page)
                                             </li>
 
                               `
-                            }
+                    }
 
-                $("#HotOffers .moving-tasks-list").html(wrapper);
+                    
 
-
-                let pages = result.data.pages;
-                let paganation = "";
-                if (Number(pages) > 1) {
-                    paganation += `
+                    let pages = result.data.pages;
+                    let paganation = "";
+                    if (Number(pages) > 1) {
+                        paganation += `
                                 <li class ="page-item"><a class ="page-link Hotofferpagerback" href="#">Back</a></li>
                                 `;
-                    for (var i = 1; i <= pages; i++) {
-                        paganation += `
+                        for (var i = 1; i <= pages; i++) {
+                            paganation += `
                                 <li class ="page-item"><a pagenumber=${i} class ="page-link Hotofferpager" href="#">${i}</a></li>
                                 `;
-                    }
-                    paganation += `
+                        }
+                        paganation += `
                                 <li class ="page-item"><a class ="page-link Hotofferpagernext" href="#">Next</a></li>
                                 `;
-                    $("#HotOffers .pagination").html(paganation);
+                        $("#HotOffers .pagination").html(paganation);
 
-                    var ul = $("#RecievedTasks .pagination");
-                    for (var i = 0; i <= ul.length; i++) {
-                        //if (ul[i].attr('pagenumber') == Rcounter) {
-                        //    ul[i].addClass("active");
-                        //}
+                        var ul = $("#RecievedTasks .pagination");
+                        for (var i = 0; i <= ul.length; i++) {
+                            //if (ul[i].attr('pagenumber') == Rcounter) {
+                            //    ul[i].addClass("active");
+                            //}
+                        }
                     }
+
                 }
+                else {
+                    wrapper = `
+                    <li class ="page-item"><a class ="page-link" href="#">No Tasks Found</a></li>
+                        `;
+                }
+
+                $("#HotOffers .moving-tasks-list").html(wrapper);
+             
             }
 
         },
@@ -234,24 +250,26 @@ function LoadSentOffersBySupplier(supplierid, page)
                 aler(message);
             }
             else {
-                let taskArr = result.data.result, img="", wrapper = "";
-                for(let item of taskArr)
+                let taskArr = result.data.result, img = "", wrapper = "";
+                if (taskArr.length > 0)
                 {
-                    
-                    if(item.client_image){
-                        img = `${'http://88.80.184.99/tasker/web/'  + item.client_image}`;
-                    }else{
-                        img = "https://via.placeholder.com/150";
-                    }
+                    for(let item of taskArr)
+                    {
 
-                     wrapper +=`
+                        if (item.client_image) {
+                            img = `${'http://88.80.184.99/tasker/web/' + item.client_image}`;
+                        } else {
+                            img = "https://via.placeholder.com/150";
+                        }
+
+                        wrapper += `
                                     <li class ="my-2 border p-2">
                                         <div class ="row">
                                             <div class ="col-sm-3">
                                                 <div class="task-img">
                                                     <img class ="img-service"
                                                         src="${img}" alt="" />
-                                            
+
                                                 </div>
                                             </div>
                                             <div class ="col-sm-9">
@@ -278,7 +296,15 @@ function LoadSentOffersBySupplier(supplierid, page)
 
                                   `
 
-                                }
+                    }
+                }
+
+                else {
+                    wrapper = `
+                    <li class ="page-item"><a class ="page-link" href="#">No Tasks Found</a></li>
+                        `;
+                }
+               
                 $("#SentOffers .moving-tasks-list").html(wrapper);
 
 
@@ -632,11 +658,12 @@ function GetScheduledActiveTasks(supplierid) {
                     } else {
                         img = "https://via.placeholder.com/150"
                     }
-
                 }
+
                 let schedWrap = "", actWrap = ""
-                for(let item of scheduledArr) {
-                    schedWrap += `
+                if (scheduledArr.length > 0) {
+                    for(let item of scheduledArr) {
+                        schedWrap += `
                                 <li>
                                 <div class ="d-flex">
                                     <div class ="client-img-block">
@@ -664,11 +691,21 @@ function GetScheduledActiveTasks(supplierid) {
                                 </div>
                             </li>
                                 `;
+                    }
+                   
                 }
+                else {
+                    schedWrap = `
+                    <li class ="page-item"><a class ="page-link" href="#">No Tasks Found</a></li>
+                        `;
+                }
+
                 $("#Scheduled .pending-bookings-list").html(schedWrap);
 
-                for(let item of activedArr) {
-                    actWrap += `
+                if (activedArr.length > 0) {
+
+                    for(let item of activedArr) {
+                        actWrap += `
                                 <li>
                                 <div class ="d-flex">
                                     <div class ="client-img-block">
@@ -678,7 +715,7 @@ function GetScheduledActiveTasks(supplierid) {
                                         <div class ="details-head">
                                             <div class ="details">
                                                 <div>
-                                                    <h5 class ="bold-font">${getCategory(Number(item.category)).name_en}</h5> <span></span>
+                                                    <h5 class ="bold-font">${item.category_name}</h5> <span></span>
                                                 </div>
                                                 <p> ${item.description}</p>
                                             </div>
@@ -699,10 +736,16 @@ function GetScheduledActiveTasks(supplierid) {
                                 </div>
                             </li>
                                 `;
+                    }
                 }
+                else {
+                    actWrap = `
+                    <li class ="page-item"><a class ="page-link" href="#">No Tasks Found</a></li>
+                        `;
+                }
+
                 $("#activetasks").html(actWrap);
             }
-
         },
         error: function (result) {
             alert('error');
@@ -725,15 +768,16 @@ function GetCompletedTaslsBySupplier(supplierid) {
                 alert(message);
             }
             else {
-                let taskArr = result.data;
-                for(let item of taskArr)
-                {
-                    if (item.images[0]) {
-                        img = "http://88.80.184.99/tasker/web/" + item.images[0];
-                    } else {
-                        img = "https://via.placeholder.com/150"
-                    }
-                    var div = `
+                let taskArr = result.data, div="";
+                if (true) {
+                    for(let item of taskArr)
+                    {
+                        if (item.images[0]) {
+                            img = "http://88.80.184.99/tasker/web/" + item.images[0];
+                        } else {
+                            img = "https://via.placeholder.com/150"
+                        }
+                         div += `
                                 <li>
                                 <div class ="d-flex">
                                     <div class ="client-img-block">
@@ -763,8 +807,17 @@ function GetCompletedTaslsBySupplier(supplierid) {
                                 </div>
                             </li>
                                 `;
-                    $("#closedtasks").append(div);
+                       
+                    }
                 }
+
+                else {
+                    div = `
+                    <li class ="page-item"><a class ="page-link" href="#">No Tasks Found</a></li>
+                        `;
+                }
+
+                $("#closedtasks").html(div);
             }
 
         },
@@ -775,6 +828,7 @@ function GetCompletedTaslsBySupplier(supplierid) {
 }
 
 function EndTask(taskid) {
+    debugger;
     $.ajax({
         url: "http://88.80.184.99/tasker/web/api/marks/completeds",
         method: 'POST',
@@ -783,6 +837,7 @@ function EndTask(taskid) {
             "id": taskid
         },
         success: function (result) {
+            debugger;
             if (result.error.status == true) {
                 var message = result.error.message;
                 alert(message);

@@ -231,6 +231,8 @@
                     let taskid = $(this).attr("data-id");
                     if (taskid) {
                         EndTask(taskid);
+                        GetScheduledActiveTasks(supplierid);
+                        GetCompletedTaslsBySupplier(supplierid);
                     }
             });
         });

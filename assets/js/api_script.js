@@ -25,7 +25,6 @@
   slider("#services .slider-gallery");
 
     let randServie = Math.floor(Math.random()* categoryArr.length);
-    console.log(randServie);
     $("#services .single-service .img-holder img").attr("src", "http://88.80.184.99/tasker/web/"+categoryArr[randServie].image)
     $("#services .single-service .service-info h4").text(categoryArr[randServie].name_en)
     $("#services .single-service .service-info a").text(`Check ${categoryArr[randServie].name_en} Services`)

@@ -292,7 +292,7 @@ $(function(){
         }
     });
 
-    //remove validatios
+   
     $(".form-control").on("keypress", function(){
         $("#alert").fadeOut()
     })
